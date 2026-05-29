@@ -1,0 +1,531 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#050510;color:#fff;overflow-x:hidden;min-height:100vh}
+
+.page{position:relative;width:100%;background:#050510}
+
+.cosmos{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);animation:drift linear infinite}
+.o1{width:700px;height:700px;background:radial-gradient(circle,rgba(79,70,229,0.7),transparent 70%);top:-200px;left:-200px;animation-duration:20s;animation-delay:0s}
+.o2{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,0.6),transparent 70%);top:30%;right:-150px;animation-duration:16s;animation-delay:-6s}
+.o3{width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,0.5),transparent 70%);bottom:5%;left:20%;animation-duration:24s;animation-delay:-12s}
+.o4{width:300px;height:300px;background:radial-gradient(circle,rgba(139,92,246,0.5),transparent 70%);top:60%;left:10%;animation-duration:18s;animation-delay:-4s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}25%{transform:translate(40px,-30px) scale(1.06)}50%{transform:translate(-20px,50px) scale(0.94)}75%{transform:translate(60px,20px) scale(1.04)}100%{transform:translate(0,0) scale(1)}}
+
+.navbar{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(5,5,16,0.75);backdrop-filter:blur(40px);border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-logo{font-size:22px;font-weight:800;background:linear-gradient(135deg,#a5b4fc,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.5px}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-link{padding:6px 14px;border-radius:10px;font-size:13px;font-weight:500;color:rgba(255,255,255,0.55);cursor:pointer;transition:all 0.2s;text-decoration:none}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,0.06)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.lang-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 12px;font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s}
+.lang-pill:hover{background:rgba(255,255,255,0.1);color:#fff}
+.btn-login{padding:7px 16px;border-radius:12px;background:rgba(99,102,241,0.2);border:1px solid rgba(99,102,241,0.35);color:#a5b4fc;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.btn-login:hover{background:rgba(99,102,241,0.3);border-color:rgba(99,102,241,0.5)}
+.btn-signup{padding:7px 16px;border-radius:12px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;box-shadow:0 4px 14px rgba(99,102,241,0.35)}
+.btn-signup:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(99,102,241,0.45)}
+
+.hero{position:relative;z-index:2;padding:90px 40px 60px;text-align:center;max-width:900px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,0.12);border:1px solid rgba(99,102,241,0.25);border-radius:100px;padding:6px 16px;margin-bottom:28px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#a5b4fc;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.badge-text{font-size:12px;font-weight:600;color:#a5b4fc;letter-spacing:0.5px}
+.hero-title{font-size:clamp(42px,6vw,74px);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:10px}
+.hero-title-main{display:block;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.85) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-title-grad{display:block;background:linear-gradient(135deg,#a5b4fc,#c4b5fd,#f0abfc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-ar{display:block;font-family:'Cairo',sans-serif;font-size:clamp(18px,2.5vw,28px);font-weight:600;color:rgba(255,255,255,0.35);margin-top:4px;letter-spacing:0}
+.hero-sub{font-size:18px;color:rgba(255,255,255,0.55);line-height:1.6;max-width:560px;margin:20px auto 36px;font-weight:400}
+
+.search-wrap{position:relative;max-width:560px;margin:0 auto 60px}
+.search-box{width:100%;background:rgba(255,255,255,0.06);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:0 20px 0 52px;height:56px;color:#fff;font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:all 0.25s;box-shadow:0 4px 24px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.08) inset}
+.search-box::placeholder{color:rgba(255,255,255,0.3)}
+.search-box:focus{border-color:rgba(99,102,241,0.5);background:rgba(99,102,241,0.08);box-shadow:0 0 0 3px rgba(99,102,241,0.15),0 4px 24px rgba(0,0,0,0.3)}
+.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.3);pointer-events:none}
+.search-kbd{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;gap:4px}
+.kbd{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:2px 7px;font-size:11px;color:rgba(255,255,255,0.35);font-family:'Inter',sans-serif}
+
+.stats-row{display:flex;justify-content:center;gap:40px;margin-bottom:80px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:28px;font-weight:800;background:linear-gradient(135deg,#fff,#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.38);margin-top:2px;letter-spacing:0.5px;font-weight:500}
+.stat-div{width:1px;background:rgba(255,255,255,0.08);align-self:stretch}
+
+.section{position:relative;z-index:2;padding:0 40px 80px;max-width:1200px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1.5px;color:rgba(99,102,241,0.8);text-transform:uppercase;margin-bottom:14px}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:rgba(99,102,241,0.6)}
+.section-title{font-size:clamp(26px,3vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px}
+.section-sub{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.6}
+
+.dept-tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap}
+.dept-tab{display:flex;align-items:center;gap:8px;padding:8px 18px;border-radius:14px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);font-size:13px;font-weight:600;color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.2s;font-family:'Inter',sans-serif}
+.dept-tab.active{background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.35);color:#a5b4fc}
+.dept-tab.disabled{opacity:0.4;cursor:default}
+.dept-dot{width:8px;height:8px;border-radius:50%}
+.cs-badge{background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.25);border-radius:6px;padding:1px 7px;font-size:10px;color:#fcd34d;margin-left:4px;font-weight:700}
+
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.subject-card{position:relative;background:rgba(255,255,255,0.05);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:32px;cursor:pointer;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);overflow:hidden;display:flex;flex-direction:column;height:100%}
+.subject-card:hover{transform:translateY(-6px) scale(1.01);border-color:rgba(255,255,255,0.15);box-shadow:0 30px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(255,255,255,0.1) inset}
+.card-accent{position:absolute;top:0;left:0;right:0;height:4px;border-radius:28px 28px 0 0;opacity:0.8}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:24px}
+.card-icon{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:26px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);transition:transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275)}
+.subject-card:hover .card-icon{transform:scale(1.1) rotate(5deg)}
+.card-badge{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:5px 14px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;backdrop-filter:blur(10px)}
+.card-meta{margin-bottom:20px}
+.card-name{font-size:22px;font-weight:800;margin-bottom:4px;letter-spacing:-0.5px;color:#fff}
+.card-name-ar{font-family:'Cairo',sans-serif;font-size:14px;color:rgba(255,255,255,0.35);font-weight:600;margin-bottom:6px}
+.card-code{display:inline-block;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:3px 10px;font-size:11px;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:0.5px}
+.card-desc{font-size:15px;color:rgba(255,255,255,0.45);line-height:1.6;margin-bottom:28px;flex-grow:1}
+.card-visual{width:100%;height:140px;background:rgba(255,255,255,0.03);border-radius:20px;margin-bottom:28px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.visual-inner{position:relative;z-index:2;font-size:40px;opacity:0.6;transition:all 0.5s}
+.subject-card:hover .visual-inner{transform:scale(1.15);opacity:0.9}
+.card-footer{padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);display:flex;flex-direction:column;gap:20px}
+.card-footer-meta{display:flex;align-items:center;gap:16px}
+.meta-item{font-size:12px;font-weight:600;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;gap:6px}
+.btn-learn{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:12px;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s}
+.subject-card:hover .btn-learn{background:#4f46e5;border-color:#6366f1;box-shadow:0 8px 24px rgba(79,70,229,0.3)}
+
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.feat-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:24px;position:relative;overflow:hidden;transition:all 0.2s}
+.feat-card::before{content:'';position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)}
+.feat-card:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.12)}
+.feat-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.feat-title{font-size:15px;font-weight:700;margin-bottom:6px;letter-spacing:-0.3px}
+.feat-desc{font-size:13px;color:rgba(255,255,255,0.42);line-height:1.55}
+
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:18px;padding:22px;text-align:center;position:relative;transition:all 0.2s}
+.step-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+.step-num{width:36px;height:36px;border-radius:50%;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#a5b4fc;margin:0 auto 14px}
+.step-icon{font-size:24px;margin-bottom:10px}
+.step-title{font-size:13px;font-weight:700;margin-bottom:5px}
+.step-desc{font-size:11px;color:rgba(255,255,255,0.38);line-height:1.5}
+.step-arrow{position:absolute;right:-8px;top:50%;transform:translateY(-50%);color:rgba(99,102,241,0.4);font-size:16px;z-index:1}
+
+.feedback-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;position:relative;overflow:hidden}
+.feedback-wrap::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent)}
+.feedback-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.feedback-left{}
+.feedback-title{font-size:28px;font-weight:800;letter-spacing:-0.8px;margin-bottom:10px}
+.feedback-sub{font-size:14px;color:rgba(255,255,255,0.42);line-height:1.6;margin-bottom:24px}
+.feedback-types{display:flex;flex-wrap:wrap;gap:8px}
+.ftype{padding:6px 12px;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;transition:all 0.2s;border:1px solid transparent}
+.ftype.active{background:rgba(99,102,241,0.15);border-color:rgba(99,102,241,0.3);color:#a5b4fc}
+.ftype:not(.active){background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.08);color:rgba(255,255,255,0.4)}
+.ftype:hover:not(.active){background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.7)}
+.form-field{margin-bottom:14px}
+.form-label{font-size:12px;font-weight:600;color:rgba(255,255,255,0.45);margin-bottom:6px;letter-spacing:0.3px;display:block}
+.form-input,.form-textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:13px;padding:11px 14px;color:#fff;font-size:14px;font-family:'Inter',sans-serif;outline:none;transition:all 0.2s}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.25)}
+.form-input:focus,.form-textarea:focus{border-color:rgba(99,102,241,0.5);background:rgba(99,102,241,0.07);box-shadow:0 0 0 3px rgba(99,102,241,0.12)}
+.form-textarea{min-height:110px;resize:vertical;line-height:1.5}
+.char-count{font-size:11px;color:rgba(255,255,255,0.25);text-align:right;margin-top:4px}
+.btn-send{width:100%;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;border-radius:13px;padding:13px;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;box-shadow:0 4px 16px rgba(99,102,241,0.3);letter-spacing:0.2px}
+.btn-send:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(99,102,241,0.45)}
+.btn-send:active{transform:scale(0.98)}
+
+.cta-section{position:relative;z-index:2;padding:0 40px 80px;max-width:900px;margin:0 auto;text-align:center}
+.cta-card{background:rgba(99,102,241,0.08);backdrop-filter:blur(40px);border:1px solid rgba(99,102,241,0.2);border-radius:28px;padding:60px 40px;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:1px;background:linear-gradient(90deg,transparent,rgba(99,102,241,0.5),transparent)}
+.cta-orb{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.25),transparent 70%);top:-100px;left:50%;transform:translateX(-50%);pointer-events:none}
+.cta-title{font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-1.5px;margin-bottom:12px}
+.cta-sub{font-size:16px;color:rgba(255,255,255,0.5);margin-bottom:32px;line-height:1.5}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary-lg{padding:14px 32px;border-radius:16px;background:linear-gradient(135deg,#6366f1,#8b5cf6);border:none;color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;box-shadow:0 6px 24px rgba(99,102,241,0.4)}
+.btn-primary-lg:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(99,102,241,0.5)}
+.btn-ghost-lg{padding:14px 32px;border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
+.btn-ghost-lg:hover{background:rgba(255,255,255,0.1);color:#fff}
+
+.footer{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,0.06);padding:32px 40px;display:flex;align-items:center;justify-content:space-between}
+.footer-logo{font-size:16px;font-weight:800;background:linear-gradient(135deg,#a5b4fc,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.footer-text{font-size:12px;color:rgba(255,255,255,0.25)}
+
+.divider-section{position:relative;z-index:2;padding:0 40px;margin-bottom:70px;max-width:1200px;margin-left:auto;margin-right:auto}
+.divider-line{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);margin-bottom:70px}
+</style>
+
+<div class="page">
+<div class="cosmos">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="orb o4"></div>
+</div>
+
+<nav class="navbar">
+  <div class="nav-logo">Sahla</div>
+  <div class="nav-links">
+    <a class="nav-link" style="color:#fff;background:rgba(255,255,255,0.06)">Home</a>
+    <a class="nav-link">Subjects</a>
+    <a class="nav-link">Progress</a>
+    <a class="nav-link">Suggestions</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-pill">EN / عربي</div>
+    <button class="btn-login">Log in</button>
+    <button class="btn-signup">Get started</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    <span class="badge-text">Intelligent Systems · Semester 4 · Now live</span>
+  </div>
+  <h1 class="hero-title">
+    <span class="hero-title-main">Study smarter.</span>
+    <span class="hero-title-grad">Achieve more.</span>
+    <span class="hero-ar">تعلم بذكاء، تفوق بثقة</span>
+  </h1>
+  <p class="hero-sub">Everything you need to master your university subjects — clear explanations, smart summaries, MCQ practice, and timed final exams. All in one place.</p>
+
+  <div class="search-wrap">
+    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input class="search-box" placeholder="Search subjects, lectures, topics..." />
+    <div class="search-kbd"><span class="kbd">⌘</span><span class="kbd">K</span></div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Subjects</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-num">40+</div><div class="stat-label">Lectures</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-num">300+</div><div class="stat-label">MCQ Questions</div></div>
+    <div class="stat-div"></div>
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">Final Exams</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Departments</div>
+  <h2 class="section-title">Choose your department</h2>
+  <p class="section-sub" style="margin-bottom:28px">Select your department to browse subjects. More departments coming soon.</p>
+
+  <div class="dept-tabs">
+    <button class="dept-tab active">
+      <span class="dept-dot" style="background:#6366f1"></span>
+      Intelligent Systems
+    </button>
+    <button class="dept-tab disabled">
+      <span class="dept-dot" style="background:#10b981"></span>
+      Cybersecurity
+      <span class="cs-badge">Soon</span>
+    </button>
+    <button class="dept-tab disabled">
+      <span class="dept-dot" style="background:#f59e0b"></span>
+      AI & Data Science
+      <span class="cs-badge">Soon</span>
+    </button>
+  </div>
+
+  <div class="subjects-grid">
+    <!-- IP -->
+    <div class="subject-card" onclick="sendPrompt('Tell me about the Intelligent Programming subject in Sahla')">
+      <div class="card-accent" style="background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div>
+      <div class="card-top">
+        <div class="card-icon" style="color:#6366f1">💻</div>
+        <div class="card-badge">5 Modules</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Intelligent Programming</div>
+        <div class="card-name-ar">البرمجة الذكية</div>
+        <div class="card-code">IS407</div>
+      </div>
+      <div class="card-desc">Foundations of AI, Expert Systems, Uncertainty Handling, and Case-Based Reasoning.</div>
+      <div class="card-visual">
+         <div class="visual-inner">💻</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-meta">
+          <div class="meta-item"><span>📚</span> 5 Modules</div>
+          <div class="meta-item"><span>#</span> 25+ MCQs</div>
+        </div>
+        <button class="btn-learn">Start Learning ➜</button>
+      </div>
+    </div>
+
+    <!-- DM -->
+    <div class="subject-card" onclick="sendPrompt('Tell me about the Data Mining subject in Sahla')">
+      <div class="card-accent" style="background:linear-gradient(90deg,#ec4899,#f472b6)"></div>
+      <div class="card-top">
+        <div class="card-icon" style="color:#ec4899">🔍</div>
+        <div class="card-badge">13 Modules</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Data Mining</div>
+        <div class="card-name-ar">تنقيب البيانات</div>
+        <div class="card-code">IS405</div>
+      </div>
+      <div class="card-desc">Knowledge discovery, data cleaning, association rules, and pattern mining.</div>
+      <div class="card-visual">
+         <div class="visual-inner">🔍</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-meta">
+          <div class="meta-item"><span>📚</span> 13 Modules</div>
+          <div class="meta-item"><span>#</span> 25+ MCQs</div>
+        </div>
+        <button class="btn-learn">Start Learning ➜</button>
+      </div>
+    </div>
+
+    <!-- ML -->
+    <div class="subject-card" onclick="sendPrompt('Tell me about the Machine Learning subject in Sahla')">
+      <div class="card-accent" style="background:linear-gradient(90deg,#06b6d4,#22d3ee)"></div>
+      <div class="card-top">
+        <div class="card-icon" style="color:#06b6d4">📈</div>
+        <div class="card-badge">7 Modules</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Machine Learning</div>
+        <div class="card-name-ar">تعلم الآلة</div>
+        <div class="card-code">IS403</div>
+      </div>
+      <div class="card-desc">Supervised, unsupervised, regression, and the foundations of neural learning.</div>
+      <div class="card-visual">
+         <div class="visual-inner">📈</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-meta">
+          <div class="meta-item"><span>📚</span> 7 Modules</div>
+          <div class="meta-item"><span>#</span> 25+ MCQs</div>
+        </div>
+        <button class="btn-learn">Start Learning ➜</button>
+      </div>
+    </div>
+
+    <!-- NN -->
+    <div class="subject-card" onclick="sendPrompt('Tell me about the Neural Networks subject in Sahla')">
+      <div class="card-accent" style="background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div>
+      <div class="card-top">
+        <div class="card-icon" style="color:#8b5cf6">🧠</div>
+        <div class="card-badge">6 Modules</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Neural Networks</div>
+        <div class="card-name-ar">الشبكات العصبية</div>
+        <div class="card-code">IS402</div>
+      </div>
+      <div class="card-desc">Backpropagation, Perceptrons, Adaline/Madaline, and deep learning architectures.</div>
+      <div class="card-visual">
+         <div class="visual-inner">🧠</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-meta">
+          <div class="meta-item"><span>📚</span> 6 Modules</div>
+          <div class="meta-item"><span>#</span> 25+ MCQs</div>
+        </div>
+        <button class="btn-learn">Start Learning ➜</button>
+      </div>
+    </div>
+
+    <!-- ES -->
+    <div class="subject-card" onclick="sendPrompt('Tell me about the Smart Systems subject in Sahla')">
+      <div class="card-accent" style="background:linear-gradient(90deg,#84cc16,#a3e635)"></div>
+      <div class="card-top">
+        <div class="card-icon" style="color:#84cc16">💡</div>
+        <div class="card-badge">7 Modules</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Smart Systems</div>
+        <div class="card-name-ar">الأنظمة الذكية</div>
+        <div class="card-code">IS406</div>
+      </div>
+      <div class="card-desc">CI foundations (ANN, Fuzzy, GA), Multi-agent systems, architecture, and ethics.</div>
+      <div class="card-visual">
+         <div class="visual-inner">💡</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-meta">
+          <div class="meta-item"><span>📚</span> 7 Modules</div>
+          <div class="meta-item"><span>#</span> 25+ MCQs</div>
+        </div>
+        <button class="btn-learn">Start Learning ➜</button>
+      </div>
+    </div>
+
+    <!-- DB -->
+    <div class="subject-card" onclick="sendPrompt('Tell me about the Databases subject in Sahla')">
+      <div class="card-accent" style="background:linear-gradient(90deg,#f97316,#fb923c)"></div>
+      <div class="card-top">
+        <div class="card-icon" style="color:#f97316">🗄️</div>
+        <div class="card-badge">5 Modules</div>
+      </div>
+      <div class="card-meta">
+        <div class="card-name">Databases</div>
+        <div class="card-name-ar">قواعد البيانات</div>
+        <div class="card-code">IS409</div>
+      </div>
+      <div class="card-desc">Relational databases, SQL, ER modeling, and database design principles.</div>
+      <div class="card-visual">
+         <div class="visual-inner">🗄️</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-footer-meta">
+          <div class="meta-item"><span>📚</span> 5 Modules</div>
+          <div class="meta-item"><span>#</span> 25+ MCQs</div>
+        </div>
+        <button class="btn-learn">Start Learning ➜</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-section"><div class="divider-line"></div></div>
+
+<div class="section" style="margin-bottom:0">
+  <div class="section-label">How it works</div>
+  <h2 class="section-title">Your study flow, perfected</h2>
+  <p class="section-sub" style="margin-bottom:32px">Four modes for every learning style and every stage of exam prep.</p>
+
+  <div class="how-steps">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-icon">📖</div>
+      <div class="step-title">Read the explanation</div>
+      <div class="step-desc">Clear, structured content with code examples, diagrams, and visuals.</div>
+      <div class="step-arrow">›</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-icon">📝</div>
+      <div class="step-title">Review the summary</div>
+      <div class="step-desc">Bullet-point key takeaways. Perfect for quick revision before exams.</div>
+      <div class="step-arrow">›</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-icon">✅</div>
+      <div class="step-title">Practice MCQs</div>
+      <div class="step-desc">Instant feedback on each answer. Retry as many times as you need.</div>
+      <div class="step-arrow">›</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-icon">⏱</div>
+      <div class="step-title">Sit the final exam</div>
+      <div class="step-desc">Full timed exam per subject. MCQs + written questions. Real exam feel.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-section" style="padding-top:70px"><div class="divider-line"></div></div>
+
+<div class="section" style="margin-bottom:0">
+  <div class="section-label">Features</div>
+  <h2 class="section-title">Everything you need to pass</h2>
+  <p class="section-sub" style="margin-bottom:28px">Built specifically for Egyptian university students. No fluff, no paywalls.</p>
+
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.2)">📖</div>
+      <div class="feat-title">Structured explanations</div>
+      <div class="feat-desc">Every lecture broken into clear sections with text, code blocks, diagrams, and images — not just a PDF dump.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.2)">⚡</div>
+      <div class="feat-title">Instant MCQ feedback</div>
+      <div class="feat-desc">Select an answer and see immediately if you're right. The correct answer is always revealed so you learn, not just guess.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.2)">🎯</div>
+      <div class="feat-title">Realistic final exams</div>
+      <div class="feat-desc">Timed exams with MCQs and written questions per subject. Same format as your actual university exam.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:rgba(249,115,22,0.15);border:1px solid rgba(249,115,22,0.2)">🔖</div>
+      <div class="feat-title">Save & track progress</div>
+      <div class="feat-desc">Bookmark lectures, track which tabs you've completed, and see your MCQ scores per lecture across all subjects.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-section" style="padding-top:70px"><div class="divider-line"></div></div>
+
+<div class="section" style="margin-bottom:0">
+  <div class="section-label">Feedback</div>
+  <h2 class="section-title" style="margin-bottom:24px">Help us improve</h2>
+
+  <div class="feedback-wrap">
+    <div class="feedback-grid">
+      <div class="feedback-left">
+        <div class="feedback-title">Share your thoughts</div>
+        <div class="feedback-sub">Found a mistake? Have a suggestion? Think something's missing? We read every message and use it to make Sahla better.</div>
+        <div class="feedback-types">
+          <div class="ftype active" onclick="setType(this,'Suggestion')">💡 Suggestion</div>
+          <div class="ftype" onclick="setType(this,'Bug')">🐛 Bug report</div>
+          <div class="ftype" onclick="setType(this,'Praise')">⭐ Praise</div>
+          <div class="ftype" onclick="setType(this,'Other')">💬 Other</div>
+        </div>
+        <div style="margin-top:28px;padding:16px;background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);border-radius:14px">
+          <div style="font-size:12px;font-weight:700;color:#a5b4fc;margin-bottom:6px">Completely anonymous</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.38);line-height:1.5">You don't need an account to send feedback. Your name is optional. We just want your honest opinion.</div>
+        </div>
+      </div>
+      <div>
+        <div class="form-field">
+          <label class="form-label">Your name (optional)</label>
+          <input class="form-input" placeholder="e.g. Ahmed" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Subject (optional)</label>
+          <select class="form-input" style="cursor:pointer;appearance:none">
+            <option value="" style="background:#0d0d20">General feedback</option>
+            <option style="background:#0d0d20">Artificial Intelligence</option>
+            <option style="background:#0d0d20">Machine Learning</option>
+            <option style="background:#0d0d20">Neural Networks</option>
+            <option style="background:#0d0d20">Computer Vision</option>
+            <option style="background:#0d0d20">Natural Language Processing</option>
+            <option style="background:#0d0d20">Expert Systems</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Your message <span style="color:rgba(239,68,68,0.7)">*</span></label>
+          <textarea class="form-textarea" placeholder="Write your suggestion or feedback here..." id="fbmsg" oninput="updateCount(this)"></textarea>
+          <div class="char-count" id="charcount">0 / 500</div>
+        </div>
+        <button class="btn-send" onclick="sendFeedback()">Send feedback</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-section" style="padding-top:70px"><div class="divider-line"></div></div>
+
+<div class="cta-section">
+  <div class="cta-card">
+    <div class="cta-orb"></div>
+    <div class="cta-title">Ready to start studying?</div>
+    <div class="cta-sub">Create a free account to track your progress, save bookmarks, and sit timed final exams.</div>
+    <div class="cta-buttons">
+      <button class="btn-primary-lg" onclick="sendPrompt('How do I create a Sahla account?')">Create free account ↗</button>
+      <button class="btn-ghost-lg" onclick="sendPrompt('Show me the AI subject without logging in')">Browse without signing up</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-logo">Sahla</div>
+  <div class="footer-text">Built for Egyptian university students · Intelligent Systems · Semester 4</div>
+  <div class="footer-text">© 2025 Sahla</div>
+</footer>
+</div>
+
+<script>
+function setType(el, type) {
+  document.querySelectorAll('.ftype').forEach(f => f.classList.remove('active'));
+  el.classList.add('active');
+}
+function updateCount(el) {
+  const len = el.value.length;
+  document.getElementById('charcount').textContent = len + ' / 500';
+  if (len > 500) el.value = el.value.slice(0, 500);
+}
+function sendFeedback() {
+  const msg = document.getElementById('fbmsg').value.trim();
+  if (!msg) { document.getElementById('fbmsg').style.borderColor = 'rgba(239,68,68,0.5)'; return; }
+  sendPrompt('A user submitted feedback on Sahla: "' + msg + '"');
+}
+</script>

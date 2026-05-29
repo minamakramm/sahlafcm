@@ -1,0 +1,99 @@
+{
+  "page": {
+    "title": "المحاضرة {{number}}: {{title}}",
+    "titleLab": "المختبر {{number}}: {{title}}",
+    "titleQuiz": "اختبار: {{title}}",
+    "subtitle": "{{subject}}",
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbSubject": "{{subject}}",
+    "breadcrumbLecture": "المحاضرة {{number}}",
+    "breadcrumbLab": "المختبر {{number}}",
+    "breadcrumbQuiz": "الاختبار {{number}}",
+    "notFound": "المحاضرة غير موجودة",
+    "notFoundDesc": "لم يتم العثور على المحاضرة المطلوبة."
+  },
+  "navigation": {
+    "previousLecture": "المحاضرة السابقة",
+    "nextLecture": "المحاضرة التالية",
+    "previousLab": "المختبر السابق",
+    "nextLab": "المختبر التالي",
+    "backToSubject": "العودة للمادة",
+    "lectureOf": "المحاضرة {{current}} من {{total}}",
+    "labOf": "المختبر {{current}} من {{total}}",
+    "quizOf": "الاختبار {{current}} من {{total}}"
+  },
+  "tabs": {
+    "explanation": "الشرح",
+    "summary": "الملخص",
+    "mcq": "اختيارات",
+    "written": "مقالي"
+  },
+  "content": {
+    "estimatedTime": "الوقت المقدر: {{minutes}} دقيقة",
+    "markComplete": "تعيين كمكتمل",
+    "markIncomplete": "تعيين كغير مكتمل",
+    "completed": "مكتمل ✓",
+    "notCompleted": "غير مكتمل",
+    "keyPointsTitle": "النقاط الرئيسية",
+    "examplesTitle": "أمثلة",
+    "practiceTitle": "أسئلة تدريبية",
+    "resourcesTitle": "مصادر إضافية",
+    "noContent": "المحتوى قيد الإعداد. عد قريبًا!",
+    "noKeyPoints": "لا توجد نقاط رئيسية لهذه المحاضرة.",
+    "noExamples": "لا توجد أمثلة متاحة.",
+    "noResources": "لا توجد مصادر إضافية.",
+    "openExternal": "فتح"
+  },
+  "mcq": {
+    "title": "تدريب اختيار من متعدد",
+    "subtitle": "اختبر فهمك لهذه المحاضرة",
+    "questions": "أسئلة",
+    "correct": "صحيح",
+    "incorrect": "خطأ",
+    "result": "النتيجة",
+    "score": "حصلت على {{score}} من {{total}}",
+    "percentage": "{{percentage}}%",
+    "noQuiz": "لا يوجد اختبار متاح لهذه المحاضرة."
+  },
+  "written": {
+    "title": "الأسئلة المقالية",
+    "subtitle": "تدرب مع الإجابات النموذجية",
+    "showAnswer": "إظهار الإجابة",
+    "hideAnswer": "إخفاء الإجابة",
+    "modelAnswer": "الإجابة النموذجية",
+    "noQuestions": "لا توجد أسئلة مقالية متاحة."
+  },
+  "quiz": {
+    "title": "اختبار سريع",
+    "subtitle": "اختبر فهمك لهذه المحاضرة",
+    "question": "السؤال {{current}} من {{total}}",
+    "checkAnswer": "تحقق من الإجابة",
+    "correct": "صحيح! 🎉",
+    "incorrect": "ليس تمامًا. حاول مرة أخرى!",
+    "showExplanation": "عرض التفسير",
+    "hideExplanation": "إخفاء التفسير",
+    "nextQuestion": "السؤال التالي",
+    "quizComplete": "اكتمل الاختبار!",
+    "score": "حصلت على {{score}} من {{total}}",
+    "retakeQuiz": "إعادة الاختبار",
+    "noQuiz": "لا يوجد اختبار متاح لهذه المحاضرة."
+  },
+  "bookmark": {
+    "add": "حفظ هذه المحاضرة",
+    "remove": "إزالة المحفوظة",
+    "added": "تم حفظ المحاضرة!",
+    "removed": "تمت إزالة المحفوظة",
+    "loginRequired": "يرجى تسجيل الدخول للحفظ"
+  },
+  "progress": {
+    "writtenAttempted": "تمت محاولة المقالي"
+  },
+  "sidebar": {
+    "lectures": "المحتوى الدراسي",
+    "lecture": "محاضرة",
+    "lab": "مختبر",
+    "quiz": "اختبار",
+    "assessments": "التقييمات",
+    "finalExam": "الاختبار النهائي"
+  }
+}

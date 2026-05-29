@@ -1,0 +1,2960 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_10_Transport_Layer_1.pdf
+Date   : 2026-05-14 03:39:59.031831
+Pages  : 69 / 69
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  4 words
+────────────────────────────────────────────────────────────
+Lecture 10
+Transport Layer
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  45 words
+────────────────────────────────────────────────────────────
+Agenda
+The Transport Layer (TL)
+Introduction to TL Protocols and Services
+Connectionless and Connection-oriented Processes
+in TL
+Unreliable Data Transfer
+• User Datagram Protocol (UDP)
+Reliable Data Transfer
+• Transport Control Protocol (TCP)
+• Flow Control
+– Reliable channels
+– Channels with errors and losses
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  67 words
+────────────────────────────────────────────────────────────
+Introduction: Transport Services and Protocols
+provide logical communication
+between app processes running 
+on different hosts
+transport protocols run in end
+systems
+send side: breaks
+application messages into 
+segments, passes to the 
+network layer
+receiving side: reassembles
+segments into messages, 
+passes to app layer
+more than one transport
+protocol available to 
+applications
+Internet: TCP and UDP
+application
+transport
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+
+── Images on page 3 (33 found) ──
+
+[Image 1]  356×211px  (PNG)
+OCR:
+;
+—  g
+
+[Image 16]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 17]  85×89px  (PNG)
+OCR:
+CO
+
+[Image 18]  69×74px  (PNG)
+[No text detected]
+
+[Image 19]  68×89px  (PNG)
+[No text detected]
+
+[Image 22]  233×180px  (PNG)
+[No text detected]
+
+[Image 23]  57×71px  (PNG)
+OCR:
+<
+
+[Image 24]  86×118px  (PNG)
+OCR:
+& yen,
+
+[Image 29]  62×85px  (PNG)
+OCR:
+GE”
+A
+
+[Image 30]  62×85px  (PNG)
+OCR:
+GE”
+3
+
+[Image 31]  64×198px  (PNG)
+OCR:
+j
+
+[Image 32]  64×198px  (PNG)
+OCR:
+j
+
+[Image 33]  430×490px  (PNG)
+OCR:
+©
+oe,
+Y
+)
+“oy
+%,
+4,
+%,
+aon
+2
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  45 words
+────────────────────────────────────────────────────────────
+Transport vs. Network layer
+network layer: logical communication
+between hosts
+related to the network core (infrastructure)
+transport layer: logical communication
+between processes
+relies on and enhances network layer services
+related to network edge (i.e., intelligent end
+systems) and running applications (i.e., QoS 
+requirements of applications)
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  71 words
+────────────────────────────────────────────────────────────
+Transport Layer Protocols
+reliable, in-order delivery:
+Transport Control Protocol
+(TCP)
+flow control
+congestion control
+connection setup
+unreliable, unordered
+delivery: User Datagram 
+Protocol (UDP)
+no-frills extension of “best-
+effort” IP
+services not available:
+delay guarantees
+Bandwidth guarantees
+application
+transport
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+data link
+physical
+data link
+physical
+network
+network 
+data link
+physicalnetwork
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+
+── Images on page 5 (26 found) ──
+
+[Image 1]  356×211px  (PNG)
+OCR:
+;
+—  g
+
+[Image 12]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 13]  85×89px  (PNG)
+[No text detected]
+
+[Image 14]  69×74px  (PNG)
+[No text detected]
+
+[Image 15]  68×89px  (PNG)
+[No text detected]
+
+[Image 18]  233×180px  (PNG)
+[No text detected]
+
+[Image 19]  57×71px  (PNG)
+OCR:
+<
+
+[Image 20]  86×118px  (PNG)
+OCR:
+& yen,
+
+[Image 24]  62×85px  (PNG)
+OCR:
+GE”
+A
+
+[Image 25]  62×85px  (PNG)
+OCR:
+GE”
+3
+
+[Image 26]  430×490px  (PNG)
+OCR:
+©
+w%,
+Y
+)
+“oy
+%
+4,
+%y
+oN
+or
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 6 (1 found) ──
+
+[Image 1]  708×516px  (PNG)
+OCR:
+Feature TCP (Transmission Control Protocol) UDP (User Datagram Protocol)
+
+Delivery Reliable Unreliable
+
+Order In-order delivery guaranteed No guarantee of order
+
+Connection Connection-oriented (setup required) Connectionless
+
+Flow control Provided Not provided
+
+Congestion control Provided Not provided
+
+Error recovery Retransmissions and No retransmissions
+acknowledgments
+
+Overhead Higher Lower
+
+Service type Full-featured transport service “No-frills” extension of best-effort IP
+
+Delay guarantees % Not available % Not available
+
+Bandwidth guarantees XX Not available XX Not available
+
+Typical uses Web, email, file transfer Streaming, VoIP, gaming
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  58 words
+────────────────────────────────────────────────────────────
+Multiplexing/Demultiplexing
+application
+transport
+network
+link
+physical
+P1
+application
+transport
+network
+link
+physical
+application
+transport
+network
+link
+physical
+P2
+P3
+P4
+P1
+host 1
+host 2
+host 3
+= process
+= socket
+delivering received segments 
+to correct socket
+Demultiplexing at rcv host:
+gathering data from multiple 
+sockets, enveloping data with 
+header (later used for 
+demultiplexing)
+Multiplexing at send host:
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  30 words
+────────────────────────────────────────────────────────────
+application
+transport
+network
+link
+physical
+P1
+application
+transport
+network
+link
+physical
+application
+transport
+network
+link
+physical
+P2
+P3
+P4
+P1
+host 1
+host 2
+host 3
+= process
+= socket
+
+── Images on page 8 (2 found) ──
+
+[Image 1]  715×305px  (PNG)
+OCR:
+@ Sender Side — Multiplexing
+In the middle host (Host 2):
+e Two applications (P1 and P2) want to send data at the same time.
+e Each application uses its own socket (yellow blocks).
+e The transport layer collects (multiplexes) data from both sockets.
+e It adds a transport header (containing source and destination port numbers).
+e The data segments are forwarded down the stack to the network, link, and physical layers for
+transmission.
+This process is called multiplexing because data from multiple sources are combined into a single
+outgoing data stream.
+
+[Image 2]  725×215px  (PNG)
+OCR:
+@ Receiver Side — Demultiplexing
+At Host 1 and Host 3:
+
+e Incoming segments arrive from the network to the transport layer.
+
+e The transport layer examines the header information (mainly destination port numbers).
+
+e Each segment is delivered to the correct socket.
+
+e The socket forwards the data to the appropriate application process (P3 on Host 1 and P4 on Host 3).
+This sorting and delivery is known as demultiplexing.
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  65 words
+────────────────────────────────────────────────────────────
+How Demultiplexing Works
+host receives IP datagrams
+each datagram has source
+32 bits
+source port #
+dest port #
+other header fields
+application
+data 
+(message)
+IP address, destination IP
+address
+each datagram carries 1
+transport-layer segment
+each segment has source,
+destination port number
+host uses IP addresses & port
+numbers to direct segment to 
+appropriate socket (it is 
+called sometimes socket 
+address)
+TCP/UDP segment format
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  84 words
+────────────────────────────────────────────────────────────
+Connectionless Demux. vs.
+Connection-oriented Demux.
+Connection-oriented Demux.
+TCP socket identified by
+4-tuple:
+source IP address
+source port number
+dest IP address
+dest port number
+receiving host uses all
+four values to direct 
+segment to appropriate 
+socket
+Connectionless-oriented Demux.
+UDP socket identified by
+two-tuple:
+(dest IP address, dest port number)
+When host receives UDP
+segment:
+checks destination port number in
+segment
+directs UDP segment to socket
+with that port number
+IP datagrams with different
+source IP addresses and/or 
+source port numbers directed 
+to same socket
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  39 words
+────────────────────────────────────────────────────────────
+Connectionless Demux, UDP
+DatagramSocket serverSocket = new DatagramSocket(6428);
+Client
+IP:B
+P2
+client
+IP: A
+P1P1
+P3
+server
+IP: C
+SP: 6428
+DP: 9157
+SP: 9157
+DP: 6428
+SP: 6428
+DP: 5775
+SP: 5775
+DP: 6428
+SP provides “return address”
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  27 words
+────────────────────────────────────────────────────────────
+Client
+IP:B
+P2
+client
+IP: A
+P1P1
+P3
+server
+IP: C
+SP: 6428
+DP: 9157
+SP: 9157
+DP: 6428
+SP: 6428
+DP: 5775
+SP: 5775
+DP: 6428
+
+── Images on page 12 (2 found) ──
+
+[Image 1]  729×381px  (PNG)
+OCR:
+@ In the Figure
+Clients:
+e Client A (P2) sends:
+e SP = 9157 — DP = 6428
+e Client B (P1) sends:
+e SP = 5775 — DP = 6428
+Server:
+e Both datagrams arrive at:
+e Destination Port = 6428
+e Since UDP demux depends only on the DP, both packets are delivered to the same socket on the
+server.
+e The server process (P3) reads both messages using the same socket.
+
+[Image 2]  597×388px  (PNG)
+OCR:
+Source Port as "Return Address”
+The figure highlights:
+SP provides “return address”
+e The server replies by:
+e Reading the source IP + source port from the received datagram.
+e Sending a response back using those values.
+e Even though the server has one socket, it can still reply to each client individually.
+Key Observations
+e Multiple clients can send datagrams to the same UDP port.
+e All traffic is delivered to the same socket.
+e UDP does not create a separate socket per client.
+e Clients remain logically independent but share the same server socket.
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  39 words
+────────────────────────────────────────────────────────────
+Connection-oriented Demux., TCP
+Client
+IP:B
+P1
+client
+IP: A
+P1
+P2
+server
+IP: C
+SP: 9157
+DP: 80
+SP: 9157
+DP: 80
+P4
+P5
+P6
+P3
+D-IP:C
+S-IP: A
+D-IP:C
+S-IP: B
+SP: 5775
+DP: 80
+S-IP: B
+D-IP:C
+
+── Images on page 13 (1 found) ──
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  36 words
+────────────────────────────────────────────────────────────
+Client
+IP:B
+P1
+client
+IP: A
+P1
+P2
+server
+IP: C
+SP: 9157
+DP: 80
+SP: 9157
+DP: 80
+P4
+P5
+P6
+P3
+D-IP:C
+S-IP: A
+D-IP:C
+S-IP: B
+SP: 5775
+DP: 80
+S-IP: B
+D-IP:C
+
+── Images on page 14 (3 found) ──
+
+[Image 2]  513×531px  (PNG)
+OCR:
+@ Connections Shown in the Figure
+Client A
+e Process P1
+e Tuple:
+css
+(A, 9157, C, 80)
+Delivered to a dedicated server socket — P4
+Client B
+Client B runs two processes: P2 and P3, each with a different source port:
+Process 4-Tuple
+P2 (8, 5775, C, 80)
+P3 (B, 9157, C, 80)
+Each tuple is different >
+Each connection is mapped to its own socket — P5 and P6
+
+[Image 3]  479×412px  (PNG)
+OCR:
+@ How Demultiplexing Works at the Server
+When a TCP segment arrives:
+1. TCP reads all four header fields:
+e Source IP
+e Source Port
+e Destination IP
+e Destination Port
+2. TCP matches the tuple to an existing socket.
+3. Data is delivered to the exact process bound to that socket.
+Even:
+e Same client IP,
+e Same destination IP,
+e Same destination port,
+Different source ports — different connections — different sockets.
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 15 (3 found) ──
+
+[Image 1]  785×595px  (PNG)
+OCR:
+Connectionless vs. Connection-Oriented Demultiplexing
+Feature Connectionless Demultiplexing (UDP) Connection-Oriented Demultiplexing (TCP)
+Transport protocol UDP TCP
+Socket identification 2-tuple: (Destination IP, Destination Port) 4-tuple: (Source IP, Source Port, Destination
+IP, Destination Port)
+How delivery works Receiver checks only destination port Receiver checks all four fields
+number
+Segment routing Any UDP datagram sent to the same Each TCP segment is delivered to the exact
+destination port is delivered to the same socket associated with the specific
+socket connection
+Source differentiation Sources are not distinguished by demux Sources are distinguished (each connection is
+unique)
+Multiple clients All clients sending to same port share Each client gets a separate socket per
+one socket connection
+Example Many clients send UDP packets to port Many clients connect to TCP port 80 > each
+5000 — all go to one socket on the server connection gets its own socket
+Use cases Streaming, VoIP, DNS, gaming Web, email, file transfer, remote login
+
+[Image 2]  419×155px  (PNG)
+OCR:
+@ Analogy
+
+UDP TCP
+
+One mailbox for all senders Separate mailbox for each sender
+Easier, faster More controlled and reliable
+
+[Image 3]  359×231px  (PNG)
+OCR:
+Summary
+UDP TcP
+Connectionless Connection-oriented
+2-tuple demux 4-tuple demux
+Shared socket Dedicated socket per connection
+Faster, simpler More structured and reliable
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  76 words
+────────────────────────────────────────────────────────────
+UDP: User Datagram Protocol
+[RFC 768]
+“no frills,” “bare bones”
+Internet transport 
+protocol
+“best effort” service, UDP
+segments may be:
+lost
+delivered out of order
+to the application layer
+connectionless:
+no handshaking between
+UDP sender, receiver
+each UDP segment
+handled independently 
+of others
+Why is there a UDP?
+no connection
+establishment (which can 
+add delay)
+simple: no connection state
+at sender, receiver
+small segment header
+no congestion control: UDP
+can blast away as fast as 
+desired
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  49 words
+────────────────────────────────────────────────────────────
+More about UDP
+often used for streaming
+multimedia apps
+loss tolerant
+rate sensitive
+other UDP uses
+DNS (Domain Name System): Fast
+request–reply (query →response).
+SNMP (Simple Network
+Management Protocol):Lightweight 
+protocol for network device 
+monitoring and management.
+For reliable transfer over UDP:
+add reliability at application layer
+application-specific
+error recovery!
+
+── Images on page 17 (2 found) ──
+
+[Image 1]  761×287px  (PNG)
+OCR:
+? Why Use UDP?
+
+UDP exists to enable:
+
+Advantage Explanation
+
+Low latency No connection setup delays. Good for real-time traffic.
+
+Speed / Efficiency Minimal protocol overhead.
+
+Application flexibility Apps control how to handle loss or reordering if needed.
+
+Scalability No per-connection state allows servers to support many clients easily.
+
+[Image 2]  553×201px  (PNG)
+OCR:
+Application Reason for UDP Use
+
+Video streaming / multimedia Small losses are acceptable; real-time delivery is critical.
+Online gaming Speed matters more than perfect reliability.
+
+VoIP Late data is useless; lower delay is essential.
+
+DNS Fast request/response queries.
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 18 (1 found) ──
+
+[Image 1]  817×433px  (PNG)
+OCR:
+@ Key Characteristics
+
+Feature Explanation
+
+Connectionless No handshake or session setup between sender and receiver. Each UDP
+segment is sent independently.
+
+Best-effort delivery No delivery guarantees: packets may be lost, duplicated, or delivered out
+of order.
+
+No reliability No acknowledgments, retransmissions, or sequence tracking.
+
+No flow control Sender can transmit regardless of receiver capacity.
+
+No congestion control UDP does not slow down when the network is congested.
+
+Small header Only 8 bytes, resulting in low overhead and faster transmission.
+
+Stateless Sender and receiver maintain no connection state, improving scalability
+and simplicity.
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  24 words
+────────────────────────────────────────────────────────────
+source port #
+dest port #
+32 bits
+Application
+data 
+(message)
+UDP segment format
+length
+checksum
+Length, in
+bytes of UDP
+segment,
+including
+header
+
+── Images on page 19 (1 found) ──
+
+[Image 1]  581×271px  (PNG)
+OCR:
+Field Size Purpose
+
+Source Port Number 16 bits —_ Identifies the sender‘s application port (optional).
+
+Destination Port Number 16 bits —_ Identifies the receiver's application port.
+
+Length 16 bits Total length of the UDP segment (header + data).
+Minimum = 8 bytes.
+
+Checksum 16 bits Error detection for header, data, and pseudo-header.
+
+Application Data (Message) Variable The actual data from the application layer.
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  11 words
+────────────────────────────────────────────────────────────
+UDP Checksum
+Goal: detect “errors” (e.g., flipped bits) in transmitted
+segment
+
+── Images on page 20 (2 found) ──
+
+[Image 1]  677×505px  (PNG)
+OCR:
+@ How the UDP Checksum Works
+At the Sender
+1. The sender treats the entire UDP segment (header + data) as a sequence of 16-bit words.
+2. It computes the 1’s complement sum of all these 16-bit values.
+3. The 1's complement of the final sum becomes the checksum.
+4. This checksum is inserted into the UDP checksum field before transmission.
+At the Receiver
+1. The receiver performs the same 1's complement summation over:
+e The received segment
+e Including the checksum field
+2. It checks the result:
+Result Meaning
+Checksum matches No error detected — segment accepted
+xX Mismatch Error detected — segment discarded
+
+[Image 2]  469×290px  (PNG)
+OCR:
+Important Detail: Is the Checksum Perfect?
+J Not 100% Reliable
+Although the checksum detects most errors, it is not perfect:
+e Rare error patterns can still occur that:
+e Alter the data without changing the checksum result.
+e This means:
+e Some corrupted packets may pass undetected.
+This possibility is extremely small but not zero.
+This is why UDP says it "detects errors, but may miss some."
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  31 words
+────────────────────────────────────────────────────────────
+Principles of Reliable Data Transfer
+(Rdt)
+important in app., transport, link layers
+top-10 list of important networking topics!
+characteristics of unreliable channel will determine
+complexity of reliable data transfer protocol (rdt)
+
+── Images on page 21 (1 found) ──
+
+[Image 1]  1594×704px  (PNG)
+OCR:
+C_
+O
+Oo ©
+O ~ orocess process
+5 _
+at_send() | [dara] [ata fae
+= ‘reliable channel rat_send() y [data dataj/deliver_data()
+Q 5 reliable data reliable data
+a > transfer protocol transfer protocol
+5 5 (sending side) (receiving side)
++ udt_send ()f [rat_zev()
+Ly unreliable Shannel)4
+(a) provided service (b) service implementation
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 22 (3 found) ──
+
+[Image 1]  1594×704px  (PNG)
+OCR:
+C_
+O
+Oo ©
+O ~ orocess process
+5 _
+at_send() | [dara] [ata fae
+= ‘reliable channel rat_send() y [data dataj/deliver_data()
+Q 5 reliable data reliable data
+a > transfer protocol transfer protocol
+5 5 (sending side) (receiving side)
++ udt_send ()f [rat_zev()
+Ly unreliable Shannel)4
+(a) provided service (b) service implementation
+
+[Image 2]  691×239px  (PNG)
+OCR:
+(a) Provided Service
+This shows what the application layer believes it gets from the transport layer.
+
+e The sending process gives data to a reliable channel.
+
+e The receiver process receives the same data correctly, in order, and without loss.
+
+e To applications, it looks like a perfect pipe that never corrupts, loses, or reorders data.
+Important:
+This view hides all underlying complexities. Applications assume reliability; the transport layer must
+implement it.
+
+[Image 3]  711×419px  (PNG)
+OCR:
+(b) Service Implementation
+This section reveals what is actually happening inside the transport layer when building reliability over an
+unreliable channel:
+Sending side
+e The sending application calls rdt_send(data).
+e The reliable data transfer protocol prepares the data for transmission.
+e The protocol uses udt_send(packet) to send packets across the network.
+e The channel is unreliable — packets may be lost, corrupted, or delayed.
+Receiving side
+e The receiving side receives packets from the unreliable channel via rdt_rcv(packet).
+e The reliable data transfer protocol on the receiver checks correctness, handles corruption/loss,
+acknowledges receipt, etc.
+e It then delivers clean, correct data to the application through deliver_data(data).
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  47 words
+────────────────────────────────────────────────────────────
+Rdt1.0: reliable transfer over a reliable channel
+separate finite state machines for sender, receiver:
+sender sends data into underlying channel
+receiver read data from underlying channel
+Wait for
+call from
+above
+packet = make_pkt(data)
+udt_send(packet)
+rdt_send(data)
+extract (packet,data)
+deliver_data(data)
+Wait for 
+call from
+below
+rdt_rcv(packet)
+sender
+receiver
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  751×307px  (PNG)
+OCR:
+Explanation: rdt1.0 — Reliable Data Transfer over a Perfectly Reliable
+Channel
+The figure illustrates the simplest possible reliable data transfer protocol, known as rdt1.0. It is used when
+the underlying channel is perfectly reliable:
+
+e No bit errors
+
+e No packet loss
+
+e No packet corruption
+
+e No reordering
+Because the channel is flawless, the protocol requires no acknowledgments, no retransmissions, no
+sequence numbers, and no timers.
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  21 words
+────────────────────────────────────────────────────────────
+Wait for
+call from
+above
+packet = make_pkt(data)
+udt_send(packet)
+rdt_send(data)
+extract (packet,data)
+deliver_data(data)
+Wait for 
+call from
+below
+rdt_rcv(packet)
+sender
+receiver
+
+── Images on page 24 (1 found) ──
+
+[Image 1]  760×420px  (PNG)
+OCR:
+Sender and Receiver Finite State Machines
+Even though the protocol is trivial, it is modeled using two finite state machines (FSMs)—one for the sender
+and one for the receiver.
+Sender FSM
+e The sender waits for data from the application.
+e When data arrives, it simply sends the packet into the channel.
+e Since nothing goes wrong, the sender remains in the same state and continues sending new data as it
+arrives.
+Receiver FSM
+e The receiver waits for a packet.
+e When a packet arrives, it immediately delivers the data to the application.
+e It then returns to its single state and waits for the next packet.
+Because the channel never corrupts or loses packets, no feedback (ACK/NAK) is required.
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  68 words
+────────────────────────────────────────────────────────────
+Rdt2.0: channel with bit errors
+underlying channel may flip bits in packet (pkt)
+checksum to detect bit errors
+the question: how to recover from errors ?
+acknowledgements (ACKs): receiver explicitly tells sender
+that pkt received OK
+negative acknowledgements (NAKs): receiver explicitly tells
+sender that pkt had errors
+sender retransmits pkt on receipt of NAK
+new mechanisms in rdt2.0 (beyond rdt1.0):
+error detection
+receiver feedback: control msgs (ACK,NAK) rcvr->sender
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 26 (3 found) ──
+
+[Image 1]  434×481px  (PNG)
+OCR:
+El Sender Side - Step-by-Step
+
+Step 1: Send Packet
+
+e Sender creates data packet.
+
+e Adds checksum for error detection.
+
+e Sends packet to receiver.
+
+Step 2: Wait for Feedback
+
+e Sender stops sending and waits for:
+° ACK > means “packet was received correctly”
+e 3 NAK - means “packet had an error”
+
+Step 3: Act Based on Feedback
+
+e If ACK received — Sender sends next packet.
+
+e If NAK received — Sender retransmits the same packet.
+
+[Image 2]  415×289px  (PNG)
+OCR:
+Receiver Side — Step-by-Step
+Step 1: Receive Packet
+e Receiver gets the packet from the channel.
+Step 2: Check for Errors
+e Uses checksum to detect bit errors.
+Step 3: Send Feedback
+e If packet is correct + send ACK
+e If packet is corrupted > send NAK
+
+[Image 3]  537×327px  (PNG)
+OCR:
+X The Fatal Problem of RDT 2.0
+What if the ACK or NAK itself gets corrupted?
+e Sender cannot know:
+e Was the packet received correctly?
+e Or was it damaged?
+e Sender does not know whether to resend or move forward
+e This leads to:
+e¢ % Possible duplicate packets
+¢ %& Unreliable delivery
+That is why RDT 2.1 was created to fix this using sequence numbers.
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  76 words
+────────────────────────────────────────────────────────────
+Sender and receiver can handle garbled ACK/NAKs
+Sender:
+seq # added to pkt
+two seq. #’s (0,1) will
+suffice. Why?
+must check if received
+ACK/NAK corrupted
+twice as many states
+state must “remember”
+whether “current” pkt 
+has 0 or 1 seq. #
+Receiver:
+must check if received
+packet is duplicate
+state indicates whether
+0 or 1 is expected pkt 
+seq #
+note: receiver can not
+know if its last 
+ACK/NAK received OK 
+at sender
+rdt2.1: discussion
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 28 (3 found) ──
+
+[Image 1]  683×544px  (PNG)
+OCR:
+Sender Side - Step-by-Step
+Step 1: Assign Sequence Number
+e Sender assigns a sequence number (0 or 1) to the packet.
+Step 2: Send Packet
+e Sender adds checksum + sequence number.
+e Sends packet to receiver.
+Step 3: Wait for Feedback
+e Sender waits for:
+co) Correct ACK with matching sequence number
+e & Correct NAK
+¢ %& Corrupted ACK/NAK
+Step 4: Act Based on Feedback
+Case Sender Action
+Correct ACK Toggle sequence number (0 2 1) and send next packet
+% NAK Retransmit the same packet
+% Corrupted ACK/NAK Retransmit the same packet
+
+[Image 2]  669×501px  (PNG)
+OCR:
+Receiver Side — Step-by-Step
+Step 1: Wait for Expected Sequence Number
+e Receiver keeps track of the expected sequence number (0 or 1).
+Step 2: Receive Packet
+e Receiver gets the packet.
+Step 3: Check Errors
+e Receiver checks:
+. Checksum
+. Sequence number
+Step 4: Act Based on Packet State
+Packet Condition Receiver Action
+Correct packet & expected seq # Deliver data to upper layer + Send ACK
+XX Corrupted packet Send NAK
+XX Duplicate packet (wrong seq #) Discard packet + Send ACK again
+
+[Image 3]  498×297px  (PNG)
+OCR:
+How RDT 2.1 Fixes the RDT 2.0 Problem
+In RDT 2.0:
+e If ACK/NAK is corrupted — Sender is confused > Duplicate risk
+In RDT 2.1:
+e Sequence numbers allow:
+e Sender to know which packet is being acknowledged
+e Receiver to know whether packet is new or duplicate
+e = Thus:
+@ Corrupted ACK/NAK = retransmission is now safe
+@ Duplicate packets are detected and discarded
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  45 words
+────────────────────────────────────────────────────────────
+rdt2.2: a NAK-free protocol
+same functionality as rdt2.1, using ACKs only
+instead of NAK, receiver sends ACK for last pkt
+received OK
+receiver must explicitly include seq # of pkt being ACKed
+duplicate ACK at sender results in same action as
+NAK: retransmit current pkt
+
+── Images on page 29 (2 found) ──
+
+[Image 1]  639×258px  (PNG)
+OCR:
+Receiver Sends Only ACK (Difference)
+Case RDT 2.1 Action RDT 2.2 Action
+Correct packet Send ACK Send ACK
+Corrupted packet Send NAK Resend last ACK
+Duplicate packet Send ACK again Send ACK again
+In RDT 2.2, a duplicate ACK acts like a NAK
+
+[Image 2]  553×283px  (PNG)
+OCR:
+Sender Reaction (Same Logic, Different Signal)
+What Sender Receives Sender Action
+Correct ACK Send next packet
+% Duplicate ACK Retransmit current packet
+XX Corrupted ACK Retransmit current packet
+Behavior is functionally identical to RDT 2.1
+XX But no NAK message exists
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  78 words
+────────────────────────────────────────────────────────────
+rdt3.0: channels with errors
+and loss
+New assumption:
+underlying channel can 
+also lose packets (data 
+or ACKs)
+checksum, seq. #, ACKs,
+retransmissions will be 
+of help, but not enough
+Approach: sender waits
+“reasonable” amount of 
+time for ACK
+retransmits if no ACK
+received in this time
+if pkt (or ACK) just delayed
+(not lost):
+retransmission will be
+duplicate, but use of seq. 
+#’s already handles this
+receiver must specify seq
+# of pkt being ACKed
+requires countdown timer
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 31 (4 found) ──
+
+[Image 1]  481×595px  (PNG)
+OCR:
+Sender Side — Detailed Steps
+Step 1: Prepare Packet
+e Sender takes data from the application layer.
+e Adds:
+. Sequence number (0 or 1)
+. Checksum
+e Creates a complete packet.
+Step 2: Send Packet
+e Sender transmits the packet into the channel.
+e Sender starts a countdown timer immediately after sending.
+Step 3: Wait for ACK
+Sender now waits for one of three events:
+Step 4A: Correct ACK Received
+e Received ACK:
+e Is not corrupted
+e Has the correct sequence number
+e Then sender:
+. Stops the timer
+e Toggles the sequence number (0 — 1 or 1 — 0)
+° Sends the next packet
+
+[Image 2]  468×502px  (PNG)
+OCR:
+Step 4B: Corrupted or Wrong ACK Received
+e lft
+e ACK is corrupted, OR
+e ACK has the wrong sequence number
+e Then sender:
+© ¥% Does NOT move to next packet
+e Immediately retransmits the same packet
+e Restarts the timer
+Step 4C: Timeout Occurs (Most Important New Feature)
+e If
+e No ACK is received before the timer expires
+e Then sender assumes:
+e Data packet or
+e ACK packet
+was lost
+e Sender then:
+° Retransmits the same packet
+e Restarts the timer
+
+[Image 3]  489×589px  (PNG)
+OCR:
+Receiver Side — Detailed Steps
+Step 1: Wait for Packet
+
+e Receiver tracks the expected sequence number (0 or 1).
+Step 2: Receive Packet
+
+e Receiver gets packet from the channel.
+
+Step 3: Check Packet
+Receiver checks:
+
+. Checksum
+
+e Sequence number
+
+Step 4A: Correct Packet & Expected Sequence Number
+If:
+
+e Packet is not corrupted
+
+e AND sequence number is exactly what receiver expects
+Then receiver.
+
+to) Delivers data to the application layer
+
+. Sends ACK with that sequence number
+
+. Flips expected sequence number (0 2 1)
+
+[Image 4]  347×502px  (PNG)
+OCR:
+Step 4B: Corrupted Packet
+If:
+e Packet is corrupted
+Then receiver.
+¢ %€ Discards the packet
+. Resends the last correct ACK
+Step 4C: Duplicate Packet
+If:
+e Packet has a valid checksum
+e But wrong (already used) sequence number
+This means:
+e Sender did not receive the previous ACK
+e Sender retransmitted the same packet
+Receiver then:
+¢ & Discards duplicate packet
+. Resends the last ACK again
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 32 (2 found) ──
+
+[Image 1]  475×310px  (PNG)
+OCR:
+Example Scenario (With Packet Loss)
+El Sender sends Packet 0
+Receiver receives Packet 0 correctly - sends ACK 0
+ACK 0 is lost in channel X%
+Sender waits until timeout
+Timer expires — sender retransmits Packet 0
+El Receiver sees duplicate Packet 0
+Receiver discards Packet 0 and resends ACK 0
+El Sender receives ACK 0 — sends Packet 1
+No duplicate data is delivered
+
+[Image 2]  441×186px  (PNG)
+OCR:
+One-Line Summary
+e =rdt1.0 — Works only on a perfect channel
+e rdt2.0 — Handles bit errors only (ACK corruption problem)
+e rdt2.1 — Fixes ACK corruption using sequence numbers
+e rdt2.2 - Same as 2.1 but no NAK
+e rdt3.0 > Handles errors + packet loss using timeouts
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  3 words
+────────────────────────────────────────────────────────────
+rdt3.0 in action
+
+── Images on page 33 (3 found) ──
+
+[Image 1]  2271×816px  (PNG)
+OCR:
+sender receiver sender receiver
+rcv ACKO rcv ACKO
+send Pkt Pkt | send pktl It
+IcV oe KI icv se
+ACK sen send ACK]
+Timeout
+timeout Pkt 1 resend pkt! Okt |
+resend pktl ys rev Okt I rcv pktl
+ACK (detect duplicate) rcoVACK 1 Pkt ACK (detect duplicate)
+ACK send ACK] send pktO send ACK]!
+Seoricd oOktO kt rv pktO
+<<” Sond ACKO ATK O mee
+send ACK
+(c) lost ACK (A) premature timeout
+
+[Image 2]  451×234px  (PNG)
+OCR:
+Lost ACK
+e Sender sends pkt1
+e Receiver receives it and sends ACK1
+e ACK1is lost
+e Sender times out and retransmits pkt1
+e Receiver detects duplicate pkt1, discards it, and resends ACK1
+e Sender receives ACK1 and continues normally
+Result: No duplication, reliability preserved.
+
+[Image 3]  453×238px  (PNG)
+OCR:
+Premature Timeout
+e Sender sends pkt1
+e Receiver receives it and sends ACK1
+e ACK1is delayed
+e Sender times out too early and retransmits pkt1
+e Receiver detects duplicate pkt1, discards it, and resends ACK1
+e Sender continues normally
+Result: Extra retransmission, but still reliable.
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  82 words
+────────────────────────────────────────────────────────────
+Performance of rdt3.0
+rdt3.0 works, but performance stinks
+Example: 1 Gbps link, 15 ms propagation delay (i.e., time
+to go to the destination and back: Round-Trip Time: 
+RTT= 30 ms), 8000 bit packet:
+U sender: utilization fraction of time sender busy sending
+Usender= 
+L / R
+=
+.008
+30.008
+=
+0.00027
+RTT + L / R
+1KB pkt every 30 msec -> 33kB/sec thruput over 1 Gbps link
+network protocol limits use of physical resources!
+R
+109bps
+d
+L 8000bits 8microseconds
+trans
+
+── Images on page 34 (1 found) ──
+
+[Image 1]  541×203px  (PNG)
+OCR:
+e Packet size = 1 KB
+
+e Interval between packets = 30 ms = 0.03 seconds
+So in 1 second, the number of packets you send is:
+
+Packet: d 33.3
+ackets per second = —— = 33.
+P 0.03
+Each packet is 1 KB, so:
+Throughput = 33.3 packets/sec x 1 KB = 33.3 KB/sec
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 35 (3 found) ──
+
+[Image 1]  338×242px  (PNG)
+OCR:
+Given Example
+Parameter Value
+Link rate (R) 1 Gbps = 10? bits/sec
+Propagation delay (one way) 15 ms
+RIT 30 ms
+Packet length (L) 8000 bits = 1 KB
+
+[Image 2]  387×287px  (PNG)
+OCR:
+L
+dtrans = R
+8000
+dtrans = 10°"
+dirans = 8 microseconds = 0.008 ms
+Interpretation:
+e Sender needs only 0.008 ms to send the packet
+e But must wait 30 ms for the ACK
+So the link is idle most of the time.
+
+[Image 3]  480×720px  (PNG)
+OCR:
+Sender Utilization Formula
+Utilization = fraction of time the sender is actually transmitting
+U _ L/R
+sender ~ RIT +L/R
+Substitute values:
+0.008
+U, = ——_
+sender ~ 30.008
+Usender © 0.00027
+What Does Utilization = 0.00027 Mean?
+This means:
+e Sender is busy only:
+0.027% of the time
+e Sender is idle 99.973% of the time
+This is extremely poor performance, even though the link speed is 1 Gbps.
+i Throughput Result
+1KB every 30 ms
+1KB
+Throughput = ——— ~ 33 KB/sec
+neep 0.03 sec /
+So even though the physical link is 1 Gbps, the actual data rate is only:
+33 KB/sec
+This is a huge waste of bandwidth.
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  58 words
+────────────────────────────────────────────────────────────
+rdt3.0: stop-and-wait operation
+sender
+receiver
+RTT
+first packet bit transmitted, t = 0
+last packet bit transmitted, t = L / R
+first packet bit arrives
+last packet bit arrives, send ACK
+ACK arrives, send next
+packet, t = RTT + L / R
+Usender= 
+L / R
+=
+RTT + L / R
+.008
+30.008
+=
+0.00027
+
+── Images on page 36 (2 found) ──
+
+[Image 1]  298×121px  (PNG)
+OCR:
+ee
+
+[Image 2]  597×167px  (PNG)
+OCR:
+“network protocol limits use of physical resources”
+This means:
+e The hardware (1 Gbps link) is very fast
+e But the protocol design (Stop-and-Wait in RDT 3.0) prevents full use of that speed
+The bottleneck is the protocol, not the cable.
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  31 words
+────────────────────────────────────────────────────────────
+Pipelined protocols
+Pipelining: sender allows multiple, “in-flight”, yet-to-
+be-acknowledged pkts
+range of sequence numbers must be increased
+buffering at sender and/or receiver
+Two generic forms of pipelined protocols: go-Back-N,
+selective repeat
+
+── Images on page 37 (1 found) ──
+
+[Image 1]  1605×623px  (PNG)
+OCR:
+data packet —» Rs data packets —> C }
++ ACK packets
+(a) a stop-and-wait protocol in operation (b) a pipelined protocol in operation
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 38 (4 found) ──
+
+[Image 1]  347×120px  (PNG)
+OCR:
+@ Left Side (Stop-and-Wait —- for contrast)
+e The sender sends one data packet.
+
+e Then it waits until the ACK comes back.
+
+e During this long wait, the link is mostly idle.
+
+[Image 2]  1605×623px  (PNG)
+OCR:
+data packet —» Rs data packets —> C }
++ ACK packets
+(a) a stop-and-wait protocol in operation (b) a pipelined protocol in operation
+
+[Image 3]  489×350px  (PNG)
+OCR:
+Right Side (Pipelining -
+El The sender sends many data packets back-to-back
+e Multiple blue data packets are on the link at the same time.
+e These packets are called “in-flight packets”.
+The receiver sends many ACKs back continuously
+e Multiple green ACK packets travel back while data is still being sent.
+e There is no waiting after each packet.
+Data and ACKs overlap in time
+e While new data is being sent forward,
+e ACKs for earlier packets are returning backward.
+e This creates continuous use of the network link.
+
+[Image 4]  371×166px  (PNG)
+OCR:
+Stop-and-Wait Pipelining
+
+One packet at a time Many packets at the same time
+Large idle time Almost no idle time
+
+Very low utilization Very high utilization
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  82 words
+────────────────────────────────────────────────────────────
+Pipelining: increased utilization
+RTT
+sender
+receiver
+first packet bit transmitted, t = 0
+last bit transmitted, t = L / R
+ACK arrives, send next
+packet, t = RTT + L / R
+first packet bit arrives
+last packet bit arrives, send ACK
+last bit of 2nd packet arrives, send ACK
+last bit of 3rd packet arrives, send ACK
+Usender= 
+3 * L / R
+=
+RTT + L / R
+.024
+30.008
+=
+0.0008
+Increase utilization
+by a factor of 3!
+
+── Images on page 39 (4 found) ──
+
+[Image 1]  279×123px  (PNG)
+OCR:
+ee
+
+[Image 2]  279×123px  (PNG)
+OCR:
+ee
+
+[Image 3]  279×122px  (PNG)
+OCR:
+ee
+
+[Image 4]  499×205px  (PNG)
+OCR:
+Why “Increase utilization by a factor of 3”?
+If you send three packets before waiting for ACKs:
+e Stop-and-wait sends 1 packet per RTT.
+e Pipelining (window size 3) sends 3 packets per RTT.
+So:
+Utilization improvement = 3x
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  73 words
+────────────────────────────────────────────────────────────
+Pipelining Protocols
+Go-back-N: big picture:
+Sender can have up to
+N unacked packets in 
+pipeline
+Rcvr only sends
+cumulative acks
+Doesn’t ack packet if
+there’s a gap
+Sender has timer for
+oldest unacked packet
+If timer expires,
+retransmit all unacked 
+packets
+Selective Repeat: big pic
+Sender can have up to
+N unacked packets in 
+pipeline
+Rcvr acks individual
+packets
+Sender maintains
+timer for each 
+unacked packet
+When timer expires,
+retransmit only unack 
+packet
+
+────────────────────────────────────────────────────────────
+PAGE 41  |  55 words
+────────────────────────────────────────────────────────────
+Go-Back-N or GBN
+Sender:
+k-bit seq # in pkt header
+“window” of up to N, consecutive unack’ed pkts allowed
+ACK(n): ACKs all pkts up to, including seq # n - “cumulative ACK”
+may receive duplicate ACKs (see receiver)
+timer for each in-flight pkt
+timeout(n): retransmit pkt n and all higher seq # pkts in window
+
+── Images on page 41 (1 found) ──
+
+[Image 1]  1491×300px  (PNG)
+OCR:
+send_base nextseqnum already usable, not
+' v ack’ed yet sent
+AUUAN |) ))) UU TTNNTIIODDT ©) setuge.g 9) notes
+4___ window size——_4
+Ni
+
+────────────────────────────────────────────────────────────
+PAGE 42  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 42 (5 found) ──
+
+[Image 1]  1491×300px  (PNG)
+OCR:
+send_base nextseqnum already usable, not
+' v ack’ed yet sent
+AUUAN |) ))) UU TTNNTIIODDT ©) setuge.g 9) notes
+4___ window size——_4
+Ni
+
+[Image 2]  497×115px  (PNG)
+OCR:
+e Green = already sent and ACKed
+
+e Yellow = sent but not yet ACKed
+
+e Blue = can be sent now (inside window, but not yet sent)
+
+e White / empty = cannot be used yet (outside the sender window)
+
+[Image 3]  637×115px  (PNG)
+OCR:
+Labels:
+e send_base = sequence number of the oldest unacknowledged packet
+e nextseqnum = sequence number of the next packet the sender is allowed to send
+e window size (N) = number of consecutive unACKed packets allowed to be outstanding
+
+[Image 4]  743×397px  (PNG)
+OCR:
+Sliding Window
+e Sender can have up to N unacknowledged packets in flight.
+e send_base = oldest unACKed packet.
+e® nextseqnum = next packet the sender may send.
+Sender
+e Uses a k-bit sequence number in packet header.
+e Sends packets while nextseqnum < send_base + N.
+e Maintains one timer (for the oldest unACKed packet).
+ACKs
+e ACKs are cumulative:
+ACK(n) acknowledges all packets up to n.
+e Duplicate ACKs occur when packets arrive out of order but receiver only acknowledges the last in-order
+packet.
+
+[Image 5]  733×205px  (PNG)
+OCR:
+Timeout
+e On timeout of packet send_base , sender retransmits that packet and all subsequent packets in the
+window (“go back” and resend N packets).
+Receiver
+e Only accepts in-order packets.
+e Discards out-of-order packets (does not buffer them).
+
+────────────────────────────────────────────────────────────
+PAGE 43  |  3 words
+────────────────────────────────────────────────────────────
+GBN in action
+
+── Images on page 43 (2 found) ──
+
+[Image 1]  821×790px  (PNG)
+OCR:
+senaer receiver
+send pkt0 —————___,
+rev oktO
+send pktl send ACKO
+send pkt2 ———{l9ss) ICV Pt ave
+send pkt3
+(wait) rev pkt3, discard
+x send ACK1
+rev ACKO
+send pkt4
+rev pkt4, discard
+vases ——_* send ACK
+rev okid, discard
+okt2 timeout VA send ACK
+send pkt2 —_——
+send pkt3 —— rev okt2, deliver
+send pokt4 send ACK2 |
+send pktS rcv pktT3, deliver
+SN send ACK3
+
+[Image 2]  761×66px  (PNG)
+OCR:
+Because pkt2 was lost, the receiver could not accept later packets, so it keeps ACKing only up to pkt1, and
+the sender eventually goes back to pkt2 and retransmits all later packets — the defining behavior of GBN.
+
+────────────────────────────────────────────────────────────
+PAGE 44  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 44 (4 found) ──
+
+[Image 1]  821×790px  (PNG)
+OCR:
+senaer receiver
+send pkt0 —————___,
+rev oktO
+send pktl send ACKO
+send pkt2 ———{l9ss) ICV Pt ave
+send pkt3
+(wait) rev pkt3, discard
+x send ACK1
+rev ACKO
+send pkt4
+rev pkt4, discard
+vases ——_* send ACK
+rev okid, discard
+okt2 timeout VA send ACK
+send pkt2 —_——
+send pkt3 —— rev okt2, deliver
+send pokt4 send ACK2 |
+send pktS rcv pktT3, deliver
+SN send ACK3
+
+[Image 2]  681×477px  (PNG)
+OCR:
+The figure shows what happens in Go-Back-N when one packet (pkt2) is lost.
+1. Sender transmits packets 0, 1, 2, 3
+e pkt0 — received, ACKO returned
+e  pkt1 — received, ACK1 returned
+e = pkt2 is lost
+e pkt3 — arrives at receiver out of order, so receiver discards it and sends ACK1 (the last correctly
+received in-order packet)
+2. Receiver keeps discarding out-of-order packets
+Packets 4 and 5 (sent later due to pipeline) also arrive, but since pkt2 is missing:
+e Receiver discards pkt3, pkt4, pkt5
+e Receiver repeatedly sends ACK1
+(cumulative ACK for “last in-order packet = 1”)
+3. Sender receives ACKO and ACK1 normally
+e After receiving ACKO > sender sends pkt4
+e After receiving ACK1 > sender sends pkt5
+But sender still has not received an ACK for pkt2, so pkt2 remains the oldest unACKed packet.
+
+[Image 3]  418×171px  (PNG)
+OCR:
+4. Timer for pkt2 expires
+When timeout occurs:
+
+Go-Back-N rule:
+
+Retransmit pkt2 and all later packets in the window.
+Sender resends: pkt2, pkt3, pkt4, pkt5
+
+[Image 4]  396×153px  (PNG)
+OCR:
+5. Receiver now gets pkts in order
+e Receives pkt2 — delivers it, sends ACK2
+e Receives pkt3 — delivers it, sends ACK3
+e And so on for pkt4, pkt5
+Now packets are in order, so delivery proceeds normally.
+
+────────────────────────────────────────────────────────────
+PAGE 45  |  49 words
+────────────────────────────────────────────────────────────
+Selective Repeat
+receiver individually acknowledges all correctly
+received pkts
+buffers pkts, as needed, for eventual in-order delivery to
+upper layer
+sender only resends pkts for which ACK not
+received
+sender timer for each unACKed pkt
+sender window
+N consecutive seq #’s
+again limits seq #s of sent, unACKed pkts
+
+────────────────────────────────────────────────────────────
+PAGE 46  |  5 words
+────────────────────────────────────────────────────────────
+Selective Repeat: sender, receiver windows
+
+── Images on page 46 (2 found) ──
+
+[Image 1]  1556×929px  (PNG)
+OCR:
+send_base nexiTseqnum already usable, not
+! { ack’ed yet sent
+sent, not
+PA VA ET yet ack’ed nor usable
+— window size_t
+: NM
+(a) sender view of sequence numbers
+| out of order
+acceptable
+(buffered) but Ft (within window)
+: already ack’ed
+I UUMOOUUONTYAVNNTUNTUIL = |eseeetesege" rote
+yet received
+4 window size_t
+t N
+rcov_base
+(6b) receiver view of sequence numbers
+
+[Image 2]  720×438px  (PNG)
+OCR:
+e Top — Sender window
+e Green: packets already ACKed
+e Yellow: packets sent but not yet ACKed
+e Blue: packets allowed to be sent next
+e White: packets outside the window — can’t be used
+e send_base: first unACKed packet
+e nextseqnum: next packet to transmit
+e Bottom - Receiver window
+e Gray: next expected in-order packet (rcv_base)
+e Magenta: out-of-order packets buffered but already ACKed
+e Blue: packets acceptable within the window
+e White: packets outside window — ignored
+Main idea:
+The sender can send up to N packets without waiting.
+The receiver accepts out-of-order packets and buffers them, ACKs each packet individually, and delivers
+data only when missing packets arrive, sliding its window forward.
+
+────────────────────────────────────────────────────────────
+PAGE 47  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 47 (3 found) ──
+
+[Image 1]  1556×929px  (PNG)
+OCR:
+send_base nexiTseqnum already usable, not
+! { ack’ed yet sent
+sent, not
+PA VA ET yet ack’ed nor usable
+— window size_t
+: NM
+(a) sender view of sequence numbers
+| out of order
+acceptable
+(buffered) but Ft (within window)
+: already ack’ed
+I UUMOOUUONTYAVNNTUNTUIL = |eseeetesege" rote
+yet received
+4 window size_t
+t N
+rcov_base
+(6b) receiver view of sequence numbers
+
+[Image 2]  615×418px  (PNG)
+OCR:
+Selective Repeat — Figure explained in brief steps
+1. Sender sends packets up to window size N (from send_base to send_base + N - 1).
+2. Receiver ACKs each packet individually:
+e In-order packet — deliver.
+e Out-of-order packet — buffer.
+3. ACK arrives at sender:
+e Mark that packet as received.
+e If it was the oldest unACKed, move send_base forward (slide window).
+4. If a packet is lost:
+e Its timer expires — retransmit only that packet.
+5. When missing packet arrives at receiver:
+e Deliver it and all buffered consecutive packets, update rcv_base .
+6. Packets outside receiver window:
+e Old duplicates —- ACK again.
+e Too far ahead — ignored.
+
+[Image 3]  472×147px  (PNG)
+OCR:
+SR is a reliable data-transfer protocol where:
+e The sender can transmit multiple packets without waiting.
+e The receiver accepts and buffers out-of-order packets.
+e Each packet is ACKed individually.
+e Only lost packets are retransmitted (not the whole window).
+
+────────────────────────────────────────────────────────────
+PAGE 48  |  75 words
+────────────────────────────────────────────────────────────
+Selective Repeat in action
+sender
+data from above :
+if next available seq # in
+window, send pkt
+timeout(n):
+resend pkt n, restart timer
+ACK(n) in [sendbase,sendbase+N]:
+mark pkt n as received
+if n smallest unACKed pkt,
+advance window base to 
+next unACKed seq #
+receiver
+pkt n in [rcvbase, rcvbase+N-1]
+send ACK(n)
+out-of-order: buffer
+in-order: deliver (also
+deliver buffered, in-order 
+pkts), advance window to 
+next not-yet-received pkt
+pkt n in [rcvbase-N,rcvbase-1]
+ACK(n)
+otherwise:
+ignore
+
+────────────────────────────────────────────────────────────
+PAGE 49  |  4 words
+────────────────────────────────────────────────────────────
+Selective Repeat in action
+
+── Images on page 49 (2 found) ──
+
+[Image 1]  611×509px  (PNG)
+OCR:
+pKtU sent
+O12 3456789 eee pktO revd, delivered, ACKO sent
+pktl sent oj 23 4/56789
+O123¢56789 pkt1 xevd, delivered, ACK1 sent
+pkt2 sent o01j23 45/6789
+o123/4567839  ——*X
+(loss)
+pkt3 sent, window full
+O12 3456789 pkt3 rovd, buffered, ACK3 sent
+ACKO revd, pkt4 sent
+OL 23 4j56 789 pkt4 rovd, buffered, ACK4 sent
+ACK1 revd, pktS sent 01/2 345/6 789
+go1j23 45/6789
+pkt5 rovd, buffered, ACKS sent
+01/23 45)6 789
+pkt2 TIMEOUT, pkt2 resent
+01/23 45/6789
+pkt2 reovd, pkt2.pkt3,pkt4,pktS
+delivered, ACK2 sent
+ACK3 revd. nothing sent o12345(6 789
+01);23 45/6789
+
+[Image 2]  719×345px  (PNG)
+OCR:
+1. What the diagram shows
+
+e Left side: Sender actions (what packets are sent / retransmitted).
+
+e Right side: Receiver actions (what packets are received, buffered, delivered, and what ACKs are sent).
+
+e Boxes (0 1 2 3 ...): The current send or receive window.
+
+e Arrows: Packets traveling from sender — receiver.
+
+e Diagonal lines back: ACKs traveling receiver > sender.
+
+e X (loss): A packet was lost in the network.
+
+e “Buffered”: Receiver gets out-of-order packets and stores them until missing ones arrive.
+This is Selective Repeat, not Go-Back-N:
+
+e Receiver accepts out-of-order packets.
+
+e Receiver acknowledges each packet individually (ACK3, ACK4, ACKS, etc.).
+
+e Sender retransmits only the lost packets, not the entire window.
+
+────────────────────────────────────────────────────────────
+PAGE 50  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 50 (3 found) ──
+
+[Image 1]  611×509px  (PNG)
+OCR:
+pKtU sent
+O12 3456789 eee pktO revd, delivered, ACKO sent
+pktl sent oj 23 4/56789
+O123¢56789 pkt1 xevd, delivered, ACK1 sent
+pkt2 sent o01j23 45/6789
+o123/4567839  ——*X
+(loss)
+pkt3 sent, window full
+O12 3456789 pkt3 rovd, buffered, ACK3 sent
+ACKO revd, pkt4 sent
+OL 23 4j56 789 pkt4 rovd, buffered, ACK4 sent
+ACK1 revd, pktS sent 01/2 345/6 789
+go1j23 45/6789
+pkt5 rovd, buffered, ACKS sent
+01/23 45)6 789
+pkt2 TIMEOUT, pkt2 resent
+01/23 45/6789
+pkt2 reovd, pkt2.pkt3,pkt4,pktS
+delivered, ACK2 sent
+ACK3 revd. nothing sent o12345(6 789
+01);23 45/6789
+
+[Image 2]  558×583px  (PNG)
+OCR:
+2. Step-by-step walkthrough
+Packets 0 and 1
+1. pktO sent — received — delivered —- ACKO sent
+2. pktl sent — received — delivered — ACK] sent
+Receiver window advances normally.
+X Packet 2 lost
+3. pkt2 sent — lost (X)
+e Receiver does not get pkt2 — cannot deliver anything beyond 1.
+Out-of-order packets arrive
+4. pkt3 sent (window full) — received
+e Receiver sees pkt3 but pkt2 is missing, so:
+e pkt3 is buffered, not delivered
+e ACK3 is sent
+Later:
+5. ACKO arrives — sender sends pkt4 — received — buffered — ACK4 sent
+6. ACK1 arrives > sender sends pkt5 — received — buffered - ACK5 sent
+Now receiver buffer holds: pkt3 , pkt4 , pkts
+All waiting for pkt2.
+
+[Image 3]  473×364px  (PNG)
+OCR:
+&) Timeout and retransmission
+7. Timer for pkt2 expires at sender
+e pkt2 is retransmitted
+Packet 2 finally arrives
+8. pkt2 received
+e Now the receiver has: pkt2, pkt3, pkt4, pkt5
+e Because they are consecutive:
+e All are delivered to application in order
+e Receiver sends ACK2
+Cleanup
+9. ACK3 arrives at sender
+e But nothing new to send; window already full / advanced
+
+────────────────────────────────────────────────────────────
+PAGE 51  |  3 words
+────────────────────────────────────────────────────────────
+CONNECTION-ORIENTED
+TRANSPORT TCP
+
+────────────────────────────────────────────────────────────
+PAGE 52  |  74 words
+────────────────────────────────────────────────────────────
+TCP: Overview
+full duplex data:
+bi-directional data flow
+in same connection
+MSS: maximum segment
+size
+connection-oriented:
+handshaking (exchange of
+control msgs) 
+between
+sender and 
+receiver
+flow controlled:
+sender will not overwhelm
+receiver
+point-to-point:
+one sender, one receiver
+reliable, in-order byte
+steam:
+no “message boundaries”
+pipelined:
+TCP congestion and flow
+control set window size
+send & receive buffers
+socket
+door
+TCP
+send buffer
+TCP
+receive buffer
+socket
+door
+segment
+application 
+writes data
+application 
+reads data
+
+── Images on page 52 (3 found) ──
+
+[Image 3]  674×307px  (PNG)
+OCR:
+Step-by-step:
+1. Sender side (left):
+e The application writes data to the socket.
+e Data is placed into the TCP Send Buffer.
+e TCP takes bytes from this buffer, forms TCP segments, and sends them over the network.
+2. Network:
+e Data travels as TCP segments between sender and receiver.
+3. Receiver side (right):
+e Incoming segments are stored in the TCP Receive Buffer.
+e TCP ensures data is ordered and error-free.
+e The application reads data from the socket, which pulls bytes from the receive buffer.
+
+────────────────────────────────────────────────────────────
+PAGE 53  |  35 words
+────────────────────────────────────────────────────────────
+32 bits
+application
+data 
+(variable length)
+source port #
+dest port #
+sequence number
+acknowledgement number
+Receive window
+Urg data pnter
+checksum
+UAP R SF
+head
+not 
+len
+used
+Options (variable length)
+TCP segment structure
+
+── Images on page 53 (1 found) ──
+
+[Image 1]  801×745px  (PNG)
+OCR:
+Field Size Description & Function
+Source Port 16 bits Identifies the sending application process (e.g., ephemeral client port).
+Destination Port 16 bits Identifies the receiving application/service (e.g., 80 for HTTP, 443 for HTTPS).
+Sequence Number 32 bits Gives the byte number of the first data byte in the segment. Enables proper ordering,
+detection of losses, and retransmissions.
+Acknowledgment Number 32 bits Contains the next byte number expected from the peer, acknowledges receipt of all bytes
+up to (ACK-1) (cumulative ACK).
+Header Length (Data 4 bits Specifies the size of the TCP header in 32-bit words (minimum = 5 — 20 bytes). Needed
+Offset) because the Options field makes the header length variable.
+Reserved 6 bits Not currently used; must be set to zero (reserved for future extensions).
+Control Flags (U APRS F) 6 bits Manage connection and data flow:
+¢ URG — urgent pointer valid
+« ACK — acknowledgment field valid
+¢ PSH - deliver data immediately to app
+¢ RST — reset/abort connection
+« SYN - initiate connection (handshake)
++ FIN — terminate connection
+Receive Window (rwnd) 16 bits Advertises how many bytes the receiver can accept — implements flow control to prevent
+buffer overflow.
+Checksum 16 bits Error detection over TCP header + data + IP pseudo-header. If incorrect, the segment is
+discarded.
+Urgent Pointer 16 bits Marks the end of urgent data when URG flag = 1 (rarely used today).
+Options Variable (040 bytes) Optional advanced features:
+« MSS — Maximum segment size
+« Window Scaling — expand window beyond 65,535 bytes
+« SACK -— selective acknowledgments
+¢ Timestamps — RTT measurement & protection
+
+────────────────────────────────────────────────────────────
+PAGE 54  |  30 words
+────────────────────────────────────────────────────────────
+Host A
+Host B
+User 
+types
+‘C’
+host ACKs
+receipt
+of echoed
+‘C’
+host ACKs 
+receipt of 
+‘C’, echoes
+back ‘C’
+time
+simple telnet scenario
+TCP seq. #’s and ACKs
+
+── Images on page 54 (7 found) ──
+
+[Image 1]  280×80px  (PNG)
+OCR:
+QA -y 7M cx Al Si ', ast (Ole
+
+[Image 2]  456×117px  (PNG)
+OCR:
+u Peay aan Sa Pe in
+pe Woah S 4) er
+“ a MUENE an :
+ww
+
+[Image 3]  125×100px  (PNG)
+OCR:
+Pa
+
+[Image 6]  566×552px  (PNG)
+OCR:
+El First segment sent
+
+ini Seq = 42, ACK = 79, data = "C"
+e Seq = 42 = the segment carries the byte number 42 (first byte in this data).
+e Data = 1 byte ("C’).
+e ACK = 79 = sender is saying:
+
+e “Ihave received everything from you up to byte 78; | now expect byte 79."
+
+Receiver replies with ACK
+
+ini ACK = 43
+e Receiver got byte 42 successfully.
+e Since 1 byte arrived, next expected byte is:
+
+42+1= 43
+
+e So receiver sends ACK = 43.
+This is a cumulative ACK:
+e Means all bytes up to 42 are correctly received.
+Next segment from sender
+
+ini Seq = 43, ACK = 80
+e Seq = 43 — sender sends the next byte after “C”.
+© ACK = 80 = sender confirms receipt of peer data up to byte 79 and expects byte 80 next.
+
+[Image 7]  499×368px  (PNG)
+OCR:
+What the figure demonstrates
+
+Sequence Numbers
+
+© Count bytes, not segments.
+
+e Each segment's Seq # = first data byte number contained in that segment.
+ACK Numbers
+
+© ACK =N means:
+
+“| have received all bytes up to N-1, and | am waiting for byte N.”
+
+Cumulative ACKs
+
+e Receiver does not ACK each byte separately.
+
+e@ One ACK confirms receipt of everything up to a point.
+
+Example:
+
+ini ACK = 43 » all bytes @ ... 42 received correctly
+
+────────────────────────────────────────────────────────────
+PAGE 55  |  6 words
+────────────────────────────────────────────────────────────
+TCP Round Trip Time and Timeout
+
+── Images on page 55 (1 found) ──
+
+[Image 1]  613×314px  (PNG)
+OCR:
+How TCP Sets the Timeout Value (Based on RTT Behavior)
+TCP must choose a retransmission timeout (RTO) that is longer than the Round-Trip Time (RTT).
+However, RTT varies, so choosing this timeout is tricky:
+
+If timeout is too short
+
+e TCP assumes a packet is lost even though it is only delayed.
+
+e This causes premature timeouts and unnecessary retransmissions.
+
+e Wastes bandwidth and reduces performance.
+
+If timeout is too long
+
+e TCP waits too long before retransmitting a truly lost packet.
+
+e This causes slow recovery from losses.
+
+e Leads to poor throughput.
+
+────────────────────────────────────────────────────────────
+PAGE 56  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 56 (2 found) ──
+
+[Image 1]  1504×463px  (JPEG)
+OCR:
+0.3 T 0.3 T4 To
+! i} ]
+' ] I
+I ] ]
+' ! ]
+I 1 !
+0.2 ‘ 0.2 1 1
+= =
+oO | o ! I
+2 ! 2 ! I
+& <4 |
+oO. ! Qa. 1 I
+0.1 0.1 !
+{ 1 |
+i} ! ]
+' ]
+i} ]
+I ]
+
+~ O 10 20 30 40 50 - O 10 20 30 40 50
+Rounda-trip time (msec) Round-trip time (msec)
+
+[Image 2]  646×391px  (PNG)
+OCR:
+How TCP Estimates RTT
+TCP needs a stable estimate of RTT to set a good timeout.
+1. SampleRTT
+e For each transmitted segment, TCP measures the time from sending the segment until receiving its
+ACK.
+e Retransmitted segments are ignored (to avoid ambiguity).
+2. SampleRTT varies
+As shown in the figures:
+e Left figure: RTT is stable (clustered around ~20 ms).
+— A single timeout value (T) works reliably.
+e Right figure: RTT varies widely (10-45 ms).
+= A single timeout value is risky:
+e = If timeout = T, (~30 ms) > too short — many false timeouts
+e If timeout = Tz (~45 ms) > safe but slow recovery
+
+────────────────────────────────────────────────────────────
+PAGE 57  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 57 (1 found) ──
+
+[Image 1]  643×532px  (PNG)
+OCR:
+3. TCP uses an averaged (smoothed) RTT
+Rather than relying on one measurement, TCP uses an exponential weighted moving average (EWMA):
+EstimatedRIT = (1 — a) - EstimatedRIT + a- SampleRTT
+This smooths out fluctuations.
+4. Add a “safety margin” (RTT variation)
+TCP also computes the RTT deviation, then sets:
+Timeout = EstimatedRTT + 4-DevRTT
+
+This ensures:
+
+e In normal conditions: timeout is near RTT
+
+e If RTT spikes: timeout increases automatically
+Summary (in simple terms)
+
+1. Measure RTT using SampleRTT.
+
+2. Smooth it using an average.
+
+3. Measure variations in RTT.
+
+4. Set TCP timeout = smoothed RIT + cushion for variation.
+
+────────────────────────────────────────────────────────────
+PAGE 58  |  55 words
+────────────────────────────────────────────────────────────
+TCP Round Trip Time and Timeout
+EstimatedRTT = (1- )*EstimatedRTT + *SampleRTT
+Exponential weighted moving average
+influence of past sample decreases exponentially fast
+typical value: = 0.125
+100
+150
+200
+250
+300
+350
+1
+8
+15
+22
+29
+36
+43
+50
+57
+64
+71
+78
+85
+92
+99
+106
+time (seconnds)
+RTT(milliseconds)
+SampleRTT
+Estimated RTT
+
+── Images on page 58 (4 found) ──
+
+[Image 1]  992×550px  (PNG)
+[No text detected]
+
+[Image 2]  993×317px  (PNG)
+OCR:
+,
+| iy WR
+i i OA HE Hil 9
+Mel Be tig = Sf all | ‘ mina |§
+
+[Image 3]  404×113px  (PNG)
+OCR:
+Meaning:
+
+e Take the old estimated value.
+
+e Adda small portion of the new measurement.
+
+e New SampleRTT influences the average, but only partially.
+
+[Image 4]  311×118px  (PNG)
+OCR:
+Typical « = 0.125 ( = 1/8 )
+© Only 12.5% of the new measurement is used.
+© 87.5% comes from previous history.
+
+This creates a smooth curve like the pink line.
+
+────────────────────────────────────────────────────────────
+PAGE 59  |  27 words
+────────────────────────────────────────────────────────────
+100
+150
+200
+250
+300
+1
+8
+15
+22
+29
+36
+43
+50
+57
+64
+71
+78
+85
+92
+99
+106
+time (seconnds)
+RTT(milliseconds)
+SampleRTT
+Estimated RTT
+
+── Images on page 59 (4 found) ──
+
+[Image 1]  992×550px  (PNG)
+[No text detected]
+
+[Image 2]  993×317px  (PNG)
+OCR:
+,
+| iy WR
+i i OA HE Hil 9
+Mel Be tig = Sf all | ‘ mina |§
+
+[Image 3]  574×293px  (PNG)
+OCR:
+@ Blue line: SampleRTT
+
+e Each blue point is a direct measurement of how long a packet took (send — ACK).
+e These vary widely because network conditions change: queueing, congestion, routing, etc.
+e You see many spikes (sudden high RTT values) and dips.
+
+@ Pink line: EstimatedRTT
+
+e This is the smoothed average that TCP uses for its timeout calculation.
+
+e It doesn’t jump up and down like SampleRTT.
+
+e It follows the general trend but removes the noise.
+
+This is exactly what TCP wants:
+
+@& react to long-term changes, but
+
+@ ignore short, temporary fluctuations.
+
+[Image 4]  620×233px  (PNG)
+OCR:
+Summary
+e The blue line shows SampleRTT: actual measured round-trip times, which fluctuate a lot.
+e TCP cannot use these raw values directly because they are too noisy.
+e So TCP computes EstimatedRTT (pink line) using an Exponential Weighted Moving Average:
+EstimatedRIT = (1 - a) - EstimatedRIT + a- SampleRTT
+e With the typical value a = 0.125, new samples affect the estimate only a little.
+e This smoothing makes EstimatedRTT stable and slow-changing, even when SampleRTT spikes.
+e TCP then uses this stable EstimatedRTT to choose a reliable retransmission timeout.
+
+────────────────────────────────────────────────────────────
+PAGE 60  |  31 words
+────────────────────────────────────────────────────────────
+TCP reliable data transfer
+TCP creates rdt service on top of IP’s unreliable service
+Pipelined segments
+Cumulative ACKs
+TCP uses single retransmission timer
+Retransmissions are triggered by:
+timeout events
+duplicate ACKs
+
+── Images on page 60 (1 found) ──
+
+[Image 1]  578×249px  (PNG)
+OCR:
+Summary: TCP Reliable Data Transfer
+e TCP provides reliable delivery even though IP is unreliable.
+e It achieves reliability using:
+e Pipelined segments: multiple unacknowledged packets can be in flight at once.
+© Cumulative ACKs: one ACK can confirm receipt of several segments.
+e TCP uses only one retransmission timer for the oldest unacknowledged segment.
+e Retransmissions happen when:
+1. Timeout occurs (no ACK received in time).
+2. Duplicate ACKs are received (usually 3 duplicates), indicating a likely packet loss.
+These mechanisms together create TCP’s reliable data transfer service.
+
+────────────────────────────────────────────────────────────
+PAGE 61  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 61 (1 found) ──
+
+[Image 1]  603×737px  (PNG)
+OCR:
+TCP Sender: How It Works
+1. When the application gives data to TCP
+e TCP takes the data and creates a segment.
+e It assigns a sequence number, which is the byte number of the first byte in that segment.
+e If TCP is not already waiting for an ACK, it starts a timer.
+e This timer is always for the oldest unacknowledged segment.
+e Its duration is the Timeoutinterval (based on EstimatedRTT).
+2. When the timer expires (timeout event)
+e TCP assumes the segment was lost.
+e It retransmits that same segment.
+e Then it restarts the timer (again for the oldest unacked segment).
+This ensures lost data is resent.
+3. When an ACK arrives
+e If the ACK confirms receipt of new data (not previously acknowledged):
+¢ TCP updates the boundary of what has been successfully received.
+e If there are still unacknowledged segments:
+e TCP keeps the timer running, or restarts it if needed.
+e If all data is acknowledged, the timer stops.
+In short
+e Send data — start timer.
+e Timeout — retransmit and restart timer.
+e ACK — update progress and manage the timer.
+This process ensures TCP reliably delivers data over an unreliable network.
+
+────────────────────────────────────────────────────────────
+PAGE 62  |  18 words
+────────────────────────────────────────────────────────────
+TCP: retransmission scenarios
+Host A
+loss
+timeou
+t
+lost ACK scenario
+Host B
+X
+time
+SendBase
+= 100
+
+── Images on page 62 (8 found) ──
+
+[Image 3]  165×60px  (PNG)
+OCR:
+DN
+VW
+WAS
+ih
+S
+5
+Hi
+i B
+I
+
+[Image 4]  100×80px  (PNG)
+[No text detected]
+
+[Image 7]  165×60px  (PNG)
+OCR:
+DN
+VW
+)
+ih
+a
+i B
+I
+
+[Image 8]  693×333px  (PNG)
+OCR:
+Lost ACK — Detailed Summary
+1. Sender transmits a data packet with a sequence number (e.g., seq = 92).
+2. Receiver successfully receives the packet, delivers the data, and prepares an ACK.
+3. Receiver sends ACK(seq) to confirm correct reception.
+4. The ACK is lost in the network (corruption, collision, or drop).
+5. Sender keeps waiting for the ACK but never receives it.
+6. When the timer expires, the sender assumes the data was lost (it cannot know that only the ACK was
+lost).
+7. Sender retransmits the same data packet.
+8. Receiver receives a duplicate packet, recognizes the repeated sequence number.
+9. Receiver discards the duplicate data to avoid delivering the same data twice.
+10. Receiver sends another ACK(seq).
+11. Sender receives this ACK and moves on to the next packet.
+
+────────────────────────────────────────────────────────────
+PAGE 63  |  23 words
+────────────────────────────────────────────────────────────
+TCP: retransmission scenarios
+Host A
+time
+premature timeout
+Host B
+Seq=92
+timeout
+Seq=92
+timeout
+Sendbase
+= 100
+SendBase
+= 120
+SendBase
+= 120
+
+── Images on page 63 (10 found) ──
+
+[Image 2]  165×65px  (PNG)
+OCR:
+} rn ,
+
+[Image 3]  101×81px  (PNG)
+[No text detected]
+
+[Image 6]  166×60px  (PNG)
+OCR:
+Pei +
+iD) Viren > Pez oh.
+
+[Image 9]  166×60px  (PNG)
+OCR:
+Pei +
+Vie A
+
+[Image 10]  399×397px  (PNG)
+OCR:
+1. Sender transmits two segments
+
+e Seq = 92 (8 bytes)
+
+e Seq = 100 (20 bytes)
+2. Receiver receives both segments normally
+
+¢ No loss occurs.
+3. Receiver sends ACKs back
+
+e ACKs are on the way but delayed in the network.
+4. Sender's RTO (timeout value) is too small
+
+e ACKs have not arrived yet.
+
+e Timer expires early.
+5. Sender triggers a premature timeout
+
+e Assumes segment 92 was lost (even though it wasn’t).
+6. Sender retransmits segment 92 unnecessarily
+
+e Wastes bandwidth and causes redundant traffic.
+7. Delayed ACKs finally arrive
+
+e Confirms the timeout was premature.
+
+────────────────────────────────────────────────────────────
+PAGE 64  |  18 words
+────────────────────────────────────────────────────────────
+TCP retransmission scenarios
+loss
+timeou
+t
+Host A
+Host
+B
+X
+time
+Cumulative ACK
+scenario
+SendBase
+= 120
+
+── Images on page 64 (7 found) ──
+
+[Image 1]  100×80px  (PNG)
+[No text detected]
+
+[Image 4]  165×60px  (PNG)
+OCR:
+DN
+VW
+WAS
+ih
+S
+5
+Hi
+i B
+I
+
+[Image 6]  166×60px  (PNG)
+OCR:
+tha
+Va BAL)
+OVAL ED
+AGS Glas
+Cia
+HY)
+
+[Image 7]  649×382px  (PNG)
+OCR:
+1. Asends the first data segment (92.8 bytes).
+B receives it correctly and generates an ACK for the next expected byte.
+
+2. That ACK is lost in the network.
+A does not receive it, so the first segment remains unacknowledged on A's side.
+
+3. Asends the next data segment (20 bytes).
+TCP allows multiple unacknowledged packets in flight (pipelining), so A continues sending even without
+the first ACK.
+
+4. B receives the second segment.
+Now B has both segments in order (first + second). Since ACKs are cumulative, B sends an ACK that
+covers all bytes received so far.
+
+5. This cumulative ACK reaches A.
+A sees that the ACK number acknowledges both the first large segment and the second small one, so it
+removes both from its unacked buffer.
+
+6. No retransmission is needed.
+Because cumulative ACKs implicitly acknowledge earlier data, losing the first ACK does not cause a
+timeout or retransmission as long as a later ACK covers it.
+
+────────────────────────────────────────────────────────────
+PAGE 65  |  2 words
+────────────────────────────────────────────────────────────
+Fast Retransmit
+
+── Images on page 65 (1 found) ──
+
+[Image 1]  737×539px  (PNG)
+OCR:
+Fast Retransmit
+® Timeout is slow:
+TCP's timeout value is usually large, so if a packet is lost, the sender waits a long time before
+retransmitting it.
+e Using duplicate ACKs to detect loss:
+When a segment is missing, the receiver keeps acknowledging the same last in-order byte.
+This produces duplicate ACKs (same ACK number repeated).
+e Why duplicates happen:
+The sender usually transmits many packets back-to-back.
+If one of them is lost but later packets arrive, each out-of-order arrival triggers a duplicate ACK from the
+receiver,
+¢ Detecting loss early:
+If the sender receives 3 duplicate ACKs (i.e., four ACKs with the same number), it assumes the next
+segment after that ACKed data is lost.
+¢ Fast Retransmit action:
+The sender retransmits the missing segment immediately, without waiting for the timeout.
+
+────────────────────────────────────────────────────────────
+PAGE 66  |  29 words
+────────────────────────────────────────────────────────────
+Host A
+timeou
+t
+Host B
+X
+time
+Resending a segment after triple duplicate ACK
+1
+2
+3
+4
+5
+2
+2
+2
+Packets
+Acknowledgements (waiting seq#)
+2
+2
+
+── Images on page 66 (3 found) ──
+
+[Image 1]  71×57px  (PNG)
+[No text detected]
+
+[Image 2]  71×57px  (PNG)
+[No text detected]
+
+[Image 3]  384×371px  (PNG)
+OCR:
+PES ves 3} ay Oi ONY ©}
+Ct.
+
+────────────────────────────────────────────────────────────
+PAGE 67  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 67 (3 found) ──
+
+[Image 1]  333×403px  (PNG)
+OCR:
+Host A Host B
+@® ®
+5 SS
+Segmar
+time
+
+[Image 2]  893×275px  (PNG)
+OCR:
+Packets Resending a segment after triple duplicate ACK
+EX
+Acknowledgements (waiting seq#)
+2] 2] [2] [2]
+
+[Image 3]  652×460px  (PNG)
+OCR:
+1. Many segments sent back-to-back
+The blue arrows in the top part of the figure represent a sender transmitting multiple TCP segments in a
+burst.
+This is typical because TCP often has a large congestion window during steady transfer.
+2. One segment is lost
+The red X on one of the blue lines shows a single missing segment.
+All later segments still reach the receiver.
+3. Receiver sends duplicate ACKs
+Since the receiver gets later segments but not the missing one, it keeps acknowledging the last in-order
+byte it received.
+So it sends duplicate ACKs:
+
+e ACK
+
+e ACK
+
+e ACK
+
+All with the same ACK number, because it is still waiting for the missing segment.
+
+This is shown in the figure as repeated arrows pointing back toward the sender.
+
+────────────────────────────────────────────────────────────
+PAGE 68  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 68 (3 found) ──
+
+[Image 1]  333×403px  (PNG)
+OCR:
+Host A Host B
+@® ®
+5 SS
+Segmar
+time
+
+[Image 2]  893×275px  (PNG)
+OCR:
+Packets Resending a segment after triple duplicate ACK
+EX
+Acknowledgements (waiting seq#)
+2] 2] [2] [2]
+
+[Image 3]  677×492px  (PNG)
+OCR:
+4. Sender detects loss before timeout — Fast Retransmit
+When the sender receives 3 duplicate ACKs, it assumes:
+"The segment right after this ACK must have been lost.”
+Therefore the sender does not wait for the long timeout period.
+Instead, it performs:
+Fast retransmit
+It immediately resends the missing segment, shown by the longer arrow from the sender downward.
+This avoids waiting for the full retransmission timeout (RTO), which could be long.
+5. Bottom figure (X) marks the long delay avoided
+The red X at the bottom symbolizes the long timeout delay that would happen if duplicate ACKs did not
+trigger fast retransmit.
+Fast retransmit avoids this delay by retransmitting early.
+In one sentence
+The figure shows that if a segment in a burst is lost, the receiver generates multiple duplicate ACKs, enabling
+the sender to detect the loss and retransmit the missing segment before the long timeout expires—this is
+TCP fast retransmit.
+
+────────────────────────────────────────────────────────────
+PAGE 69  |  61 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+The Transport Layer (TL)
+Introduction to TL Protocols and Services
+Connectionless and Connection-oriented
+Demultiplexing Processes in TL
+Unreliable Data Transfer
+• User Datagram Protocol (UDP)
+Reliable Data Transfer
+• Transport Control Protocol (TCP)
+• Reliable channels
+• Channels with errors and losses
+Material to be covered next lecture
+Continue the Transport Layer
+Introduction to the Application Layer

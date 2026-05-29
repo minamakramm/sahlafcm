@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "title": "إدارة سهلة",
+    "dashboard": "لوحة القيادة",
+    "feedback": "صندوق الملاحظات",
+    "users": "المستخدمين",
+    "featureRequests": "طلبات الميزات",
+    "analytics": "التحليلات",
+    "errorLogs": "سجلات الأخطاء",
+    "content": "إدارة المحتوى",
+    "settings": "الإعدادات",
+    "notifications": "بث الإشعارات",
+    "monitors": "المراقبين",
+    "collaborators": "المتعاونين",
+    "backToSite": "العودة للمنصة"
+  },
+  "notifications": {
+    "broadcastTitle": "بث الإشعارات",
+    "broadcastSubtitle": "إرسال حقيقي ومنتظم للإشعارات لمجتمع مستخدمي المنصة."
+  },
+  "dashboard": {
+    "title": "نظرة عامة على النظام",
+    "subtitle": "مراقبة صحة المنصة ونشاط المستخدمين.",
+    "totalUsers": "إجمالي المستخدمين",
+    "activeToday": "نشط اليوم",
+    "totalFeedback": "إجمالي الملاحظات",
+    "totalExams": "الاختبارات المنجزة",
+    "recentActivity": "النشاط الأخير",
+    "lecturesAvailable": "المحاضرات المتاحة",
+    "examAttempts": "محاولات الاختبار",
+    "feedbackMessages": "رسائل الملاحظات"
+  }
+}

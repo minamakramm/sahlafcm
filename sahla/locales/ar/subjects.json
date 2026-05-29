@@ -1,0 +1,46 @@
+{
+  "page": {
+    "title": "المواد",
+    "subtitle": "استكشف مواد مقرراتك",
+    "departmentTitle": "{{department}} — المواد",
+    "departmentSubtitle": "جميع المواد في قسم {{department}}"
+  },
+  "card": {
+    "lectures": "{{count}} محاضرات",
+    "hasExam": "يوجد امتحان",
+    "noExam": "لا يوجد امتحان",
+    "viewSubject": "عرض المادة",
+    "code": "الرمز: {{code}}"
+  },
+  "detail": {
+    "lectureList": "المحاضرات",
+    "examSection": "امتحان تدريبي",
+    "examSubtitle": "Practice Exam",
+    "examMinutes": "دقيقة",
+    "examQuestions": "أسئلة",
+    "startExam": "ابدأ الامتحان",
+    "description": "الوصف",
+    "lectureCount": "{{count}} محاضرات",
+    "progress": "التقدم",
+    "completedLectures": "{{completed}} من {{total}} محاضرات مكتملة",
+    "noLectures": "لا توجد محاضرات متاحة بعد.",
+    "midtermIncluded": "المحاضرات من {{start}} إلى {{end}} داخلة في الميدترم",
+    "midtermIncludedWithSections": "المحاضرات من {{start}} إلى {{end}} والأقسام من {{secStart}} إلى {{secEnd}} داخلة في الميدترم",
+    "midtermShort": "المحاضرات {{start}}-{{end}} ميدترم",
+    "midtermShortWithSections": "المحاضرات {{start}}-{{end}} والأقسام {{secStart}}-{{secEnd}} ميدترم",
+    "notFound": "المادة غير موجودة",
+    "notFoundDesc": "لم يتم العثور على المادة المطلوبة."
+  },
+  "filter": {
+    "all": "الكل",
+    "department": "القسم",
+    "hasExam": "يوجد امتحان",
+    "sortBy": "ترتيب حسب",
+    "sortName": "الاسم",
+    "sortCode": "الرمز",
+    "sortLectures": "عدد المحاضرات"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية"
+  }
+}

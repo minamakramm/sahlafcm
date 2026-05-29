@@ -1,0 +1,1846 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_5_Data_Link_Layer_1.pdf
+Date   : 2026-05-14 03:36:43.990156
+Pages  : 59 / 59
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  5 words
+────────────────────────────────────────────────────────────
+Lecture 5
+Data Link Layer
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  28 words
+────────────────────────────────────────────────────────────
+Agenda
+Introduction to Data Link Layer
+Error Detection and Correction
+• Parity Checking
+Flow and Error Control
+• Simple Stop and Wait Protocol
+• Automatic Repeat Request Protocols
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  36 words
+────────────────────────────────────────────────────────────
+Introduction
+Our goals
+Understand principles behind data link layer services
+Error detection and correction
+Reliable data transfer, flow control
+Sharing a broadcast channel: multiple access
+Link layer addressing
+Instantiation and implementation of various link layer
+technologies
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  47 words
+────────────────────────────────────────────────────────────
+Introduction
+Some terminology:
+hosts and routers are nodes
+communication channels that
+connect adjacent nodes along 
+communication path are links
+wired links
+wireless links
+LANs
+layer-2 packet is a frame,
+encapsulates datagram
+data-link layer has responsibility of 
+transferring datagram from one node 
+to adjacent node over a link
+
+── Images on page 4 (17 found) ──
+
+[Image 6]  355×211px  (PNG)
+OCR:
+_
+— 4g
+
+[Image 7]  638×502px  (PNG)
+OCR:
+’
+== = aA
+i :
+i
+|
+i
+
+[Image 8]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 9]  59×73px  (PNG)
+[No text detected]
+
+[Image 10]  59×72px  (PNG)
+[No text detected]
+
+[Image 11]  232×180px  (PNG)
+[No text detected]
+
+[Image 12]  143×87px  (PNG)
+[No text detected]
+
+[Image 13]  75×83px  (PNG)
+[No text detected]
+
+[Image 16]  89×85px  (PNG)
+OCR:
+‘ik
+
+[Image 17]  62×85px  (PNG)
+OCR:
+‘A
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  24 words
+────────────────────────────────────────────────────────────
+Data Link Layer (DLL)
+The data link layer transforms the physical layer, a
+raw transmission facility, to a link responsible for
+node-to-node (hop-to-hop) communication
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  400×132px  (JPEG)
+OCR:
+Higher Expects Error-free Delivery Service 7 Higher |
+Layers: al om Le EF Layers
+= = Pd Z
+a = — ia Ty
+Data Link Dor ie ey Data Link
+Layer AEA E NE MN. WAS SSS: Layer
+Data Link Layer Protocol
+Physical ie | | aaa I | | | s Physical
+Layer f Error-prone Transmission Facility ; Layer
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  99 words
+────────────────────────────────────────────────────────────
+Services of DLL
+Framing
+divides the stream of bits received from the network layer into
+manageable data units called frames
+Addressing
+adds a header to the frame to define the addresses of the sender and
+receiver of the frame (physical addresses)
+Flow control
+imposes a flow control mechanism to avoid overwhelming the
+receiver
+Error control
+adds reliability to the physical layer by adding mechanisms to
+detect and retransmit damaged, duplicate, or lost frames
+Media access control
+determine which device has control over the link at any given time
+when more than one device try to connect to the channel
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  48 words
+────────────────────────────────────────────────────────────
+Services of DLL
+Reliable delivery between adjacent nodes
+Based on acknowledgements and data retransmissions
+seldom used on low bit-error link (fiber, some twisted
+pair)
+wireless links: high error rates
+Half-duplex and full-duplex
+with half duplex, nodes at both ends of link can transmit, but not
+at same time
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  59 words
+────────────────────────────────────────────────────────────
+Where is DLL implemented?
+in each and every host
+link layer implemented in
+“adaptor” (aka network 
+interface card NIC)
+Ethernet card, PC card,
+802.11 card
+implements link, physical
+layer
+attaches into host’s system
+buses
+combination of hardware,
+software, firmware
+controller
+physical
+transmission
+cpu
+memory
+host 
+bus
+(e.g., PCI)
+network adapter 
+card
+host schematic
+application
+transport
+network
+link
+link
+physical
+
+── Images on page 8 (5 found) ──
+
+[Image 1]  130×174px  (PNG)
+OCR:
+q
+
+[Image 2]  92×148px  (PNG)
+OCR:
+3
+
+[Image 3]  126×109px  (PNG)
+[No text detected]
+
+[Image 4]  104×64px  (JPEG)
+OCR:
+i =
+
+[Image 5]  120×112px  (JPEG)
+OCR:
+ig
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  144 words
+────────────────────────────────────────────────────────────
+controller
+physical
+transmission
+cpu
+memory
+host 
+bus
+(e.g., PCI)
+network adapter 
+card
+host schematic
+application
+transport
+network
+link
+link
+physical
+The data path from an application down to 
+the network:
+1. *Application -> Transport -> Network ->
+Link:* Data travels down the network 
+stack within the host's main operating 
+system.
+2. *CPU / Memory:* The main processor and
+memory handle the application, transport, 
+and network layers in software.
+3. *Controller:* This is the logic on the *NIC
+itself*. When the data reaches the link 
+layer, it is passed from the CPU, across 
+the...
+4. *Host Bus (e.g., PCI):* ...to the NIC.5.
+*Network Adapter Card:* The NIC's 
+controller takes the packet from the 
+network layer, encapsulates it into a link-
+layer frame, and hands it to the...
+6.  *Physical Transmission:* ...physical 
+component which converts the frame into 
+signals on the wire or over the air.
+
+── Images on page 9 (3 found) ──
+
+[Image 1]  130×174px  (PNG)
+OCR:
+q
+
+[Image 2]  92×148px  (PNG)
+OCR:
+3
+
+[Image 3]  126×109px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  124 words
+────────────────────────────────────────────────────────────
+• *You (Application Layer):* Write the content.*
+• *Your Assistant (Transport/Network Layers):* Puts it in an envelope, 
+writes the IP address (like a zip code), and gives it to the mailroom.*
+• *The Mailroom (Data Link Layer - the NIC):* Is responsible for the 
+specific method of delivery. They take the envelope, put the specific 
+local street address (MAC Address) on it, and hand it to...*
+• *The Mail Truck (Physical Layer - also the NIC):* Which is the 
+physical vehicle that actually transports the letter onto the road (the 
+network medium).
+The "mailroom and truck" are a single, specialized unit (the NIC) that 
+handles the final, local steps of getting the message onto the network.
+Simple Analogy
+Think of sending a physical letter:
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  72 words
+────────────────────────────────────────────────────────────
+Error Detection and Correction in DLL
+Generally, networks must be able to transfer
+data from one device to another with 
+acceptable accuracy
+Data can be corrupted during transmission
+Some applications require that errors should
+be detected and corrected
+Some applications can tolerate a small level of
+error
+For example, random errors in audio or video
+transmissions may be tolerable, but when we
+transfer text, we expect a very high level of
+accuracy
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  59 words
+────────────────────────────────────────────────────────────
+Error Detection and Correction in DLL
+Types of Errors
+Single-bit error
+• only one bit in the data unit has changed
+Burst error
+• two or more bits in the data unit have changed
+Errors Mitigation
+Redundancy
+• To detect or correct errors, extra (redundant) bits are added
+by the sender to the data and removed by the receiver
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 13 (1 found) ──
+
+[Image 1]  811×389px  (PNG)
+OCR:
+Figure 10.1 Single-bit and burst error
+Length of burst error (8 bits)
+/-—_—_—_——>|
+Sent [o[o[o[o]e]o]1[o| [oli fofofa]ifoltfolifefololol iti) sent
+Corrupted bit Corrupted bits
+Received [0] 0[0[o] 10] 1 [0 [oli fot foyifofofoli{tfofolo]i] i] Received
+a. Single-bit error b. Burst error
+A burst error is more likely to occur than a single-bit error because the duration of
+the noise signal is normally longer than the duration of 1 bit, which means that when
+noise affects data, it affects a set of bits. The number of bits affected depends on the
+data rate and duration of noise. For example, if we are sending data at 1 kbps, a noise of
+1/100 second can affect 10 bits; if we are sending data at 1 Mbps, the same noise can
+affect 10,000 bits.
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  51 words
+────────────────────────────────────────────────────────────
+Error Detection and Correction in DLL
+sending side:
+encapsulates datagram in
+frame
+adds error checking bits,
+reliable data transfer 
+(rdt), flow control, etc.
+receiving side
+looks for errors, rdt, flow
+control, etc
+extracts datagram, passes
+to upper layer at receiving
+side
+datagram
+controller
+controller
+sending host
+receiving host
+datagram
+datagram
+frame
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  57 words
+────────────────────────────────────────────────────────────
+Question
+Is it effective to implement error
+detection and correction techniques in 
+synchronous or asynchronous 
+communication systems ?
+It is *absolutely effective and necessary* to implement error 
+detection in both systems. Implementing error correction is most 
+effective and provides the greatest benefit in *synchronous 
+communication systems* where minimizing latency and managing 
+noise on high-speed links is crucial.
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  55 words
+────────────────────────────────────────────────────────────
+Error Detection and Correction in DLL
+Define
+EDC= Error Detection and Correction bits (redundancy)
+D = Data protected by error checking, may include header fields
+Error detection not 100% reliable!
+•
+protocol may miss some errors, but rarely
+•
+larger EDC field yields better detection and correction
+•
+examples: parity checking, cyclic redundancy check (CRC)
+
+── Images on page 16 (1 found) ──
+
+[Image 1]  1023×669px  (PNG)
+OCR:
+Y
+all \
+bits in D'
+—_——>
+OK detected
+? error
++d data bits—|
+| dD _ {ede | Df Eb’
+) bit-error prone link {
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  27 words
+────────────────────────────────────────────────────────────
+Parity Checking
+Error Detection and Correction in DLL
+Single Bit Parity:
+Detect single bit errors
+Two Dimensional Bit Parity:
+Detect and correct single bit errors
+0
+0
+
+── Images on page 17 (4 found) ──
+
+[Image 1]  569×198px  (PNG)
+OCR:
++— ddata bits ——| ay
+0111000110101011] 0
+
+[Image 2]  554×767px  (PNG)
+OCR:
+POW
+parity
+oe nL i Le
+doy 77 Aaj | do jay
+ria at — “i di j+1
+parity dist 4 sn di+4! dint j+1
+10101)/1 19010111 |
+11110)0 G+ Of Parly
+01110) 0 sid
+10101/0 1010110
+no errors parity
+error
+correctable
+single bit error
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  96 words
+────────────────────────────────────────────────────────────
+Single Bit Parity Example
+Let’s say we are using even parity (total number of 1s must be 
+even).
+Example: Data bits: 1010001 Count of 1s = 3 (odd number)
+👉To make it even, we add parity bit = 1
+Final transmitted data: 10100011 
+↑ last bit = parity bit
+--- At the receiver: Received bits = 10100011 
+Count of 1s = 4 (even) → ✅No error detected.
+If one bit flips during transmission, e.g. 11100011, Count of 1s = 5 
+(odd) → ❌Error detected.
+🟡Note: Single parity detects an error but cannot locate or correct 
+it.
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  62 words
+────────────────────────────────────────────────────────────
+Two-Dimensional Parity Example
+Now let’s arrange data bits in a grid (rows × columns) and add both row and column 
+parity bits.
+Example data:
+Step 1 — Add Row Parity (Even Parity): For each row, make total number of 1s even.
+Data Bits Row Parity
+Step 2 — Add Column Parity: Now check each column (including data bits) and make 
+1s even.
+
+── Images on page 19 (3 found) ──
+
+[Image 1]  97×103px  (PNG)
+OCR:
+1010
+1100
+0110
+
+[Image 2]  239×97px  (PNG)
+OCR:
+1010-2 ones (even) 0
+1100-2 ones (even) 0
+0110-2 ones (even) 0
+
+[Image 3]  359×391px  (PNG)
+OCR:
+Column Bits 1s Count Column Parity
+1 1,1,0 2 0
+
+2 0,1,1 2 0
+
+3 1,0,1 2 0
+
+4 0,0,0 0 0
+So the final transmitted grid is:
+1010]0
+
+1100]0
+
+0110|0
+
+0000] <column parity bits
+
+All parities are correct — no error.
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 20 (3 found) ──
+
+[Image 1]  521×467px  (PNG)
+OCR:
+Step 0 — Suppose an error occurs:
+
+One bit changes:
+
+1010
+
+1110 - (error here, one bit flipped)
+
+0110
+
+Now when the receiver checks parity:
+
+Row 2 parity becomes wrong 3%
+
+Column 3 parity becomes wrong %
+
+= Intersection = bit (row 2, column 3) is the error bit.
+Receiver flips it back to correct value
+
+[Image 2]  97×103px  (PNG)
+OCR:
+1010
+1100
+0110
+
+[Image 3]  969×247px  (PNG)
+OCR:
+Summary Table
+Method Detects Errors Corrects Errors How
+Single Parity Bit Detects single-bit error % Cannot correct Adds one parity bit to make total 1s
+even or odd
+Two-Dimensional Parity Detects & corrects single- Yes Uses row and column parity bits to
+bit error locate the error
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  74 words
+────────────────────────────────────────────────────────────
+Example
+Block coding for error detection
+Let us assume that length k of each dataword =2 and the length n
+of each codeword =3. The table shows the list of datawords and 
+codewords.
+Requirements
+1.
+How many bits are used as parity bits ?
+2.
+Determine the number of bits that can be detected in errors and
+corrected.
+3.
+Discuss the following cases when the receiver receives
+codeword 011, corrupted codewords 111 and 000
+
+── Images on page 21 (1 found) ──
+
+[Image 1]  527×200px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 22 (2 found) ──
+
+[Image 1]  786×272px  (JPEG)
+OCR:
+Assume the sender encodes the dataword 01 as 011 and sends it to the receiver. Consider the
+following cases:
+
+1, The receiver receives 011. It is a valid codeword. The receiver extracts the dataword 01 from it.
+
+2, The codeword is corrupted during transmission, and 111 is received (the leftmost bit is cor-
+rupted). This is not a valid codeword and is discarded.
+
+3, The codeword is corrupted during transmission, and 000 is received (the right two bits are
+corrupted). This is a valid codeword. The receiver incorrectly extracts the dataword 00. Two
+corrupted bits have made the error undetectable.
+
+[Image 2]  527×200px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  81 words
+────────────────────────────────────────────────────────────
+Flow and Error Control in DLL
+Flow control
+Refers to a set of procedures used to restrict
+the amount of data that the sender can send 
+before waiting for acknowledgment
+The flow of data must not be allowed to
+overwhelm the receiver
+Any receiving device has a limited speed at
+which it can process incoming data and a limited 
+amount of memory in which to store incoming 
+data
+The rate of such processing is often slower
+than the rate of transmission
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  62 words
+────────────────────────────────────────────────────────────
+Flow and Error Control in DLL
+Error control
+Error control in the data link layer is based on
+automatic repeat request (ARQ), which is the
+retransmission of data
+Error control is both error detection and error
+correction
+Allowing the receiver to inform the sender of
+any frames lost or damaged in transmission and 
+coordinates the retransmission of those frames 
+by the sender
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  8 words
+────────────────────────────────────────────────────────────
+Taxonomy of Protocols for Flow
+and Error Control
+
+── Images on page 25 (1 found) ──
+
+[Image 1]  800×370px  (JPEG)
+OCR:
+ly
+channel channel
+Simplest Stop-and-Wait ARQ
+Stop-and-Wait Go-Back-N ARQ
+Selective Repeat ARQ
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  99 words
+────────────────────────────────────────────────────────────
+1. Protocols for Noiseless Channels
+A noiseless channel is an ideal communication channel where no data 
+is lost or corrupted during transmission.
+Since there are no errors, these protocols do not need error detection 
+or retransmission mechanisms.
+Types:
+• Simplest Protocol:
+• The sender transmits frames continuously without waiting for 
+acknowledgment.
+• The receiver automatically accepts every frame correctly.
+• Used only in theoretical or error-free environments.
+• Stop-and-Wait Protocol (Noiseless):
+• The sender transmits one frame and then waits for an 
+acknowledgment (ACK) before sending the next frame.
+• Ensures orderly delivery and synchronization even in error-free 
+conditions.
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  140 words
+────────────────────────────────────────────────────────────
+2. Protocols for Noisy Channels
+A noisy channel introduces errors, losses, or distortions in transmitted 
+frames. Hence, these protocols include error detection and retransmission 
+(ARQ – Automatic Repeat Request) mechanisms.
+Types:
+•Stop-and-Wait ARQ:
+• Sender sends one frame and waits for an ACK.
+• If the ACK is not received within a timeout period, the sender 
+retransmits the frame.
+• Simple but inefficient for long-distance or high-delay networks.
+•Go-Back-N ARQ:
+• The sender can send multiple frames (up to a window size N) before 
+receiving ACKs.
+• If an error is detected, all frames from the erroneous one onward are 
+retransmitted.
+• More efficient but may lead to redundant retransmissions.
+•Selective Repeat ARQ:
+• Only the erroneous frames are retransmitted, not the entire batch.
+• Uses individual ACKs for each frame.
+• Most efficient but requires more memory and processing.
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  7 words
+────────────────────────────────────────────────────────────
+Stop and Wait Protocol
+For noiseless channels
+
+── Images on page 28 (1 found) ──
+
+[Image 1]  504×354px  (JPEG)
+OCR:
+Sender Receiver
+Physical| Receive Send Physical
+frame frame
+Data frame
+ree |
+| Request from
+Events| network layer
+——
+.| Notification from: . | Notification from:
+Event.) physical layer Event:|" hysical layer
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  32 words
+────────────────────────────────────────────────────────────
+Stop and Wait ARQ Protocol
+For noisy channels: corrupted or lost frames
+In Stop-and-Wait ARQ: we use sequence numbers to number the frames 
+and the acknowledgment numbers announce the next expected frame
+
+── Images on page 29 (1 found) ──
+
+[Image 1]  504×400px  (JPEG)
+OCR:
+S,, Next frame fi, Next frame
+tosend to receive
+revi ebnices3 racine:
+see OU wht0L3 oe eee OT LOLs see
+Sender Receiver
+Data frame ACK frame
+Network Network
+seqNo ackNo
+ical| Receive Send Receive Send [I physical
+Phys frame frame frame frame ys
+ee
+E Request from
+network layer
+— ® Repeat forever
+Event physical layer Event: physical layer
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  111 words
+────────────────────────────────────────────────────────────
+1. Sender Side Operation
+•The sender receives data from the 
+network layer and places it in a data frame 
+with a sequence number (Sₙ).
+•It sends this frame to the receiver through 
+the physical layer.
+•After sending, the sender waits for an 
+acknowledgment (ACK) from the receiver.
+•If the ACK arrives correctly and in time → 
+the sender proceeds to the next frame 
+(Sₙ+1).
+•If no ACK is received within a certain time 
+period → a timeout occurs, and the sender 
+retransmits the same frame.
+💡The lower left part of the figure 
+(“Algorithm for sender site”) shows this 
+continuous loop of sending → waiting → 
+timeout check → retransmit if needed.
+
+── Images on page 30 (1 found) ──
+
+[Image 1]  504×400px  (JPEG)
+OCR:
+S,, Next frame fi, Next frame
+tosend to receive
+revi ebnices3 racine:
+see OU wht0L3 oe eee OT LOLs see
+Sender Receiver
+Data frame ACK frame
+Network Network
+seqNo ackNo
+ical| Receive Send Receive Send [I physical
+Phys frame frame frame frame ys
+ee
+E Request from
+network layer
+— ® Repeat forever
+Event physical layer Event: physical layer
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  97 words
+────────────────────────────────────────────────────────────
+Receiver Side Operation
+•The receiver waits for an incoming frame 
+from the physical layer.
+•When a frame arrives, the receiver checks:
+•
+If the frame’s sequence number
+matches the expected number (Rₙ).
+•
+If correct → the receiver delivers the 
+data to the network layer and sends 
+back an ACK with the 
+acknowledgment number (ackNo = 
+Rₙ).
+•
+If a duplicate or damaged frame is 
+received → it is discarded, and the 
+ACK for the last correctly received 
+frame is resent.
+💡The right bottom block (“Algorithm for 
+receiver site”) represents the receiver’s 
+continuous waiting and checking loop.
+
+── Images on page 31 (1 found) ──
+
+[Image 1]  504×400px  (JPEG)
+OCR:
+S,, Next frame fi, Next frame
+tosend to receive
+revi ebnices3 racine:
+see OU wht0L3 oe eee OT LOLs see
+Sender Receiver
+Data frame ACK frame
+Network Network
+seqNo ackNo
+ical| Receive Send Receive Send [I physical
+Phys frame frame frame frame ys
+ee
+E Request from
+network layer
+— ® Repeat forever
+Event physical layer Event: physical layer
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  93 words
+────────────────────────────────────────────────────────────
+Flow of Operation (Step-by-Step 
+Example)
+1.Sender → Receiver: Sends frame 0.
+2.Receiver → Sender: Sends ACK 0 
+(meaning frame 0 received correctly, 
+now expecting frame 1).
+3.Sender: Upon receiving ACK 0, sends 
+frame 1.
+4.If ACK is lost: Sender waits for 
+timeout, then retransmits frame 1.
+5.Receiver: Detects it’s a duplicate, 
+discards it, and resends ACK 1.
+Purpose of Sequence Numbers
+The sequence numbers (0 and 1) prevent confusion between:
+•New frames
+•Retransmitted frames (in case of acknowledgment loss)
+This is why the Stop-and-Wait ARQ uses 1-bit sequence numbers (alternating 0 and 
+1).
+
+── Images on page 32 (1 found) ──
+
+[Image 1]  504×400px  (JPEG)
+OCR:
+S,, Next frame fi, Next frame
+tosend to receive
+revi ebnices3 racine:
+see OU wht0L3 oe eee OT LOLs see
+Sender Receiver
+Data frame ACK frame
+Network Network
+seqNo ackNo
+ical| Receive Send Receive Send [I physical
+Phys frame frame frame frame ys
+ee
+E Request from
+network layer
+— ® Repeat forever
+Event physical layer Event: physical layer
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  25 words
+────────────────────────────────────────────────────────────
+Go-Back-N ARQ Protocol
+- Multiple frames can be in transition while waiting for acknowledgment
+- When the timer expires, the sender resends all outstanding frames
+
+── Images on page 33 (1 found) ──
+
+[Image 1]  506×432px  (JPEG)
+OCR:
+s, First 5, Next p. Next
+m mn n .
+outstanding tosend to receve
+Sender Receiver
+Oata frame ACK frame Deliver
+Network f — im data Network
+seqNo ackNo
+Physicat| Receive Send Receive Send | physical
+frame frame frame — frame
+——
+|| CS (ee P|
+| Request from
+Eventi network layer
+Repeat forever ® Repeat forever
+Roddie inet | oct ore ite
+= _ Event: LS
+_ [Notification from _| Notification from:
+Event: physical layer Event: physical layer
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  84 words
+────────────────────────────────────────────────────────────
+Go-Back-N ARQ Protocol
+Data
+Sliding Window
+abstract concept that defines the range of sequence numbers
+that is the concern of the sender and receiver
+The range which is the concern of the sender is called the send
+sliding window; the range that is the concern of the receiver is
+called the receive sliding window
+The send sliding window imaginary box covering the sequence
+numbers of the data frames which can be in transit
+m bits 
+represent the 
+number of bits 
+representing 
+the sequence 
+number
+
+── Images on page 34 (1 found) ──
+
+[Image 1]  699×372px  (JPEG)
+OCR:
+5; Send window, S, Send window,
+first outstanding frame next frame to send
+
+RESRLERLS 7 [sf ofiolufiziis [ial is fof i:
+
+Frames already Frames sent, but not Frames that can be sent, Frames that
+
+acknowledged acknowledged (outstanding) but not received from upper layer cannot be sent
+
+Send window, size 5,;..=2™-1
+a. Send window before sliding
+Ey Sh
+
+ieee areal anal ened ene eal
+
+p34 15 Oo 2 17 1 8] 9 | 10} 11] 12] 131 14] 15] of 1 |
+b. Send window after sliding
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 35 (2 found) ──
+
+[Image 1]  856×214px  (JPEG)
+OCR:
+S, Send window, S, Send window,
+first outstanding frame next frame to send
+ja fa fas P7 [sto fiofufizfisfialis{ of i:
+Frames already Frames sent, but not Frames that can be sent, Frames that
+acknowledged acknowledged (outstanding) but not received from upper layer cannot be sent
+Send window, size S,),..=2™-1
+a. Send window before sliding
+
+[Image 2]  618×455px  (PNG)
+OCR:
+@ (a) Send Window Before Sliding
+This is the initial state of the sender's window before receiving new acknowledgments.
+Key elements:
+° sf (first outstanding frame):
+The oldest frame sent but not yet acknowledged (here, frame 0).
+* $n (next frame to send):
+The next frame number the sender can transmit (here, frame 7).
+¢ Send window size (s_size):
+Defined as Syjz¢ = 2” — 1,
+where m = number of bits in the sequence number field.
+This ensures there’s no ambiguity between new and old frames.
+Window segments:
+Frames sent but not yet acknowledged (0-6):
+These are outstanding frames — transmitted, awaiting ACKs.
+Frames that can be sent (7-14):
+These are within the window but haven't yet been sent — the sender can transmit them if data arrives
+from the upper layer.
+Frames that cannot be sent (beyond frame 14): LV
+Outside the current window; the sender must wait until the window slides forward (after ACKs).
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 36 (2 found) ──
+
+[Image 1]  699×372px  (JPEG)
+OCR:
+5; Send window, S, Send window,
+first outstanding frame next frame to send
+
+RESRLERLS 7 [sf ofiolufiziis [ial is fof i:
+
+Frames already Frames sent, but not Frames that can be sent, Frames that
+
+acknowledged acknowledged (outstanding) but not received from upper layer cannot be sent
+
+Send window, size 5,;..=2™-1
+a. Send window before sliding
+Ey Sh
+
+ieee areal anal ened ene eal
+
+p34 15 Oo 2 17 1 8] 9 | 10} 11] 12] 131 14] 15] of 1 |
+b. Send window after sliding
+
+[Image 2]  891×475px  (PNG)
+OCR:
+@ (b) Send Window After Sliding
+This is the state after receiving acknowledgments for frames 0, 1, and 2.
+Changes:
+¢ Sf moves from 0 = 3:
+This indicates that frames 0, 1, and 2 have been acknowledged by the receiver.
+The sender no longer needs to keep them in memory.
+¢ Window slides forward:
+The entire window shifts three positions, opening new slots (15, 0, 1) at the right end.
+Now, the sender can send these new frames as it receives data from the upper layer.
+¢ Sn remains at 7:
+If no new data has arrived yet, sn stays the same.
+However, if the sender gets more data, it can now send frames 15, 0, and 1 — since these positions are
+now within the new window.
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  3 words
+────────────────────────────────────────────────────────────
+Go-Back-N ARQ Protocol
+
+── Images on page 37 (2 found) ──
+
+[Image 1]  506×431px  (JPEG)
+OCR:
+s, First s, Next pn, Nex
+1 fn n -
+outstanding tosend to recewe
+Sender Receiver
+Data frame ACK frame Deliver
+Network Get data f f data Network
+L seqNo ackNo
+Physical | Receive Send Receive Send | physical
+frame frame frame frame
+——
+|| CS Cs (a (ee P|
+| Request from.
+Eventi! network layer
+Repeat forever ® Repeat forever
+———— 2S =] Event: — = ——
+_ | Notification from | Notification from:
+Event: physical layer Events| hysi layer
+
+[Image 2]  921×443px  (PNG)
+OCR:
+1. Sliding Window Concept
+At the top of the figure:
+e Sender window:
+The sender can send multiple frames (up to a maximum window size, N) before stopping for an
+acknowledgment.
+e =6sf: the first outstanding frame (sent but not yet acknowledged).
+¢ Sn: the next frame to send (the boundary of the window).
+The gray boxes represent the sender’s window; the orange ones are the frames that have been sent
+but not yet acknowledged.
+e Receiver window:
+The receiver can only accept the next expected frame ( Rn ).
+Unlike the sender, the receiver window size in Go-Back-N ARQ is 1, meaning it expects frames strictly in
+order.
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 38 (2 found) ──
+
+[Image 1]  506×431px  (JPEG)
+OCR:
+s, First s, Next pn, Nex
+1 fn n -
+outstanding tosend to recewe
+Sender Receiver
+Data frame ACK frame Deliver
+Network Get data f f data Network
+L seqNo ackNo
+Physical | Receive Send Receive Send | physical
+frame frame frame frame
+——
+|| CS Cs (a (ee P|
+| Request from.
+Eventi! network layer
+Repeat forever ® Repeat forever
+———— 2S =] Event: — = ——
+_ | Notification from | Notification from:
+Event: physical layer Events| hysi layer
+
+[Image 2]  909×419px  (PNG)
+OCR:
+2. Data and Acknowledgment Flow
+In the middle section:
+¢ Data frames (labeled seqNo ) flow from the sender to the receiver.
+¢ Acknowledgment (ACK) frames (labeled ackNo ) flow back from the receiver to the sender.
+The arrows represent continuous data transmission. The sender transmits several frames sequentially without
+waiting for individual acknowledgments — increasing channel utilization.
+If a frame is lost or an error occurs:
+e The receiver discards all subsequent frames (since it expects the missing one first).
+e It sends an acknowledgment with the sequence number of the last correctly received frame.
+e Upon timeout, the sender goes back and retransmits all frames starting from the missing one — hence
+the name Go-Back-N.
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 39 (2 found) ──
+
+[Image 1]  853×597px  (PNG)
+OCR:
+4. Algorithms (Bottom Part)
+The bottom boxes describe the logical control flow:
+Sender site:
+e Events:
+e Request from network layer — get data to send.
+¢ Notification from physical layer + acknowledgment received.
+¢ Timeout event — triggered if ACK not received in time.
+e Process:
+The sender continuously repeats its algorithm, checking for these events.
+On timeout, it retransmits all frames from sf onward.
+Receiver site:
+e Events:
+¢ Notification from physical layer > frame received.
+e Process:
+The receiver checks whether the received frame matches the expected sequence number Rn.
+e If yes, it delivers the data to the network layer and increments Rn.
+e If not, it discards the frame and resends an ACK for the last correctly received frame.
+
+[Image 2]  423×199px  (JPEG)
+OCR:
+| Request from
+be
+Repeat forever (C) Repeat forever
+.| Notification from _ [Notification from
+swe aloe se toe
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  18 words
+────────────────────────────────────────────────────────────
+Go-Back-N ARQ Protocol
+(Example 1)
+why the size of the send window must be less than 2m ?
+
+── Images on page 40 (1 found) ──
+
+[Image 1]  592×415px  (JPEG)
+OCR:
+Sender Receiver Sender Receiver
+SS,
+KC)
+Ne 4,
+SS, 11 {2/3/0]
+| ae ‘4 + Rn
++ Sn ys Q BBO
+n
+5 ea .s go 80
+R,
+vine ovr ll Ry
+|g
+, s ona G
+Correctly R
+cone) | 4,
+Erroneously
+accepted
+a. Window size < 2™ b. Window size =2™
+
+────────────────────────────────────────────────────────────
+PAGE 41  |  77 words
+────────────────────────────────────────────────────────────
+(Window size < 2m ): 2m -1
+1.Sender sends frames 0, 1, 2, 3.
+2.Frame 0 gets lost, so a timeout 
+occurs and it is retransmitted.
+3.The receiver, which expects 
+frame 3 next, sees the 
+retransmitted frame 0 and correctly 
+recognizes it as a duplicate, 
+because the receiver’s window 
+does not overlap with old 
+sequence numbers.
+✅The old frame 0 is correctly 
+discarded.
+This works because the receiver 
+can clearly distinguish new frames 
+from old (retransmitted) ones.
+
+── Images on page 41 (1 found) ──
+
+[Image 1]  362×514px  (JPEG)
+OCR:
+Sender Receiver
+Ss S,
+EE. |B
+Ze 9
+5 Sy | He)
+| oe)
+5 S,
+Tg
+SS, eae
+| 8 i
+Time-out
+[secre
+discarded
+a. Window size < 2™
+
+────────────────────────────────────────────────────────────
+PAGE 42  |  75 words
+────────────────────────────────────────────────────────────
+(Window size = 2m )
+1.Sender sends frames 0, 1, 2, 3, then 
+wraps around to send 0 again.
+2.Because the sequence number 
+space is also 2m =4, when the new 
+frame 0 arrives at the receiver, it looks 
+identical to the old frame 0.
+3.The receiver’s window already 
+includes sequence number 0 again, 
+since it has moved on after accepting 
+frames 0–3.
+4.❌The receiver erroneously 
+accepts the old retransmitted frame as 
+a new one.
+
+── Images on page 42 (1 found) ──
+
+[Image 1]  383×512px  (JPEG)
+OCR:
+Sender Receiver
+St Sn
+Fs, R,
+KEE] ca
+5S, BsTo
+i
+rr’ of 2131
+iM
++; S, OM 80
+|g 4
+, s O08 O
+fg i.
+Erroneously
+accepted
+b. Window size = 2™
+
+────────────────────────────────────────────────────────────
+PAGE 43  |  5 words
+────────────────────────────────────────────────────────────
+Go-Back-N ARQ Protocol
+(Example 2)
+
+── Images on page 43 (1 found) ──
+
+[Image 1]  612×410px  (JPEG)
+OCR:
+Sender Receiver
+timer LC Sn t ' .
+initia (of 2ps}alsje]7[oli2) | | MELT213 14751517) inicia
+t Ls
+3+ Sn ' ' Ry
+Request [1 ]2[3/4]5[6]7][0]1]2| |Frameo =
+“ '
+Anival [ofr fetsta]s]e]7 lolz]
+5 [Sn Ry
+Request [OfM2]3]4]5]6]7]0]1|2}_> [Fame mn
+NN oe) srivas
+Ss Sa 4 1
+Request [OMG ]s]6[700 2}—>+ fae e
+5; Ss, tose [OT 2 4151617] Arrival
+Request [7] Frame3 oe
+5 Sp ' oe (0[1]2[3 MN S[6]7] Arrival
+avvol OL PRETsTs> Toh }21<—
+S47 Sn
+sep val (oliizTs[aTsTezToli2) '
+Y Y
+th
+mer Time Time
+
+────────────────────────────────────────────────────────────
+PAGE 44  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 44 (2 found) ──
+
+[Image 1]  612×410px  (JPEG)
+OCR:
+Sender Receiver
+timer LC Sn t ' .
+initia (of 2ps}alsje]7[oli2) | | MELT213 14751517) inicia
+t Ls
+3+ Sn ' ' Ry
+Request [1 ]2[3/4]5[6]7][0]1]2| |Frameo =
+“ '
+Anival [ofr fetsta]s]e]7 lolz]
+5 [Sn Ry
+Request [OfM2]3]4]5]6]7]0]1|2}_> [Fame mn
+NN oe) srivas
+Ss Sa 4 1
+Request [OMG ]s]6[700 2}—>+ fae e
+5; Ss, tose [OT 2 4151617] Arrival
+Request [7] Frame3 oe
+5 Sp ' oe (0[1]2[3 MN S[6]7] Arrival
+avvol OL PRETsTs> Toh }21<—
+S47 Sn
+sep val (oliizTs[aTsTezToli2) '
+Y Y
+th
+mer Time Time
+
+[Image 2]  629×753px  (PNG)
+OCR:
+Configuration
+Parameter Description
+Protocol: Go-Back-N ARQ
+Sequence numbers: 3-bit numbers — 0-7 (mod 8)
+Sender's window size: 2” —1=7 = frames 0-6
+Receiver’s window size: 1 (accepts only next expected frame)
+At start:
+
+e Sender's window = frames 0-6
+
+e Receiver expects frame 0
+
+& Step-by-Step Operation
+1. Initial State
+
+e Sender's window shows frames 0-6.
+
+e Receiver expects R, = 0.
+2. Frame 0 Transmission
+
+e Sender A — sends Frame 0.
+
+e Receiver B receives Frame 0 correctly.
+
+e Receiver sends ACK 1 (meaning “I expect frame 1 next”).
+
+e Sender gets ACK 1 = slides its window forward.
+
+e Now window covers frames 1-7 (mod 8).
+
+────────────────────────────────────────────────────────────
+PAGE 45  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 45 (2 found) ──
+
+[Image 1]  612×410px  (JPEG)
+OCR:
+Sender Receiver
+timer LC Sn t ' .
+initia (of 2ps}alsje]7[oli2) | | MELT213 14751517) inicia
+t Ls
+3+ Sn ' ' Ry
+Request [1 ]2[3/4]5[6]7][0]1]2| |Frameo =
+“ '
+Anival [ofr fetsta]s]e]7 lolz]
+5 [Sn Ry
+Request [OfM2]3]4]5]6]7]0]1|2}_> [Fame mn
+NN oe) srivas
+Ss Sa 4 1
+Request [OMG ]s]6[700 2}—>+ fae e
+5; Ss, tose [OT 2 4151617] Arrival
+Request [7] Frame3 oe
+5 Sp ' oe (0[1]2[3 MN S[6]7] Arrival
+avvol OL PRETsTs> Toh }21<—
+S47 Sn
+sep val (oliizTs[aTsTezToli2) '
+Y Y
+th
+mer Time Time
+
+[Image 2]  685×789px  (PNG)
+OCR:
+3. Frame 1 Transmission
+e Sender sends Frame 1.
+e Receiver receives it correctly.
+e Receiver sends ACK 2.
+© ¥%€ ACK 2 is lost on the way back.
+e Sender never receives ACK 2 — eventually times out waiting for it.
+4. Frame 2 Transmission
+e Meanwhile, sender sends Frame 2 (still within window).
+e Receiver receives Frame 2 correctly and sends ACK 3.
+© But since ACK 2 was lost, the sender's timer for Frame 1 expires.
+5. Timeout Occurs
+e The sender times out waiting for ACK 2.
+e According to Go-Back-N ARQ, it must go back to the first unacknowledged frame — Frame 1 — and
+retransmit that frame and all subsequent ones.
+6. Retransmission Phase
+e Sender retransmits:
+e Frame 1, Frame 2, Frame 3, and so on (depending on window).
+e Receiver receives Frame 1 again but discards it (already received).
+e Receiver continues to accept the next expected frame (Frame 3) and sends ACK 4, etc.
+e Sender receives the new ACKs and slides the window forward normally again.
+7. Normal Operation Resumes
+e After successful retransmissions, both sides are synchronized again.
+e Sender's window slides ahead; receiver continues to acknowledge cumulatively.
+
+────────────────────────────────────────────────────────────
+PAGE 46  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 46 (2 found) ──
+
+[Image 1]  612×410px  (JPEG)
+OCR:
+Sender Receiver
+timer LC Sn t ' .
+initia (of 2ps}alsje]7[oli2) | | MELT213 14751517) inicia
+t Ls
+3+ Sn ' ' Ry
+Request [1 ]2[3/4]5[6]7][0]1]2| |Frameo =
+“ '
+Anival [ofr fetsta]s]e]7 lolz]
+5 [Sn Ry
+Request [OfM2]3]4]5]6]7]0]1|2}_> [Fame mn
+NN oe) srivas
+Ss Sa 4 1
+Request [OMG ]s]6[700 2}—>+ fae e
+5; Ss, tose [OT 2 4151617] Arrival
+Request [7] Frame3 oe
+5 Sp ' oe (0[1]2[3 MN S[6]7] Arrival
+avvol OL PRETsTs> Toh }21<—
+S47 Sn
+sep val (oliizTs[aTsTezToli2) '
+Y Y
+th
+mer Time Time
+
+[Image 2]  685×283px  (PNG)
+OCR:
+Step Event Result
+
+1 Frame 0 sent, ACK 1 received OK — slide window
+2 Frame 1 sent, ACK 2 lost Sender will time out
+3 Frame 2 sent, ACK 3 sent (arrives late) Timeout still triggers
+4 Timeout — retransmit Frame 1 onward Go-Back-N behavior
+5 Receiver discards duplicates, resumes with Frame 3 ACK 4 sent
+
+6 Sender receives new ACKs — slides window Normal flow resumes
+
+────────────────────────────────────────────────────────────
+PAGE 47  |  84 words
+────────────────────────────────────────────────────────────
+Selective Repeat ARQ Protocol
+Go-Back-N ARQ simplifies the process at the
+receiver site
+The receiver keeps track of only one variable, and
+there is no need to buffer out-of-order frames 
+(only discarded)
+Does not resend N frames when just one frame is
+damaged; only the damaged frame is resent
+The processing at the receiver is more complex
+The size of the sender and receiver window must be
+at most one-half of 2m
+Using negative acknowledgement frames telling
+senders that related frames are not received
+
+────────────────────────────────────────────────────────────
+PAGE 48  |  4 words
+────────────────────────────────────────────────────────────
+Selective Repeat ARQ Protocol
+
+── Images on page 48 (1 found) ──
+
+[Image 1]  642×448px  (JPEG)
+OCR:
+Sender Receiver
+oO ‘
+Initial [ol1[2]3]4[sfe[7fo] ' {oj ]2[3{4]5]6]7] initial
+Request Framed ——
+quest [S15 1617 lor > [Fran Oa > fof [25] 4] S16T7] Acival
+5p Sn a Frame 0
+Arrival [0]1]2[3[4]5]6[7 0 +a ' delivered
+'
+1 St Sn ' '
+Request [ofij2[3|4]5]6]7 [0] fame '
+2 Ss Sa 1 Lost Rn
+Request SS
+roves [ETS SET 1s} + [ee SBT a
+Request [OME S571o}>pameee hh
+1 errs 1 ESE) arrive
+i ET eT Ol Fame ea]
+5 Sn H —_——_ wand fn
+Arrival [of ]2]3]4[5|6|7 >) }<— > (ol1]2[3]4]5]6 [7] Arrival
+{ ' Frames 1, 2,3
+Y Y delivered
+
+────────────────────────────────────────────────────────────
+PAGE 49  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 49 (2 found) ──
+
+[Image 1]  642×448px  (JPEG)
+OCR:
+Sender Receiver
+oO ‘
+Initial [ol1[2]3]4[sfe[7fo] ' {oj ]2[3{4]5]6]7] initial
+Request Framed ——
+quest [S15 1617 lor > [Fran Oa > fof [25] 4] S16T7] Acival
+5p Sn a Frame 0
+Arrival [0]1]2[3[4]5]6[7 0 +a ' delivered
+'
+1 St Sn ' '
+Request [ofij2[3|4]5]6]7 [0] fame '
+2 Ss Sa 1 Lost Rn
+Request SS
+roves [ETS SET 1s} + [ee SBT a
+Request [OME S571o}>pameee hh
+1 errs 1 ESE) arrive
+i ET eT Ol Fame ea]
+5 Sn H —_——_ wand fn
+Arrival [of ]2]3]4[5|6|7 >) }<— > (ol1]2[3]4]5]6 [7] Arrival
+{ ' Frames 1, 2,3
+Y Y delivered
+
+[Image 2]  681×729px  (PNG)
+OCR:
+# Step-by-Step Explanation of the Diagram
+The diagram shows a Selective Repeat ARQ session between Sender (A) and Receiver (B) with sequence
+numbers 0-7.
+1. Initial State
+® Sender window: frames 0-3 (since W = 4)
+e Receiver window: frames 0-3
+e Both sides synchronized and ready to start.
+2. Frame 0 Transmission
+e Sender A sends Frame 0.
+e Receiver B receives it correctly.
+e Bsends ACK 1 (means “Frame 0 received, expecting frame 1").
+¢ Sender slides window forward: now window covers frames 1-4.
+3. Frame 1 Lost
+e Sender sends Frame 1, but it’s lost in transmission.
+¢ Receiver still expects frame 1 (so Rn = 1 remains unchanged).
+4. Frames 2 and 3 Arrive Out of Order
+e Sender continues to send Frame 2 and Frame 3 (window allows it).
+e Receiver gets Frame 2 and Frame 3, but can't deliver them yet because Frame 1 is missing.
+¢ Receiver buffers frames 2 and 3.
+e Receiver sends NAK 1 to request retransmission of the missing frame.
+
+────────────────────────────────────────────────────────────
+PAGE 50  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 50 (2 found) ──
+
+[Image 1]  642×448px  (JPEG)
+OCR:
+Sender Receiver
+oO ‘
+Initial [ol1[2]3]4[sfe[7fo] ' {oj ]2[3{4]5]6]7] initial
+Request Framed ——
+quest [S15 1617 lor > [Fran Oa > fof [25] 4] S16T7] Acival
+5p Sn a Frame 0
+Arrival [0]1]2[3[4]5]6[7 0 +a ' delivered
+'
+1 St Sn ' '
+Request [ofij2[3|4]5]6]7 [0] fame '
+2 Ss Sa 1 Lost Rn
+Request SS
+roves [ETS SET 1s} + [ee SBT a
+Request [OME S571o}>pameee hh
+1 errs 1 ESE) arrive
+i ET eT Ol Fame ea]
+5 Sn H —_——_ wand fn
+Arrival [of ]2]3]4[5|6|7 >) }<— > (ol1]2[3]4]5]6 [7] Arrival
+{ ' Frames 1, 2,3
+Y Y delivered
+
+[Image 2]  667×797px  (PNG)
+OCR:
+5. Frame 1 Retransmission
+e Sender receives NAK 1 and retransmits Frame 1.
+e Receiver now successfully receives Frame 1.
+e With Frames 1, 2, and 3 now in order, B delivers them to the upper layer.
+e Receiver sends ACK 4 (meaning “I have received frames up to 3, expecting frame 4").
+6. Sender Window Slides
+e Sender receives ACK 4.
+e = It slides its window forward: now it can send frames 4-7.
+¢ Both sender and receiver are now synchronized again, ready for the next sequence.
+& Summary of Events
+Step Sender Action Receiver Action Acknowledgment
+1 Sends Frame 0 Receives Frame 0 ACK 1
+2 Sends Frame 1 (lost) Waits for Frame 1 _
+3 Sends Frames 2, 3 Buffers 2, 3 NAK 1
+4 Retransmits Frame 1 Delivers 1, 2, 3 ACK4
+Window Movement Example
+Stage Sender Window Receiver Window Notes
+Initial 0-3 0-3 Both aligned
+After ACK 1 14 14 Frame 0 confirmed
+During loss 14 14 Waiting for Frame 1
+After retransmission 47 47 Synchronized again
+
+────────────────────────────────────────────────────────────
+PAGE 51  |  46 words
+────────────────────────────────────────────────────────────
+✅Advantages
+•Efficient: Only retransmits erroneous frames.
+•High throughput: Sender keeps sending other frames while waiting for 
+retransmission.
+•Flexible: Works well on high-delay or error-prone links.
+❌Disadvantages
+•More complex logic: Needs buffering and per-frame acknowledgment.
+•Requires more memory: Receiver must store out-of-order frames.
+Selective Repeat ARQ Protocol
+
+────────────────────────────────────────────────────────────
+PAGE 52  |  8 words
+────────────────────────────────────────────────────────────
+Comparison between the ARQ protocols
+Data Link Layer
+
+── Images on page 52 (1 found) ──
+
+[Image 1]  728×546px  (JPEG)
+OCR:
+| PROTOCOL:- | GO-BACK-N [STOP AND WAIT | SELECTIVE REPEAT |
+Bandwidth Medium Low High
+utilization
+Maximum sender 24m-1 NA 24(m-1)
+Size Window
+Maximum receiver 1 N.A 24(m-1)
+Size Window
+Pipelining Implemented Not Implemented Implemented
+Out of order Frames Discarded Discarded Accepted
+Cumulative ACK Applicable N.A Applicable
+NAK N.A N.A Applicable
+
+────────────────────────────────────────────────────────────
+PAGE 53  |  83 words
+────────────────────────────────────────────────────────────
+Piggybacking
+Last discussed protocols are all unidirectional
+data frames flow in only one direction although control
+information such as ACK and NAK frames can travel in
+the other direction
+In real life, data frames are normally flowing in
+both directions
+Control information also needs to flow in both directions
+piggybacking is used to improve the efficiency of
+the bidirectional protocols
+When a frame is carrying data from A to B, it can also
+carry control information about arrived (or lost) frames 
+from B
+
+────────────────────────────────────────────────────────────
+PAGE 54  |  4 words
+────────────────────────────────────────────────────────────
+Go-Back-N ARQ using piggybacking
+
+── Images on page 54 (1 found) ──
+
+[Image 1]  640×427px  (JPEG)
+OCR:
+Send Receive Receive Send
+window window window window
+ackNo
+Network] Deliver Get — Deliver Get Network
+rame
+seqNo
+Data link Data link
+Physical} Receive Send Receive Send | physical
+frame frame frame frame
+|| SEE eee Cee P|
+._— ey
+.| Request from ,| Request from
+Event: network layer Event: network layer
+Repeat forever @ @
+___ Algerithin for’ Fimo }-/} Algorithm for
+sending and receiving Timeleue | [Time aus sending and tecelving
+Si nS NNN Event: Event: ———s
+Event: Notification from Event: Notification from
+“| physical layer “| physical layer
+
+────────────────────────────────────────────────────────────
+PAGE 55  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 55 (2 found) ──
+
+[Image 1]  640×427px  (JPEG)
+OCR:
+Send Receive Receive Send
+window window window window
+ackNo
+Network] Deliver Get — Deliver Get Network
+rame
+seqNo
+Data link Data link
+Physical} Receive Send Receive Send | physical
+frame frame frame frame
+|| SEE eee Cee P|
+._— ey
+.| Request from ,| Request from
+Event: network layer Event: network layer
+Repeat forever @ @
+___ Algerithin for’ Fimo }-/} Algorithm for
+sending and receiving Timeleue | [Time aus sending and tecelving
+Si nS NNN Event: Event: ———s
+Event: Notification from Event: Notification from
+“| physical layer “| physical layer
+
+[Image 2]  429×436px  (JPEG)
+OCR:
+WB 2. Explanation of the Figure
+
+@ Sender (left side)
+
+Maintains a Send Window, shown at the top left (the red blocks).
+— Red = frames already sent but not yet acknowledged.
+— White = frames ready to send.
+
+© {t gets data from the Network Layer, places it in frames (with seqilo = sequence number), and sends
+them to the recenver.
+
+© Atimer is started for each sent frame. if the ACK isnt recened before the timeout, all unacknowledged
+frames {within the window) are retransmitted — this is the Go-Back-N part.
+
+Receiver (right side)
+
+¢ Has a Receive Window, smaller than or equal to the sender's window.
+= It can accept only the next expected frame ( seqo = Rn).
++ Out-of-order frames are discarded.
+
+© The receiver delivers correctly received frames to its Network Layer and sends acknowledgments using
+piggybacking — combining the ACK with its own outgoing data frame ( ack. = next expected frame).
+
+────────────────────────────────────────────────────────────
+PAGE 56  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 56 (2 found) ──
+
+[Image 1]  640×427px  (JPEG)
+OCR:
+Send Receive Receive Send
+window window window window
+ackNo
+Network] Deliver Get — Deliver Get Network
+rame
+seqNo
+Data link Data link
+Physical} Receive Send Receive Send | physical
+frame frame frame frame
+|| SEE eee Cee P|
+._— ey
+.| Request from ,| Request from
+Event: network layer Event: network layer
+Repeat forever @ @
+___ Algerithin for’ Fimo }-/} Algorithm for
+sending and receiving Timeleue | [Time aus sending and tecelving
+Si nS NNN Event: Event: ———s
+Event: Notification from Event: Notification from
+“| physical layer “| physical layer
+
+[Image 2]  641×803px  (PNG)
+OCR:
+3. Piggybacking in Action
+In traditional ARQ, the receiver would send a separate ACK frame back to the sender.
+But in this diagram:
+e ach data frame traveling from Receiver + Sender already carries the ackNo field (acknowledgment
+number) of the last correctly received frame.
+e This saves bandwidth and improves channel efficiency, since fewer frames are sent overall.
+@) 4. Events and Timers
+At the bottom:
+e Both sender and receiver run continuous loops (“Repeat forever”) listening for events:
+© Request from network layer — send new data.
+© Notification from physical layer — frame arrival.
+e Timeout event — retransmit frames (if no ACK received).
+e The timers ensure reliability by detecting lost or delayed frames.
+5. Data Flow Summary
+1. Sender transmits multiple frames (within window size).
+2. Receiver acknowledges the last correctly received frame via piggybacking.
+3. If an error occurs (e.g., frame 3 lost), receiver discards frames 4-5.
+4. Sender times out and goes back to retransmit frame 3 onward.
+@ 6. Advantages of Go-Back-N with Piggybacking
+Feature Description
+Efficiency Multiple frames sent without waiting for ACKs.
+Bandwidth Saving ACKs combined with data (piggybacked).
+Simplified Receiver Only accepts in-order frames.
+Drawback If one frame is lost, all following frames in the window must be resent.
+
+────────────────────────────────────────────────────────────
+PAGE 57  |  30 words
+────────────────────────────────────────────────────────────
+Exercise
+Using 5-bit sequence numbers, what is the maximum size
+of the send and receive windows for each of the following
+protocols?
+a. Stop-and-Wait ARQ
+b. Go-Back-NARQ
+c. Selective-Repeat ARQ
+
+── Images on page 57 (1 found) ──
+
+[Image 1]  665×301px  (PNG)
+OCR:
+Let the sequence number field be k = 5 bits - sequence number space size N = 2° = 32.
+e Stop-and-Wait ARQ
+
+Send window = 1, Receive window = 1.
+
+(Only one outstanding frame at a time.)
+¢ Go-Back-N ARQ
+
+Maximum send window = N — 1 = 32-1 = 31.
+
+Receive window = 1.
+
+(Sender may have up to NV — 1 unacknowledged frames; receiver only accepts the next in-order frame.)
+e Selective-Repeat ARQ
+
+Maximum send window = maximum receive window = N/2 = 32/2 = 16.
+
+(Windows limited to 2*— to avoid sequence-number ambiguity on wraparound.)
+Summary: Stop-and-Wait: (1,1). Go-Back-N: (31,1). Selective-Repeat: (16,16).
+
+────────────────────────────────────────────────────────────
+PAGE 58  |  27 words
+────────────────────────────────────────────────────────────
+Lecture-related Questions
+Briefly describe the services provided by the data link
+layer.
+Compare and contrast the Go-Back-N ARQ Protocol with
+Selective-Repeat ARQ.
+Define piggybacking and its usefulness.
+
+────────────────────────────────────────────────────────────
+PAGE 59  |  48 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+Introduction to Data Link Layer
+Error Detection and Correction
+• Parity Checking
+Flow and Error Control
+• Simple Stop and Wait Protocol
+• Automatic Repeat Request Protocols
+Material to be covered next lecture
+Continue the Data Link Layer
+Multiple Access Links and Protocols
+Addressing

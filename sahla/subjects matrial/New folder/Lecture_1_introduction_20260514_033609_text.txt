@@ -1,0 +1,593 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_1_introduction.pdf
+Date   : 2026-05-14 03:36:09.189814
+Pages  : 34 / 34
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  7 words
+────────────────────────────────────────────────────────────
+Computer Networks
+00207N
+Fall 2025/2026
+Introduction
+1-1
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  16 words
+────────────────────────────────────────────────────────────
+Agenda
+Course Overview
+Course Information
+Covered topics
+Assessment
+Introduction to Data Communication and
+Networks
+Introduction
+1-2
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  42 words
+────────────────────────────────────────────────────────────
+Course Information
+Instructor: Dr. Mohamed Rezk & Dr. Ahmed Eltrass
+Teaching Assistant: Eng. Ahmed Ashraf/Eng. Miar
+Mamdouh/ Eng. Salama Magdy
+Lecture hours: 2
+Tutorial and lab hours: 3
+One tutorial class weekly
+One lab class biweekly.
+Office hours: Sunday & Thursday
+1-3
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  53 words
+────────────────────────────────────────────────────────────
+Introduction
+1-4
+Course Objectives
+Having successfully completed this course, the
+student will be able to comprehensively understand
+Four major concepts: data and computer communications,
+networking, protocols and standards, and networking
+models
+The data communication components in data networks,
+how different types of data can be represented, and how
+to create a data flow
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  33 words
+────────────────────────────────────────────────────────────
+Introduction
+1-5
+References
+Lecture Notes (Slides)
+B. Forouzan, Data Communications and Networking. 5th ed.,
+New York: McGraw-Hill, 2013
+J. Kurose and K. Ross, “Computer Networking: A Top Down
+Approach “,6th edition, Addison-Wesley, 2013
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  13 words
+────────────────────────────────────────────────────────────
+Introduction
+1-6
+Assessment
+Labs, assignments, Quizzes: 35%
+Midterm exam: 25%
+Final exam: 40%
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  92 words
+────────────────────────────────────────────────────────────
+Course Outline
+Introduction to Data Communications, Data Networking, and the Internet
+(2
+lectures)
+Network Models (lecture)
+The OSI Model, TCP/IP Protocol Suite, Addressing
+Physical Layer and Media (2 lectures)
+Data Signals, Bandwidth Utilization, Performance, Transmission Media, Switching
+Data Link Layer: Error Detection and Correction, Data Link Control, Multiple
+Access, Ethernet, WLANs, Virtual-Circuit Networks (3 lectures)
+Network Layer: Logical Addressing, Internet Protocol, Address Mapping, unicast
+and multicast routing (3 lectures)
+Transport Layer: Process-to-Process Delivery, Congestion Control (2 lectures)
+Application Layer: Domain Name System, Electronic Mail, and File Transfer,
+SNMP, Multimedia (3 lectures)
+1-7
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  95 words
+────────────────────────────────────────────────────────────
+Introduction
+1-8
+Research Work – Bonus
+Choose freely a research topic/an application that depends
+on basic concepts of computer networks
+An extensive survey and study will be done for recent
+research work in literature concerning the selected 
+topic/application
+You will focus on a specific idea to add a contribution to it
+Comparative/qualitative study
+Some argument with highlighting of weak points/challenges
+Quantitative analysis and simulations, if possible
+You will prepare and submit a written report organized in a
+research paper format and syntax
+Discussion of the work might be required by the end of the
+semester
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  47 words
+────────────────────────────────────────────────────────────
+Introduction
+1-9
+Main Research Topics
+(Examples)
+Mobile and Wireless Computer Networks
+Vehicular Cloud Computing
+Software Defined Networking
+Machine Learning Applications in Computer Networks
+Information Theory in Computer Networks
+Cyber and Physical Security in Computer Networks
+Cloud Radio Access Networks
+Industrial Internet of Things
+Intelligent Wireless Sensor Networks
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  62 words
+────────────────────────────────────────────────────────────
+Data Communications and Networks
+Overview
+Data Communications
+deals with the transmission of signals in a reliable and
+effective manner. Topics covered include signal
+transmission and modulation, transmission media, signal
+encoding, interfacing, data link control, and MUX
+Networking
+deals with the technology and architecture of the
+communication networks used to interconnect
+communicating devices (entities). Topics include
+different technologies of networks (LANs, WANs, etc1)-10
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  26 words
+────────────────────────────────────────────────────────────
+Data Communications and Networks
+Overview
+Data Communications
+between two devices
+Networks provide
+networking services 
+between two entities
+The communications
+between two end-points 
+uses Protocol
+Introduction
+1-11
+
+── Images on page 11 (1 found) ──
+
+[Image 1]  705×869px  (JPEG)
+OCR:
+Z Subseribe! -
+onniectio High-speed link
+Residential (e. g. SONET)
+user Internet service
+provider (ISP)
+Router C3
+Internet \..
+QM High-speed s< was
+host guise \ ‘
+. Vetwor
+. ee>, Fthernet
+Private Information LAN PCs
+WAN server and workstations
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  42 words
+────────────────────────────────────────────────────────────
+Introduction
+1-12
+A Communications Model
+Source
+Generates (binary) data to be transmitted
+Transmitter
+Converts data into transmittable electromagnetic signals
+Transmission system
+This can be a single transmission line or a complex
+network
+Receiver
+Converts received signal into data
+Destination
+Takes incoming data
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  6 words
+────────────────────────────────────────────────────────────
+Simplified Communications Model
+Diagram
+Introduction
+1-13
+
+── Images on page 13 (1 found) ──
+
+[Image 1]  900×503px  (JPEG)
+OCR:
+Source system Destination system
+= a >
+££ frrr—C“(t;‘;C:sC(‘(i Ty f______________¥4 ¢._—_________f
+
+Trans-
+Trans- Sak A Aton
+Source A mission Receiver Destination
+mitter
+System
+(a) General block diagram
+Workstati Mod . Mod Server
+——_ “om Public telephone network oem <ever
+(b) Example
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  4 words
+────────────────────────────────────────────────────────────
+Communications Tasks
+Introduction
+1-14
+
+── Images on page 14 (1 found) ──
+
+[Image 1]  718×242px  (JPEG)
+OCR:
+Transmission system utilization Addressing
+Interfacing Routing
+
+Signal generation Recovery
+Synchronization Message formatting
+Exchange management Security
+
+Error detection and correction Network management
+Flow control
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  4 words
+────────────────────────────────────────────────────────────
+Data Communications
+Introduction
+1-15
+
+── Images on page 15 (1 found) ──
+
+[Image 1]  924×311px  (JPEG)
+OCR:
+Digital bit Analog Analog Digital bit
+stream signal signal stream
+Text Ju avaval avaval Ju Text
+Trans- Trans:
+bay mission Receiver Destination
+mitter
+System
+Input Input data Transmitted Received Output data Output
+information g(t) signal signal g'(t) information
+m s(t) r(t) m'
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  55 words
+────────────────────────────────────────────────────────────
+Introduction
+1-16
+The Transmission of Information
+The basic building block of any communications
+facility is the transmission line (medium)
+Providing the required capacity, with acceptable
+reliability, at minimum cost
+For long-distance communications: fiber optic
+transmission and wireless transmission (e.g., satellite
+and radio)
+To increase the efficiency of data transmission,
+multiplexing and compression approaches are used
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  40 words
+────────────────────────────────────────────────────────────
+Local Area Network (LAN)
+Introduction
+1-17
+Data Communication Networking
+Point to point communication not usually
+practical
+Devices are too far apart
+Large set of devices would need impractical
+number of connections
+Solution is a communications network
+Wide Area Network (WAN)
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  34 words
+────────────────────────────────────────────────────────────
+Asynchronous Transfer Mode (ATM)
+Introduction
+1-18
+Wide Area Networks
+Large geographical area
+Crossing public rights-of-ways
+Rely in part on common carrier circuits
+Alternative technologies
+Circuit switching
+Packet switching
+Frame relay (based on packet switching)
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  41 words
+────────────────────────────────────────────────────────────
+Introduction
+1-19
+Circuit Switching
+Dedicated communications path established
+for the duration of the conversation
+Data transmission is rapid, without delay
+This kind of switching is good for real-time
+services
+The typical network which adopts this kind of
+switching is telephone network
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  65 words
+────────────────────────────────────────────────────────────
+Introduction
+1-20
+Packet Switching
+Data sent out of sequence
+Small chunks (packets) of data at a time
+Packets passed from node to node between
+source and destination
+At each node, the entire packet is received,
+stored briefly, and then transmitted to the
+next node
+Used for terminal to computer and computer
+to computer communications
+There are two kinds of packet switching:
+Virtual circuit and datagram
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  47 words
+────────────────────────────────────────────────────────────
+Introduction
+1-21
+Frame Relay
+Packet switching systems have large overheads
+to compensate for errors
+Modern systems are more reliable
+Errors can be caught in the end system
+Most overhead for error control is stripped
+out
+Developed to take advantage of high data
+rates and low error rates
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  33 words
+────────────────────────────────────────────────────────────
+Introduction
+1-22
+Asynchronous Transfer Mode
+(ATM)
+Evolution of frame relay
+Little overhead for error control
+Fixed packet (called cell) length
+Anything from 10 Mbps to Gbps
+Constant data rate using packet switching
+technique
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  36 words
+────────────────────────────────────────────────────────────
+Introduction
+1-23
+Local Area Networks (LAN)
+Smaller scope
+Building or small campus
+Usually owned by same organization as
+attached devices
+Data rates much higher
+Usually broadcast systems
+Now some switched systems and ATM are
+being introduced
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  23 words
+────────────────────────────────────────────────────────────
+Introduction
+1-24
+LAN Configurations
+Switched
+Switched Ethernet
+• May be single or multiple switches
+ATM LAN
+Fiber Channel
+Wireless
+Mobility
+Ease of installation
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  20 words
+────────────────────────────────────────────────────────────
+Introduction
+1-25
+Metropolitan Area Networks
+(MAN)
+Middle ground between LAN and WAN
+Private or public network
+High speed
+Large area
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  4 words
+────────────────────────────────────────────────────────────
+Networking Configuration
+Introduction
+1-26
+
+── Images on page 26 (1 found) ──
+
+[Image 1]  705×869px  (JPEG)
+OCR:
+Z Subseribe! -
+onniectio High-speed link
+Residential (e. g. SONET)
+user Internet service
+provider (ISP)
+Router C3
+Internet \..
+QM High-speed s< was
+host guise \ ‘
+. Vetwor
+. ee>, Fthernet
+Private Information LAN PCs
+WAN server and workstations
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  58 words
+────────────────────────────────────────────────────────────
+Introduction
+1-27
+Network Criteria
+A network must be able to meet a certain
+number of criteria
+Performance (response time, throughput, delay,
+etc.)
+Reliability (accuracy of data delivery, frequency
+of failure, etc.)
+Security (Confidentiality, Integrity, Availability)
+• protecting data from unauthorized access
+• Protecting data from damage
+• implementing policies and procedures for recovery from
+breaches and data losses
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  34 words
+────────────────────────────────────────────────────────────
+Network: Physical Structures
+Type of connection
+Point to point
+• dedicated link between two devices
+Multipoint
+• more than two specific devices share a single link 
+whether spatially shared or timeshared connections
+Introduction
+1-28
+
+── Images on page 28 (1 found) ──
+
+[Image 1]  534×307px  (PNG)
+OCR:
+a. Point-to-point
+| (sn
+Link
+ne it : PENSE
+Mainframe :
+b. Multipoint
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  27 words
+────────────────────────────────────────────────────────────
+Network: Physical Structures
+Physical Topology
+The way in which a network is laid out physically
+Infrastructure
+Infrastructureless
+No specific topology (no central entities, no 
+managers)
+Introduction
+1-29
+
+── Images on page 29 (1 found) ──
+
+[Image 1]  375×128px  (PNG)
+OCR:
+=
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  79 words
+────────────────────────────────────────────────────────────
+Protocols
+In computer networks, communication occurs
+between entities in different systems
+For communication to occur, the entities must
+agree on a protocol
+A protocol
+is a set of rules that govern data communications
+defines what is communicated, how it is communicated,
+and when it is communicated.
+The key elements of a protocol
+Syntax: structure or format of the data
+Semantics: meaning of each section of data
+Timing: when data should be sent and how fast they can be
+sent
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  67 words
+────────────────────────────────────────────────────────────
+Standards
+Required to allow for interoperability between
+equipment manufactured from various vendors
+(supporting specific protocols)
+Standards provide guidelines to manufacturers, vendors,
+government agencies, and other service providers
+Advantages
+Ensures a large market for equipment and software
+(mass production and positive competition)
+Allows products from different vendors to communicate
+(variety and more features)
+Disadvantages
+Freeze technology (limiting evolution !)
+May be multiple standards for the same thing
+1-31
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  41 words
+────────────────────────────────────────────────────────────
+Standards Organizations
+Various Committees, forums and agencies:
+Internet Society
+Institute of Electrical and Electronics
+Engineers (IEEE)
+International Organization for Standardization
+(ISO)
+International Telecommunication Union-
+Telecommunication Standards Sector (ITU-T)
+ATM forum
+Electronic Industries Association (EIA)
+Federal Communications Commission (IFntC
+roC
+du)ction
+1-32
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  28 words
+────────────────────────────────────────────────────────────
+Introduction
+1-33
+Lecture-related Questions
+Identify the main five components of a
+data communications system.
+Highlight the advantages and
+disadvantages of packet and circuit
+switching techniques in computer networks
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  36 words
+────────────────────────────────────────────────────────────
+Introduction
+1-34
+Lecture Summary
+Covered material
+Course Overview
+Course Information
+Covered topics
+Assessment
+Introduction to Data Communication and Networks
+Material to be covered next lecture
+Introduction to Internet
+Introduction to the Protocols Stack of Computer
+Networks

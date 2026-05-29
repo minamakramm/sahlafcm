@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /bookmarks
+Disallow: /progress
+Disallow: /notifications
+Disallow: /profile
+
+Sitemap: https://sahla-study.web.app/sitemap.xml

@@ -1,0 +1,725 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_3_Physical_Layer.pdf
+Date   : 2026-05-14 03:36:18.669101
+Pages  : 36 / 36
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  5 words
+────────────────────────────────────────────────────────────
+Lecture 3
+Network Physical Layer
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  27 words
+────────────────────────────────────────────────────────────
+Agenda
+Network Models – Recall
+Introduction to the Physical Layer
+Data Communications and Representation in a
+Network
+Data Flow and Transmission Modes
+Physical Network Topologies
+Network Performance
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 3 (1 found) ──
+
+[Image 1]  960×695px  (JPEG)
+OCR:
+oo = - a gargasz.info
+— Ae | NetWork Process
+— Toe “ © Application jj A i Bin
+c— <——s ‘ ADDIication
+Im Ve pee 13 Aled. Data representation 6.P MO
+Gy, “<= as ey and encryp! “fii
+les ey rans
+\ A agg Gd 7 : h A
+ee ennect thy el y
+=" ie ” ip dete od pa | 0)
+: wr ee jogo? i: Aas
+ii an py DNS, WWW/HTTP
+SS 4 P2P,EMAIL/POP,SMIP 7. Application
+‘Ew = ic! 1 ’ reco vis he diate
+| )) BZ Os pry sil NMMCMGCNNE ©: Presentation
+es 4 ; =a PS ga ath Sockets. Session establishment ff ee
+a /| Is nis? in TCP, SIP, RTP 5. Session
+nl Pra. 35 ny RPC - Named pipes, ————
+, eon S ody? TCP, UDP, SCTP, SSL, TLS 4. Transport
+> 3 Kin? IP, IPsec, ICMP, IGMP, OSPF 3. Network
+bri. eg PPP, Q.921, Token Ring, ARP .
+wat . — RS-232, RJ45, V.34, |OOBASE-TX, SDH, DSL, 802.11 1. Physical
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  33 words
+────────────────────────────────────────────────────────────
+TCP/IP Network Model - Recall
+Physical Layer
+1-4
+Application
+Transport
+Network
+Datalink
+Physical
+Data Requesting and Receiving Processes
+Layer 3 is called Network or Internet
+Layer 2 is called Datalink or Network Access
+
+── Images on page 4 (1 found) ──
+
+[Image 1]  601×417px  (JPEG)
+OCR:
+os
+Sa >> ‘|
+Application J outtD)
+Layer 5+ Header Youur
+TCP | Application
+Layer 4 _ Header (CT Tube
+IP TCP | Application Trane)
+Layer 3 Header | Header | Header La Tube
+Ethernet | IP | TCP | Application (tune)
+Layer 2 Header Header Header Header Mul Tube
+Layer 1
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  5 words
+────────────────────────────────────────────────────────────
+TCP/IP Network Model - Recall
+
+── Images on page 5 (2 found) ──
+
+[Image 1]  1266×685px  (PNG)
+OCR:
+annnnnnnnrrnrnrrrrreeeeeeeeeeeeeeeeeeeeeere eee
+Encapsulation and De-Encapsulation Process
+co an i
+Segment Segment
+co ma es -
+Packet Packet
+Frame Frame
+Bits Bits
+is | 10101010101011110000101000101 | 10101010101011110000101000101 [ua
+Copyright (Cc) 20210 JR Computer Labs |
+
+[Image 2]  1600×777px  (JPEG)
+OCR:
+_ http://ccna-cme.blogspot.in ——
+DATA Application — ee
+PACKET , , PACKET
+_ Internet Header + Segment _, __internet _ Internet Header + Segment |
+FRAME | — FRAME
+Network Header + Packet + Network Trailer, Network Network Header + Packet + Network Trailer
+
+— Access gg
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  39 words
+────────────────────────────────────────────────────────────
+Network Model - Physical Layer
+Roles
+provide services for the data link layer
+coordinate the functions required to carry a bit stream
+over a physical medium
+deal with the mechanical and electrical specifications of
+the interface and transmission medium
+
+── Images on page 6 (1 found) ──
+
+[Image 1]  500×246px  (JPEG)
+OCR:
+From upper layers To upper layers
+Physical 9791000000010 Tororoo0000010 ) Physical
+layer layer
+Transmission medium
+[a eae
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  82 words
+────────────────────────────────────────────────────────────
+Network Model - Physical Layer
+Main concerns
+Physical characteristics of
+interfaces and medium
+Representation of bits.
+• to transmit data, bits must
+be encoded into signals
+(electrical or optical)
+Data rate
+• duration of a bit
+Synchronization of bits
+• the sender and the receiver clocks must be synchronized
+Line configuration
+• the connection of devices to the media (point-to-point or multipoint)
+Physical topology (how devices are connected to make a network)
+Transmission mode (defines the direction of transmission
+between two devices)
+
+── Images on page 7 (1 found) ──
+
+[Image 1]  550×433px  (JPEG)
+OCR:
+Ethernet PHY Opti caley
+Fiber NIC
+Cable Modem NIC 860:44 NIE
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  13 words
+────────────────────────────────────────────────────────────
+Data Communications in a Network
+Five Components
+Message
+Sender
+Receiver
+Transmission Medium
+Protocol
+
+── Images on page 8 (1 found) ──
+
+[Image 1]  547×140px  (PNG)
+OCR:
+Rule i: Rule 1:
+Rule 2: Rule 2:
+ue Protocol Protocol ue
+Rule n: Rulen:
+Message
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  81 words
+────────────────────────────────────────────────────────────
+Data Representation
+How data with various representations can be sent ?
+Text
+• text is represented as a bit pattern, a sequence of bits (0s or 1s)
+• Unicodes, ASCII codes
+Numbers
+• Numbers are also represented by bit patterns
+Images
+• Images are also represented by bit patterns. an image is 
+composed of a matrix of pixels (picture elements). each pixel is 
+assigned a bit pattern
+Audio
+• Sent as a digital/analog signal
+Video
+• Sent as a digital/analog signal
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  8 words
+────────────────────────────────────────────────────────────
+Data Flow
+Communication between two devices can be
+
+── Images on page 10 (1 found) ──
+
+[Image 1]  823×699px  (JPEG)
+OCR:
+Direction of data .
+—§_ ————_—__—————_— f-
+TTT Monitor
+Mainframe Simplex Mode
+Direction of data at time 1 |
+— | (|
+Workstation Direction of data at time 2 Workstation
+Half-duplex
+| Direction of data all the time
+Workstation Pp Workstation
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  6 words
+────────────────────────────────────────────────────────────
+Physical Network Topologies
+Type of Connections
+
+── Images on page 11 (1 found) ──
+
+[Image 1]  448×218px  (JPEG)
+OCR:
+MULTIPOINT —
+POINT TO POINT a
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  75 words
+────────────────────────────────────────────────────────────
+Categories of Physical Topologies
+Mesh Network
+A fully connected topology
+duplex-mode links
+For n devices, we need
+𝑛(𝑛−1)/2 links (i.e., 𝑂(𝑛2))
+For 10 devices → 10×9/2 = 45 links
+Advantages
+• dedicated links with a stabilized connection and low traffic overhead
+• topology is robust
+• advantage of privacy or security
+• point-to-point links make fault identification and fault isolation easy
+Disadvantages
+• Cost (large number of links/wires)
+• Space complexity (installation is complex 𝑂(𝑛2))
+
+── Images on page 12 (1 found) ──
+
+[Image 1]  349×247px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  61 words
+────────────────────────────────────────────────────────────
+Categories of Physical Topologies
+Star Network
+dedicated point-to-point duplex 
+modes link between each device 
+and a central controller
+(point-to-point connections)
+mainly used in high speed local area networks (LANs)
+Advantages
+• less expensive than a mesh topology (low space complexity)
+– For 𝑛devices, we need links of 𝑂(𝑛)
+• Easy installation and configuration
+• Robustness
+Disadvantages
+• Single point of failure
+
+── Images on page 13 (1 found) ──
+
+[Image 1]  350×345px  (JPEG)
+OCR:
+ee =~ e—— =
+[ml (m=
+S$ amg —_
+Hub
+=~
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  80 words
+────────────────────────────────────────────────────────────
+Categories of Physical Topologies
+Bus Network
+(multipoint connections)
+One long cable acts 
+as a backbone to link all 
+devices
+Used in Ethernet LANs
+Advantages
+• ease of installation
+• less cabling than mesh or star topologies (lower space complexity and
+less expensive) for 𝑛devices, we need links of 𝑂(1)
+Disadvantages
+• difficult reconnection and fault isolation
+• signal reflection at the taps can cause degradation in quality
+• fault or break in the bus cable stops all transmission (less robustness)
+
+── Images on page 14 (1 found) ──
+
+[Image 1]  526×264px  (PNG)
+OCR:
+server
+= Workstation
+ne, ey ees ee
+Terminator | Terminator
+—— a —ee
+Printer
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  67 words
+────────────────────────────────────────────────────────────
+Categories of Physical Topologies
+Ring Network
+dedicated point-to-point 
+connection with only the two 
+neighboring devices on either 
+side of each device
+A signal is passed along the ring in one direction
+Each device in the ring incorporates a repeater
+Advantages
+• easy to install and reconfigure
+• Low space complexity. For 𝑛devices, we need links of 𝑂(1)
+• fault isolation is simplified
+Disadvantages
+unidirectional traffic, less robustness
+
+── Images on page 15 (1 found) ──
+
+[Image 1]  546×424px  (PNG)
+OCR:
+{ }
+“a
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  6 words
+────────────────────────────────────────────────────────────
+Categories of Physical Topologies
+Hybrid Topology
+
+── Images on page 16 (1 found) ──
+
+[Image 1]  804×470px  (JPEG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  12 words
+────────────────────────────────────────────────────────────
+Categories of Physical Topologies
+Hybrid Topology
+star backbone with three bus networks
+
+── Images on page 17 (1 found) ──
+
+[Image 1]  536×316px  (PNG)
+OCR:
+kr
+Seecien RS
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  62 words
+────────────────────────────────────────────────────────────
+• The dB (decibel) is a relative unit of measurement
+commonly used in communications for providing a
+reference for input and output levels  (Power gain or loss).
+• Decibels are used to specify measured and calculated
+values in  audio systems, and in many other communication 
+system Measurements
+dB in Communications
+Dealing with large and small signal levels
+PdB = 10Log10 (P2/P1)
+Ratio
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  24 words
+────────────────────────────────────────────────────────────
+PdB = 10Log10 (P2/P1)
+PdB(dBW) = 10Log10 (P(W)/1(W))
+PdB(dBm) = 10Log10 (P(mW)/1(mW))
+PdB(dBµ) = 10Log10 (P(µW)/1(µW))
+dBµ  -------------
+is an absolute value in microwatts
+
+── Images on page 19 (6 found) ──
+
+[Image 4]  435×51px  (PNG)
+OCR:
+is an absolute value in watts
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  19 words
+────────────────────────────────────────────────────────────
+Output (dBW) = Input (dBW) + Gain(dB)
+Output (W) = Input (W) x Gain
+Add decibel
+Multiply absolute 
+values
+
+── Images on page 20 (5 found) ──
+
+[Image 1]  407×131px  (PNG)
+OCR:
+Amplifier gain
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  27 words
+────────────────────────────────────────────────────────────
+Component Loss (-dB)
+Output (dBW) = Input (dBW)  - Loss(dB)
+Output (W) = Input (W) x Loss
+Add decibel
+Multiply absolute values
+Loss is value < 1.0
+
+── Images on page 21 (3 found) ──
+
+[Image 1]  398×105px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  1 words
+────────────────────────────────────────────────────────────
+Examples
+
+── Images on page 22 (1 found) ──
+
+[Image 1]  876×371px  (JPEG)
+OCR:
+Amplification
+Input Power Bieeaa = Output Power
+Signal Loss
+res Boss Coax cable with 7dB loss Output Power
+-73 dom >——_ {i ———> -80 dom
+(e.g., 100% LMR400)
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  721×562px  (PNG)
+OCR:
+2 2 2 ee
+Signal-to-Noise Ratio | 33
+Signal Noise Signal + noise
+t t t
+v No errors
+Signal Noise Signal + noise
+SNR al sul p> doy pif
+t t y t
+Average signal power error
+SNR = — tags signal powst
+Average noise power
+SNR (dB) = 10 log,, SNR
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  108 words
+────────────────────────────────────────────────────────────
+Network Performance
+(1) Bandwidth
+Bandwidth in Hertz: the range of frequencies contained in
+a composite signal or the range of frequencies a channel 
+can pass
+• Example, the bandwidth of a subscriber telephone line is 4 kHz
+Bandwidth in Bits per Seconds: the number of bits per
+second that a channel, a link, or even a network can 
+transmit
+• Example, the bandwidth of an Ethernet network is a maximum of 
+100 Mbps which means that this network can send 100 Mbps
+Relationship
+an increase in bandwidth in Hertz means an increase in bandwidth in bits
+per second considering if we have baseband transmission or transmission
+with modulation
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  129 words
+────────────────────────────────────────────────────────────
+In digital systems: Speed is measured in...
+Bits per second (bps).: The number of bits (0’s and 1’s) 
+that travel down the channel per second.
+Speed of Signal:  Sample bps speeds.
+300 bps 
+Painfully slow to the college-level reader
+1200 bps 
+Good reader can keep up
+2400 bps 
+A speed reader would get the general idea
+9600 bps 
+Impossible to read
+14.4 K bps
+14,400 bps  - 10 to 20 sec. wait for graphics
+28.8 K bps
+Minimum desired for WWW (5 to 10 sec. wait for graphics)
+56 K bps
+Efficient speed for WWW.
+These speeds are restricted to the maximum speed of the modem at the
+other end of the connection.
+Bit rate R=1/T bits per second
+t
+x(t)
+1
+0
+0
+0
+1
+1
+0
+T
+
+── Images on page 25 (1 found) ──
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  52 words
+────────────────────────────────────────────────────────────
+Assume we need to download text documents at the
+rate of 100 pages per second. What is the required bit
+rate of the channel? A page is an average of 24 lines
+with 80 characters in each line. If we assume that one
+character requires 8 bits, the bit rate is
+Example
+
+── Images on page 26 (1 found) ──
+
+[Image 1]  1135×135px  (PNG)
+OCR:
+100 x 24 x 80 X 8 = 1,536,000 bps = 1.536 Mbps.
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  63 words
+────────────────────────────────────────────────────────────
+In reality, we cannot have a noiseless channel; the channel is always 
+noisy. In 1944, Claude Shannon introduced a formula, called the 
+Shannon capacity, to determine the theoretical highest data rate for 
+a noisy channel:
+In this formula, bandwidth is the bandwidth of the channel, SNR is 
+the signal-to noise ratio, and capacity is the capacity of the channel 
+in bits per second.
+
+── Images on page 27 (1 found) ──
+
+[Image 1]  377×52px  (PNG)
+OCR:
+Capacity = bandwidth x log,(1 + SNR)
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  64 words
+────────────────────────────────────────────────────────────
+Example (1)
+Find capacity of ordinary voice grade
+telephone line, assuming 𝑆𝑁𝑅= 30 𝑑𝐵for 
+voice channels.
+𝑆𝑁𝑅= 30 𝑑𝐵Signal to noise ratio = 1000
+Frequency range for voice channel is 300-3400Hz
+• Bandwidth B = 3100Hz
+𝐶𝑎𝑝𝑎𝑐𝑖𝑡𝑦𝐶= 𝐵𝑙𝑜𝑔2 1 + 𝑆𝑁𝑅= 3100𝑙𝑜𝑔2 1001
+≈31𝑘𝑏𝑝𝑠
+Higher capacities (speeds), such as 56kbps can be
+achieved only over cleaner channels, i.e. over voice
+channels with higher SNR.
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  58 words
+────────────────────────────────────────────────────────────
+Network Performance
+(2) Throughput
+a measure of how fast we can actually send data
+through a network
+link may have a bandwidth of B bps, but we can
+only send T bps
+(practically T < B)
+the bandwidth is a potential measurement of a
+link; the throughput is an actual measurement
+of how fast we can send data
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  54 words
+────────────────────────────────────────────────────────────
+Example (4)
+A network with bandwidth of 10 Mbps can
+pass only an average of 12,000 frames per
+minute with each frame carrying an average of
+10,000 bits. What is the throughput of this
+network?
+Solution
+• Throughput = 12000 × 10000 = 2 𝑀𝑏𝑝𝑠
+60
+• Thereby, throughput is one-fifth of the bandwidth
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  60 words
+────────────────────────────────────────────────────────────
+Network Performance
+(3) Latency (Delay)
+defines how long it takes for an entire message to
+completely arrive at the destination from the time the
+first bit is sent out from the source
+𝐿𝑎𝑡𝑒𝑛𝑐𝑦
+= 𝑝𝑟𝑜𝑝𝑎𝑔𝑎𝑡𝑖𝑜𝑛𝑡𝑖𝑚𝑒+ 𝑡𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑠𝑖𝑜𝑛𝑡𝑖𝑚𝑒
++ 𝑞𝑢𝑒𝑢𝑖𝑛𝑔𝑡𝑖𝑚𝑒+ 𝑝𝑟𝑜𝑐𝑒𝑠𝑠𝑖𝑛𝑔𝑑𝑒𝑙𝑎𝑦
+• Propagation time measures the time required for a bit to travel
+from the source to the destination
+𝑡𝑟𝑎𝑣𝑒𝑙𝑖𝑛𝑔𝑑𝑖𝑠𝑡𝑎𝑛𝑐𝑒
+𝑝𝑟𝑜𝑝𝑎𝑔𝑎𝑡𝑖𝑜𝑛𝑡𝑖𝑚𝑒=
+𝑝𝑟𝑜𝑝𝑎𝑔𝑎𝑡𝑖𝑜𝑛𝑠𝑝𝑒𝑒𝑑
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  85 words
+────────────────────────────────────────────────────────────
+Network Performance
+Transmission 𝑡𝑖𝑚𝑒=
+• Transmission time measures the time required for transmission of
+a message depending on the size of the message and the
+bandwidth of the channel
+𝑚𝑒𝑠𝑠𝑎𝑔𝑒𝑠𝑖𝑧𝑒
+𝑐ℎ𝑎𝑛𝑛𝑒𝑙𝑏𝑎𝑛𝑑𝑤𝑖𝑑𝑡ℎ
+• Queuing time measures the time needed for each intermediate
+(router) or end device to hold the message before it can be
+processed
+– The queuing time is not a fixed factor; it changes with the load
+imposed on the network
+– When there is heavy traffic on the network, the queuing time
+increases
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 33 (2 found) ──
+
+[Image 1]  769×313px  (PNG)
+OCR:
+Example 3.46
+What are the propagation time and the transmission time for a 2.5-KB (kilobyte) message (an e-
+mail) if the bandwidth of the network is 1 Gbps? Assume that the distance between the sender
+and the receiver is 12,000 km and that light travels at 2.4 x 10° mis.
+Solution
+We can calculate the propagation and transmission time as
+
+Propagation time = (12,000 x 1000) / (2.4 x 10°) = 50 ms
+
+Transmission time = (2500 x 8) / 10° = 0.020 ms
+
+Note that in this case, because the message is short and the bandwidth is high, the
+dominant factor is the propagation time, not the transmission time. The transmission
+time can be ignored.
+
+[Image 2]  717×225px  (PNG)
+OCR:
+Example 3.47
+What are the propagation time and the transmission time for a 5-MB (megabyte) message (an
+image) if the bandwidth of the network is 1 Mbps? Assume that the distance between the sender
+and the receiver is 12,000 km and that light travels at 2.4 x 10° m/s.
+Solution
+We can calculate the propagation and transmission times as
+
+Propagation time = (12,000 x 1000) / (2.4 x 10°) = 50 ms
+
+Transmission time = (5,000,000 x 8) /10° = 40s
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  50 words
+────────────────────────────────────────────────────────────
+Network Performance
+(4) Bandwidth-Delay Product
+The bandwidth-delay product defines the number of
+bits that can fill the link
+(5) Jitter
+Variation in the delay for transferred messages
+through the same channel
+problem if the application using the data at the
+receiver site is time-sensitive (audio and video data,
+for example)
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 35 (1 found) ──
+
+[Image 1]  711×224px  (PNG)
+OCR:
+We can think about the link between two points as a pipe. The cross section of the pipe represents
+the bandwidth, and the length of the pipe represents the delay. We can say the volume of the pipe
+defines the bandwidth-delay product, as shown in Figure 3.34.
+Figure 3.34 Concept of bandwidth-delay product
+Length: delay
+——
+Cross section: bandwidth
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  42 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+Network Models – Recall
+Introduction to the Physical Layer
+Data Communications and Representation in a
+Network
+Data Flow and Transmission Modes
+Physical Network Topologies
+Network Performance
+Material to be covered next lecture
+Introduction to
+Transmission Media
+Switching techniques

@@ -1,0 +1,33 @@
+{
+  "nav": {
+    "title": "Sahla Admin",
+    "dashboard": "Dashboard",
+    "feedback": "Feedback Inbox",
+    "users": "Users",
+    "featureRequests": "Feature Requests",
+    "analytics": "Analytics",
+    "errorLogs": "Error Logs",
+    "content": "Content Management",
+    "notifications": "Broadcasting",
+    "monitors": "Monitors",
+    "settings": "Settings",
+    "collaborators": "Collaborators",
+    "backToSite": "Back to Sahla"
+  },
+  "notifications": {
+    "broadcastTitle": "Broadcast Notifications",
+    "broadcastSubtitle": "Send real-time alerts and updates to all registered students."
+  },
+  "dashboard": {
+    "title": "System Overview",
+    "subtitle": "Monitor platform health and user activity.",
+    "totalUsers": "Total Users",
+    "activeToday": "Active Today",
+    "totalFeedback": "Total Feedback",
+    "totalExams": "Exams Taken",
+    "recentActivity": "Recent Activity",
+    "lecturesAvailable": "Lectures Available",
+    "examAttempts": "Exam Attempts",
+    "feedbackMessages": "Feedback Messages"
+  }
+}

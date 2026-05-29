@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
+  <url>
+    <loc>https://sahla-study.web.app/</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sahla-study.web.app/about</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sahla-study.web.app/privacy</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sahla-study.web.app/terms</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://sahla-study.web.app/login</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://sahla-study.web.app/signup</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Subject: Intelligent Programming (IS407) -->
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming/lecture/1</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming/lecture/2</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming/lecture/3</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming/lecture/4</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming/lecture/5</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/intelligent-programming/exam</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Subject: Data Mining (IS405) -->
+  <url><loc>https://sahla-study.web.app/subjects/data-mining</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/1</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/2</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/3</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/4</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/5</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/6</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/7</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/8</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/9</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/10</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/11</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/12</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/lecture/13</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/data-mining/exam</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Subject: Machine Learning (IS403) -->
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/1</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/2</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/3</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/4</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/5</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/6</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/lecture/7</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/machine-learning/exam</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Subject: Neural Networks (IS402) -->
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/lecture/1</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/lecture/2</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/lecture/3</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/lecture/4</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/lecture/5</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/lecture/6</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/neural-networks/exam</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Subject: Smart Systems (IS406) -->
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/1</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/2</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/3</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/4</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/5</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/6</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/lecture/7</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/smart-systems/exam</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Subject: Databases (IS409) -->
+  <url><loc>https://sahla-study.web.app/subjects/database</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/database/lecture/1</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/database/lecture/2</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/database/lecture/3</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/database/lecture/4</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/database/lecture/5</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sahla-study.web.app/subjects/database/exam</loc><lastmod>2026-04-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+</urlset>

@@ -1,0 +1,1584 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_9_Network_Layer_3.pdf
+Date   : 2026-05-14 03:39:23.308742
+Pages  : 40 / 40
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  5 words
+────────────────────────────────────────────────────────────
+Lecture 9
+Network Layer (cont’d)
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  23 words
+────────────────────────────────────────────────────────────
+Agenda
+Routing Tables
+Unicast and Multicast Routing Protocols
+Routing Algorithms
+Link State and Distance Vector
+Routing Information and Open Shortest Path First
+Protocols
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  39 words
+────────────────────────────────────────────────────────────
+Routing Tables
+A host or a router has a routing table with an entry for
+each destination, or a combination of destinations
+Routing tables: static (updated manually) or dynamic
+(updated automatically periodically)
+Routing methods
+Next-Hop Method Versus Route Method
+
+── Images on page 3 (1 found) ──
+
+[Image 1]  504×260px  (PNG)
+OCR:
+a. Routing tables based on route b. Routing tables based on next hop
+Destination Route Routing table Destination Next hop
+—HostB RE RS host for host A Host B Ri
+Destination Route Routing table Destination Nexthop
+—HostB Rost ti«ér RAL HostB R2
+Destination Route Routing table Destination Next hop
+HostB HostB for R2 Host B
+Host A HostB
+a £
+Ri R2
+Network Gage New ork > GaD- Network >
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 4 (3 found) ──
+
+[Image 1]  504×260px  (PNG)
+OCR:
+a. Routing tables based on route b. Routing tables based on next hop
+Destination Route Routing table Destination Next hop
+—HostB RE RS host for host A Host B Ri
+Destination Route Routing table Destination Nexthop
+—HostB Rost ti«ér RAL HostB R2
+Destination Route Routing table Destination Next hop
+HostB HostB for R2 Host B
+Host A HostB
+a £
+Ri R2
+Network Gage New ork > GaD- Network >
+
+[Image 2]  648×417px  (PNG)
+OCR:
+1) Routing Tables Based on Route (Left Side)
+
+In this method, each device stores the complete path to reach the destination.
+
+Device Routing Entry for Destination Host B
+
+Host A R1 > R2 > Host B
+
+Router R1 R2 > Host B
+
+Router R2 Host B (direct delivery)
+
+XX Problems
+
+Issue Explanation
+
+Large tables Storing full paths for many destinations requires more memory.
+Hard to update Any topology change requires recomputing full routes everywhere.
+Not scalable Becomes inefficient in large networks.
+
+[Image 3]  577×449px  (PNG)
+OCR:
+2) Routing Tables Based on Next Hop (Right Side)
+
+In real networks, routers store only the next immediate hop toward each destination
+Device Routing Entry for Destination Host B
+Host A R21
+
+Router R1 R2
+
+Router R2 Host B (direct delivery)
+Advantages
+
+Benefit Explanation
+
+Small routing tables Only 1 entry per destination (next hop).
+Fast forwarding Routers make simple, quick decisions.
+Scalable Works efficiently for very large networks.
+Easier updates Only local next-hop changes are needed.
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  9 words
+────────────────────────────────────────────────────────────
+Routing Tables
+Routing methods
+Network-Specific Method Versus Host-Specific Method
+
+── Images on page 5 (2 found) ──
+
+[Image 1]  507×186px  (PNG)
+OCR:
+Kouting table for host 5 based
+
+on host-specific method
+
+Routing table for host S based
+A RI on network-specific method
+g Rt Destination| Next hop
+D a a A B c »D
+
+Xa g aakg da
+Cs ee
+R]
+
+[Image 2]  656×248px  (PNG)
+OCR:
+Summary
+Feature Host-Specific Routing Network-Specific Routing
+Table entries One per host One per network
+Scalability Poor (grows fast) Excellent
+Use case Special cases Normal routing
+Example A—R1, B>R1, C>R1... N2—-R1
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  63 words
+────────────────────────────────────────────────────────────
+1
+2
+3
+0111
+value in arriving
+packet’s header
+routing algorithm
+local forwarding table
+header value output link
+0100
+3
+0101
+2
+0111
+2
+1001
+1
+Interplay between Routing Algorithms and
+Forwarding Tables
+the job of routing algorithm is to 
+determine good paths from 
+senders to receivers, through a 
+network of routers
+Typically, a good path is one that
+has the least cost
+
+── Images on page 6 (12 found) ──
+
+[Image 1]  481×266px  (PNG)
+OCR:
+> |
+
+[Image 7]  122×76px  (PNG)
+[No text detected]
+
+[Image 8]  121×77px  (PNG)
+OCR:
+yp
+
+[Image 9]  114×76px  (PNG)
+OCR:
+»
+
+[Image 10]  114×77px  (PNG)
+OCR:
+iw
+
+[Image 11]  114×93px  (PNG)
+OCR:
+iN
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  75 words
+────────────────────────────────────────────────────────────
+Routing Protocols
+Routing protocols have been created in response
+to the demand for dynamic routing tables
+A routing protocol is a combination of rules and
+procedures that lets routers in the Internet
+inform each other of routing changes
+share whatever they know about the Internet or their
+neighborhood
+Unicast Routing Protocols
+Forwarding data packets from a source to a destination
+on a network
+Multicast Routing Protocols
+Forwarding data packets from a source to multiple
+destinations
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  5 words
+────────────────────────────────────────────────────────────
+Routing Protocols
+AS: Autonomous System
+
+── Images on page 8 (2 found) ──
+
+[Image 1]  533×292px  (JPEG)
+OCR:
+Routing protocols
+RIP OSPF BGP
+
+[Image 2]  494×243px  (PNG)
+OCR:
+Interdomain Intradomain
+Routing Routing
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 9 (2 found) ──
+
+[Image 1]  867×493px  (PNG)
+OCR:
+Feature Intradomain Routing Interdomain Routing
+
+Scope Within an Autonomous System (AS). Between different Autonomous Systems
+(ASs).
+
+Protocol Interior Gateway Protocol (IGP). Exterior Gateway Protocol (EGP).
+
+Type
+
+Primary Finding the optimal path (shortest, Controlling traffic flow between domains
+
+Goal fastest, etc.) within the AS for efficiency. based on administrative and business
+policies.
+
+Scalability Good for managing the complexity within — Highly scalable to handle the routing
+
+a single, large domain. demands of the entire global internet.
+
+Examples RIP, OSPF, BGP (Border Gateway Protocol).
+
+Metric Hop Count (RIP), Cost/Bandwidth (OSPF), | AS-Path, policies, and other attributes.
+
+Used Delay, Reliability, etc.
+
+[Image 2]  494×243px  (PNG)
+OCR:
+Interdomain Intradomain
+Routing Routing
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  92 words
+────────────────────────────────────────────────────────────
+u
+w
+z
+2
+v
+2
+x
+1
+3
+1
+1
+y
+2
+5
+Graph: G = (N,E)
+N = set of routers = { u, v, w, x, y, z }
+E = set of links (edges) ={ (u,v), (u,x), (v,x), (v,w), (x,w), (x,y), (w,y), (w,z), (y,z) }
+Routing Problem Formulation
+(Graph abstraction)
+5
+3
+Link’s cost may
+reflect:
+- Link’s physical
+length
+- The link speed
+- The monetary
+cost associated 
+with a link
+Each edge has a number next to it, which is the cost of using that link.
+
+── Images on page 10 (1 found) ──
+
+[Image 1]  736×457px  (PNG)
+OCR:
+DS
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  85 words
+────────────────────────────────────────────────────────────
+Graph abstraction: costs
+u
+w
+z
+2
+v
+2
+x
+1
+3
+1
+1
+y
+2
+5
+5
+3
+• c(x,x’) = cost of link (x,x’) =
+cost of link (x’,x)
+- e.g., c(w,z) = c(z,w) = 5
+Cost of path (x1, x2, x3,…, xp) = c(x1,x2) + c(x2,x3) + … + c(xp-1,xp)
+Question: What’s the least-cost (or shortest) path between u and z ?
+Routing algorithm: algorithm that finds least-cost path
+Note: shortest path is the source-destination path with the smallest number of links
+
+── Images on page 11 (1 found) ──
+
+[Image 1]  736×458px  (PNG)
+OCR:
+DS
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  16 words
+────────────────────────────────────────────────────────────
+u
+w
+z
+2
+v
+2
+x
+1
+3
+1
+1
+y
+2
+5
+5
+3
+
+── Images on page 12 (2 found) ──
+
+[Image 1]  736×458px  (PNG)
+OCR:
+DS
+
+[Image 2]  659×211px  (PNG)
+OCR:
+Least-cost path from u to z:
+u->x-—y — zwith total cost 1+ 1+ 2 = 4.
+Work (brief):
+e Edge costs used: c(u,x)=1, c(x,y)=1, cly,z)=2.
+e Path cost = 1 + 1 + 2 = 4 (minimum among all u-z paths).
+(For completeness: another 3-hop path u-v-w-z has cost 2+3+5 = 10, so it is more expensive.)
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  75 words
+────────────────────────────────────────────────────────────
+Routing Algorithm Classification
+Global or decentralized
+information?
+Global:
+all routers have complete
+topology, link cost info 
+(proactive algorithm)
+“link state” algorithms
+Decentralized:
+router knows physically-
+connected neighbors, link 
+costs to neighbors
+iterative process of
+computation, exchange of 
+info with neighbors
+“distance vector” algorithms
+Static or dynamic?
+Static:
+routes change slowly
+over time
+Suitable for proactive
+routing protocols
+Updates might not be req.
+Dynamic:
+routes change more
+quickly
+periodic update
+in response to link
+cost changes
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 14 (2 found) ──
+
+[Image 1]  741×401px  (PNG)
+OCR:
+Feature Static Routing Dynamic Routing
+Definition Routes are manually configured and do not Routes are automatically updated based on
+change unless an admin updates them network changes
+Speed of change Very slow (requires manual change) Fast; adapts continuously
+Updates Usually not required unless topology Periodic and event-driven updates
+changes
+Overhead Zero or very low overhead Higher overhead due to routing protocol
+messages
+Suitability Small or stable networks Medium/large networks with frequent changes
+Advantages Simple, predictable, secure Adaptive, efficient, fault-tolerant
+Disadvantages Not scalable, not adaptive More complex, consumes bandwidth/CPU
+
+[Image 2]  705×113px  (PNG)
+OCR:
+Feature Global Information (Link-State) Decentralized Information (Distance Vector)
+
+Knowledge Router knows the entire network Router knows only neighbors and cost to
+topology and link costs neighbors
+
+Type of algorithms Link-State routing (e.g., OSPF) Distance-Vector routing (e.g., RIP)
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  86 words
+────────────────────────────────────────────────────────────
+A Link-State Routing Algorithm
+net topology and link costs known to all nodes (global info.)
+accomplished via “link state broadcast”
+all nodes have same info
+Example: Open short path first (OSPF) routing
+protocol uses link-state routing algorithm such as 
+Dijkstra’s algorithm
+Dijkstra’s algorithm
+computes least cost paths from one node (‘source”) to all
+other nodes
+gives forwarding table for that node
+iterative: after k iterations, know least cost path to k
+destinations
+Algorithm complexity: n nodes
+n(n-1)/2 comparisons: O(n2) polynomial complexity
+more efficient implementations possible: O(nlog(n))
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 16 (2 found) ──
+
+[Image 1]  581×197px  (PNG)
+OCR:
+1. What “Global Information” Means
+
+In link-state routing, every router knows the entire network topology:
+e All nodes (routers)
+e All links between them
+e Link costs (delay, bandwidth, congestion, etc.)
+
+This is achieved through a process called link-state broadcast.
+
+[Image 2]  685×679px  (PNG)
+OCR:
+Dijkstra’s Algorithm in Link-State Routing
+Dijkstra’s algorithm computes least-cost paths from one router (“the source”) to all other routers.
+How it works:
+e Start at the source node.
+e = Iteratively select the closest (minimum cost) unvisited node.
+e Update the costs to its neighbors.
+e Repeat until all nodes are included.
+After running the algorithm, the router builds its forwarding table:
+e For each destination > what is the next hop?
+Iterative Nature of Dijkstra’s Algorithm
+After k iterations, the algorithm knows:
+e the least-cost path to k destinations
+Eventually, when all nodes have been added, all shortest paths are known.
+Table: Dijkstra’s Progress per Iteration
+Iteration What Is Known
+1 Shortest path to the closest neighbor
+k Shortest path to k nodes
+n Complete shortest-path tree
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  53 words
+────────────────────────────────────────────────────────────
+Dijkstra’s algorithm: example
+Step
+0
+1
+2
+3
+4
+5
+N'
+u
+ux
+uxy
+uxyv
+uxyvw
+uxyvwz
+D(v),p(v)
+2,u
+2,u
+2,u
+D(w),p(w)
+5,u
+4,x
+3,y
+3,y
+D(x),p(x)
+1,u
+D(y),p(y)
+∞
+2,x
+D(z),p(z)
+∞
+∞
+4,y
+4,y
+4,y
+u
+z
+2
+1
+3
+1
+w
+1
+y
+2
+5
+3
+5
+v
+2
+x
+
+── Images on page 17 (1 found) ──
+
+[Image 1]  736×458px  (PNG)
+OCR:
+DS
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  16 words
+────────────────────────────────────────────────────────────
+u
+z
+2
+1
+3
+1
+w
+1
+y
+2
+5
+3
+5
+v
+2
+x
+
+── Images on page 18 (4 found) ──
+
+[Image 1]  736×458px  (PNG)
+OCR:
+DS
+
+[Image 2]  571×553px  (PNG)
+OCR:
+Notation
+
+e N' = set of nodes with final shortest distance known.
+
+e D(n) = current best distance from u to node n.
+
+e p(n) = predecessor of n on the best path (used to reconstruct path).
+Initialization (Step 0)
+N'={u}
+Initial distances and predecessors:
+Node D(n) p(n)
+u 0 —_—
+Vv 2 u
+x 1 u
+WwW foved —
+y oo _
+P4 reed —
+
+[Image 3]  585×505px  (PNG)
+OCR:
+Step 1— pick smallest D(n) not in N’ — x (1)
+Add x to N’: N’ = {u, x}
+Update neighbors of x:
+e viax > v: new = D(x) + cost(x,v) = 1 + 2 = 3 (current D(v)=2 — no update).
+e viax > w: new = 1 + 3 = 4 (D(w)=- - update D(w)=4, p(w)=).
+e viax— y: new = 1 + 1 = 2 (D{y)=0 > update D(y)=2, p(y)=x).
+Table after Step 1:
+Node Din) p(n)
+u (0) =
+x 1 u
+v 2 u
+y 2 x
+w 4 x
+r4 oo _
+
+[Image 4]  561×499px  (PNG)
+OCR:
+Step 2 — pick smallest — v (2) (tie with y; choose v)
+Add vto N':N' = {u,x%, v}
+Update neighbors of v:
+
+e =viav > w: new = D(v) + 3 = 2 + 3 = 5 (current D(w)=4 — no update).
+
+e viav > x: new = 2 + 2 = 4(D(x)=1 — no update).
+
+e vhas no direct z in this graph.
+Table after Step 2 (unchanged except N’):
+Node D(n) p(n)
+u i) _
+x 1 u
+Vv 2 u
+y 2 x
+w 4 x
+Zz eed _—
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  16 words
+────────────────────────────────────────────────────────────
+u
+z
+2
+1
+3
+1
+w
+1
+y
+2
+5
+3
+5
+v
+2
+x
+
+── Images on page 19 (4 found) ──
+
+[Image 1]  736×458px  (PNG)
+OCR:
+DS
+
+[Image 2]  553×551px  (PNG)
+OCR:
+Step 3 — pick next smallest — y (2)
+Addy toN: N={u,x%v,y}
+Update neighbors of y:
+
+e viay > x: new = 2 +1 = 3 (D(X)=1 — no update).
+
+e via y > wi new = 2 + 1 = 3 (D(w)=4 — update D(w)=3, p(w)=y).
+
+e viay > Z: new = 2 + 2 = 4 (D(z)=@ — update D(z)=4, p(z)=y).
+Table after Step 3:
+Node D(n) p(n)
+u 0 _—
+x 1 u
+Vv 2 u
+y 2 x
+w 3 y
+Zz 4 y
+(notes: w updated from 4 — 3 via y; z set to 4 via y)
+
+[Image 3]  535×483px  (PNG)
+OCR:
+Step 4 — pick next smallest — w (3)
+Add wtoN'N'={u,%v.y, w}
+Update neighbors of w:
+
+e viaw — z: new = 3 + 5 = 8 (current D(z)=4 — no update).
+
+e viaw — v/x/y all produce larger distances than existing — no updates.
+Table after Step 4:
+Node D(n) p(n)
+u fe) =
+x 1 u
+Vv 2 u
+y 2 x
+w 3 y
+z 4 sy
+
+[Image 4]  633×393px  (PNG)
+OCR:
+Step 5 — remaining node — z (4)
+
+Add z to N’: N’ = {u, x, v, y, W, Z} — algorithm complete.
+
+Final distances and predecessors:
+
+Destination D(final) p(n)
+Vv 2 u
+
+x 1 u
+
+y 2 x
+
+w 3 sy
+
+Zz 4 y
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  16 words
+────────────────────────────────────────────────────────────
+u
+z
+2
+1
+3
+1
+w
+1
+y
+2
+5
+3
+5
+v
+2
+x
+
+── Images on page 20 (2 found) ──
+
+[Image 1]  736×458px  (PNG)
+OCR:
+DS
+
+[Image 2]  773×661px  (PNG)
+OCR:
+Reconstructed shortest paths from u (walk predecessors back to source)
+
+Destination Shortest path (u — ... — dest) Cost
+Vv us+v 2
+x ux 1
+y u>-x—7y 1+1=2
+w u-xsyow 14+14+1=3
+z U+XsysZ 14+14+2=4
+Final forwarding table for node u (next hop to reach each destination)
+
+Destination Next hop from u
+
+v v
+
+x x
+
+y x
+
+Ww xX
+
+r4 x
+
+(For destinations y, w, z the first hop from u is x.)
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  3 words
+────────────────────────────────────────────────────────────
+Distance Vector Algorithm
+
+── Images on page 21 (1 found) ──
+
+[Image 1]  705×553px  (PNG)
+OCR:
+The Distance Vector (DV) algorithm is a routing algorithm used by routers to learn the best paths in a
+network. It has three key properties:
+1. Distributed
+e Each router (node) does not know the entire network.
+e Instead, it only knows:
+e The costs to its directly connected neighbors
+e The distance vectors received from those neighbors
+e This means routing decisions are based on local information, not centralized control.
+2. Iterative
+e The algorithm runs repeatedly.
+e Routers keep updating their routing tables whenever they receive new information.
+e The process continues until no more changes occur in any router's table (convergence).
+3. Asynchronous
+e Routers do not update at the same time.
+e Each router sends updates whenever there is a change, such as:
+e Alink cost change
+e Aneighbor sending an updated distance vector
+e There is NO global clock forcing them to coordinate.
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 22 (1 found) ──
+
+[Image 1]  785×817px  (PNG)
+OCR:
+How It Works
+
+From time to time, each router sends its distance vector to its neighbors.
+A distance vector is simply a table listing:
+
+The router's current estimate of the least-cost path to every destination.
+
+When a router receives a distance vector from a neighbor, it updates its own table based on the Bellman-
+Ford formula.
+
+Bellman-Ford Update Rule
+
+Let:
+
+e  d,(y) = the cost of the least-cost path from router x to destination y.
+
+e  ¢(x, v) = the direct link cost from x to its neighbor v.
+
+e d,(y) = neighbor v's cost to get to y.
+The update rule is:
+
+d,(y) = min {e(a, v) + d,(y)}
+
+Meaning:
+
+For router x, the best way to get to destination y is to check every neighbor v and choose the path with the
+smallest total cost:
+
+(cost to reach neighbor v) + (cost from neighbor v to reach y)
+
+This is applied repeatedly until the routing tables stabilize.
+
+Example Use: RIP
+The Routing Information Protocol (RIP) uses the Distance Vector approach with the Bellman-Ford
+algorithm.
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  1149×501px  (PNG)
+OCR:
+Comparison of Link State (LS) vs Distance Vector (DV) Algorithms
+Feature Link State (LS) Distance Vector (DV)
+Message Complexity + Each router broadcasts link-state information to all nodes. * Routers exchange routing updates only with neighbors.
+* With n nodes and E links ~ O(nE) messages. * Message overhead is generally lower but depends on convergence speed.
+Speed of * Uses Dijkstra's algorithm: O(n?) computation time (can be improved to O(n * Convergence time varies depending on network topology.
+Convergence log n)). * Can suffer from routing loops and count-to-infinity problems.
+« Requires O(nE) link-state advertisement messages. * Slower convergence in large networks.
+* May show temporary oscillations if link costs change rapidly.
+Robustness / Failure « A faulty router can broadcast incorrect link costs, but each node computes + A faulty router can advertise incorrect path costs, which are then accepted and
+Impact its own routing table, limiting propagation of errors. propagated by neighbors.
++ Failure impact is more contained. + Errors may spread throughout the network — more vulnerable to incorrect
+updates.
+Knowledge Required * Each router must know the full network topology and link states. * Router only knows information from its neighbors.
+Algorithm Type Global: every node has complete topology. Decentralized: iterative exchange of vectors with neighbors.
+Example Protocols OSPF, IS-IS RIP, IGRP
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  56 words
+────────────────────────────────────────────────────────────
+RIP ( Routing Information Protocol)
+D
+C
+u
+v
+A
+B
+w
+x
+y
+z
+distance vector algorithm
+included in Berkeley Software Distribution (BSD)-
+UNIX Distribution in 1982
+distance metric: # of hops (max = 15 hops)
+From router A to subnets:
+destination
+hops
+u
+1
+v
+2
+w
+2
+x
+3
+y
+3
+z
+2
+
+── Images on page 24 (1 found) ──
+
+[Image 1]  677×201px  (PNG)
+OCR:
+@ 1. RIP Basics |
+e RIP is a distance-vector routing protocol.
+e Added to BSD UNIX in 1982.
+e Metric = number of hops
+e Maximum allowed hops = 15 (16 = unreachable)
+Every router periodically sends its distance vector (list of networks and hop counts) to neighbors.
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  10 words
+────────────────────────────────────────────────────────────
+D
+C
+u
+v
+A
+B
+w
+x
+y
+z
+
+── Images on page 25 (1 found) ──
+
+[Image 1]  695×331px  (PNG)
+OCR:
+This shows the routing table entries at router A after RIP converges.
+
+Destination subnet Hops How A reaches it
+
+u 1 Directly connected (A — u)
+
+v 2 ABV
+
+w 2 A-Bow
+
+x 3 A~B-D-xorA-C-D—-x
+y 3 A+-B=-D-yorA+C+D-—y
+z 2 A+C3+z
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  2 words
+────────────────────────────────────────────────────────────
+RIP advertisements
+
+── Images on page 26 (2 found) ──
+
+[Image 1]  755×437px  (PNG)
+OCR:
+RIP Distance Vector Exchange — Explained
+1. Routers exchange distance vectors every 30 seconds
+
+e Each router periodically sends a RIP Response Message (also called a RIP advertisement).
+
+e This happens every 30 seconds.
+
+e The message is sent only to directly connected neighbors (because RIP is a distance vector protocol).
+2. What is inside each RIP advertisement?
+Each advertisement contains:
+
+e Alist of up to 25 destination subnets (RIP limits each message to 25 entries).
+
+e For each subnet, the router includes its distance (in hops) from itself to that subnet.
+So a RIP message says something like:
+
+“Here are all the networks | can reach, and here is how many hops away they are from me.”
+
+The neighbor uses this information to update its own routing table using the Bellman-Ford rule.
+
+[Image 2]  711×711px  (PNG)
+OCR:
+3. What happens if a router stops receiving advertisements?
+RIP uses a timeout of 180 seconds.
+
+e If router A does not hear any advertisement from a neighbor for 180 seconds:
+
+e That neighbor is assumed dead.
+e All routes that go through that neighbor become invalid.
+
+This prevents routers from using stale routing information.
+4. What happens after a neighbor is declared dead?
+When routes become invalid:
+
+1. The router updates its routing table.
+
+2. It sends new advertisements to all its neighbors to announce the change.
+
+3. Those neighbors check their own tables, update them if needed, and may also send updated
+
+advertisements.
+
+This event-triggered exchange helps the network quickly converge to new correct routes.
+Why frequent updates + timers matter
+RIP works with:
+
+e Periodic updates (every 30 seconds)
+
+¢ Timeout mechanism (180 seconds)
+
+e Triggered updates (when a change is detected)
+Together they allow routers to keep routing tables reasonably up-to-date despite RIP being a simple
+protocol.
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  39 words
+────────────────────────────────────────────────────────────
+RIP: Example
+Destination Network
+w
+Next
+Router
+A
+Num. of hops to dest.
+2
+y
+B
+2
+z
+B
+7
+w
+x
+….
+--
+….
+1
+....
+x
+y
+z
+A
+D
+C
+B
+Routing/Forwarding Table in Router D
+
+── Images on page 27 (5 found) ──
+
+[Image 1]  1451×341px  (PNG)
+OCR:
+fe we
+Pa F
+a a
+ra ra a
+fr fe ra
+a ——ew ee
+ee = EE aa _il
+Gi = ~“
+SY
+eee _ ne
+
+[Image 3]  347×105px  (PNG)
+OCR:
+@ Destination w
+e PathD-A-w
+e Correct, cost = 2 hops (1 to A + 1 to w)
+
+[Image 4]  287×105px  (PNG)
+OCR:
+@ Destination y
+« PathD-Boy
+¢ Correct, cost = 2 hops
+
+[Image 5]  221×97px  (PNG)
+OCR:
+@ Destination x
+e xis directly connected to D
+e Cost = 1hop
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  59 words
+────────────────────────────────────────────────────────────
+Destination Network
+Next
+Router
+Num. of hops to dest.
+w
+A
+2
+y
+B
+2
+z
+B A
+7 5
+x
+--
+1
+….
+….
+....
+w
+x
+y
+z
+A
+D
+B
+Dest
+w
+Next
+hops
+-
+1
+x
+-
+1
+z
+C
+4
+….
+…
+...
+C
+Routing/Forwarding table in router D
+Advertisement 
+from A to D
+
+── Images on page 28 (3 found) ──
+
+[Image 1]  1451×340px  (PNG)
+OCR:
+Le
+we fe Z
+YZ ra D fo a
+a fo Me
+a ii? ie
+ae a a
+Me we va
+
+- = ———
+|=
+— - A“ ie ee
+
+[Image 3]  234×228px  (PNG)
+OCR:
+Why?
+Because A's advertisement says:
+A > z = 4 hops
+So the cost D should use is:
+D> A = 1 hop
+A > z = 4 hops
+Total = 5 hops
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  5 words
+────────────────────────────────────────────────────────────
+OSPF (Open Shortest Path First)
+
+── Images on page 29 (1 found) ──
+
+[Image 1]  735×543px  (PNG)
+OCR:
+Item Explanation
+
+Full Name Open Shortest Path First (open standard routing protocol)
+
+Protocol Type Link-State routing protocol
+
+Where Used Large enterprise networks and upper-tier ISPs (RIP mainly used in small
+networks / lower-tier ISPs)
+
+Routing Method Routers exchange Link-State Advertisements (LSAs) and flood them
+through the AS
+
+Topology Knowledge Each router builds a complete topology map of the network
+
+Update Strategy LSAs sent on link state changes and periodically for refresh
+
+LSA Content One entry per neighbor router with link cost and state
+
+Packet Delivery OSPF runs directly over IP (not TCP or UDP)
+
+Route Calculation Routers run Dijkstra's SPF algorithm to compute shortest paths
+
+Result Creates optimized routing tables based on lowest path cost
+
+Convergence Speed Fast, because updates are event-driven and calculations are local
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 30 (1 found) ──
+
+[Image 1]  750×463px  (PNG)
+OCR:
+Feature OSPF Explanation RIP Comparison
+
+Security All OSPF messages can be authenticated to block RIP has no built-in
+unauthorized or malicious routing updates authentication
+
+Multiple Same-Cost Paths Supports load balancing across several equal-cost RIP supports only one path
+
+(ECMP) paths
+
+Multicast Support MOSPF uses the OSPF database with extra LSAs to RIP does not support
+support multicast routing multicast routing
+
+Hierarchy (Areas) AS can be divided into multiple areas connected RIP has no hierarchical
+through Area 0 (backbone) to reduce overhead and support
+improve scalability
+
+Scalability Designed for very large networks with many routers Limited to small networks
+
+Efficiency Flooding only when changes occur reduces unnecessary Periodic full updates increase
+traffic overhead
+
+Overall Performance High speed, secure, scalable Simple, slow, limited
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  57 words
+────────────────────────────────────────────────────────────
+Internet Inter-AS routing: BGP
+BGP (Border Gateway Protocol)
+BGP provides each AS means to:
+1. Obtain subnet reachability information from
+neighboring ASs.
+2. Propagate reachability information to all AS-
+internal routers.
+3. Determine “good” routes to subnets based on
+reachability information and policy.
+BGP allows subnet to advertise its
+existence to rest of Internet: “I am here”
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 32 (1 found) ──
+
+[Image 1]  755×350px  (PNG)
+OCR:
+Table 1 — What BGP Does
+
+Function Explanation
+
+Obtain reachability info Each Autonomous System (AS) learns which IP subnets are reachable through its
+neighboring ASs.
+
+Propagate routes internally Border routers share the learned reachability information with all other routers
+inside the AS (using IGP such as OSPF).
+
+Select “good” routes BGP chooses the best paths using routing policies and attributes (not shortest
+distance).
+
+Advertise subnet existence A subnet announces itself to the Internet: “I am here — this is how to reach me.”
+
+Global connectivity Makes it possible for all networks worldwide to learn routes to each other.
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  33 words
+────────────────────────────────────────────────────────────
+BGP basics
+pairs of routers (BGP peers) exchange routing info
+over semi-permanent TCP connections: BGP sessions
+3b
+1c
+1d
+2a
+3a
+AS3
+1a
+AS1
+2c
+2b
+AS2
+1b
+3c
+eBGP session
+iBGP session
+
+── Images on page 33 (1 found) ──
+
+[Image 1]  1419×490px  (PNG)
+OCR:
+LJ LJ | LU Lt
+oocIccoOccocoocao!
+s,
+hp
+on,
+oon,
+noel
+SP) we
+‘° ad
+° we
+o 2 %, wy
+e oe
+. rs ce
+2 y “>
+LJ %. a
+@Seegeae @ *
+a
+. "ssenaee
+x :
+* .*
+.
+€ >"
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  17 words
+────────────────────────────────────────────────────────────
+3b
+1c
+1d
+2a
+3a
+AS3
+1a
+AS1
+2c
+2b
+AS2
+1b
+3c
+eBGP session
+iBGP session
+
+── Images on page 34 (2 found) ──
+
+[Image 1]  1419×490px  (PNG)
+OCR:
+LJ LJ | LU Lt
+oocIccoOccocoocao!
+s,
+hp
+on,
+oon,
+noel
+SP) we
+‘° ad
+° we
+o 2 %, wy
+e oe
+. rs ce
+2 y “>
+LJ %. a
+@Seegeae @ *
+a
+. "ssenaee
+x :
+* .*
+.
+€ >"
+
+[Image 2]  728×393px  (PNG)
+OCR:
+Item in Figure Explanation
+
+AS1, AS2, AS3 (blue clouds) Each cloud represents an Autonomous System — a network under one
+administrative control (e.g., an ISP or large organization).
+
+Routers labeled 1a, 1b, 1c, 1d, etc. These are routers inside each AS. They run an internal routing protocol (IGP)
+such as OSPF to exchange routes within the AS.
+
+Dotted lines inside each AS These show internal routing communications (IGP connections between routers).
+
+Dashed lines between ASs These indicate BGP sessions between border routers belonging to different ASs
+(called eBGP sessions).
+
+Border routers Routers like 1b (AS1) + 2a (AS2) and 1c (AS1) + 3a (AS3) that connect one AS to
+another and run BGP externally.
+
+BGP Peers The routers at each end of the dashed line are BGP peers, exchanging routing
+information over TCP connections.
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  17 words
+────────────────────────────────────────────────────────────
+3b
+1c
+1d
+2a
+3a
+AS3
+1a
+AS1
+2c
+2b
+AS2
+1b
+3c
+eBGP session
+iBGP session
+
+── Images on page 35 (2 found) ──
+
+[Image 1]  1419×490px  (PNG)
+OCR:
+LJ LJ | LU Lt
+oocIccoOccocoocao!
+s,
+hp
+on,
+oon,
+noel
+SP) we
+‘° ad
+° we
+o 2 %, wy
+e oe
+. rs ce
+2 y “>
+LJ %. a
+@Seegeae @ *
+a
+. "ssenaee
+x :
+* .*
+.
+€ >"
+
+[Image 2]  758×630px  (PNG)
+OCR:
+Step What Happens
+1. Subnet advertisement Each AS advertises its internal IP subnets to neighboring ASs using BGP: “My
+subnets can be reached via me.”
+2. Exchange between peers Border routers establish BGP sessions over TCP and exchange subnet reachability
+information.
+3. Route propagation Learned routes are shared with all routers inside the AS using an internal routing
+protocol (like OSPF).
+4. Policy-based selection Each AS selects the best routes based on policies and attributes, not simply the
+shortest path.
+5. Internet-wide propagation Routes are forwarded from AS to AS, allowing worldwide connectivity between all
+networks,
+Simple Visual Meaning of the Figure
+e The figure demonstrates how the global Internet is built from interconnected ASs.
+e Internal routes stay inside each AS and use IGP (dotted lines).
+e Inter-AS routes are carried by BGP sessions between border routers (dashed lines).
+e BGP allows subnets in AS2 and AS3 to become reachable from AS1, and vice versa.
+Final One-Line Explanation
+The figure shows BGP forming peer connections between border routers of neighboring Autonomous
+Systems to exchange reachability information and enable global Internet routing.
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  30 words
+────────────────────────────────────────────────────────────
+R1
+R2
+R3
+R4
+source 
+duplication
+R1
+R2
+R3
+R4
+in-network 
+duplication
+duplicate 
+creation/transmission
+duplicate
+duplicate
+Broadcast Routing
+deliver packets from source to all other nodes
+source duplication is inefficient:
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  16 words
+────────────────────────────────────────────────────────────
+R1
+R2
+R3
+R4
+source 
+duplication
+R1
+R2
+R3
+R4
+in-network 
+duplication
+duplicate 
+creation/transmission
+duplicate
+duplicate
+
+── Images on page 37 (1 found) ──
+
+[Image 1]  751×311px  (PNG)
+OCR:
+Why Source Duplication is Inefficient
+
+Issue Explanation
+
+Redundant traffic Many identical packets flood the network even when fewer copies are sufficient.
+
+Bandwidth waste Duplicate transmissions unnecessarily consume link capacity.
+
+Processing overhead Routers must process repeated copies of the same packet.
+
+Possible network congestion Excessive duplicates increase queuing delay and packet loss.
+
+No loop control Without intelligent forwarding, packets can loop back and return to routers that
+already forwarded them.
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  44 words
+────────────────────────────────────────────────────────────
+In-network duplication
+flooding: when node receives broadcast packet,
+sends copy to all neighbors
+controlled flooding: node only broadcasts packet
+if it hasn’t sent same packet before
+spanning tree
+No redundant packets received by any node
+Each node sends unicast join message to center node
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 39 (1 found) ──
+
+[Image 1]  732×600px  (PNG)
+OCR:
+Controlled Flooding & Spanning Tree Broadcast
+
+Technique Explanation
+
+Controlled Flooding Routers forward a broadcast packet only if they have not forwarded that same
+packet before (tracked using packet IDs or sequence numbers).
+
+Result Prevents infinite loops and significantly reduces duplication compared to simple
+flooding.
+
+Spanning Tree Broadcasting A loop-free tree structure covering all nodes is created. Each broadcast packet is
+forwarded only along tree links.
+
+Benefit Guarantees no redundant packets — each node receives exactly one copy.
+
+Join Process Each node sends a unicast “join” message to a center (root) node to build the
+spanning tree.
+
+Overall Efficiency Maximum efficiency with guaranteed full coverage and no duplicates.
+
+Comparison Summary
+
+Method Efficiency Duplicates? Safety
+
+Flooding Low Yes — many Risk of congestion
+
+Controlled Flooding Medium Few Safe from loops
+
+Spanning Tree High No duplicates Fully safe
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  42 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+The Network Layer (cont’d)
+Routing Tables
+Unicast and Multicast Routing Protocols
+Routing Algorithms
+• Link State and Distance Vector
+Routing Information and Open Shortest Path First
+Protocols
+Material to be covered next lecture
+Introduction to the Transport Layer

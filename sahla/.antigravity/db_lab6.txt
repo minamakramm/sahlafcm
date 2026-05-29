@@ -1,0 +1,58 @@
+Lab 6 Join tables and Retrieving data from more than one table  
+1.Create a two Tables:  
+               Create a table Supplier with the following columns:  
+ supplier_ id → NUMBER (Primary Key)  
+supplier_name  → VARCHAR2(50) Not Null 
+Create a table Product with the following columns:  
+product_id → NUMBER  
+product _name  → VARCHAR2(50) Not Null 
+supplier_ id  → NUMBER  
+Price → NUMBER  
+ 
+ 2. Insert Data into a Table:  
+                  Insert the following Supplier into the table:  
+ (100, ‘IBM')  
+(200, ‘HP')  
+(300, ‘Microsoft')  
+(400 , ‘Apple')  
+ Insert the following Product into the table:  
+(1, 'IPAD2‘,400,2400)  
+(2, ‘IPHONE 4s‘,400,2500)  
+(3, ‘MS Office 2012‘,300,1600)  
+(4, ‘Color Printer‘, 100,1500)  3. Retrieving the supplier_name  , product_name , Price  using  Join -- On  
+4. Retrieving the supplier_name  , product_name , Price  using  Where  
+5. Retrieving the supplier_name  , product_name , Price  Where price more than 1000  
+6. Retrieving the supplier_name  , Price  Where product name is Apple   
+SELECT AggregateFunctionname  ( column name)  FROM  table WHERE conditions;  
+7. Find the total number of products in the Product table.  
+8. Find the average price of all products . 
+9. Find the most expensive and the cheapest product . 
+10. Find the total sum of all product prices . 
+11. Find the total price of products whose price is above 2000 . 
+12. Display supplier names in uppercase  
+13. Display supplier names in lowercase  Combine multiple aggregation functions with GROUP BY and HAVING.  
+16. Find the average product price for each supplier . 
+17.Find the highest priced product for each supplier . 
+18.Find how many products each supplier provides . 
+19.List suppliers who supply more than one product.  14. Count products per supplier id  
+15. Display the Suppliers id  with more than or equal 2 products  
+16. Count products for each supplier where price > 5 00, and show only suppliers 
+with at least 2 products.  
+After join tables (join):  Before join tables (No Join):  Home Work  
+A university system where: A Student  can enroll in many Courses  A Course  can have 
+many Students  
+Given Tables  
+Student  (student_id , student_name ) 
+Course  (course_id , course_name , credit_hours ) 
+Enrollment  (student_id , course_id , grade)  
+1.Write a query to display: student_name , course_name  and grade  
+2.Write a query to display all students with the courses they are enrolled in.  
+3.Write a query to find the number of courses each student is enrolled in . 
+4.Write a query to find the average grade for each student . 
+5.Write a query to find the total number of students in each course . 
+6.Write a query to find the maximum grade in each course . 
+7.Write a query to display students who are enrolled in more than 2 courses . 
+8.Write a query to display students whose average grade is greater than 80 . 
+9.Write a query to display courses that have more than 2 students enrolled . 
+10.Write a query to find the average grade for each course , and display only 
+courses with average grade greater than 75.  

@@ -1,0 +1,32 @@
+export const DEPARTMENTS = [
+  {
+    id: 'intelligent-systems',
+    name: 'Intelligent Systems',
+    nameAr: 'نظم ذكاء اصطناعي',
+    slug: 'intelligent-systems',
+    icon: 'Brain',
+    color: '#6366f1',
+    isActive: true,
+    description: 'Artificial intelligence, machine learning, and intelligent systems.',
+  },
+  {
+    id: 'cybersecurity',
+    name: 'Cybersecurity',
+    nameAr: 'أمن المعلومات',
+    slug: 'cybersecurity',
+    icon: 'Shield',
+    color: '#10b981',
+    isActive: true,
+    description: 'Network security, cryptography, and ethical hacking.',
+  },
+  {
+    id: 'ai-data-science',
+    name: 'AI & Data Science',
+    nameAr: 'الذكاء الاصطناعي وعلم البيانات',
+    slug: 'ai-data-science',
+    icon: 'BarChart2',
+    color: '#f59e0b',
+    isActive: true,
+    description: 'Data analysis, deep learning, and AI applications.',
+  },
+]

@@ -1,0 +1,224 @@
+--- Page 1 ---
+6
+Lecture 6
+Extended Entity Relationship (E-R) Modeling
+1
+
+--- Page 2 ---
+6
+Crow’s Foot Model vs. Chen Model in
+Handling the Cardinality Constraints
+2
+
+--- Page 3 ---
+6
+Tape Rental Conceptual Model
+Customer must rent one or more tapes.
+Tapes may be rented by zero or more customers
+.
+3
+
+--- Page 4 ---
+6
+Decomposition of the M:N Relationship
+4
+
+--- Page 5 ---
+6
+The Updated Tape Rental Database
+Design
+5
+
+--- Page 6 ---
+6
+The Updated Tape Rental Database
+Design (cont.)
+6
+
+--- Page 7 ---
+The Chen and Crow’s Foot E-R 6
+Diagrams for HEG
+“The HEG has 12 instructors and can handle up to 30 trainees
+per class. HEG offers five "advanced technology" courses,
+each of which may generate several classes. If a class has fewer
+than 10 trainees in it, it will be canceled. It is, therefore,
+possible for a course not to generate any classes during a
+session. Each class is taught by one instructor. Each instructor
+may teach up to two classes or may be assigned to do research.
+Each trainee may take up to two classes per session.”
+7
+
+--- Page 8 ---
+6
+HEG: Crow’s Foot Model
+8
+
+--- Page 9 ---
+HEG: Chen Model 6
+Each trainee may
+take up to two
+Each classes per session
+instructor may
+teach up to
+two classes
+Each class must
+contain from 10 up
+to 30 enrollment
+There are five "advanced technology" courses and it is possible for a
+course not to generate any classes 9
+
+--- Page 10 ---
+6
+Extended Relational Analysis
+Subsets of Entities
+Dependents of Entities
+Recursive Relations
+Complex Relations
+Time Relations
+10
+
+--- Page 11 ---
+6
+Subsets of Entities
+A subset of an entity is a collection of occurrences of
+an entity type that participate in relations or possess
+attributes that are not common to the entity type as a
+whole. The entity as a whole is called a superset in
+this context.
+• Subsets are nouns.
+• Subsets can participate in relations.
+• Subsets can have attributes.
+For example, when you ask: ”Is this a relation between
+Persons and Department?”, the user will reply: ”Yes,
+but only the employees”
+11
+
+--- Page 12 ---
+6
+12
+
+--- Page 13 ---
+6
+The PK of Subset table are
+the same as PK of Superset
+table, it is also FK in the
+Subset table.
+13
+
+--- Page 14 ---
+6
+14
+
+--- Page 15 ---
+6
+15
+
+--- Page 16 ---
+6
+Dependent of Entities
+A dependent of an entity is a noun that may have
+attributes of its own but that exists only as part of,
+or as subordinate to, some other entity. The entity
+in this context is called the parent of the
+dependent.
+• Dependents are nouns.
+• Dependents can participate in relations.
+• Dependents can have attributes.
+16
+
+--- Page 17 ---
+6
+17
+
+--- Page 18 ---
+6
+Dependent of Entities (cont.)
+• Dependent must have parent.
+• Dependent must have only one parent.
+• Dependent must always have the same parent.
+• The PK of a dependent is always the PK of its
+parent(s) plus one additional column.
+18
+
+--- Page 19 ---
+6
+Recursive Relations
+• A recursive relation is a relation between
+occurrences of a particular entity type and other
+occurrences of the same entity type. The entity
+could be simple, subset or dependent entity.
+• Recursive relations can be of the three basic types:
+1-1, 1-M, M-N.
+• Also, called Unary Relations.
+19
+
+--- Page 20 ---
+6
+20
+
+--- Page 21 ---
+6
+21
+
+--- Page 22 ---
+6
+Complex Relations
+• A complex relation is a relation between more
+than two entities.
+22
+
+--- Page 23 ---
+6
+Exercise 14, page 47
+23
+
+--- Page 24 ---
+6
++
+Region(1):Customer(M) Region/Customer(M):Class(1)
+=
+1:M:1
+24
+
+--- Page 25 ---
+6
+Course(N):Student(M)
++
+Course/Student(M):
+Grade(1)
+=
+N:M:1
+25
+
+--- Page 26 ---
+6
+26
+
+--- Page 27 ---
+6
+Part(M):Vendor(N)+Part/Vendor(M):order(N)
+=
+M:N:M
+27
+
+--- Page 28 ---
+6
+Time Relations
+A Time Relation is a relation between an
+entity, a subset, a dependent, or another
+relation and time.
+• Time Relations are always many-to-many.
+• Imagine a relation between Years, Months,
+Days, Hours and Seconds.
+• We only consider a virtual entity called
+TIME.
+28
+
+--- Page 29 ---
+6
+29
+
+--- Page 30 ---
+6
+30
+

@@ -1,0 +1,1057 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_4_Data_Transmission_Switching.pdf
+Date   : 2026-05-14 03:36:30.694770
+Pages  : 43 / 43
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  12 words
+────────────────────────────────────────────────────────────
+Lecture 4
+Data Transmission Modes and
+Switching
+Data Transmission & Switching
+1-1
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  28 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-2
+Agenda
+Introduction to Data Transmission Modes
+Parallel and Serial Transmission
+Transmission Media
+Guided and unguided media
+Data Switching Techniques
+Circuit Switching
+Packet Switching
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  59 words
+────────────────────────────────────────────────────────────
+The Heterogeneity in the Internet
+billions of connected
+computing devices: 
+hosts = end systems
+running network
+apps
+Home network
+Institutional network
+Mobile network
+Global ISP
+Regional ISP
+router
+PC
+server
+wireless
+laptop
+cellular
+handheld
+wired
+links
+access
+Data Transmission & Switching
+1-3
+points
+communication links
+fiber, copper,
+radio, satellite
+transmission
+rate = bandwidth
+routers: forward
+packets (chunks of 
+data)
+
+── Images on page 3 (28 found) ──
+
+[Image 1]  355×211px  (PNG)
+OCR:
+=
+
+[Image 7]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 8]  86×88px  (PNG)
+OCR:
+Gye
+
+[Image 16]  70×74px  (PNG)
+OCR:
+a
+
+[Image 19]  68×57px  (PNG)
+[No text detected]
+
+[Image 20]  617×301px  (PNG)
+OCR:
+G Fr
+fan =e
+GRD) 7
+“~ b ae he
+
+[Image 21]  138×61px  (PNG)
+OCR:
+“s E
+we
+
+[Image 25]  73×81px  (PNG)
+OCR:
+“i
+
+[Image 26]  67×58px  (PNG)
+[No text detected]
+
+[Image 28]  107×82px  (PNG)
+OCR:
+. J]
+
+‘< oe
+
+ie
+ise
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  54 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-4
+Data Transmission Modes
+How are data sent via computer networks and
+related connecting wires/cables ?
+Do we send 1 bit at a time ?
+Do we group bits into larger groups ?
+The transmission of binary data across a link
+can be accomplished in either parallel or serial
+mode
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  8 words
+────────────────────────────────────────────────────────────
+Data Transmission Modes
+Data Transmission & Switching
+1-5
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  800×319px  (JPEG)
+OCR:
+Data transmission
++to
+i
+Parallel Serial
+Asynchronous Synchronous | sochronous
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  48 words
+────────────────────────────────────────────────────────────
+Parallel Data Transmission
+Binary data may be organized into groups of n bits
+each (i.e. n parallel channels)
+Multiple bits (usually 8 bits or a byte/character) are
+sent simultaneously on different wires/frequency 
+channels with each clock tick
+Major advantage: speed
+Major disadvantage: cost
+Data Transmission & Switching
+1-6
+
+── Images on page 6 (2 found) ──
+
+[Image 1]  336×150px  (JPEG)
+OCR:
+The bits are sent together
+F > - ry is =
+a
+a
+Sender [Lg TT Receiver
+a es ee
+po e|eeeee
+l SE? W
+We need eight lines,
+
+[Image 2]  313×206px  (JPEG)
+OCR:
+or.
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  55 words
+────────────────────────────────────────────────────────────
+Serial Data Transmission
+One communication channel rather than n to
+transmit data between two communicating devices
+one bit is sent with each clock tick
+Major advantage: reduced cost
+Major disadvantage: speed
+Note: communication within devices is parallel, so there
+is a need to a converter (some overhead time is needed)
+Data Transmission & Switching
+1-7
+
+── Images on page 7 (2 found) ──
+
+[Image 1]  354×142px  (JPEG)
+OCR:
+= The'8 bits are sent a ~
+1) = Fon one after another >
+Ayo 1 i170 © oO 1 0 a
+sender [9] A] Receiver
+8 .
+ul 1
+la 20" 20
+Paraliel/serial Serial/parallet
+converter converter
+
+[Image 2]  256×176px  (JPEG)
+OCR:
+> on
+[a 5 Za
+f > < >t me (4
+, >
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  34 words
+────────────────────────────────────────────────────────────
+Serial Data Transmission
+Serial transmission occurs in one of three ways
+Asynchronous
+• groups of bits are sent as independent units with start/stop
+flags and no data link synchronization
+Data Transmission & Switching
+1-8
+
+── Images on page 8 (1 found) ──
+
+[Image 1]  360×140px  (JPEG)
+OCR:
+Birextion oF Rowe
+SEERA
+_—<—— Stop bia Data Start bit ——Z
+Receiver
+wee [7
+data units
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  41 words
+────────────────────────────────────────────────────────────
+Serial Data Transmission
+Serial transmission occurs in one of three ways
+Synchronous
+• sending bits one after another without start or stop bits or
+gaps. It is the responsibility of the receiver to group the bits.
+Data Transmission & Switching
+1-9
+
+── Images on page 9 (1 found) ──
+
+[Image 1]  632×176px  (JPEG)
+OCR:
+av ) a
+Direction of flow
+SERRE
+Frame Frame
+Receiver
+110111 117110117 ]11110110] eee | 11110111 1111
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  65 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-10
+Serial Data Transmission
+Serial transmission occurs in one of three ways
+Isochronous
+• For real-time data transmission (e.g. audio and video
+applications)
+• Guaranteeing delays between an entire sets of frames to be
+accepted (synchronous fails in guaranteeing fixed delay for
+data arrivals)
+• Allowing a part of the access time of a channel to send
+isochronous real time data
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  61 words
+────────────────────────────────────────────────────────────
+Feature
+Asynchronous
+Synchronous
+Isochronous
+Timing
+Irregular between characters
+Precise and constant
+Guaranteed delay
+Unit
+Character/Byte
+Large Blocks/Frames
+Packets in time slots
+Efficiency
+Lower (due to start/stop bits)
+Higher
+High, with guarantees
+Clock
+Independent for each
+character
+Common, synchronized clock
+Common, synchronized clock
+Best For
+Keyboard, mouse, simple I/O
+File transfers, web browsing
+Real-time audio, video, VoIP
+Data Transmission & Switching
+Comparison
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  74 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-12
+This means the underlying channel is synchronized and provides a steady 
+rhythm (synchronous), but the data sources (like a microphone or camera) 
+generate their data packets asynchronously. The isochronous system ensures 
+these packets are delivered with a constant delay.
+This illustrates the irregular timing. The transmitter can send data whenever it is ready.
+Asynchronous 
+Transmission
+synchronous 
+Transmission
+This shows the precise, clock-governed timing of the data stream.
+Isochronous 
+Transmission
+
+── Images on page 12 (1 found) ──
+
+[Image 1]  960×720px  (JPEG)
+OCR:
+Mode transmisi Asynchronous
+@ @ ® | Mode transmisi Syncrhronous
+Mode transmisi lsochronous
+The interval between transmitting A and S is not the same as between S and Y.
+BoGe
+The interval between transmitting S and Y is the same as between Y and N
+Isochronous transmission transmits asynchronous data over a synchronous data link
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  50 words
+────────────────────────────────────────────────────────────
+Transmission Media
+Transmission media are actually located below
+the physical layer and are directly controlled 
+by the physical layer
+A transmission medium can be broadly defined
+as anything that can carry information from a
+source to a destination
+free space, metallic cable, or fiber-optic cable
+Data Transmission & Switching
+1-13
+
+── Images on page 13 (1 found) ──
+
+[Image 1]  418×118px  (JPEG)
+OCR:
+sender Receiver
+Physical layer Physical layer
+Transmission medium
+we
+L. —
+Cable or air
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  49 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-14
+Transmission Media
+Some Challenges in Transmission Media
+Unreliability due to the poor quality of the wires
+• Noise
+• Contention
+Long distances
+• Power attenuation
+Various applications and operating communication
+frequency bands
+• Wide frequency spectrum
+Electromagnetic energy and its impacts
+• Reactive power
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  56 words
+────────────────────────────────────────────────────────────
+Transmission Media
+Two broad categories
+Guided media
+• A signal traveling along any of these media is directed and
+contained by the physical limits of the medium
+Unguided media
+• Signals are normally broadcast through free space and thus are
+available to anyone who has a device capable of receiving them
+Data Transmission & Switching
+1-15
+
+── Images on page 15 (1 found) ──
+
+[Image 1]  574×202px  (JPEG)
+OCR:
+Transmission
+media
+| (wired) | (wireless)
+Twisted-pair Coaxial Fiber-optic Ai
+cable cable cable ad
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  7 words
+────────────────────────────────────────────────────────────
+Transmission Media
+Data Transmission & Switching
+1-16
+
+── Images on page 16 (1 found) ──
+
+[Image 1]  976×644px  (PNG)
+OCR:
+Frequency
+(Hertz) 102 10% 10 105 10° 107 108 109 101° 1011 14012 1013 1014 1018
+Power and telephone Radio Microwave Infrared Visible
+Rotating generators Radios and televisions Radar Lasers light
+Musical instruments Electronic tubes Microwave antennas Guided missiles
+Voice microphones Integrated circuits Magnetrons Rangefinders
+Cellular Telephony
+Twisted Pair ,
+Optical
+; Fiber
+oaxial Cable
+AM L FM Radio| Terrestrial
+and TV | and Satellite
+Transmission
+Wavelength 408 10° 104 10% 1027 101 10° 107 107 10% 104 105 10%
+in space
+(meters)
+ELF =Extremely low frequency MF =Medium frequency UHF = Ultrahigh frequency
+VF =Voice frequency HF =High frequency SHF = Superhigh frequency
+VLF = Very low frequency VHF = Very high frequency EHF = Extremely high frequency
+LF =Low frequency
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  25 words
+────────────────────────────────────────────────────────────
+Guided Transmission Media
+Twisted-Pair Cable (shielded and unshielded)
+Telephone lines
+Coaxial Cable
+Cable TV networks
+Fiber Optic Cable
+Backbone networks
+Data Transmission & Switching 1-17
+
+── Images on page 17 (1 found) ──
+
+[Image 1]  440×224px  (PNG)
+OCR:
+Twisted-Pair Cabling Coaxial Cable
+(10Base-T)
+pfs ounide cover ew Protective outside cover
+= i es Copper/Aluminum mesh
+Cy OB) 002, single-wire cover Copper center conductor
+Eg
+Fiber-Optic Cable
+Copper wire
+Pe so
+). L_ cladding
+LT Glass fiber core
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  186 words
+────────────────────────────────────────────────────────────
+Feature
+Twisted-Pair 
+Coaxial Cable
+Fiber-Optic Cable
+Construction
+Pairs of insulated copper wires
+twisted together.
+Single copper conductor surrounded
+by insulation, a metallic shield, and
+an outer cover.
+Thin glass or plastic core surrounded
+by cladding and a protective jacket.
+Core Conductor
+Copper wire
+Copper center conductor
+Glass fiber core
+Key Component
+The "twist" itself, which reduces
+electromagnetic interference.
+The metallic mesh shield that
+protects against external
+interference.
+The core and cladding, which use
+total internal reflection to guide light.
+Signal Type
+Electrical signals
+Electrical signals
+Light pulses
+Immunity to
+Interference
+Low (unless shielded, STP)
+Good (due to the shield)
+Excellent (immune to
+electromagnetic interference)
+Max Bandwidth /
+Speed
+Moderate to High 
+Moderate 
+Very High (up to 100+ Gbps)
+Max Distance
+Moderate (up to 100m for Ethernet)
+Good (up to 500m for some types)
+Excellent (up to tens of kilometers)
+Cost
+Low
+Moderate
+High
+Common Use
+Cases
+Standard Ethernet LANs, telephone
+lines.
+Cable TV, legacy Ethernet (10Base2,
+10Base5).
+High-speed network backbones, long-
+distance links, data centers.
+Key Advantage
+Cost-effective, flexible, and easy to
+install.
+Durable and good noise resistance.
+High speed, long distance, and
+superior security.
+Comparison
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  68 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-19
+Unguided Transmission Media
+Unguided signals can travel from a source to
+a destination in several ways
+Ground propagation
+• radio waves travel through the lowest portion of the
+atmosphere
+Sky propagation
+• higher-frequency radio waves radiate upward into the 
+ionosphere where they are reflected back to earth
+Line-of-sight propagation
+• very high-frequency signals are transmitted in straight lines
+directly from antenna to antenna
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  56 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-20
+Data Switching
+A network is a set of connected devices
+how to connect them to make one-to-one
+communication possible ?
+point-to-point connection between each pair of
+devices
+between a central device and every other
+device
+impractical and wasteful when applied to very
+large networks !!!
+A practical solution is network switching
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  35 words
+────────────────────────────────────────────────────────────
+Switched Network
+switched network
+consists of a series of 
+interlinked nodes, called 
+switches
+Switches are devices
+capable of creating 
+temporary connections 
+between two or more 
+devices linked to the 
+switch
+Data Transmission & Switching
+1-21
+
+── Images on page 21 (1 found) ──
+
+[Image 1]  400×397px  (JPEG)
+OCR:
+Bar Printor_ “es j=
+= rai
+Kitchen Printer — / eed
+~*~ | <p
+~ j
+\ f Worksfation
+Kitchen Printer \ | a
+oe \ | —
+S i lean ce
+—_ Access Point : ee i
+Switch Hub 19a
+Wee v---
+| 5
+Workstation
+\ Infrarad Terminus \
+ol }
+\ = —=
+; Sear jz
+Wireless Terminus i “
+Caw” Wireless Terminus CompuWave Wireless
+Rad Infrared Terminus Communition Serve
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  9 words
+────────────────────────────────────────────────────────────
+Taxonomy of Switched Networks
+Data Transmission & Switching
+1-22
+
+── Images on page 22 (1 found) ──
+
+[Image 1]  778×330px  (JPEG)
+OCR:
+Switched
+networks
+Circuit-switched Packet-switched ly Message-switched
+networks networks networks
+Datagram Virtual-circuit
+networks networks
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  30 words
+────────────────────────────────────────────────────────────
+Taxonomy of Switched Networks
+Message Switched Networks
+Data routed in its entirety from the source node to
+the destination node, one hope at a time
+Data Transmission & Switching
+1-23
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  335×150px  (JPEG)
+OCR:
+AR 8
+—<XD=
+x b 4 YO"
+
+Path of Hog 2
+Ph OF sgh eso Subilig
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  46 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-24
+Taxonomy of Switched Networks
+Message Switched Networks
+In message switching, each switch stores the
+whole message and forwards it to the next
+switch
+• No packetization
+• No resource allocation
+It is still used in some applications like
+electronic mail (e-mail)
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  53 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-25
+Taxonomy of Switched Networks
+Message Switched Networks
+Concept: Uses a store-and-forward method for the
+entire message as a single unit.
+Analogy: The postal service for a whole letter.
+Pros: Efficient link usage, traffic management.
+Cons: Very high latency, requires large node buffers.
+Example: Old telegraph networks, email servers.
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  31 words
+────────────────────────────────────────────────────────────
+Taxonomy of Switched Networks
+Circuit Switched Networks
+made of a set of switches connected by physical
+links, in which each link is divided into n channels
+Data Transmission & Switching
+1-26
+
+── Images on page 26 (1 found) ──
+
+[Image 1]  400×207px  (PNG)
+OCR:
+Switch Switch
+= To:D To:D =
+2 9 @. _
+we Ko
+Node A Node C
+SF ys y 2 Je:0
+Switch Packet Switch
+gal = za
+Node B Node D
+= -_ 2 = = J
+‘Switch Switch
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  57 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-27
+Taxonomy of Switched Networks
+Circuit Switched Networks
+A connection between two stations is a dedicated
+path made of one or more links
+Each connection uses only one dedicated channel on
+each link
+Each link is normally divided into n channels by using
+multiplexing techniques, such as FDM or TDM
+(making shared medium)
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  17 words
+────────────────────────────────────────────────────────────
+Circuit Switched Networks
+Data Transmission & Switching
+1-25
+FDM
+frequency
+time
+TDM
+frequency
+time
+4 users
+Example:
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  70 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-29
+Taxonomy of Switched Networks
+Circuit Switched Networks
+Circuit switching takes place at the physical layer
+Before starting communication, the stations must
+make a reservation for the resources to be used 
+during the communication (resource reservation)
+The data are a continuous flow sent by the source
+station and received by the destination station 
+(continuous data flow)
+There is no addressing involved during data transfer
+(no addressing)
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  86 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-30
+Example (circuit switched networks)
+Design and sketch a circuit-switched network that connects 
+computers in two remote offices of a private company. The 
+offices are connected using a T-1 line leased from a 
+communication service provider.
+There are two 4 X 8 (4 inputs and 8 outputs) switches in 
+this network.
+For each switch, four output ports are folded into the 
+input ports to allow communication between computers in the 
+same office.
+Four other output ports allow communication between the
+two offices.
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  18 words
+────────────────────────────────────────────────────────────
+Structure of Circuit Switches
+(Example)
+Time Division Switch (TDS)
+Time Slot Interchange (TSI)
+Data Transmission & Switching
+1-29
+
+── Images on page 31 (1 found) ──
+
+[Image 1]  783×308px  (PNG)
+OCR:
+lime-division switch
+TSI -_ Contro} unit
+{—>3
+2—~4
+me poopy v
+4 t
+» Bll BIARIC| Eek
+a oll > |acEn - | an.
+,O 8) Sequenia — conta loo.
+RAM - ;
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  59 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-30
+Circuit Switched Networks
+Operation Phases
+Setup Phase
+• A dedicated circuit needs to be established
+Data Transfer Phase
+• After the establishment of the dedicated circuit, the two
+parties can transfer data
+Teardown Phase
+• When one of the parties needs to disconnect, a signal is
+sent to each switch to release the resources.
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  19 words
+────────────────────────────────────────────────────────────
+Delay in a Circuit-Switched
+Network
+Setup the channel
+Data Transmission & Switching
+1-31
+The 𝑡𝑜𝑡𝑎𝑙𝑑𝑒𝑙𝑎𝑦= 𝑇𝑡𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑠𝑖𝑜𝑛+ 𝑇𝑝𝑟𝑜𝑝𝑎𝑔𝑎𝑡𝑖𝑜𝑛+ 𝑇𝑆𝑒𝑡𝑢𝑝+ 𝑇𝑡𝑒𝑎𝑟𝑑𝑜𝑤𝑛
+
+── Images on page 33 (1 found) ──
+
+[Image 1]  706×380px  (JPEG)
+OCR:
+cS 2
+o 7
+wu
+E  ————
+Cc
+eff
+Lv)
+&
+a
+=
+g Data transfer
+Ee
+t
+ec SN eerrerrree ree =
+¢c
+8 [
+”
+2
+Time Time Time Time
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  61 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-32
+Taxonomy of Switched Networks
+Packet Switched Networks: Datagram Networks
+The data message is divided into packets of fixed or
+variable size
+The size of the packet is determined by the network
+and the governing protocol
+There is no resource pre-allocation for a packet
+No reserved bandwidth on the links
+No scheduled processing time for each packet
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  41 words
+────────────────────────────────────────────────────────────
+Taxonomy of Switched Networks
+Packet Switched Networks: Datagram Networks
+Each packet (called datagram) is treated
+independently of all others (stop and forward)
+Packets belong to the same message may travel
+different paths to reach the destination
+Data Transmission & Switching
+1-33
+
+── Images on page 35 (1 found) ──
+
+[Image 1]  559×201px  (JPEG)
+OCR:
+A Datagram network
+= ~ 7
+><
+Sl |
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  22 words
+────────────────────────────────────────────────────────────
+Delay in a Datagram Network
+For n links,
+The 𝑡𝑜𝑡𝑎𝑙𝑑𝑒𝑙𝑎𝑦= 𝑛× 𝑇𝑡𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑠𝑖𝑜𝑛+ 𝑛× 𝑇𝑝𝑟𝑜𝑝𝑎𝑔𝑎𝑡𝑖𝑜𝑛+ (𝑛−1) × 𝑇𝑤𝑎𝑖𝑡𝑖𝑛𝑔
+Data Transmission & Switching
+1-34
+
+── Images on page 36 (1 found) ──
+
+[Image 1]  658×280px  (JPEG)
+OCR:
+TT ’ WH
+Transmission = |
+time Po
+Waiting l
+time ee >
+_ aa 3
+—— 3
+Waiting ec
+time
+Minas
+Time Time Time Time
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  27 words
+────────────────────────────────────────────────────────────
+Switching in the Internet
+Switching in the Internet is done by using the datagram approach to
+packet switching at the network layer
+Data Transmission & Switching
+1-35
+
+── Images on page 37 (1 found) ──
+
+[Image 1]  593×408px  (JPEG)
+OCR:
+Packet Switching in a Data Network
+< __ ae “<Q,
+Many paths may be j _ : > | rou ed accor “| ngito the. |
+used for a single aS best (path available atthe:
+communication as ~~ ie
+individual packets are _ = |
+routed to a ™ fen)
+destination.
+te _ ->
+Prior to transmission, ; :
+each communication is U Internet At the destination,
+broken into packets [ce [we Jerse | packets may be
+which are addressed and || address address number reassembled into order
+numbered. l | according to their
+During peak periods, communication may be delayed, but not denied. Sequence number.
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  95 words
+────────────────────────────────────────────────────────────
+Taxonomy of Switched Networks
+Packet Switched Networks: Virtual Circuit
+Switched Networks
+A virtual-circuit network is a cross between a circuit-
+switched network and a datagram network
+There are setup and teardown phases
+Resources can be allocated during the setup phase
+Data are packetized and each packet carries an
+address in the header (common with datagram)
+All packets follow the same path established during the
+connection (common with circuit switching)
+Normally implemented in the data link layer (shared
+medium)
+• Circuit-switched network is implemented in the physical layer
+• Datagram network in the network layer
+1-36
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  23 words
+────────────────────────────────────────────────────────────
+Delay in a Virtual Circuit
+Switched Network
+For n links,
+The 𝑡𝑜𝑡𝑎𝑙𝑑𝑒𝑙𝑎𝑦= 𝑛× 𝑇𝑡𝑟𝑎𝑛𝑠𝑚𝑖𝑠𝑠𝑖𝑜𝑛+ 𝑛× 𝑇𝑝𝑟𝑜𝑝𝑎𝑔𝑎𝑡𝑖𝑜𝑛+ 𝑇𝑆𝑒𝑡𝑢𝑝+ 𝑇𝑡𝑒𝑎𝑟𝑑𝑜𝑤𝑛
+Data Transmission & Switching
+1-37
+
+── Images on page 39 (1 found) ──
+
+[Image 1]  616×314px  (JPEG)
+OCR:
+ee
+2
+)
+———_
+& oan ‘| Transmission
+3 time
+cs
+F } --- ~~~ =
+3
+‘L
+oO
+uv
+Ee
+Time Time Time Time
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  75 words
+────────────────────────────────────────────────────────────
+Addressing in Virtual Circuit
+Switched Networks
+Global Addressing
+A source or a destination needs to have a global
+address (i.e. an address that can be unique)
+Local Addressing
+Virtual-Circuit Identifier (VCI)
+• A small number that has only switch scope
+• It is used by a frame between two switches
+• When a frame arrives at a switch, it has a VCI; when
+it leaves, it has a different VCI
+Data Transmission & Switching
+1-38
+
+────────────────────────────────────────────────────────────
+PAGE 41  |  11 words
+────────────────────────────────────────────────────────────
+Comparison between circuit and
+packet switching
+Data Transmission & Switching
+1-39
+
+── Images on page 41 (1 found) ──
+
+[Image 1]  516×304px  (PNG)
+OCR:
+Packet une
+Circuit Switching |Switching(Datagram _[-2cket Switching(Virtual
+pe) ircuit type)
+Dedicated path No Dedicated path No Dedicated path
+Path 's established Route is established for {Route is established for
+or entire - ‘
+. leach packet entire conversation
+conversation
+Call setup delay packet transmission all setup delay as well as
+delay packet transmission delay
+Overload may Overload increases Overload may block call
+setup and increases
+block call setup packet delay
+packet delay
+Fixed bandwidth |Dynamic bandwidth Dynamic bandwidth
+No overhead bits joverhead bits in each overhead bits in each
+after call setup packet packet
+
+────────────────────────────────────────────────────────────
+PAGE 42  |  52 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-41
+Lecture-related Questions
+Why does a circuit-switched network need end-to-end
+addressing during the setup and teardown phases? Why
+are no addresses needed during the data transfer phase
+for this type of network?
+What is the role of the address field in a packet traveling
+through a datagram network?
+
+────────────────────────────────────────────────────────────
+PAGE 43  |  51 words
+────────────────────────────────────────────────────────────
+Data Transmission & Switching
+1-42
+Lecture Summary
+Covered material
+Introduction to Data Transmission Modes
+Parallel and Serial Transmission
+Transmission Media
+Guided and unguided media
+Data Switching Techniques
+Circuit Switching
+Packet Switching
+Material to be covered next lecture
+Introduction to the Data Link Layer
+Error Detection and Correction
+Flow and Error Control

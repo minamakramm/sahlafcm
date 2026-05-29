@@ -1,0 +1,1728 @@
+﻿=== vertopal.com_Spring'26_Neural_Networks_1_Intro&Revision.pdf ===
+--- Page 1 ---
+Supervised Learning Setup ΓÇö Foundations for
+Neural Networks
+1. What Does It Mean to Learn From Data?
+In supervised learning, we want to learn a mapping from inputs to outputs using labeled
+examples.
+Each dataset contains:
+ΓÇó Features (X): the input variables
+ΓÇó Targets (y): the desired output
+Mathematically: ^y=f (x)
+╬╕
+Where:
+ΓÇó f is the model ( a neural network)
+╬╕
+ΓÇó ╬╕ represents the learnable parameters (weights and biases)
+Goal:
+Learn parameters that produce accurate predictions on unseen data.
+2. Types of Supervised Learning Tasks
+Regression
+ΓÇó Output is a continuous value.
+ΓÇó Examples: price prediction, temperature forecasting.
+Classification
+ΓÇó Output is a category or label.
+ΓÇó Binary classification: two classes.
+ΓÇó Multi-class classification: more than two classes.
+Important idea:
+ΓÇó The task type influences the choice of activation functions and loss functions later.
+3. Dataset Structure and Shapes
+We organize data as:
+--- Page 2 ---
+ΓÇó XΓêêR(n s amples,n f eatures)
+ΓÇó yΓêêR(n s amples)
+Interpretation:
+ΓÇó Each row = one sample.
+ΓÇó Each column = one feature.
+Understanding shapes is essential because neural networks rely heavily on matrix operations.
+4. Train / Validation / Test Split
+To evaluate learning properly, we divide the data into:
+ΓÇó Training set: used to learn parameters.
+ΓÇó Validation set: used to tune decisions and monitor performance.
+ΓÇó Test set: used only for final evaluation.
+Key intuition:
+A good model should perform well on data it has never seen before.
+5. The Supervised Learning Loop
+All supervised models follow the same cycle: Input ΓåÆ Model ΓåÆ Prediction ΓåÆ Loss ΓåÆ Parameter
+Update ΓåÆ Repeat
+Steps:
+1. Feed input X into the model.
+2. Produce prediction ^y.
+3. Measure error using a loss function.
+4. Update parameters to reduce the error.
+Neural networks will follow this exact workflow ΓÇö just with more complex models.
+6. What Is a Loss Function? (Conceptual View)
+A loss function measures how wrong a prediction is.
+Examples:
+ΓÇó Regression: distance between predicted and true values.
+ΓÇó Classification: how incorrect predicted probabilities are.
+Lower loss ΓçÆ better predictions.
+--- Page 3 ---
+We will formally define specific loss functions later in the course.
+7. Generalization vs Overfitting (Intuition)
+Two possible outcomes when training a model:
+ΓÇó Generalization: model learns patterns that apply to new data.
+ΓÇó Overfitting: model memorizes training data but fails on unseen data.
+Goal of supervised learning:
+Learn patterns, not memorize examples.
+8. Why Do We Need Neural Networks?
+Linear models can only learn simple relationships.
+Many real-world problems require:
+ΓÇó Non-linear decision boundaries
+ΓÇó Hierarchical feature transformations
+Neural networks extend supervised learning by introducing:
+ΓÇó Multiple layers
+ΓÇó Non-linear activation functions
+This allows models to learn complex mappings from input to output.
+Python Revision
+NumPy
+In Python we have lists that serve the purpose of arrays, but they are slow to process. NumPy
+aims to provide an array object that is up to 50x faster than traditional Python lists. Why we
+prefer numpy arrays:
+ΓÇó Fast operations
+ΓÇó Vectorized math
+ΓÇó Supports matrix multiplication
+import numpy as np # commonly used alias
+import matplotlib.pyplot as plt
+np.random.seed(42) # for reproducibility (so results are the same
+every run)
+--- Page 4 ---
+lst = [1, 2, 3]
+arr = np.array([1, 2, 3])
+print(type(lst), type(arr))
+<class 'list'> <class 'numpy.ndarray'>
+Shapes
+x = np.array([1, 2, 3])
+print(x.shape)
+(3,)
+# column vector
+x_col = x.reshape(-1, 1)
+print(x_col.shape)
+(3, 1)
+# row vector
+x_row = x.reshape(1, -1)
+print(x_row.shape)
+(1, 3)
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+newarr2 = arr.reshape(4, 3)
+newarr3 = arr.reshape(2, 3, 2)
+print(newarr2)
+print("-------------")
+print(newarr3)
+[[ 1 2 3]
+[ 4 5 6]
+[ 7 8 9]
+[10 11 12]]
+-------------
+[[[ 1 2]
+[ 3 4]
+[ 5 6]]
+[[ 7 8]
+[ 9 10]
+[11 12]]]
+arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+newarr = arr.reshape(3, 3)
+----------------------------------------------------------------------
+-----
+ValueError Traceback (most recent call
+--- Page 5 ---
+last)
+<ipython-input-16-cf832910fe8f> in <module>
+1 arr = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+----> 2 newarr = arr.reshape(3, 3)
+ValueError: cannot reshape array of size 12 into shape (3,3)
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+newarr = arr.reshape(-1) # flatten
+print(newarr)
+[1 2 3 4 5 6]
+Indexing and Slicing
+X = np.array([
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+])
+print(X[0])
+print(X[:, 0])
+print(X[0:2, 1:3])
+[1 2 3]
+[1 4 7]
+[[2 3]
+[5 6]]
+Elementwise Operations
+a = np.array([1, 2, 3])
+b = np.array([10, 20, 30])
+print(a + b)
+print(a * b)
+[11 22 33]
+[10 40 90]
+Broadcasting
+X = np.array([[1, 2],
+[3, 4],
+[5, 6]])
+b = np.array([10, 100])
+print(X + b)
+--- Page 6 ---
+[[ 11 102]
+[ 13 104]
+[ 15 106]]
+Dot Product and Matrix Multiplication
+x = np.array([1, 2, 3])
+w = np.array([0.1, 0.2, 0.3])
+print(np.dot(x, w))
+1.4
+X = np.array([[1, 2],
+[3, 4],
+[5, 6]])
+W = np.array([[0.1],
+[0.2]])
+Z = X @ W
+print(Z.shape)
+print(Z)
+(3, 1)
+[[0.5]
+[1.1]
+[1.7]]
+b = np.array([0.5])
+print(Z + b)
+[[1. ]
+[1.6]
+[2.2]]
+A = np.array([[3, 2, 4], [5, 0, 1], [3, 5, 2]])
+print(A)
+[[3 2 4]
+[5 0 1]
+[3 5 2]]
+A.transpose()
+array([[3, 5, 3],
+[2, 0, 5],
+[4, 1, 2]])
+A.dot(A.transpose()) # AA'
+--- Page 7 ---
+array([[29, 19, 27],
+[19, 26, 17],
+[27, 17, 38]])
+A.transpose().dot(A) # A'A
+array([[43, 21, 23],
+[21, 29, 18],
+[23, 18, 21]])
+A.mean() # same as np.mean(A)
+2.7777777777777777
+A.mean(axis=0) # row wise
+array([3.66666667, 2.33333333, 2.33333333])
+A.mean(axis=1) # column wise
+array([3. , 2. , 3.33333333])
+OOP & Clean Code
+Functions
+def my_func():
+print("This is my function")
+my_func()
+This is my function
+def my_func(name):
+print(f"This is {name}'s function")
+my_func() # this function expects an argument
+----------------------------------------------------------------------
+-----
+TypeError Traceback (most recent call
+last)
+Cell In[25], line 1
+----> 1 my_func()
+TypeError: my_func() missing 1 required positional argument: 'name'
+def my_func(name="Hagar"): # parameter: name, argument: "Hagar"
+print(f"This is {name}'s function")
+my_func()
+--- Page 8 ---
+This is Hagar's function
+my_func("Amr")
+This is Amr's function
+def my_func(name, age):
+print(f"This is {name} and I'm {age} years old")
+my_func(23, "Hagar")
+This is 23 and I'm Hagar years old
+my_func(age = 23, name = "Hagar") # kwargs
+This is Hagar and I'm 23 years old
+def my_func(x,y):
+return x*y
+my_func(4,5)
+20
+Doc String
+intro = """
+hi my name
+is hagar
+how are you?
+"""
+print(intro)
+hi my name
+is hagar
+how are you?
+A docstring is a short text written at the top of a function for reusablility purposes that explains:
+ΓÇó What the function does
+ΓÇó What inputs it expects
+ΓÇó What it returns
+def add_2_numbers(a, b = 1):
+"""
+This function adds 2 input numbers `a` and `b` and assigns the
+result to variable `c`.
+Parameters:
+--- Page 9 ---
+a : first input number with no default value
+b : second input number with a default value of 1
+Returns:
+c : the sum of `a` and `b`
+"""
+c = a + b
+return c
+def linear_forward(X, W, b):
+"""
+Computes the linear forward pass.
+Parameters:
+X (np.ndarray): Input data of shape (n_samples, n_features)
+W (np.ndarray): Weight matrix of shape (n_features, n_units)
+b (np.ndarray): Bias vector of shape (n_units,)
+Returns:
+np.ndarray: Output Z of shape (n_samples, n_units)
+"""
+return X @ W + b
+np.random.seed(0)
+X = np.random.randn(4, 3) # 4 samples, 3 features
+W = np.random.randn(3, 2) # 2 neurons
+b = np.zeros(2)
+Z = linear_forward(X, W, b)
+print(Z.shape)
+(4, 2)
+Classes and Objects
+class MyClass:
+x = 5
+p1 = MyClass()
+print(p1.x)
+5
+class Person:
+def __init__(self, name, age):
+self.name = name
+self.age = age
+p1 = Person("John", 36)
+--- Page 10 ---
+print(p1.name)
+print(p1.age)
+John
+36
+class Person:
+def __init__(self, name, age):
+self.name = name
+self.age = age
+def myfunc(self):
+print("Hello my name is " + self.name)
+p1 = Person("John", 36)
+p1.myfunc()
+Hello my name is John
+p1.age = 40
+print(p1.age)
+40
+Plotting
+x = np.linspace(-5, 5, 200)
+sigmoid = 1 / (1 + np.exp(-x))
+plt.plot(x, sigmoid)
+plt.title("Sigmoid Function")
+plt.grid(True)
+plt.show()
+
+=== vertopal.com_hebbian_learning_and_gate.pdf ===
+--- Page 1 ---
+Hebbian Learning Rule ΓÇö AND Gate
+Implementation
+Source: GeeksforGeeks ΓÇö Hebbian Learning Rule with Implementation of AND Gate
+≡ƒôû Background
+The Hebbian Learning Rule (Donald O. Hebb, 1949) is one of the oldest and simplest learning
+rules in neural networks. It is summarised as:
+"Neurons that fire together, wire together."
+Weight Update Formula
+w =w +x Γïà y
+new old i
+b =b +y
+new old
+Architecture
+ΓÇó Single-layer network: one input layer + one output layer
+ΓÇó Activation function: Bipolar (values in {-1, +1})
+ΓÇó No hidden layers
+Contents
+1. Baseline implementation (zero initialisation ΓÇö as per the article)
+2. Alternative weight initialisation methods:
+ΓÇô Random Uniform
+ΓÇô Random Normal (Gaussian)
+ΓÇô Xavier / Glorot
+ΓÇô He Initialisation
+ΓÇô Constant (small positive)
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+from prettytable import PrettyTable
+np.random.seed(42)
+--- Page 2 ---
+1 ┬╖ Dataset ΓÇö AND Gate (Bipolar)
+Using the bipolar representation: False ΓåÆ -1, True ΓåÆ +1.
+xΓéü xΓéé Bias Target (y)
+-1 -1 1 -1
+-1 1 1 -1
+1 -1 1 -1
+1 1 1 1
+# Inputs: [x1, x2, bias] | Targets
+X = np.array([
+[-1, -1, 1],
+[-1, 1, 1],
+[ 1, -1, 1],
+[ 1, 1, 1]
+])
+y = np.array([-1, -1, -1, 1])
+print('Input matrix X (x1, x2, bias):')
+print(X)
+print('\nTarget vector y:', y)
+Input matrix X (x1, x2, bias):
+[[-1 -1 1]
+[-1 1 1]
+[ 1 -1 1]
+[ 1 1 1]]
+Target vector y: [-1 -1 -1 1]
+2 ┬╖ Core Hebbian Learning Function
+def hebbian_train(X, y, w_init):
+"""
+Train a single-layer network using the Hebbian Learning Rule.
+Parameters
+----------
+X : ndarray (n_samples, n_features) ΓÇö input matrix (last col
+= bias)
+y : ndarray (n_samples,) ΓÇö target outputs
+w_init : ndarray (n_features,) ΓÇö initial weights [w1,
+w2, ..., b]
+Returns
+--- Page 3 ---
+-------
+w : final weight vector
+history : list of weight vectors after each sample
+"""
+w = w_init.copy().astype(float)
+history = [w.copy()]
+for i, (xi, yi) in enumerate(zip(X, y)):
+w = w + xi * yi # ╬öw = x ┬╖ y (Hebbian rule)
+history.append(w.copy())
+return w, history
+def hebbian_predict(X, w):
+"""Compute net input and predict output sign."""
+net = X @ w
+return net, np.sign(net).astype(int)
+def evaluate(X, y, w, label=''):
+"""Print a prediction table and return accuracy."""
+net, pred = hebbian_predict(X, w)
+table = PrettyTable()
+table.field_names = ['x1', 'x2', 'Net Input', 'Predicted',
+'Target', 'Correct?']
+correct = 0
+for i in range(len(y)):
+ok = 'Γ£ô' if pred[i] == y[i] else 'Γ£ù'
+correct += (pred[i] == y[i])
+table.add_row([X[i,0], X[i,1], round(net[i],4), pred[i], y[i],
+ok])
+acc = correct / len(y) * 100
+print(f'=== {label} ===' if label else '')
+print(table)
+print(f'Accuracy: {correct}/{len(y)} = {acc:.1f}%\n')
+return acc
+3 ┬╖ Method 1 ΓÇö Zero Initialisation (Original Article)
+All weights and bias start at 0, exactly as described in the GFG article.
+print('ΓöÇΓöÇ Zero Initialisation ΓöÇΓöÇ')
+w0 = np.zeros(3) # [w1, w2, bias_weight]
+print(f'Initial weights: {w0}\n')
+w_zero, hist_zero = hebbian_train(X, y, w0)
+--- Page 4 ---
+print('\n--- Testing the network ---')
+acc_zero = evaluate(X, y, w_zero, label='Zero Init')
+ΓöÇΓöÇ Zero Initialisation ΓöÇΓöÇ
+Initial weights: [0. 0. 0.]
+--- Testing the network ---
+=== Zero Init ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -6.0 | -1 | -1 | Γ£ô |
+| -1 | 1 | -2.0 | -1 | -1 | Γ£ô |
+| 1 | -1 | -2.0 | -1 | -1 | Γ£ô |
+| 1 | 1 | 2.0 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+4 ┬╖ Decision Boundary (Zero Init)
+From the final weights [2, 2, -2]:
+2x +2x ΓêÆ2=0Γƒ╣x =ΓêÆx +1
+1 2 2 1
+def plot_decision_boundary(w, title='Decision Boundary', ax=None):
+if ax is None:
+fig, ax = plt.subplots(figsize=(5, 5))
+# Data points
+colors = ['red' if t == -1 else 'green' for t in y]
+labels = ['AND=0 (bipolar -1)', 'AND=1 (bipolar +1)']
+for xi, yi, c in zip(X, y, colors):
+ax.scatter(xi[0], xi[1], color=c, s=120, zorder=5)
+ax.annotate(f'({xi[0]},{xi[1]})\ny={yi}',
+(xi[0], xi[1]), textcoords='offset points',
+xytext=(8, 5), fontsize=8)
+# Decision boundary: w[0]*x1 + w[1]*x2 + w[2]*1 = 0
+if abs(w[1]) > 1e-6:
+x1_vals = np.linspace(-2, 2, 100)
+x2_vals = -(w[0] * x1_vals + w[2]) / w[1]
+ax.plot(x1_vals, x2_vals, 'b--', linewidth=2, label='Decision
+boundary')
+ax.set_xlim(-2, 2); ax.set_ylim(-2, 2)
+--- Page 5 ---
+ax.axhline(0, color='grey', linewidth=0.5)
+ax.axvline(0, color='grey', linewidth=0.5)
+ax.set_xlabel('xΓéü'); ax.set_ylabel('xΓéé')
+ax.set_title(title)
+red_p = mpatches.Patch(color='red', label='AND = 0 (-1)')
+grn_p = mpatches.Patch(color='green', label='AND = 1 (+1)')
+ax.legend(handles=[red_p, grn_p], loc='upper right', fontsize=8)
+ax.grid(True, linestyle=':')
+plot_decision_boundary(w_zero, title='Decision Boundary ΓÇö Zero
+Initialisation')
+plt.tight_layout()
+plt.show()
+5 ┬╖ Alternative Weight Initialisation Methods
+We now explore five different initialisation strategies and compare how they affect the Hebbian
+update trajectory and final decision boundaries.
+--- Page 6 ---
+Method Description
+Zero All weights = 0 (baseline)
+Random Uniform Uniform in [-0.5, 0.5]
+Random Normal Gaussian, ╬╝=0, ╧â=0.1
+Xavier / Glorot Uniform in [-1/ΓêÜn, 1/ΓêÜn]
+He Gaussian, ╧â=ΓêÜ(2/n)
+Constant All weights = 0.1
+n_features = X.shape[1] # 3 (x1, x2, bias)
+def init_zero(n):
+"""All zeros ΓÇö standard Hebbian starting point."""
+return np.zeros(n)
+def init_random_uniform(n, low=-0.5, high=0.5):
+"""Uniform random in [low, high]."""
+return np.random.uniform(low, high, n)
+def init_random_normal(n, mean=0.0, std=0.1):
+"""Gaussian / Normal distribution."""
+return np.random.normal(mean, std, n)
+def init_xavier(n):
+"""Xavier / Glorot uniform: limit = 1/sqrt(n)."""
+limit = 1.0 / np.sqrt(n)
+return np.random.uniform(-limit, limit, n)
+def init_he(n):
+"""He initialisation: std = sqrt(2/n)."""
+std = np.sqrt(2.0 / n)
+return np.random.normal(0.0, std, n)
+def init_constant(n, val=0.1):
+"""All weights set to a small constant."""
+return np.full(n, val)
+# ΓöÇΓöÇ Gather all methods
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+init_methods = {
+'Zero': init_zero(n_features),
+'Random Uniform': init_random_uniform(n_features),
+'Random Normal': init_random_normal(n_features),
+'Xavier': init_xavier(n_features),
+'He': init_he(n_features),
+'Constant (0.1)': init_constant(n_features, 0.1),
+}
+print('Initial weight vectors for each method:')
+--- Page 7 ---
+tbl = PrettyTable(['Method', 'w1', 'w2', 'bias_w'])
+for name, w in init_methods.items():
+tbl.add_row([name] + [f'{v:.4f}' for v in w])
+print(tbl)
+Initial weight vectors for each method:
++----------------+---------+---------+--------+
+| Method | w1 | w2 | bias_w |
++----------------+---------+---------+--------+
+| Zero | 0.0000 | 0.0000 | 0.0000 |
+| Random Uniform | -0.1255 | 0.4507 | 0.2320 |
+| Random Normal | -0.1112 | 0.0319 | 0.0279 |
+| Xavier | 0.2403 | -0.5536 | 0.5426 |
+| He | 0.8251 | -0.3833 | 0.4430 |
+| Constant (0.1) | 0.1000 | 0.1000 | 0.1000 |
++----------------+---------+---------+--------+
+6 ┬╖ Run Hebbian Learning for Every Initialisation
+results = {} # name ΓåÆ {'w_init', 'w_final', 'history', 'accuracy'}
+for name, w_init in init_methods.items():
+print(f' {name} Initialisation')
+print(f' Initial weights: {np.round(w_init, 4)}')
+w_final, history = hebbian_train(X, y, w_init)
+acc = evaluate(X, y, w_final, label=name)
+results[name] = {
+'w_init' : w_init.copy(),
+'w_final' : w_final,
+'history' : history,
+'accuracy': acc
+}
+Zero Initialisation
+Initial weights: [0. 0. 0.]
+=== Zero ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -6.0 | -1 | -1 | Γ£ô |
+| -1 | 1 | -2.0 | -1 | -1 | Γ£ô |
+| 1 | -1 | -2.0 | -1 | -1 | Γ£ô |
+| 1 | 1 | 2.0 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+Random Uniform Initialisation
+Initial weights: [-0.1255 0.4507 0.232 ]
+--- Page 8 ---
+=== Random Uniform ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -6.0933 | -1 | -1 | Γ£ô |
+| -1 | 1 | -1.1918 | -1 | -1 | Γ£ô |
+| 1 | -1 | -2.3442 | -1 | -1 | Γ£ô |
+| 1 | 1 | 2.5572 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+Random Normal Initialisation
+Initial weights: [-0.1112 0.0319 0.0279]
+=== Random Normal ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -5.8928 | -1 | -1 | Γ£ô |
+| -1 | 1 | -1.829 | -1 | -1 | Γ£ô |
+| 1 | -1 | -2.1152 | -1 | -1 | Γ£ô |
+| 1 | 1 | 1.9486 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+Xavier Initialisation
+Initial weights: [ 0.2403 -0.5536 0.5426]
+=== Xavier ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -5.1441 | -1 | -1 | Γ£ô |
+| -1 | 1 | -2.2512 | -1 | -1 | Γ£ô |
+| 1 | -1 | -0.6636 | -1 | -1 | Γ£ô |
+| 1 | 1 | 2.2293 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+He Initialisation
+Initial weights: [ 0.8251 -0.3833 0.443 ]
+=== He ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -5.9988 | -1 | -1 | Γ£ô |
+| -1 | 1 | -2.7654 | -1 | -1 | Γ£ô |
+| 1 | -1 | -0.3486 | -1 | -1 | Γ£ô |
+| 1 | 1 | 2.8848 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+--- Page 9 ---
+Constant (0.1) Initialisation
+Initial weights: [0.1 0.1 0.1]
+=== Constant (0.1) ===
++----+----+-----------+-----------+--------+----------+
+| x1 | x2 | Net Input | Predicted | Target | Correct? |
++----+----+-----------+-----------+--------+----------+
+| -1 | -1 | -6.1 | -1 | -1 | Γ£ô |
+| -1 | 1 | -1.9 | -1 | -1 | Γ£ô |
+| 1 | -1 | -1.9 | -1 | -1 | Γ£ô |
+| 1 | 1 | 2.3 | 1 | 1 | Γ£ô |
++----+----+-----------+-----------+--------+----------+
+Accuracy: 4/4 = 100.0%
+
+=== NN_Sec3.pdf ===
+--- Page 1 ---
+Section 3: Introduction to Pytorch
+What is Pytorch?
+ΓÇó PyTorch is an open source machine learning and deep learning framework.
+What is Pytorch used for?
+ΓÇó PyTorch allows you to manipulate and process data and write machine learning
+algorithms using Python code.
+ΓÇó PyTorch also helps take care of many things such as GPU acceleration (making your code
+run faster) behind the scenes.
+Other Options
+ΓÇó TensorFlow / Keras: Google's framework. Very similar to pytorch, helps researchers
+and developers build, train, and deploy ML models across a wide variety of
+platforms
+ΓÇó Scikit-Learn: Great for "traditional" ML (Random Forests, SVMs), but not designed
+for deep learning or GPU acceleration.
+Imports
+import numpy as np
+import torch
+import torch.nn as nn
+Tensors
+ΓÇó Tensors are the fundamental building block of machine learning.
+ΓÇó Their job is to represent data in a numerical way.
+ΓÇó Think of a tensor as a multi-dimensional array, similar to a NumPy ndarray, but with
+the ability to run on GPUs.
+# 1. Creating Tensors
+x = torch.tensor([1.0, 2.0])
+y = torch.ones(2, 2) # A 2x2 matrix of ones
+print(x)
+print("---------------------")
+print(y)
+tensor([1., 2.])
+---------------------
+tensor([[1., 1.],
+[1., 1.]])
+--- Page 2 ---
+# 2. Mathematical Operations
+z = x + x
+print(f"Addition: {z}")
+Addition: tensor([2., 4.])
+# 3. Matrix Multiplication
+# 2 inputs and 3 hidden neurons
+inputs = torch.tensor([0.5, -1.0])
+weights = torch.randn(2, 3)
+output = torch.matmul(inputs, weights)
+print(f"Layer Output: {output}")
+Layer Output: tensor([ 0.3708, -0.1033, -0.2769])
+nn.Module
+ΓÇó The nn.Module is a base class in PyTorch for all neural network modules.
+ΓÇó holds all the weights, biases, and other sub-layers.
+ΓÇó It handles Forward and Backward logic.
+Example 1:
+1. Define the Architecture to match the board
+import torch
+import torch.nn as nn
+import torch.optim as optim
+class SimpleNN(nn.Module):
+def __init__(self):
+super(SimpleNN, self).__init__()
+# Layer 1: Input (x1, x2) -> Hidden (h1, h2)
+# nn.Linear(2, 2) creates 4 weights (w1-w4) and 2 biases (b1)
+self.fc1 = nn.Linear(2, 2)
+# Layer 2: Hidden (h1, h2) -> Output (o1, o2)
+# nn.Linear(2, 2) creates 4 weights (w5-w8) and 2 biases (b2)
+self.fc2 = nn.Linear(2, 2)
+# Sigmoid Activation: ╧â(z) = 1 / (1 + e^-z)
+# This compresses values between 0 and 1
+self.sigmoid = nn.Sigmoid()
+# Manually initialize weights
+# torch.no_grad() is used because setting initial weights is
+not a "calculus operation" we want to track.
+with torch.no_grad():
+# Hidden Layer: w1=0.15, w2=0.20, w3=0.25, w4=0.30 |
+bias=0.35
+self.fc1.weight = nn.Parameter(torch.tensor([[0.15, 0.20],
+--- Page 3 ---
+[0.25, 0.30]]))
+self.fc1.bias = nn.Parameter(torch.tensor([0.35, 0.35]))
+# Output Layer: w5=0.40, w6=0.45, w7=0.50, w8=0.55 |
+bias=0.60
+self.fc2.weight = nn.Parameter(torch.tensor([[0.40, 0.45],
+[0.50, 0.55]]))
+self.fc2.bias = nn.Parameter(torch.tensor([0.60, 0.60]))
+def forward(self, x):
+# Step 1: Calculate net input and activation for Hidden Layer
+# z_h = (x * weights) + bias -> out_h = sigmoid(z_h)
+x = self.sigmoid(self.fc1(x))
+# STEP 2: Calculate net input and activation for Output Layer
+# z_o = (out_h * weights) + bias -> out_o = sigmoid(z_o)
+x = self.sigmoid(self.fc2(x))
+return x # This presents our predictions o1, o2
+1. Setup Data
+# Input x1=0.05, x2=0.10
+X = torch.FloatTensor([[0.05, 0.10]])
+# Target T1=0.01, T2=0.99
+y = torch.FloatTensor([[0.01, 0.99]])
+1. Instantiate Model, Loss, and Optimizer
+simple_model = SimpleNN()
+# Loss Function: MSE measures the squared distance between Predicted
+and Target
+# E_total = ╬ú 1/2 (target - prediction)^2
+criterion = nn.MSELoss()
+# Optimization Method: Stochastic Gradient Descent
+# Updates a model's weights by calculating the error and "stepping" in
+the direction that reduces that error
+# It uses only one random data point (or a small "batch") at a time
+rather than the entire dataset.
+optimizer = optim.SGD(simple_model.parameters(), lr=0.5)
+1. Training Loop (Single Step Verification)
+print("--- Before Training ---")
+initial_output = simple_model(X)
+print(f"Initial Output: {initial_output.detach().numpy()}")
+print(f"Initial Loss: {criterion(initial_output, y).item():.4f}")
+--- Page 4 ---
+--- Before Training ---
+Initial Output: [[0.75136507 0.7729285 ]]
+Initial Loss: 0.2984
+Perform 1 Epoch (1 Forward and Backward Pass)
+optimizer.zero_grad() # Clear the gradients
+outputs = simple_model(X) # Re-run the forward pass
+loss = criterion(outputs, y) # Calculate the loss
+loss.backward() # Backward: Pytorch calculates all partial derivatives
+automatically
+optimizer.step() # Update: The optimizer adjusts the weights using the
+gradients
+print("\n--- After 1 Step of Gradient Descent ---")
+new_output = simple_model(X)
+print(f"New Output: {new_output.detach().numpy()}")
+print(f"New Loss: {criterion(new_output, y).item():.4f}")
+--- After 1 Step of Gradient Descent ---
+New Output: [[0.7284418 0.7783769]]
+New Loss: 0.2805
+Example 2: Iris Data
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+# Load the Iris dataset
+iris = load_iris()
+X, y = iris.data, iris.target
+print(X.shape)
+print(y.shape)
+(150, 4)
+(150,)
+Splitting the data
+# Split the dataset: 80% for training (learning), 20% for testing
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+test_size=0.2, random_state=42)
+--- Page 5 ---
+Standardization
+# This centers data at 0 with a standard deviation of 1.
+# Neural networks learn much faster when all input features are on the
+same scale.
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+Define the neural network architecture
+class IrisNN(nn.Module):
+def __init__(self, input_size, hidden_size, output_size):
+super(IrisNN, self).__init__()
+# Input Layer: Takes 4 features -> expands to 10 hidden
+neurons
+# The number of hidden neurons is a hyperparameter that we
+decide, meaning it's not calculated with a formula
+self.fc1 = nn.Linear(input_size, hidden_size)
+# Activation function: ReLU (Rectified Linear Unit): If x > 0,
+return x; else return 0.
+# This is more popular than Sigmoid for deep networks because
+it's faster.
+self.relu = nn.ReLU()
+# Output Layer: Takes 10 hidden neurons -> maps to 3 classes
+(species)
+self.fc2 = nn.Linear(hidden_size, output_size)
+# The data "flows" through the network layers in order
+def forward(self, x):
+x = self.fc1(x)
+x = self.relu(x)
+x = self.fc2(x)
+return x
+Set random seed for reproducibility
+# Ensures we get the same random weights every time we run this
+torch.manual_seed(42)
+<torch._C.Generator at 0x7e1fe5543cd0>
+Instantiate the neural network
+--- Page 6 ---
+# Parameters: 4 inputs, 10 hidden, 3 outputs (Iris Setosa, Versicolor,
+Virginica)
+model = IrisNN(input_size=X.shape[1], hidden_size=10, output_size=3)
+# Loss Function: standard for multi-class classification.
+criterion = nn.CrossEntropyLoss()
+# Optimization: Adam is a "smarter" version of SGD that adjusts the
+learning rate automatically.
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+# Convert data to PyTorch tensors
+X_train_tensor = torch.FloatTensor(X_train)
+y_train_tensor = torch.LongTensor(y_train)
+Train the Model
+num_epochs = 100
+for epoch in range(num_epochs):
+# Step 1: Forward Pass - Make a prediction
+outputs = model(X_train_tensor)
+# Step 2: Compute Loss
+loss = criterion(outputs, y_train_tensor)
+# Step 3: Zero Gradients
+optimizer.zero_grad()
+# Step 4: Backward Pass - Calculate the derivatives
+loss.backward()
+# Step 5: Optimizer Step - Update the weights based on the loss
+optimizer.step()
+# Print the loss every 10 epochs
+if (epoch+1) % 10 == 0:
+print(f'Epoch [{epoch+1}/{num_epochs}], Loss:
+{loss.item():.4f}')
+Epoch [10/100], Loss: 0.7783
+Epoch [20/100], Loss: 0.5399
+Epoch [30/100], Loss: 0.3921
+Epoch [40/100], Loss: 0.2934
+Epoch [50/100], Loss: 0.2166
+Epoch [60/100], Loss: 0.1639
+Epoch [70/100], Loss: 0.1284
+Epoch [80/100], Loss: 0.1050
+Epoch [90/100], Loss: 0.0902
+Epoch [100/100], Loss: 0.0800
+--- Page 7 ---
+Evaluate the model
+with torch.no_grad():
+X_test_tensor = torch.FloatTensor(X_test)
+y_test_tensor = torch.LongTensor(y_test)
+# Run the test data through the trained model
+outputs = model(X_test_tensor)
+# Get the index of the highest score (this is our predicted
+species)
+_, predicted = torch.max(outputs, 1)
+# Calculate accuracy: (Correct Predictions / Total)
+accuracy = (predicted == y_test_tensor).sum().item() /
+len(y_test_tensor)
+print(f'Accuracy on the test set: {accuracy:.2f}')
+Accuracy on the test set: 0.97
+
+=== vertopal.com_Neural_Networks_Questions_Answer_Key.pdf ===
+--- Page 1 ---
+Neural Networks: Coding Questions & Answer
+Key
+import numpy as np
+Question 1: Mean Squared Error (MSE)
+Given y_hat (predictions) and y (true labels), write a function to calculate MSE.
+Answer 1
+def mse(y_hat, y):
+"""Calculate mean squared error"""
+return np.mean((y_hat - y) ** 2)
+# Test
+y_true = np.array([1, 2, 3])
+y_pred = np.array([1.1, 2.2, 2.9])
+print(f"MSE: {mse(y_pred, y_true):.4f}")
+MSE: 0.0200
+Question 2: Sigmoid Activation Function
+Implement the sigmoid activation function: ╧â(x) = 1 / (1 + e^(-x))
+Answer 2
+def sigmoid(x):
+"""Sigmoid activation function"""
+return 1 / (1 + np.exp(-x))
+# Test
+x = np.array([0, 1, -1])
+print(f"Sigmoid: {sigmoid(x)}")
+Sigmoid: [0.5 0.73105858 0.26894142]
+Question 3: ReLU Activation Function
+Implement ReLU (Rectified Linear Unit): f(x) = max(0, x)
+--- Page 2 ---
+Answer 3
+def relu(x):
+"""ReLU activation function"""
+return np.maximum(0, x)
+# Test
+x = np.array([-2, -1, 0, 1, 2])
+print(f"ReLU: {relu(x)}")
+ReLU: [0 0 0 1 2]
+Question 4: Forward Pass Prediction
+Given input X, weights W, and bias b, implement prediction: y_hat = X @ W + b
+Answer 4
+def predict(X, W, b):
+"""Linear forward pass prediction"""
+return X @ W + b
+# Test
+X = np.array([[1, 2], [3, 4]])
+W = np.array([0.5, -0.5])
+b = 0.1
+print(f"Predictions: {predict(X, W, b)}")
+Predictions: [-0.4 -0.4]
+Question 5: Perceptron Output (Hard Threshold)
+Given activation output, apply perceptron rule: y = 1 if z > 0 else -1
+Answer 5
+def perceptron_output(z):
+"""Perceptron decision boundary"""
+return np.where(z > 0, 1, -1) # or with
+# Test
+z = np.array([-1.5, 0, 1.5])
+print(f"Outputs: {perceptron_output(z)}")
+Outputs: [-1 -1 1]
+--- Page 3 ---
+Question 6: Sigmoid Derivative
+Implement sigmoid derivative: ╧â'(x) = ╧â(x) * (1 - ╧â(x))
+Answer 6
+def sigmoid_derivative(x):
+"""Sigmoid derivative"""
+s = sigmoid(x)
+return s * (1 - s)
+# Test
+x = np.array([0, 1, -1])
+print(f"Derivative: {sigmoid_derivative(x)}")
+Derivative: [0.25 0.19661193 0.19661193]
+Question 7: Weight Update (Perceptron Rule)
+Given misclassification error, update weights: W = W + learning_rate * error * X
+Answer 7
+def update_weights(W, X, error, learning_rate):
+"""Update weights using perceptron rule"""
+return W + learning_rate * error * X
+# Test
+W = np.array([0.5, -0.3])
+X = np.array([1, 0.5])
+error = -1
+lr = 0.1
+new_W = update_weights(W, X, error, lr)
+print(f"Updated weights: {new_W}")
+Updated weights: [ 0.4 -0.35]
+Question 8: Accuracy Calculation
+Given predictions and true labels, calculate classification accuracy.
+Answer 8
+def accuracy(y_pred, y_true):
+"""Calculate classification accuracy"""
+return np.mean(y_pred == y_true)
+--- Page 4 ---
+# Test
+y_true = np.array([1, -1, 1, -1, 1])
+y_pred = np.array([1, -1, 1, 1, 1])
+print(f"Accuracy: {accuracy(y_pred, y_true):.2%}")
+Accuracy: 80.00%
+Question 9: Full Training Loop
+Write a train_perceptron function that implements a complete training loop for a perceptron
+classifier. The function should:
+Initialize weights to small random values For each epoch:
+ΓÇó Make predictions on all training data using the forward pass
+ΓÇó Convert predictions to perceptron outputs (hard threshold)
+ΓÇó Calculate misclassifications
+ΓÇó Update weights for each misclassified sample
+Return final weights and a list tracking misclassifications per epoch
+Parameters:
+ΓÇó X (numpy.ndarray): Training features of shape (n_samples, n_features)
+ΓÇó y (numpy.ndarray): True labels of shape (n_samples,) with values {-1, 1}
+ΓÇó learning_rate (float): Learning rate for weight updates
+ΓÇó epochs (int): Number of training iterations
+ΓÇó random_seed (int): For reproducibility
+Returns:
+ΓÇó W (numpy.ndarray): Learned weights
+ΓÇó b (float): Learned bias
+def train_perceptron(X, y, learning_rate=0.1, epochs=50,
+random_seed=42):
+"""
+Train a perceptron classifier from scratch.
+Uses: predict(), perceptron_output(), update_weights(), accuracy()
+"""
+np.random.seed(random_seed)
+n_features = X.shape[1]
+# Initialize weights and bias
+W = np.random.randn(n_features) * 0.01
+b = 0.0
+--- Page 5 ---
+for epoch in range(epochs):
+# Forward pass
+z = predict(X, W, b) # Linear computation
+y_pred = perceptron_output(z) # Hard threshold
+# Update weights for each misclassified sample
+for i in range(X.shape[0]):
+if y_pred[i] != y[i]:
+error = y[i] - y_pred[i]
+W = update_weights(W, X[i], error, learning_rate)
+b += learning_rate * error
+return W, b
+# Test with AND gate example
+X_train = np.array([[1, 1], [1, -1], [-1, 1], [-1, -1]])
+y_train = np.array([1, -1, -1, -1])
+W, b = train_perceptron(X_train, y_train, learning_rate=0.5,
+epochs=10)
+print(f"\nFinal Weights: {W}")
+print(f"Final Bias: {b}")
+Final Weights: [1.00496714 0.99861736]
+Final Bias: -1.0
+accuracy(perceptron_output(predict(X_train, W, b)), y_train)
+np.float64(1.0)
+
+=== 11vertopal.com_Neural_Networks_Regularization.pdf ===
+--- Page 1 ---
+Neural Networks: Regularization (L1 & L2)
+This notebook continues from the Neural Networks coding questions and introduces
+regularization ΓÇö a technique to prevent overfitting by penalizing large weights during training.
+import numpy as np
+Background: Why Regularization?
+When training a neural network, the model can overfit ΓÇö learning the training data so well that
+it performs poorly on unseen data. Regularization addresses this by adding a penalty term to
+the loss function that discourages overly large weight values.
+The two most common forms are:
+ΓÇó L2 (Ridge): penalizes the sum of squared weights ΓåÆ encourages small, spread-out
+weights
+ΓÇó L1 (Lasso): penalizes the sum of absolute weights ΓåÆ encourages sparse weights (many
+become exactly 0)
+The regularized loss becomes:
+L =L +╬╗Γïà╬⌐(W)
+reg original
+where ╬╗ (lambda) is the regularization strength hyperparameter.
+Question 10: L2 Regularization Penalty
+Implement a function that computes the L2 regularization penalty (also called weight decay):
+1
+╬⌐ (W)= Γêæw2
+L2 2 i
+i
+The function should accept weights W and regularization strength lambda_ and return the scalar
+penalty value.
+Hint: The ┬╜ factor is included so the gradient simplifies cleanly to W.
+Answer 10
+def l2_penalty(W, lambda_):
+"""Compute L2 regularization penalty: 0.5 * lambda * sum(W^2)"""
+return 0.5 * lambda_ * np.sum(W ** 2)
+--- Page 2 ---
+# Test
+W = np.array([0.5, -1.2, 0.8])
+lambda_ = 0.1
+print(f"L2 Penalty: {l2_penalty(W, lambda_):.4f}")
+L2 Penalty: 0.1165
+Question 11: L1 Regularization Penalty
+Implement a function that computes the L1 regularization penalty:
+╬⌐ (W)=Γêæ|w )
+L1 i
+i
+The function should accept weights W and regularization strength lambda_ and return the scalar
+penalty value.
+Answer 11
+def l1_penalty(W, lambda_):
+"""Compute L1 regularization penalty: lambda * sum(|W|)"""
+return lambda_ * np.sum(np.abs(W))
+# Test
+W = np.array([0.5, -1.2, 0.8])
+lambda_ = 0.1
+print(f"L1 Penalty: {l1_penalty(W, lambda_):.4f}")
+L1 Penalty: 0.2500
+Question 12: Regularized MSE Loss
+Using your mse function from Question 1 and the penalty functions above, implement a
+regularized loss function that combines MSE with either L1 or L2 regularization.
+The function signature should be:
+def regularized_loss(y_hat, y, W, lambda_, mode='l2')
+where mode is either 'l1' or 'l2'.
+Answer 12
+def mse(y_hat, y):
+"""Mean squared error (from Q1)"""
+return np.mean((y_hat - y) ** 2)
+--- Page 3 ---
+def regularized_loss(y_hat, y, W, lambda_, mode='l2'):
+"""
+Compute MSE loss with L1 or L2 regularization.
+Parameters:
+y_hat : predictions
+y : true labels
+W : weight vector
+lambda_ : regularization strength
+mode : 'l1' or 'l2'
+"""
+base_loss = mse(y_hat, y)
+if mode == 'l2':
+penalty = l2_penalty(W, lambda_)
+elif mode == 'l1':
+penalty = l1_penalty(W, lambda_)
+else:
+raise ValueError("mode must be 'l1' or 'l2'")
+return base_loss + penalty
+# Test
+y_true = np.array([1.0, 2.0, 3.0])
+y_pred = np.array([1.1, 2.2, 2.9])
+W = np.array([0.5, -1.2, 0.8])
+lambda_ = 0.1
+print(f"MSE only: {mse(y_pred, y_true):.4f}")
+print(f"MSE + L2 penalty: {regularized_loss(y_pred, y_true, W,
+lambda_, mode='l2'):.4f}")
+print(f"MSE + L1 penalty: {regularized_loss(y_pred, y_true, W,
+lambda_, mode='l1'):.4f}")
+MSE only: 0.0200
+MSE + L2 penalty: 0.1365
+MSE + L1 penalty: 0.2700
+Question 13: L2 Gradient (Weight Decay Update)
+During backpropagation, regularization adds an extra gradient term. For L2 regularization, the
+gradient of the penalty with respect to weights is:
+Γêé╬⌐
+L2 =╬╗ΓïàW
+ΓêéW
+Implement a function l2_gradient(W, lambda_) that returns this gradient. Then
+implement update_weights_l2 that applies a gradient descent step with L2 regularization:
+--- Page 4 ---
+WΓåÉWΓêÆ╬▒Γïà(ΓêçL+╬╗W)
+where ╬▒ is the learning rate and ΓêçL is the gradient from the original loss.
+Answer 13
+def l2_gradient(W, lambda_):
+"""Gradient of L2 penalty with respect to W"""
+return lambda_ * W
+def update_weights_l2(W, grad_loss, learning_rate, lambda_):
+"""
+Gradient descent step with L2 regularization.
+W <- W - lr * (grad_loss + lambda * W)
+"""
+return W - learning_rate * (grad_loss + l2_gradient(W, lambda_))
+# Test
+W = np.array([0.5, -1.2, 0.8])
+grad_loss = np.array([0.1, -0.3, 0.2]) # gradient from MSE
+lr = 0.1
+lambda_ = 0.1
+W_updated = update_weights_l2(W, grad_loss, lr, lambda_)
+print(f"Original weights: {W}")
+print(f"Updated weights: {W_updated}")
+Original weights: [ 0.5 -1.2 0.8]
+Updated weights: [ 0.485 -1.158 0.772]
+Question 14: L1 Gradient (Sign Update)
+For L1 regularization, the gradient of the penalty is the sign of the weights:
+Γêé╬⌐
+L1 =╬╗Γïàsign(W)
+ΓêéW
+Implement l1_gradient(W, lambda_) and update_weights_l1 following the same
+pattern as Question 13.
+Note: Unlike L2, the L1 gradient does not shrink weights proportionally ΓÇö it subtracts a
+constant amount, pushing small weights all the way to zero.
+Answer 14
+def l1_gradient(W, lambda_):
+"""Gradient of L1 penalty with respect to W"""
+return lambda_ * np.sign(W)
+--- Page 5 ---
+def update_weights_l1(W, grad_loss, learning_rate, lambda_):
+"""
+Gradient descent step with L1 regularization.
+W <- W - lr * (grad_loss + lambda * sign(W))
+"""
+return W - learning_rate * (grad_loss + l1_gradient(W, lambda_))
+# Test ΓÇö compare L1 vs L2 on the same weights
+W = np.array([0.5, -1.2, 0.8])
+grad_loss = np.array([0.1, -0.3, 0.2])
+lr = 0.1
+lambda_ = 0.1
+W_l1 = update_weights_l1(W, grad_loss, lr, lambda_)
+W_l2 = update_weights_l2(W, grad_loss, lr, lambda_)
+print(f"Original weights: {W}")
+print(f"L1 updated: {W_l1}")
+print(f"L2 updated: {W_l2}")
+Original weights: [ 0.5 -1.2 0.8]
+L1 updated: [ 0.48 -1.16 0.77]
+L2 updated: [ 0.485 -1.158 0.772]
+Question 15: Comparing L1 vs L2 Sparsity
+One key difference between L1 and L2 regularization is that L1 produces sparse solutions ΓÇö it
+tends to drive some weights exactly to zero, effectively performing feature selection.
+Write a function simulate_regularization(W_init, grad_loss, learning_rate,
+lambda_, epochs) that applies weight updates for a fixed number of epochs using both L1
+and L2, then:
+1. Returns the final weight vectors for both methods
+2. Counts how many weights are effectively zero (absolute value < 1e-4) in each case
+Use the same grad_loss at every step to simulate a simplified training scenario.
+Answer 15
+def simulate_regularization(W_init, grad_loss, learning_rate, lambda_,
+epochs):
+"""
+Simulate training with L1 and L2 regularization.
+Returns:
+--- Page 6 ---
+W_l1 (np.ndarray): final weights under L1
+W_l2 (np.ndarray): final weights under L2
+zeros_l1 (int): number of near-zero weights under L1
+zeros_l2 (int): number of near-zero weights under L2
+"""
+W_l1 = W_init.copy()
+W_l2 = W_init.copy()
+for _ in range(epochs):
+W_l1 = update_weights_l1(W_l1, grad_loss, learning_rate,
+lambda_)
+W_l2 = update_weights_l2(W_l2, grad_loss, learning_rate,
+lambda_)
+zeros_l1 = np.sum(np.abs(W_l1) < 1e-4)
+zeros_l2 = np.sum(np.abs(W_l2) < 1e-4)
+return W_l1, W_l2, zeros_l1, zeros_l2
+# Test with weights of varying magnitude
+W_init = np.array([2.0, 0.05, -1.5, 0.02, 0.8])
+grad_loss = np.zeros(5) # no task loss ΓÇö only regularization drives
+updates
+lr = 0.05
+lambda_ = 0.1
+epochs = 100
+W_l1, W_l2, zeros_l1, zeros_l2 = simulate_regularization(W_init,
+grad_loss, lr, lambda_, epochs)
+print(f"Initial weights: {W_init}")
+print(f"L1 final weights: {np.round(W_l1, 4)}")
+print(f"L2 final weights: {np.round(W_l2, 4)}")
+print(f"\nZero weights ΓÇö L1: {zeros_l1}, L2: {zeros_l2}")
+Initial weights: [ 2. 0.05 -1.5 0.02 0.8 ]
+L1 final weights: [ 1.5 -0. -1. -0. 0.3]
+L2 final weights: [ 1.2115 0.0303 -0.9087 0.0121 0.4846]
+Zero weights ΓÇö L1: 2, L2: 0
+(L1 is expected to produce more zeros ΓÇö sparse solution)
+
+=== 22vertopal.com_Spring26_Neural_Networks_Backpropagation.pdf ===
+--- Page 1 ---
+What is Deep Learning:
+Deep learning is an efficient way of learning that relies on big data, where features that can help
+a machine map an input to an output is automatically extracted from layers of ΓÇ£neuronsΓÇ¥.
+What is a Neural Network:
+Neural networks are composed of simple building blocks called neurons. It's a mathematical
+function that takes data as input, performs a transformation on them, and produces an output.
+Looking at the neuron above, you can see that itΓÇÖs composed of two main parts: the summation
+and the activation function. A neuron takes data (xΓéü, xΓéé, xΓéâ) as input, multiplies each with a
+specific weight (wΓéü, wΓéé, wΓéâ), and then passes the result to a nonlinear function called the
+activation function to produce an output.
+A neural network combines multiple neurons by stacking them vertically/horizontally to create a
+network of neurons, hence the name ΓÇ£neural networkΓÇ¥. A simple one-neuron network is called a
+perceptron and is the simplest network ever.
+--- Page 2 ---
+We need to keep in mind the big picture here:
+1- We feed input data into the neural network. 2- The data flows from layer to layer until we
+have the output. 3- Once we have the output, we can calculate the error which is a scalar. 4-
+Finally we can adjust a given parameter (weight or bias) by subtracting the derivative of the error
+with respect to the parameter itself. 5- We iterate through that process.
+ΓÇó Forward propagation:
+We can already emphasize one important point which is: the output of one layer is the input of
+the next one. This is called "forward propagation".
+ΓÇó Backward propagation:
+minimizing the error by changing the parameters in the network. That is "backpropagation".
+--- Page 3 ---
+import numpy as np
+def sigmoid(x): return 1 / (1 + np.e**-x)
+def sigmoid_der(y): return y * (1 - y) # derivative when input is
+already sigmoid output
+# Inputs
+x1, x2 = 0.05, 0.10
+# Targets
+t1, t2 = 0.01, 0.99
+# Initial weights
+w1, w2, w3, w4 = 0.15, 0.20, 0.25, 0.30 # input layer
+w5, w6, w7, w8 = 0.40, 0.45, 0.50, 0.55 # hidden layer
+# Biases
+b1, b2 = 0.35, 0.60
+# Learning rate
+eta = 0.5
+--- Page 4 ---
+# Forward pass
+h1_in = x1 * w1 + x2 * w2 + b1
+h2_in = x1 * w3 + x2 * w4 + b1
+h1_out = sigmoid(h1_in)
+h2_out = sigmoid(h2_in)
+o1_in = h1_out * w5 + h2_out * w6 + b2
+o2_in = h1_out * w7 + h2_out * w8 + b2
+o1_out = sigmoid(o1_in)
+o2_out = sigmoid(o2_in)
+## Errors
+E1 = 0.5 * (t1 - o1_out) ** 2
+E2 = 0.5 * (t2 - o2_out) ** 2
+E_total = E1 + E2
+# Backward pass
+# Output layer
+dE_outo1 = - (t1 - o1_out)
+dE_outo2 = - (t2 - o2_out)
+dOuto1_o1 = sigmoid_der(o1_out)
+dOuto2_o2 = sigmoid_der(o2_out)
+dE_dw5 = dE_outo1 * dOuto1_o1 * h1_out
+dE_dw6 = dE_outo1 * dOuto1_o1 * h2_out
+dE_dw7 = dE_outo2 * dOuto2_o2 * h1_out
+dE_dw8 = dE_outo2 * dOuto2_o2 * h2_out
+dE_db2 = dE_outo1 * dOuto1_o1 + dE_outo2 * dOuto2_o2 # bias gradient
+at output layer
+# Backward pass
+# Hidden layer
+dEout1_outh1 = dE_outo1 * dOuto1_o1 * w5
+dEout2_outh1 = dE_outo2 * dOuto2_o2 * w7
+dE_dOuth1 = dEout1_outh1 + dEout2_outh1
+dOuth1_h1 = sigmoid_der(h1_out)
+dE_h1 = dOuth1_h1 * dE_dOuth1
+dEout1_outh2 = dE_outo1 * dOuto1_o1 * w6
+dEout2_outh2 = dE_outo2 * dOuto2_o2 * w8
+dE_dOuth2 = dEout1_outh2 + dEout2_outh2
+dOuth2_h2 = sigmoid_der(h2_out)
+dE_h2 = dOuth2_h2 * dE_dOuth2
+dE_dw1 = dE_h1 * x1
+dE_dw2 = dE_h2 * x2
+dE_dw3 = dE_h1 * x1
+dE_dw4 = dE_h2 * x2
+dE_db1 = dE_h1 + dE_h2 # bias gradient at hidden layer
+--- Page 5 ---
+# Update weights and biases
+w1 -= eta * dE_dw1
+w2 -= eta * dE_dw2
+w3 -= eta * dE_dw3
+w4 -= eta * dE_dw4
+w5 -= eta * dE_dw5
+w6 -= eta * dE_dw6
+w7 -= eta * dE_dw7
+w8 -= eta * dE_dw8
+b1 -= eta * dE_db1
+b2 -= eta * dE_db2
+print("Outputs:", round(o1_out, 4), round(o2_out, 4))
+print("Initial Error:", round(E_total, 4))
+print("\nUpdated Weights and Biases:")
+print("w1 =", round(w1, 4), " w5 =", round(w5, 4))
+print("w2 =", round(w2, 4), " w6 =", round(w6, 4))
+print("w3 =", round(w3, 4), " w7 =", round(w7, 4))
+print("w4 =", round(w4, 4), " w8 =", round(w8, 4))
+print("b1 =", round(b1, 4), " b2 =", round(b2, 4))
+Outputs: 0.7514 0.7729
+Initial Error: 0.2984
+Updated Weights and Biases:
+w1 = 0.1498 w5 = 0.3589
+w2 = 0.1995 w6 = 0.4087
+w3 = 0.2498 w7 = 0.5113
+w4 = 0.2995 w8 = 0.5614
+b1 = 0.3406 b2 = 0.5498
+Building a Neural Network from Scratch
+Import libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+from sklearn.datasets import fetch_california_housing
+Our neural network would have three layers:
+1- Input layer 2- Hidden layer with 2 neurons 3- output layer
+--- Page 6 ---
+housing_data = fetch_california_housing()
+features = pd.DataFrame(housing_data.data,
+columns=housing_data.feature_names)
+target = pd.DataFrame(housing_data.target, columns=['Target'])
+df = features.join(target)
+df = df[['MedInc','AveRooms','Target']]
+df.head()
+MedInc AveRooms Target
+0 8.3252 6.984127 4.526
+1 8.3014 6.238137 3.585
+2 7.2574 8.288136 3.521
+3 5.6431 5.817352 3.413
+4 3.8462 6.281853 3.422
+train, test = train_test_split(
+df,
+test_size=0.2,
+random_state=42
+)
+--- Page 7 ---
+scaler = MinMaxScaler()
+train_scaled = scaler.fit_transform(train)
+test_scaled = scaler.transform(test)
+X_train, y_train = train_scaled[:,:2], train_scaled[:, 2:]
+X_test, y_test= test_scaled[:,:2], test_scaled[:, 2:]
+X_train.shape
+(16512, 2)
+class SimpleNeuralNetwork:
+def __init__(self):
+# Initial weights and biases assigned random values ranging
+from 0 to 1.
+# We have a total of 9 weights and 4 biases as shown in the
+figure above.
+# Weights
+self.w1, \
+self.w2, \
+self.w3, \
+self.w4, \
+self.w5, \
+self.w6, \
+self.w7, \
+self.w8, \
+self.w9 = np.random.rand(9)
+# Biases
+self.b_n1, \
+self.b_n2, \
+self.b_n3, \
+self.b_y_hat = np.random.rand(4)
+# Activation functions for the neurons
+# sigmoid is for forward propagation, sigmoid derivative is for
+back propagation
+def sigmoid(self, x): return 1 / (1 + np.e**-x)
+def sigmoid_der(self, x): return self.sigmoid(x) * (1 -
+self.sigmoid(x))
+# Feedforward function produces result of the network prediction
+for each sample.
+def feedforward(self, x):
+# x[0], x[1] - features
+--- Page 8 ---
+# n* - neurons in the hidden layer, y_hat - predicted value
+self.n1 = self.sigmoid(x[0]*self.w1 + x[1]*self.w2 +
+self.b_n1)
+self.n2 = self.sigmoid(x[0]*self.w3 + x[1]*self.w4 +
+self.b_n2)
+self.n3 = self.sigmoid(x[0]*self.w5 + x[1]*self.w6 +
+self.b_n3)
+self.y_hat = self.sigmoid(self.n1*self.w7 + self.n2*self.w8 +
+self.n3*self.w9 + self.b_y_hat)
+# Backpropagation updates all the weights and biases of the
+network.
+# By using Gradient Descent technique, each trainable parameter
+(weight or bias) is changing a little
+# bit towards the minimum of MSE.
+# "output layer" => "hidden layer 2" => "hidden layer 1"
+def backpropagation(self, x, y):
+# We calculate some values here to use them later
+y_hat_der = (-(y-self.y_hat) *
+self.sigmoid_der(self.n1*self.w7 + self.n2*self.w8 + self.n3*self.w9 +
+self.b_y_hat))
+n1_der = self.w7 * self.sigmoid_der(x[0]*self.w1 +
+x[1]*self.w2 + self.b_n1)
+n2_der = self.w8 * self.sigmoid_der(x[0]*self.w3 +
+x[1]*self.w4 + self.b_n2)
+n3_der = self.w9 * self.sigmoid_der(x[0]*self.w5 +
+x[1]*self.w6 + self.b_n3)
+# Biases
+self.b_n1 -= self.lr * y_hat_der * n1_der
+self.b_n2 -= self.lr * y_hat_der * n2_der
+self.b_n3 -= self.lr * y_hat_der * n3_der
+self.b_y_hat -= self.lr * y_hat_der
+# Weights
+self.w7 -= self.lr * y_hat_der * self.n1
+self.w8 -= self.lr * y_hat_der * self.n2
+self.w9 -= self.lr * y_hat_der * self.n3
+self.w1 -= self.lr * y_hat_der * n1_der * x[0]
+self.w2 -= self.lr * y_hat_der * n1_der * x[1]
+self.w3 -= self.lr * y_hat_der * n2_der * x[0]
+self.w4 -= self.lr * y_hat_der * n2_der * x[1]
+self.w5 -= self.lr * y_hat_der * n3_der * x[0]
+self.w6 -= self.lr * y_hat_der * n3_der * x[1]
+--- Page 9 ---
+# Training process is the combination of forward and back
+propagations.
+def fit(self, X, y, epoch=10, lr=0.01):
+mse_list = []
+self.lr = lr
+# Loop over epochs. Each epoch train network on all available
+data.
+# We also store MSE to visualize the training process
+for i in range(epoch):
+mse = mean_squared_error(y, self.predict(X))
+mse_list.append(mse)
+print(f'Epoch: {i+1} / {epoch}, MSE: {round(mse, 4)}')
+# Loop over each training example for current epoch
+for j in range(len(X)):
+self.feedforward(X[j])
+self.backpropagation(X[j], y[j][0])
+return mse_list
+# This function is very similar to feed forward, in fact it uses
+'feedforward' function to make predictions.
+# The only difference is that we predict output for all samples.
+def predict(self, X):
+result = []
+for x in X:
+self.feedforward(x)
+result.append(self.y_hat)
+return result
+model = SimpleNeuralNetwork()
+history = model.fit(X_train, y_train, epoch=20, lr=0.05)
+Epoch: 1 / 20, MSE: 0.2267
+Epoch: 2 / 20, MSE: 0.0571
+Epoch: 3 / 20, MSE: 0.0539
+Epoch: 4 / 20, MSE: 0.0454
+Epoch: 5 / 20, MSE: 0.0344
+Epoch: 6 / 20, MSE: 0.0303
+Epoch: 7 / 20, MSE: 0.0294
+Epoch: 8 / 20, MSE: 0.0293
+Epoch: 9 / 20, MSE: 0.0292
+Epoch: 10 / 20, MSE: 0.0292
+--- Page 10 ---
+Epoch: 11 / 20, MSE: 0.0292
+Epoch: 12 / 20, MSE: 0.0291
+Epoch: 13 / 20, MSE: 0.0291
+Epoch: 14 / 20, MSE: 0.0291
+Epoch: 15 / 20, MSE: 0.0291
+Epoch: 16 / 20, MSE: 0.0291
+Epoch: 17 / 20, MSE: 0.0291
+Epoch: 18 / 20, MSE: 0.0291
+Epoch: 19 / 20, MSE: 0.029
+Epoch: 20 / 20, MSE: 0.029
+plt.rcParams['figure.dpi'] = 227
+plt.rcParams['figure.figsize'] = (16, 6)
+plt.plot(history)
+plt.title('Neural Network Training Process')
+plt.xlabel('Epoch')
+plt.ylabel('MSE')
+plt.show()
+y_pred = model.predict(X_test)
+mean_squared_error(y_test, y_pred)
+0.029724228204610608
+
+=== Backpropagation Neural ANU.pdf ===
+--- Page 1 ---
+Alexandria National University
+Neural Networks Spring 2026
+Backpropagation
+Perform 1 backpropagation iteration for the following network:
+1
+- Use Sigmoid as the activation function (≡¥æå≡¥æû≡¥æö≡¥æÜ≡¥æ£≡¥æû≡¥ææ(≡¥æÑ) = )
+1+≡¥æÆΓêÆ≡¥æÑ
+- Inputs and outpts are written in blue
+- Initial weights are written in red
+- Initial bias are written in yellow
+- Learning rate ┼ï = 0.5
+--- Page 2 ---
+Answer:
+Forward pass:
+≡¥É╗ = ≡¥æÑ Γêù ≡¥æñ + ≡¥æÑ Γêù ≡¥æñ + ≡¥æÅ
+1 1 1 2 2 1
+≡¥É╗ = 0.05 Γêù 0.15 + 0.1 Γêù 0.2 + 0.35 = 0.3775
+1
+≡¥æé≡¥æó≡¥æí = ≡¥æá≡¥æû≡¥æö≡¥æÜ≡¥æ£≡¥æû≡¥ææ(≡¥É╗ ) = 0. 5933
+≡¥É╗1 1
+≡¥É╗ = ≡¥æÑ Γêù ≡¥æñ + ≡¥æÑ Γêù ≡¥æñ + ≡¥æÅ
+2 1 3 2 4 1
+≡¥É╗ = 0.05 Γêù 0.25 + 0.1 Γêù 0.3 + 0.35 = 0.3925
+2
+≡¥æé≡¥æó≡¥æí = ≡¥æá≡¥æû≡¥æö≡¥æÜ≡¥æ£≡¥æû≡¥ææ(≡¥É╗ ) = 0.5969
+≡¥É╗2 2
+≡¥æé = ≡¥æé≡¥æó≡¥æí Γêù ≡¥æñ + ≡¥æé≡¥æó≡¥æí Γêù ≡¥æñ + ≡¥æÅ
+1 ≡¥É╗1 5 ≡¥É╗2 6 2
+≡¥æé = 0. 5933 Γêù 0.4 + 0.5969 Γêù 0.45 + 0.6 = 1.1059
+1
+≡¥æé≡¥æó≡¥æí = ≡¥æá≡¥æû≡¥æö≡¥æÜ≡¥æ£≡¥æû≡¥ææ(≡¥æé ) = 0.7514
+≡¥æé1 1
+≡¥æé = ≡¥æé≡¥æó≡¥æí Γêù ≡¥æñ + ≡¥æé≡¥æó≡¥æí Γêù ≡¥æñ + ≡¥æÅ
+2 ≡¥É╗1 7 ≡¥É╗2 8 2
+≡¥æé = 0. 5933 Γêù 0.5 + 0.5969 Γêù 0.55 + 0.6 = 1.2249
+2
+≡¥æé≡¥æó≡¥æí = ≡¥æá≡¥æû≡¥æö≡¥æÜ≡¥æ£≡¥æû≡¥ææ(≡¥æé ) = 0.7729
+≡¥æé2 2
+Calculating the error: (MSE)
+≡¥É╕ = ≡¥É╕ + ≡¥É╕
+≡¥æç≡¥æ£≡¥æí≡¥æÄ≡¥æÖ ≡¥æé≡¥æó≡¥æí1 ≡¥æé≡¥æó≡¥æí2
+1
+= (0.01 ΓêÆ 0.7514)2 = 0.2748
+≡¥É╕
+≡¥æé≡¥æó≡¥æí1
+2
+1
+≡¥É╕
+= (0.99 ΓêÆ 0.7729)2 = 0.0236
+≡¥æé≡¥æó≡¥æí2
+2
+≡¥É╕ = 0.2748 + 0.0236 = 0.2984
+≡¥æç≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+Backward pass:
+Computing gradients:
+1) For the output layer:
+≡¥£ò≡¥É╕ ≡¥£ò≡¥É╕ ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+=
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+Γêù
+≡¥æé1
+Γêù
+1
+≡¥£ò≡¥æñ ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé ≡¥£ò≡¥æñ
+5 ≡¥æé1 1 5
+--- Page 3 ---
+≡¥£ò≡¥É╕
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ = ΓêÆ(≡¥æí≡¥æÄ≡¥æƒ≡¥æö≡¥æÆ≡¥æí ΓêÆ ≡¥æé≡¥æó≡¥æí ) = ΓêÆ(0.01 ΓêÆ 0.7514) = 0.7414
+≡¥£ò≡¥æé≡¥æó≡¥æí 1 ≡¥æé1
+≡¥æé1
+≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥æé1
+= ≡¥æé≡¥æó≡¥æí
+(1 ΓêÆ ≡¥æé≡¥æó≡¥æí ) = 0.7514(1 ΓêÆ 0.7514) = 0.1868
+≡¥£ò≡¥æé ≡¥æé1 ≡¥æé1
+1
+≡¥£ò≡¥æé
+1
+= ≡¥æé≡¥æó≡¥æí = 0. 5933
+≡¥£ò≡¥æñ ≡¥É╗1
+5
+Finally, putting everything together:
+≡¥£ò≡¥É╕
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+= 0.7414 Γêù 0.1868 Γêù 0. 5933 = 0.0822
+≡¥£ò≡¥æñ
+5
+≡¥£ò≡¥É╕
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+ΓêÆ ┼ï Γêù = 0.4 ΓêÆ 0.5 Γêù 0.0822 = 0.3589
+≡¥æñ = ≡¥æñ
+5 5
+≡¥£ò≡¥æñ
+5
+Similarly for all weights in the output layer we get:
+≡¥æñ = 0.4087
+6
+≡¥æñ = 0.5113
+7
+≡¥æñ = 0.5614
+8
+2) For the hidden layer:
+≡¥£ò≡¥É╕ ≡¥£ò≡¥É╕ ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥É╗
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+=
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+Γêù
+≡¥É╗1
+Γêù
+1
+≡¥£ò≡¥æñ ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥É╗ ≡¥£ò≡¥æñ
+1 ≡¥É╗1 1 1
+First term is calculated by adding the effect of ≡¥æé≡¥æó≡¥æí on both ≡¥É╕ and ≡¥É╕ :
+≡¥É╗1 ≡¥æé≡¥æó≡¥æí1 ≡¥æé≡¥æó≡¥æí2
+≡¥£ò≡¥É╕ ≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+=
+≡¥£ò≡¥É╕ ≡¥æé≡¥æó≡¥æí≡¥æé1
++
+≡¥£ò≡¥É╕ ≡¥æé≡¥æó≡¥æí≡¥æé2
+≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥É╗1 ≡¥É╗1 ≡¥É╗1
+≡¥£ò≡¥É╕ ≡¥æé≡¥æó≡¥æí≡¥æé1
+=
+≡¥£ò≡¥É╕ ≡¥æé≡¥æó≡¥æí≡¥æé1
+Γêù
+≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥æé1
+Γêù
+≡¥£ò≡¥æé 1
+≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé ≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥É╗1 ≡¥æé1 1 ≡¥É╗1
+≡¥£ò≡¥É╕
+≡¥æé≡¥æó≡¥æí1
+= ΓêÆ(≡¥æí≡¥æÄ≡¥æƒ≡¥æö≡¥æÆ≡¥æí ΓêÆ ≡¥æé≡¥æó≡¥æí ) = ΓêÆ(0.01 ΓêÆ 0.7514) = 0.7414
+≡¥£ò≡¥æé≡¥æó≡¥æí 1 ≡¥æé1
+≡¥æé1
+≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥æé1
+= ≡¥æé≡¥æó≡¥æí
+(1 ΓêÆ ≡¥æé≡¥æó≡¥æí ) = 0.7514(1 ΓêÆ 0.7514) = 0.1868
+≡¥£ò≡¥æé ≡¥æé1 ≡¥æé1
+1
+≡¥£ò≡¥æé
+1 = ≡¥æñ = 0.40
+≡¥£ò≡¥æé≡¥æó≡¥æí 5
+≡¥É╗1
+≡¥£ò≡¥É╕
+≡¥æé≡¥æó≡¥æí1
+= 0.7414 Γêù 0.1868 Γêù 0.40 = 0.0554
+≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥É╗1
+≡¥¢¢≡¥É╕
+Similarly for
+≡¥æé≡¥æó≡¥æí≡¥æé2
+:
+≡¥¢¢≡¥æé≡¥æó≡¥æí≡¥É╗1
+--- Page 4 ---
+≡¥£ò≡¥É╕ ≡¥æé≡¥æó≡¥æí2
+=
+≡¥£ò≡¥É╕ ≡¥æé≡¥æó≡¥æí≡¥æé2
+Γêù
+≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥æé2
+Γêù
+≡¥£ò≡¥æé 2
+≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé≡¥æó≡¥æí ≡¥£ò≡¥æé ≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥É╗1 ≡¥æé2 2 ≡¥É╗1
+≡¥¢¢≡¥É╕
+We will get
+≡¥æé≡¥æó≡¥æí≡¥æé2
+= ΓêÆ0.0191
+≡¥¢¢≡¥æé≡¥æó≡¥æí≡¥É╗1
+Adding this up will give us ≡¥¢¢≡¥É╕≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ = 0.0554 ΓêÆ 0.0191 = 0.0363
+≡¥¢¢≡¥æé≡¥æó≡¥æí≡¥É╗1
+Now we calculate the remaining terms:
+≡¥£ò≡¥æé≡¥æó≡¥æí
+≡¥É╗1
+= ≡¥æé≡¥æó≡¥æí
+(1 ΓêÆ ≡¥æé≡¥æó≡¥æí ) = 0.5933(1 ΓêÆ 0.5933) = 0.2413
+≡¥£ò≡¥É╗ ≡¥É╗1 ≡¥É╗1
+1
+≡¥£ò≡¥É╗
+1 = 0.05
+= ≡¥æÑ
+≡¥£ò≡¥æñ 1
+1
+Putting everything together, we get:
+≡¥£ò≡¥É╕
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+= 0.0363 Γêù 0.2413 Γêù 0.05 = 0.0004
+≡¥£ò≡¥æñ
+1
+≡¥£ò≡¥É╕
+≡¥æí≡¥æ£≡¥æí≡¥æÄ≡¥æÖ
+ΓêÆ ┼ï Γêù = 0.15 ΓêÆ 0.5 Γêù 0.0004 = 0.1498
+≡¥æñ = ≡¥æñ
+1 1
+≡¥£ò≡¥æñ
+1
+Similarly for all weights in the hidden layer we get:
+≡¥æñ = 0.1996
+2
+≡¥æñ = 0.2498
+3
+≡¥æñ = 0.2995
+4
+Finally, weΓÇÖve updated all of our weights! When we fed forward the 0.05 and 0.1 inputs originally,
+the error on the network was 0.2984. After this first round of backpropagation, the total error is now
+down to 0.2910.
+

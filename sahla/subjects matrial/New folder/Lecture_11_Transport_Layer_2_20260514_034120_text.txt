@@ -1,0 +1,2404 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_11_Transport_Layer_2.pdf
+Date   : 2026-05-14 03:41:20.679026
+Pages  : 56 / 56
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  5 words
+────────────────────────────────────────────────────────────
+Lecture 11
+Transport Layer (cont’d)
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  30 words
+────────────────────────────────────────────────────────────
+Agenda
+The Transport Layer (continue)
+Connection-oriented Transport (TCP)
+• Flow Control
+• Connection Management
+• Congestion Control
+Introduction to the Application Layer
+Application Architectures
+Required Transport Services by An Application
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  68 words
+────────────────────────────────────────────────────────────
+Introduction: Transport Services and Protocols
+(Recall)
+provide logical communication
+between app processes running 
+on different hosts
+transport protocols run in end
+systems
+send side: breaks
+application messages into 
+segments, passes to the 
+network layer
+receiving side: reassembles
+segments into messages, 
+passes to app layer
+more than one transport
+protocol available to 
+applications
+Internet: TCP and UDP
+application
+transport
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+
+── Images on page 3 (33 found) ──
+
+[Image 1]  356×211px  (PNG)
+OCR:
+;
+—  g
+
+[Image 16]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 17]  85×89px  (PNG)
+OCR:
+CO
+
+[Image 18]  69×74px  (PNG)
+[No text detected]
+
+[Image 19]  68×89px  (PNG)
+[No text detected]
+
+[Image 22]  233×180px  (PNG)
+[No text detected]
+
+[Image 23]  57×71px  (PNG)
+OCR:
+<
+
+[Image 24]  86×118px  (PNG)
+OCR:
+& yen,
+
+[Image 29]  62×85px  (PNG)
+OCR:
+GE”
+A
+
+[Image 30]  62×85px  (PNG)
+OCR:
+GE”
+3
+
+[Image 31]  64×198px  (PNG)
+OCR:
+j
+
+[Image 32]  64×198px  (PNG)
+OCR:
+j
+
+[Image 33]  430×490px  (PNG)
+OCR:
+©
+oe,
+Y
+)
+“oy
+%,
+4,
+%,
+aon
+2
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  46 words
+────────────────────────────────────────────────────────────
+TCP Flow Control
+receive side of TCP
+connection has a 
+receive buffer:
+app process may be
+slow at reading from 
+buffer
+flow control
+sender won’t overflow
+receiver’s buffer by 
+transmitting too much,
+too fast
+speed-matching
+service: matching the 
+send rate to the 
+receiving app’s drain 
+rate
+
+── Images on page 4 (1 found) ──
+
+[Image 1]  503×183px  (PNG)
+OCR:
+f— RevWindow —»
+data from spare room VEY application
+Uj “YY process
+4———. RevBuffer. —————}
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  44 words
+────────────────────────────────────────────────────────────
+TCP Flow Control: how it works
+(Suppose TCP receiver
+discards out-of-order 
+segments)
+spare room in buffer
+= RcvWindow
+= RcvBuffer-[LastByteRcvd
+LastByteRead]
+-
+Receiver advertises
+spare room by including 
+value of RcvWindow in 
+segments
+Sender limits unACKed
+data to RcvWindow
+guarantees receive
+buffer doesn’t overflow
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  503×183px  (PNG)
+OCR:
+f— RevWindow —»
+data from spare room VEY application
+Uj “YY process
+4———. RevBuffer. —————}
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 6 (2 found) ──
+
+[Image 1]  503×183px  (PNG)
+OCR:
+f— RevWindow —»
+data from spare room VEY application
+Uj “YY process
+4———. RevBuffer. —————}
+
+[Image 2]  646×639px  (PNG)
+OCR:
+TCP flow control ensures that a fast sender does not overwhelm a slow receiver. The key idea is to match
+the sender's rate to the rate at which the receiving application can read data.
+1. Receive buffer at the TCP receiver
+e Each TCP receiver allocates a receive buffer (RcvBuffer) in memory.
+e Incoming TCP data from IP is first stored in this buffer.
+e The application process reads data from the buffer at its own speed (which may be slow).
+2. Why flow control is needed
+e If the application reads data slowly, the buffer can fill up.
+e If the sender keeps transmitting data too fast, the receive buffer may overflow.
+e TCP prevents this using flow control.
+3. Buffer structure (as shown in the figure)
+The receive buffer consists of:
+e TCP data in buffer (green shaded area):
+
+Data already received but not yet read by the application.
+e Spare room (blue area):
+
+Free space available for new incoming TCP data.
+So:
+
+RevBuffer = TCP data in buffer + Spare room
+4. Receiver Window (RcvWindow)
+e The Receiver Window (RcvWindow) is defined as:
+RevWindow = sparc room in the receive buffer
+
+e It tells the sender how much more data the receiver can accept without overflowing.
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 7 (2 found) ──
+
+[Image 1]  503×183px  (PNG)
+OCR:
+f— RevWindow —»
+data from spare room VEY application
+Uj “YY process
+4———. RevBuffer. —————}
+
+[Image 2]  671×624px  (PNG)
+OCR:
+5. How the receiver advertises RcvWindow
+e The receiver includes the value of RcvWindow in every TCP segment (ACK) it sends.
+e This value dynamically changes as:
+e The application reads data — buffer frees space — RcvWindow increases
+e New data arrives — buffer fills - RcvWindow decreases
+6. Sender behavior (flow control rule)
+e The sender must ensure:
+UnACKced data < RevWindow
+© That is, the sender limits the amount of outstanding (unacknowledged) data to what the receiver can
+handle.
+7. Guarantee provided by TCP flow control
+This mechanism guarantees:
+e No receive buffer overflow
+© Speed matching between:
+e Sender's transmission rate
+e Receiver application's data consumption (drain) rate
+8. Important assumption (from your note)
+e Ifthe TCP receiver discards out-of-order segments, flow control still works because:
+e Only in-order, valid data occupies buffer space
+e RcvWindow accurately reflects usable buffer capacity
+9. One-line summary
+TCP flow control protects the receiver by advertising available buffer space (RcvWindow) and forcing
+the sender to transmit only as fast as the receiving application can consume data.
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  91 words
+────────────────────────────────────────────────────────────
+TCP Connection Management
+Recall: TCP sender, receiver
+establish “connection” 
+before exchanging data 
+segments
+initialize TCP variables:
+seq. #s
+buffers, flow control
+info (e.g. RcvWindow)
+client: connection initiator
+Socket clientSocket = new 
+Socket("hostname","port
+number");
+server: contacted by client
+Socket connectionSocket = 
+welcomeSocket.accept();
+Three way handshake:
+Step 1: client host sends TCP
+SYN segment to server
+specifies initial seq #
+no data
+Step 2: server host receives
+SYN, replies with SYNACK 
+segment
+server allocates buffers
+specifies server initial
+seq. #
+Step 3: client receives SYNACK,
+replies with ACK segment, 
+which may contain data
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  8 words
+────────────────────────────────────────────────────────────
+3-way handshake: establishes 
+connection and synchronizes 
+sequence numbers
+
+── Images on page 9 (1 found) ──
+
+[Image 1]  401×847px  (PNG)
+OCR:
+1. TCP Connection Establishment
+Three-Way Handshake
+Purpose:
+e Establish a reliable TCP connection
+¢ Synchronize initial sequence numbers
+e Allocate buffers and state at both ends
+Step 1- SYN
+e Client — Server
+e Client sends a TCP SYN segment
+¢ Contains:
+© Client’s initial sequence number (ISN_c)
+e No application data
+e Client enters SYN-SENT state
+Step 2-SYN + ACK
+e Server — Client
+e Server replies with SYNACK
+¢ Contains:
+e ACK=ISN_c+1
+® Server's initial sequence number (ISN_s)
+e Server allocates buffers and connection state
+e Server enters SYN-RECEIVED state
+Step 3 - ACK
+e Client — Server
+e Client sends ACK
+e Contains:
+e ACK=ISN_s+1
+¢ May already include application data
+¢ Both sides enter ESTABLISHED state
+@ Connection is now open and data transfer can begin.
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  21 words
+────────────────────────────────────────────────────────────
+client
+server
+close
+close
+closed
+timed wait
+TCP Connection Management
+4-step close: gracefully shuts down both 
+directions of the TCP connection
+
+── Images on page 10 (2 found) ──
+
+[Image 1]  101×81px  (PNG)
+[No text detected]
+
+[Image 2]  293×557px  (PNG)
+OCR:
+Il. TCP Connection Termination
+Closing a TCP Connection (Four Steps)
+Purpose:
+e Allow both sides to finish sending data
+e Each direction is closed independently
+Step 1— FIN
+e Client — Server
+¢ Application calls:
+go
+clientSocket.close();
+e Client sends TCP FIN
+e Means: “! have no more data to send”
+¢ Client enters FIN-WAIT-1
+Step 2 - ACK + FIN
+e Server — Client
+¢ Server:
+e Sends ACK for client's FIN
+e Closes its sending side
+e Sends its own FIN
+e Server enters LAST-ACK
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  7 words
+────────────────────────────────────────────────────────────
+client
+server
+close
+close
+closed
+timed wait
+
+── Images on page 11 (2 found) ──
+
+[Image 1]  101×81px  (PNG)
+[No text detected]
+
+[Image 2]  468×621px  (PNG)
+OCR:
+Step 3 - ACK + TIME_WAIT
+e Client — Server
+e Client:
+e Receives server's FIN
+¢ Sends ACK
+e Enters TIME-WAIT
+© = TIME-WAIT purpose:
+e Ensure final ACK is received
+¢ Handle delayed duplicate FINs
+© Typically lasts 2 x MSL
+Step 4 -— Closed
+e Server receives ACK
+¢ Server transitions to CLOSED
+e After TIME-WAIT expires, client also closes
+@ Connection fully terminated.
+Ill. Why TIME-WAIT is important
+¢ Guarantees reliable connection shutdown
+e Prevents old duplicate segments from interfering with new connections
+¢ Client will re-ACK if another FIN arrives
+IV. Simultaneous FINs (Note)
+e If both sides send FIN at nearly the same time:
+e TCP can still close correctly
+e FIN and ACK exchanges overlap
+e TCP state machine handles this with minor variations
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  39 words
+────────────────────────────────────────────────────────────
+Principles of Congestion Control
+Congestion:
+informally: “too many sources sending too much
+data too fast for network to handle”
+different from flow control!
+manifestations:
+lost packets (buffer overflow at routers)
+long delays (queueing in router buffers)
+highly important problem!
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  63 words
+────────────────────────────────────────────────────────────
+Causes/costs of congestion: scenario 1
+two senders, two
+receivers
+one router,
+infinite buffers
+transmission link
+with capacity C
+no retransmission
+large delays
+when congested
+maximum
+achievable 
+throughput
+unlimited shared 
+output link buffers
+Host A
+in
+: original data
+Host B
+out
+In Scenario 1, congestion causes unbounded delay and throughput saturation 
+at C/2 per flow, even with infinite buffers and no packet loss.
+
+── Images on page 13 (5 found) ──
+
+[Image 1]  1112×404px  (PNG)
+OCR:
+C/2 : > :
+Le)
+5 0)
+O ! o :
+C/2 C/2
+
+Kin Mir
+
+[Image 2]  649×450px  (PNG)
+OCR:
+=
+
+[Image 3]  470×446px  (PNG)
+OCR:
+=
+|
+| e@ iss
+Va
+WA fo
+Vian
+| fo
+| 7
+= L/L.
+
+[Image 5]  138×56px  (JPEG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  14 words
+────────────────────────────────────────────────────────────
+unlimited shared 
+output link buffers
+Host A
+in
+: original data
+Host B
+out
+
+── Images on page 14 (7 found) ──
+
+[Image 1]  649×450px  (PNG)
+OCR:
+=
+
+[Image 2]  470×446px  (PNG)
+OCR:
+=
+|
+| e@ iss
+Va
+WA fo
+Vian
+| fo
+| 7
+= L/L.
+
+[Image 4]  138×56px  (JPEG)
+[No text detected]
+
+[Image 5]  342×214px  (PNG)
+OCR:
+Network scenario (as in the figure)
+
+¢ Two senders — two receivers
+
+¢ All traffic passes through one router
+
+© Router has infinite buffers (so no packet loss)
+e Single output link with capacity C
+
+e No retransmissions (e.g., idealized transport)
+e Each sender injects traffic at rate Ai,
+
+© Output rate from the router is Agu
+
+[Image 6]  314×231px  (PNG)
+OCR:
+C/2 ,
+o
+C/2
+Kin
+
+[Image 7]  574×472px  (PNG)
+OCR:
+Case 1: Light load
+Cc
+Xin S >
+e Total offered load: 2A;, << C
+e Router can transmit everything it receives
+¢ Output rate increases linearly: Nout = Ain
+@ No congestion, small delay
+Case 2: Heavy load (congestion region)
+Cc
+Xin > DY
+¢ Total offered load exceeds link capacity
+¢@ Output link is fully utilized C
+¢ Maximum throughput per flow: Aout = ry
+@ Throughput saturates
+X Sending faster does not increase delivered data
+Key result
+Maximum achievable throughput per sender is C/2, no matter how large A_in becomes.
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 15 (3 found) ──
+
+[Image 1]  273×237px  (PNG)
+OCR:
+> H
+ge) :
+® i
+C/2
+Min
+
+[Image 2]  464×207px  (PNG)
+OCR:
+Delay behavior
+e As d_in approaches C/2, the queue at the router grows rapidly.
+¢ With infinite buffers:
+e Packets are not dropped
+¢ But they wait longer and longer in the queue
+Mathematically:
+Cc
+Delay 9 co «as Ain z
+
+[Image 3]  633×351px  (PNG)
+OCR:
+Main cost of congestion in Scenario 1 Why this scenario is important
+
+Even with: It shows that:
+
+¢ No losses ¢ Congestion is not only about packet loss
+¢ No retransmissions ¢ Delay alone is a serious cost
+
+¢ Infinite buffering ¢ Infinite buffers do not solve congestion
+We still get: e Flow/congestion control is essential
+Cost #1: Huge delays
+
+e Packets experience very long queueing delays
+
+¢ Real-time applications become unusable
+
+Cost #2: Throughput limit
+
+e Sending more traffic does not increase goodput
+
+e Network capacity becomes the bottleneck
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  35 words
+────────────────────────────────────────────────────────────
+Causes/costs of congestion: scenario 2
+one router, finite buffers
+sender retransmission of lost packet
+finite shared output
+link buffers
+Host A
+Host B
+out
+in : original
+data
+'in : original data, plus
+retransmitted data
+
+── Images on page 16 (3 found) ──
+
+[Image 1]  796×613px  (PNG)
+[No text detected]
+
+[Image 2]  578×576px  (PNG)
+OCR:
+= od
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  21 words
+────────────────────────────────────────────────────────────
+finite shared output
+link buffers
+Host A
+Host B
+out
+in : original
+data
+'in : original data, plus
+retransmitted data
+
+── Images on page 17 (4 found) ──
+
+[Image 1]  796×613px  (PNG)
+[No text detected]
+
+[Image 2]  578×576px  (PNG)
+OCR:
+= od
+
+[Image 4]  551×299px  (PNG)
+OCR:
+Network setting (from the figure)
+
+e Multiple senders (Host A, Host B) send data through one router
+
+e The router has finite output buffers
+
+e The output link has capacity R
+
+e Senders use reliable transport (e.g., TCP) — retransmit packets they believe are lost
+e Loss occurs only due to buffer overflow (not link errors)
+
+Key rates (important for understanding the plots)
+
+e = i_in (original): rate of new data injected by sender
+
+e X‘_in: rate including original + retransmitted packets
+
+e i_out: rate of useful data successfully delivered (goodput)
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  22 words
+────────────────────────────────────────────────────────────
+R/2
+R/2
+in
+o
+ut
+R/2
+R/2
+in
+o
+ut
+R/2
+R/2
+in
+o
+ut
+R/4
+R/3
+Causes/costs of congestion: scenario 2
+
+── Images on page 18 (3 found) ──
+
+[Image 1]  469×550px  (PNG)
+OCR:
+What happens as load increases?
+Low load (no congestion)
+e Router buffers do not overflow
+e No packet loss — no retransmissions
+e A_out x Ain
+e Link efficiently carries only useful packets
+Moderate load (beginning of congestion)
+e Buffers occasionally overflow
+e Some packets are dropped
+e Senders retransmit dropped packets
+e Now:
+e A‘in> A_in
+e Link carries original packets + retransmissions
+e Even though goodput increases, extra work is being done
+High load (severe congestion)
+© Many packets are dropped
+e Many unnecessary retransmissions
+¢ Output link becomes busy sending multiple copies of the same data
+e Result:
+e A_out saturates (= R/2 or R/3 depending on loss behavior)
+e Increasing A_in no longer improves goodput
+
+[Image 2]  310×393px  (PNG)
+OCR:
+(a) Ideal case (no loss)
+© Linear relation:
+A_out = A_in
+e Maximum useful throughput = R/2
+(b) With retransmissions
+© Curve bends and saturates
+e As /A_in increases:
+e More losses
+e More retransmissions
+© Goodput grows slowly and then flattens
+(c) Heavy congestion
+© Significant fraction of link capacity wasted
+e Example shown:
+A_out < R/4
+© Most link capacity used by duplicate packets
+
+[Image 3]  412×324px  (PNG)
+OCR:
+“Costs” of congestion (core message)
+@# Cost 1: More work for the same goodput
+© Routers forward packets that will be dropped
+e Senders transmit packets that do not increase delivered data
+e Network does extra processing and forwarding for no benefit
+@# Cost 2: Unneeded retransmissions
+e Lost packets trigger retransmission
+e The link carries multiple copies of the same packet
+© This:
+e Wastes bandwidth
+e Increases delay
+e Causes even more congestion (positive feedback loop)
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  41 words
+────────────────────────────────────────────────────────────
+Causes/costs of congestion: scenario 3
+four senders
+multihop shared paths
+timeout/retransmit
+Host A
+in
+Q: what happens as
+and increase ?
+in
+Host B
+out
+in : original data
+'in : original data, plus
+retransmitted data
+finite shared output
+link buffers
+
+── Images on page 19 (10 found) ──
+
+[Image 1]  1012×703px  (PNG)
+OCR:
+=
+| |
+Lo 4 / S
+Va
+JL.
+—
+=
+| |
+
+[Image 2]  506×251px  (PNG)
+OCR:
+|
+
+[Image 3]  57×57px  (PNG)
+[No text detected]
+
+[Image 4]  57×56px  (PNG)
+OCR:
+ws
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  21 words
+────────────────────────────────────────────────────────────
+Host B
+out
+in : original data
+'in : original data, plus
+retransmitted data
+finite shared output
+link buffers
+Host A
+
+── Images on page 20 (12 found) ──
+
+[Image 1]  1012×703px  (PNG)
+OCR:
+=
+| |
+Lo 4 / S
+Va
+JL.
+—
+=
+| |
+
+[Image 2]  506×251px  (PNG)
+OCR:
+|
+
+[Image 3]  57×57px  (PNG)
+[No text detected]
+
+[Image 4]  57×56px  (PNG)
+OCR:
+ws
+
+[Image 11]  631×401px  (PNG)
+OCR:
+Scenario 3: Four senders, multihop shared paths, timeouts & retransmissions
+What's happening
+e There are multiple senders (four flows) transmitting data across a multihop network.
+© Several flows share the same links and routers.
+e Routers have finite output buffers (limited queue space).
+e As input rate A,,, increases, queues build up and packets are dropped.
+Role of timeouts and retransmissions (Host A)
+e When congestion causes packet loss, the sender (e.g., Host A) does not know immediately why the
+packet was lost.
+e TCP assumes loss = congestion and retransmits the packet after a timeout.
+e Now the network carries:
+e Original packets
+e Retransmitted packets
+e This increases the offered load, making congestion even worse.
+So congestion causes retransmissions, and retransmissions amplify congestion.
+
+[Image 12]  649×291px  (PNG)
+OCR:
+The “hidden cost” of congestion (key idea)
+When a packet is dropped, all upstream transmission capacity used to carry that packet is wasted.
+
+Why this matters
+
+e A packet may traverse several links successfully before being dropped near the destination.
+
+e All bandwidth used on earlier links for that packet is completely wasted.
+
+e With multihop paths, this waste can be substantial.
+
+Example:
+
+e Packet travels 4 hops
+
+e Dropped at hop 4
+
+© Capacity of hops 1-3 was wasted
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  5 words
+────────────────────────────────────────────────────────────
+Causes/costs of congestion: scenario 3
+
+── Images on page 21 (3 found) ──
+
+[Image 1]  482×308px  (PNG)
+OCR:
+C/2
+5
+e)
+oad
+Fd
+i.
+
+[Image 2]  390×295px  (PNG)
+OCR:
+Throughput behavior
+e The graph plots:
+e x-axis: input rate Ain
+e y-axis: output throughput Aout
+e Initially:
+e Increasing Ain ~ higher Aout
+e After a point:
+e Loss + retransmissions dominate
+e More packets are dropped
+e Useful throughput decreases
+© In extreme congestion:
+© Aout can collapse toward zero (congestion collapse)
+
+[Image 3]  351×160px  (PNG)
+OCR:
+Summary of costs in Scenario 3
+1. Queueing delay increases
+2. Packet loss due to finite buffers
+3. Retransmissions increase load
+4. Wasted upstream bandwidth for dropped packets
+5. Possible congestion collapse
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  54 words
+────────────────────────────────────────────────────────────
+Approaches towards Congestion Control
+End-end congestion
+control
+no explicit feedback from
+network
+congestion inferred from
+end-system observed loss, 
+delay
+approach taken by TCP
+Network-assisted
+congestion control
+routers provide feedback
+to end systems
+single bit indicating
+congestion (TCP/IP
+Explicit Congestion
+Notification “ECN”,
+ATM)
+explicit rate sender
+should send at
+Two broad approaches towards congestion control:
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  667×573px  (PNG)
+OCR:
+Aspect End-to-End Congestion Control Network-Assisted Congestion Control
+
+Basic idea Congestion control handled only by Congestion control assisted by network
+end systems routers
+
+Network feedback No explicit feedback from the network Explicit feedback provided by routers
+
+How congestion is detected Sender infers congestion from packet Routers directly signal congestion
+loss, timeout, or increasing delay
+
+Type of signal Implicit (loss or delay) Explicit (bit marking or rate information)
+
+Router involvement Routers do not participate in Routers actively participate
+congestion control
+
+Example mechanisms Packet loss, RTT increase, timeout ECN bit, explicit rate feedback
+
+Protocol examples TCP TCP/IP with ECN, ATM
+
+Feedback format None (sender guesses congestion) Single congestion bit or explicit sending
+
+rate
+
+Reaction at sender Reduce sending rate based on inferred Adjust sending rate based on router
+congestion feedback
+
+Accuracy Less accurate (can confuse loss due to More accurate (direct indication of
+errors with congestion) congestion)
+
+Deployment complexity Simple, no router changes needed More complex, requires router support
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  42 words
+────────────────────────────────────────────────────────────
+Goals of Congestion Control
+Throughput:
+Maximize goodput (i.e., data delivery)
+the total number of bits end-end
+Fairness:
+Give different sessions “equal” share
+Max-min fairness
+• Maximize the minimum rate session
+Single link:
+• Capacity R
+• sessions m
+• Each sessions: R/m
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 25 (2 found) ──
+
+[Image 1]  647×418px  (PNG)
+OCR:
+1. Throughput (Goodput)
+Definition
+e Throughput refers to the rate of successful data delivery from sender to receiver.
+e More precisely, congestion control aims to maximize goodput, not just raw sending rate.
+Goodput
+© Goodput = useful data delivered end-to-end
+e Excludes:
+e Retransmitted packets
+© Control packets
+© Dropped packets
+Why it matters
+e Sending faster does not always mean higher performance.
+e Under congestion, excessive sending causes losses and retransmissions, reducing useful throughput.
+Goal
+e Keep the network operating near its optimal point so that useful data delivery is maximized.
+
+[Image 2]  658×464px  (PNG)
+OCR:
+2. Fairness
+Definition
+e Fairness means giving competing sessions an equal or reasonable share of network resources.
+a) Equal-share fairness
+e If multiple sessions share a bottleneck link, each should receive a fair portion of the bandwidth.
+Example
+e Single bottleneck link with capacity R R
+. Rate per session = —
+© mconcurrent sessions m
+e Fair share per session:
+b) Max-Min Fairness
+Definition
+e Arate allocation is max-min fair if:
+e The minimum session rate is maximized
+e Increasing one session's rate is only allowed if it does not decrease another session’s rate that is
+already smaller
+Intuition
+e Protects low-rate flows from being starved by aggressive flows.
+e Ensures no session can improve its rate by hurting a worse-off session.
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  42 words
+────────────────────────────────────────────────────────────
+TCP controls congestion by 
+adjusting a congestion window 
+(CongWin) based on perceived 
+packet loss. The sender increases 
+its rate cautiously when there is no 
+congestion and aggressively 
+reduces it upon detecting loss, using 
+- slow start
+-AIMD, and
+- conservative timeout recovery.
+
+── Images on page 26 (3 found) ──
+
+[Image 1]  509×604px  (PNG)
+OCR:
+TCP Congestion Control: Explanation
+1. Congestion Window (CongWin)
+e¢ CongWin is a variable maintained by the TCP sender.
+e It limits how much unacknowledged data can be in the network at any time.
+LastBytcSent — LastBytcAcked < CongWin
+Ei This prevents the sender from injecting too much data into the network.
+2. Sending Rate
+e The sender's approximate sending rate is:
+CongWin
+Rate = ——>—— (bytes/sec
+RET (bytes/sec)
+e If CongWin increases, the sending rate increases.
+e If RTT increases (due to queueing), the effective rate decreases.
+3. How TCP Sender Detects Congestion
+TCP has no direct feedback from the network, so it infers congestion using:
+1. Timeout
+© No ACK received within a certain time.
+e Indicates severe congestion.
+2. Three Duplicate ACKs
+e Receiver keeps ACKing the same sequence number.
+e Indicates packet loss, but network is still partially working.
+EB Both are treated as loss events.
+
+[Image 2]  377×108px  (PNG)
+OCR:
+4. Reaction to Congestion
+e@ When a loss event is detected:
+e TCP reduces CongWin
+e This reduces the sending rate to relieve congestion
+
+[Image 3]  507×396px  (PNG)
+OCR:
+5. Mechanisms Used by TCP
+a) Slow Start
+e Used at the beginning of a connection or after a timeout.
+e CongWin starts small and grows exponentially (roughly doubles every RTT).
+© Goal: quickly find available bandwidth.
+b) AIMD (Additive Increase, Multiplicative Decrease)
+e Used during normal operation.
+e Additive Increase: CongWin increases slowly (linear growth).
+e Multiplicative Decrease: On loss, CongWin is reduced (usually halved).
+Ensures stability and fairness among competing TCP flows.
+¢) Conservative After Timeout
+e Timeout indicates heavy congestion.
+e TCP:
+e Sets CongWin to a very small value (often 1 MSS)
+© Re-enters slow start
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  64 words
+────────────────────────────────────────────────────────────
+TCP Congestion Control
+(1) Additive Increase, Multiplicative Decrease (AIMD)
+Approach: increase transmission rate (window size),
+probing for usable bandwidth, until loss occurs
+additive increase: increase CongWin by 1 maximum
+segment size (MSS) every RTT until loss detected
+multiplicative decrease: cut CongWin in half after
+loss
+Saw tooth 
+behavior: probing
+for bandwidth
+8 Kbytes
+16 Kbytes
+24 Kbytes
+time
+congestion
+window
+Losses occurred
+and detected
+
+── Images on page 27 (1 found) ──
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  44 words
+────────────────────────────────────────────────────────────
+8 Kbytes
+16 Kbytes
+24 Kbytes
+time
+congestion
+window
+Losses occurred
+and detected
+AIMD increases the congestion window 
+linearly by 1 MSS per RTT to probe 
+available bandwidth and halves the 
+window upon loss, resulting in a sawtooth 
+pattern that achieves fairness and stability.
+
+── Images on page 28 (3 found) ──
+
+[Image 2]  625×517px  (PNG)
+OCR:
+Additive Increase, Multiplicative Decrease (AIMD)
+Purpose
+e AIMD is used by TCP to probe for available bandwidth while avoiding persistent congestion.
+e It balances high throughput with network stability and fairness.
+1. Additive Increase (Al)
+What happens
+e When the network shows no congestion (ACKs arrive normally),
+e The sender slowly increases its sending rate.
+How
+e Increase the congestion window (CongWin) by:
++1 MSS per RTT
+Why
+e Agradual increase avoids suddenly overloading the network.
+e = This is called probing for usable bandwidth.
+2. Loss Detection
+e Congestion is inferred when:
+e A packet loss occurs (timeout or 3 duplicate ACKs).
+e The figure’s arrow marks the point where losses occur and are detected.
+
+[Image 3]  529×459px  (PNG)
+OCR:
+3. Multiplicative Decrease (MD)
+What happens after loss
+e The sender assumes congestion.
+e It aggressively reduces its sending rate.
+How
+. CongWin
+CongWin <— —
+Why
+e Quickly relieves congestion in the network.
+e Prevents queues from remaining full.
+4. Sawtooth Behavior (Key Visual Insight)
+e The congestion window:
+e Increases linearly over time (additive increase)
+e Drops sharply when loss occurs (multiplicative decrease)
+This creates the characteristic sawtooth pattern shown in the graph.
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  74 words
+────────────────────────────────────────────────────────────
+TCP Congestion Control
+(2) TCP Slow Start
+What is the goal?
+
+getting to equilibrium gradually but quickly
+Implements the multiplicative increase (MI) 
+algorithm
+When connection begins, increase rate exponentially fast
+until network congested (i.e., first loss event)
+When connection begins, CongWin = 1 MSS
+Example: MSS = 500 bytes & RTT = 200 msec
+initial rate = 20 kbps
+Available bandwidth may be >> MSS/RTT
+desirable to quickly ramp up to respectable rate
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 30 (2 found) ──
+
+[Image 1]  529×683px  (PNG)
+OCR:
+How Slow Start Works
+1. Initial State
+e When a TCP connection begins:
+CongWin = 1 MSS
+This means only one segment can be in flight.
+2. Exponential Growth
+e For every ACK received, CongWin increases by 1 MSS.
+e Over one RTT:
+e Number of ACKs = CongWin
+e So CongWin doubles every RTT
+CongWin = 1,2, 4,8, 16,...
+3. Stopping Condition
+e Exponential growth continues until congestion is detected, i.e.:
+e First packet loss
+¢ Ora predefined threshold (ssthresh) is reached
+At this point, TCP switches to congestion avoidance (AIMD).
+Numerical Example (from your slide)
+e MSS = 500 bytes
+e RTT = 200 ms =0.2s
+e Initial CongWin = 1 MSS
+eps 500
+Initial rate = 02 = 2500 bytes/s ~ 20 kbps
+This is very small compared to typical available bandwidth.
+
+[Image 2]  547×519px  (PNG)
+OCR:
+Why Slow Start Is Needed
+e Available bandwidth may be much larger than MSS/RTT.
+e If TCP increased linearly from the start, it would:
+e Take too long to reach a useful rate
+e Slow Start allows TCP to:
+¢ Rapidly probe available capacity
+e while still backing off quickly when congestion appears
+Summary Table
+Aspect TCP Slow Start
+Goal Reach equilibrium fast but safely
+Increase type Multiplicative (exponential)
+Initial CongWin 1 MSS
+Growth rate Doubles every RTT
+Stops when Loss occurs or ssthresh reached
+Followed by AIMD (congestion avoidance)
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  7 words
+────────────────────────────────────────────────────────────
+Host A
+RT
+T
+Host B
+time
+
+── Images on page 31 (7 found) ──
+
+[Image 2]  100×80px  (PNG)
+[No text detected]
+
+[Image 5]  224×52px  (PNG)
+OCR:
+SOT A ten. 2D) pan pee if
+
+LTAR aN Qa Fy YN rire
+
+LAC) eS ay BA en HES:
+ad
+
+[Image 6]  230×53px  (PNG)
+OCR:
+fen
+OM nm SAAR 25 imVres
+NOuUiy SEG neinte
+
+[Image 7]  681×403px  (PNG)
+OCR:
+The figure illustrates the TCP Slow Start phase, showing how the sender increases its transmission rate over
+time.
+e At the beginning of a connection, the sender starts conservatively by transmitting one segment.
+e For each ACK received, the congestion window (CongWin) is increased by one segment.
+e Since all ACKs from the current window arrive within one RTT, the net effect is that CongWin doubles
+every RTT:
+e 1segment — 2 segments — 4 segments — 8 segments — ...
+Key Idea:
+e Although the initial rate is low (“slow”), the growth is exponential, allowing the sender to quickly probe
+the available network capacity.
+e This exponential increase continues until the first packet loss is detected, which signals possible
+congestion. At that point, TCP exits Slow Start and changes its congestion control behavior.
+Takeaway:
+Slow Start begins with a low sending rate but ramps up very rapidly, doubling the sending window every
+RTT until congestion is encountered.
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  56 words
+────────────────────────────────────────────────────────────
+Refinement: Inferring Loss
+After 3 duplicate ACKs:
+CongWin is cut in half
+window then grows
+linearly
+But after timeout event:
+CongWin instead set to
+1 MSS;
+window then grows
+exponentially to a 
+threshold, then grows 
+linearly
+Philosophy:
+3 duplicate ACKs indicates 
+network capability of 
+delivering some segments
+timeout indicates a “more 
+alarming” congestion 
+scenario (congested network)
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  3 words
+────────────────────────────────────────────────────────────
+Refinement: Inferring Loss
+
+── Images on page 33 (1 found) ──
+
+[Image 1]  705×531px  (PNG)
+OCR:
+Refined TCP Congestion Control —- Summary Explanation
+TCP adjusts its sending rate based on how congestion (loss) is inferred. Two different loss signals lead to
+different reactions:
+e Loss inferred by 3 duplicate ACKs
+e Interpreted as mild congestion.
+e CongWin is cut in half.
+e TCP enters Congestion Avoidance, where CongWin increases linearly (additive increase).
+e Loss inferred by a timeout
+e Interpreted as severe congestion.
+¢ CongWin is reset to 1 MSS.
+e TCP re-enters Slow Start, where CongWin grows exponentially.
+e When CongWin reaches a predefined Threshold (ssthresh), growth switches to linear.
+Philosophy:
+e 3 duplicate ACKs — the network is still delivering data — congestion is present but not critical.
+e Timeout — packets are not being delivered + congestion is serious and requires a more conservative
+restart.
+Key Rule (Threshold setting):
+e At any loss event:
+Threshold (ssthresh) = 5 x CongWin (just before loss)
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 34 (4 found) ──
+
+[Image 1]  429×253px  (PNG)
+OCR:
+14
+TCP Series 2 Reno
+12
+lo]
+5 10
+= e-ihreshold 7
+— 6 {threshold
+Bs 4
+— > TCP Series 1 Tahoe
+0
+0123 45 6 7 8 9 10 11 12 13 14 15
+Transrnission round
+
+[Image 2]  547×532px  (PNG)
+OCR:
+2. First part: Exponential increase (Slow Start)
+Look at the left side of the figure.
+
+e RIT 1 — CongWin = 1
+
+e RIT 2 = CongWin = 2
+
+e RIT 3 — CongWin = 4
+
+© RIT 4 -— CongWin = &
+
+This doubling every RTT is called Slow Start.
+El it continues until CongWin reaches the dashed line labeled Threshold (ssthresh).
+3. What the dashed “Threshold” line means
+The threshold (ssthresh) answers this question:
+“Should TCP increase fast (exponential) or carefully (linear)?”
+
+e Below threshold — exponential increase (Slow Start)
+
+e Ator above threshold — linear increase (Congestion Avoidance)
+4. Middle part: Linear increase (Congestion Avoidance)
+After reaching the threshold:
+
+® CongWin increases by 1 segment per RTT
+
+© This is the straight sloped line (not steep anymore)
+
+This indicates TCP is now being cautious.
+
+[Image 3]  467×670px  (PNG)
+OCR:
+5. Sudden drop: A loss event occurs
+Now focus on the sharp vertical drop.
+This means packet loss was detected.
+There are two possible reasons, and the figure shows both behaviors:
+6. Blue curve — TCP Tahoe behavior
+When any loss occurs (even 3 duplicate ACKs):
+1. CongWin - 1
+2. Threshold — % of old CongWin
+3. TCP restarts Slow Start
+So in the figure:
+e CongWin drops sharply to 1
+e Then grows exponentially again
+e Switches to linear when it reaches the new threshold
+@& Tahoe is very conservative.
+7. Black curve — TCP Reno behavior
+This curve shows what happens after 3 duplicate ACKs:
+1. CongWin is cut in half
+2. Threshold is set to the same value
+3. TCP continues linear growth
+4. No return to1
+So in the figure:
+e The drop is smaller
+e Growth continues smoothly
+@& Reno assumes the network is still partially working.
+
+[Image 4]  590×230px  (PNG)
+OCR:
+Why Reno and Tahoe differ (key idea)
+Event type Interpretation TCP reaction
+3 duplicate ACKs Mild congestion Reduce window by half
+Timeout Severe congestion Reset window to 1
+That is why:
+e Timeout — restart from 1
+e Duplicate ACKs — halve and continue
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  58 words
+────────────────────────────────────────────────────────────
+Summary: TCP Congestion Control
+When CongWin is below Threshold, sender in
+slow-start phase, window grows exponentially
+When CongWin is above Threshold, sender is in
+congestion-avoidance phase, window grows linearly
+When a triple duplicate ACK occurs, Threshold
+set to CongWin/2 and CongWin set to Threshold
+When timeout occurs, Threshold set to
+CongWin/2 and CongWin is set to 1 MSS
+
+── Images on page 35 (1 found) ──
+
+[Image 1]  843×271px  (PNG)
+OCR:
+TCP Congestion Control Summary Table
+
+Condition / Event TCP Phase Threshold (ssthresh) CongWin Action Growth Behavior After
+
+CongWin < Threshold Slow Start Unchanged Increases rapidly Exponential (~ doubles every RTT)
+
+CongWin > Threshold Congestion Avoidance Unchanged Increases cautiously Linear (= +1 MSS per RTT)
+
+3 Duplicate ACKs Fast Retransmit / Fast Set to CongWin / 2 Set to Threshold Linear growth (Congestion Avoidance)
+Recovery
+
+Timeout Severe congestion Set to CongWin / 2 Set to 1 MSS Exponential (Slow Start, then linear at
+detected threshold)
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  2 words
+────────────────────────────────────────────────────────────
+TCP Throughput
+
+── Images on page 36 (2 found) ──
+
+[Image 1]  308×173px  (PNG)
+OCR:
+¢ Congestion Window size (w) in segments
+¢ Maximum Segment Size (MSS) in bytes
+¢ Round-Trip Time (RTT)
+
+Assumptions:
+e Ignore slow start
+e TCP is operating in congestion avoidance
+e Loss occurs when the window reaches w
+
+[Image 2]  514×588px  (JPEG)
+OCR:
+Instantaneous TCP throughput
+When the congestion window is w segments:
+wx MSS
+Throughput = —~————__ (B:
+oughpu Rir (Bytes/sec)
+Why?
+e TCP can send w segments per RTT
+© Each segment carries MSS bytes
+What happens when loss occurs
+TCP uses AIMD (Additive increase, Multiplicative Decrease):
+e Window grows linearly from 3 tow
+¢ When loss occurs:
+© Congwin — 5
+So throughput oscillates between:
+wx MSS and (w/2) x MSS
+RIT RIT
+Average throughput derivation
+The average window size during one cycle is:
+w+  3w
+Average window = —— = —
+2 4
+Therefore, average TCP throughput:
+wx MSS
+Average throughput = 0.75 x —————
+wEneee sbooene: RIT
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  43 words
+────────────────────────────────────────────────────────────
+Example
+Client receives 1500 𝑏𝑦𝑡𝑒segments from a web server
+knowing the average 𝑅𝑇𝑇equals 100 𝑚𝑠and data 
+throughput is 10 𝐺𝑏𝑝𝑠
+Calculate the required window size.
+How long does it take to receive a data object from a Web
+server after sending a request?
+
+── Images on page 37 (1 found) ──
+
+[Image 1]  534×556px  (PNG)
+OCR:
+Given:
+e MSS = 1500 bytes
+e RIT = 100 ms = 0.15
+e Throughput = 10 Gbps
+Convert throughput to bytes/sec:
+10 x 10°
+10 Gbps = + = 1.25 x 10° Bytes/sec
+Required window size
+we RIT x Throughput
+~ MSS
+0.1 x 1.25 x 10°
+W = ————_ & 83,333 segments
+1500 mee ce
+Time to receive a Web object
+Total delay includes:
+1. TCP connection setup — = 1 RTT
+2. Data transfer time > Object size / throughput
+For a single MSS-sized object:
+MSS
+T = RIT + ————_ & RTT = 100 ms
++ Throughput Wms
+(Data transmission time is negligible compared to RTT.)
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  31 words
+────────────────────────────────────────────────────────────
+Fairness goal: if 𝐾TCP sessions share same bottleneck
+link of bandwidth 𝑅, each should have average rate of
+𝑅/𝐾
+TCP Fairness
+bottleneck
+router 
+capacity 𝑅
+TCP
+connection 2
+TCP connection 1
+
+── Images on page 38 (4 found) ──
+
+[Image 1]  133×111px  (PNG)
+[No text detected]
+
+[Image 2]  941×312px  (PNG)
+OCR:
+ate 7 |
+
+[Image 3]  534×252px  (PNG)
+OCR:
+If:
+e K TCP connections share the same bottleneck link
+e The bottleneck link capacity is R bps
+Then TCP aims to achieve:
+. R
+Average rate per TCP conncction = K
+This means:
+e Each TCP flow should get an equal share of the bandwidth
+e No single flow should dominate the link
+
+[Image 4]  431×123px  (PNG)
+OCR:
+e The green and blue flows initially may have different rates
+© When packets are dropped at the bottleneck:
+
+e Both flows reduce their sending rate
+e Repeated increase—decrease cycles force the flows to:
+
+© Meet at the same average rate
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  51 words
+────────────────────────────────────────────────────────────
+Why is TCP fair?
+Two competing sessions:
+Additive increase: gives slope of 1, as throughout increases
+Multiplicative decrease: decreases throughput proportionally
+R
+R
+equal bandwidth share
+Connection 1 throughput
+loss: decrease window by factor of 2
+congestion avoidance: additive increase
+loss: decrease window by factor of 2 
+congestion avoidance: additive increase
+
+── Images on page 39 (3 found) ──
+
+[Image 1]  54×237px  (PNG)
+OCR:
+S)
+7%
+uae
+
+[Image 3]  51×246px  (PNG)
+OCR:
+c=
+
+—J
+€
+
+Sa)
+coc
+ay
+©
+to
+K
+—
+
+c 1 —
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  30 words
+────────────────────────────────────────────────────────────
+R
+R
+equal bandwidth share
+Connection 1 throughput
+loss: decrease window by factor of 2
+congestion avoidance: additive increase
+loss: decrease window by factor of 2 
+congestion avoidance: additive increase
+
+── Images on page 40 (4 found) ──
+
+[Image 1]  54×237px  (PNG)
+OCR:
+S)
+7%
+uae
+
+[Image 3]  51×246px  (PNG)
+OCR:
+c=
+
+—J
+€
+
+Sa)
+coc
+ay
+©
+to
+K
+—
+
+c 1 —
+
+[Image 4]  657×455px  (PNG)
+OCR:
+e Axes:
+X-axis = throughput of TCP session 1,
+Y-axis = throughput of TCP session 2.
+¢ Downward sloped blue line (x + y = R):
+Represents the bottleneck link capacity.
+Points above it cause congestion and packet loss.
+e Upward sloped blue line (slope = 1):
+Shows additive increase: both sessions increase throughput by the same amount each RTT.
+e Red zig-zag path:
+Illustrates actual TCP behavior over time:
+e Up-right movement: additive increase (equal rate growth).
+© Down-left movement: multiplicative decrease (rates reduced proportionally after loss).
+e Convergence point:
+Repeated AIMD cycles drive the operating point toward the intersection of the two lines:
+Throughput, = Throughput, = A
+Key takeaway:
+The figure shows how TCP’s additive increase and proportional decrease naturally enforce fair bandwidth
+sharing between competing sessions.
+
+────────────────────────────────────────────────────────────
+PAGE 41  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 41 (1 found) ──
+
+[Image 1]  676×531px  (PNG)
+OCR:
+Fairness and UDP / Parallel TCP Connections -
+e TCP fairness:
+TCP congestion control is designed so that multiple TCP connections sharing a bottleneck link get a fair
+share of bandwidth.
+e@ Why multimedia avoids TCP:
+Real-time audio/video applications do not want their sending rate reduced by TCP congestion control.
+Instead, they use UDP, sending data at a constant rate and tolerating some packet loss, which is
+preferable to delays and jitter.
+e Fairness issue with UDP:
+Since UDP has no congestion control, it can consume more bandwidth than TCP flows, leading to
+unfairness.
+e Parallel TCP connections:
+Nothing prevents an application from opening multiple TCP connections between the same two hosts.
+e Effect on fairness:
+Each TCP connection gets its own fair share, so using parallel connections increases total bandwidth
+share.
+e Example:
+Web browsers open multiple TCP connections to download different objects of a webpage faster,
+effectively getting more bandwidth.
+In short:
+TCP enforces fairness per connection, but UDP flows and parallel TCP connections can bypass this fairness,
+potentially dominating network resources.
+
+────────────────────────────────────────────────────────────
+PAGE 42  |  4 words
+────────────────────────────────────────────────────────────
+Internet Transport Protocols Services
+
+── Images on page 42 (1 found) ──
+
+[Image 1]  688×592px  (PNG)
+OCR:
+Aspect TCP (Transmission Control Protocol) UDP (User Datagram Protocol)
+Connection type Connection-oriented (setup required Connectionless (no setup required)
+between client and server)
+Data transfer reliability Reliable data transfer (error detection, Unreliable (no guarantees of delivery,
+retransmission, in-order delivery) order, or duplication)
+Flow control WH Yes — sender will not overwhelm X No
+receiver
+Congestion control W@W Yes — sender throttles rate when X No
+network is congested
+Timing guarantees X No timing guarantees X No timing guarantees
+Minimum throughput X No X No
+guarantee
+Security X No built-in security (handled by X No built-in security
+TLS/SSL if needed)
+Connection setup overhead High (3-way handshake) Very low
+Typical applications HTTP/HTTPS, FTP, SMTP, SSH DNS, VoIP, video streaming, online gaming
+Key Summary
+e TCP prioritizes reliability and congestion control at the cost of latency and overhead.
+e UDP prioritizes speed and simplicity, leaving reliability and control to the application layer.
+
+────────────────────────────────────────────────────────────
+PAGE 43  |  21 words
+────────────────────────────────────────────────────────────
+The Application Layer
+application
+transport
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+
+── Images on page 43 (34 found) ──
+
+[Image 1]  356×211px  (PNG)
+OCR:
+;
+—  g
+
+[Image 16]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 17]  85×89px  (PNG)
+[No text detected]
+
+[Image 18]  69×74px  (PNG)
+[No text detected]
+
+[Image 19]  68×89px  (PNG)
+[No text detected]
+
+[Image 22]  233×180px  (PNG)
+[No text detected]
+
+[Image 23]  57×71px  (PNG)
+OCR:
+<
+
+[Image 24]  86×118px  (PNG)
+OCR:
+& yen,
+
+[Image 29]  62×85px  (PNG)
+OCR:
+GE”
+A
+
+[Image 30]  62×85px  (PNG)
+OCR:
+GE”
+3
+
+[Image 31]  64×198px  (PNG)
+OCR:
+j
+
+[Image 32]  64×198px  (PNG)
+OCR:
+j
+
+[Image 33]  64×198px  (PNG)
+OCR:
+j
+
+[Image 34]  669×399px  (PNG)
+OCR:
+e Network applications run on end systems (hosts), such as computers, servers, and smartphones—not
+inside the network core.
+e These applications communicate with each other over the network, even though they are on different
+end systems.
+e Example:
+© Web server software runs on a server
+© Web browser software runs on a client
+e@ They communicate using protocols like HTTP over TCP/IP
+e No software needs to be written for network-core devices (routers, switches):
+e Network-core devices do not run user applications
+e Their job is only to forward packets, not process application logic
+e Applications run only on end systems, which:
+e Enables rapid application development
+e Allows easy deployment and updates without modifying the network
+e Supports global propagation of new applications (once installed on end systems)
+
+────────────────────────────────────────────────────────────
+PAGE 44  |  26 words
+────────────────────────────────────────────────────────────
+Some Network Applications
+e-mail
+web
+instant messaging
+remote login
+P2P file sharing
+multi-user network
+games
+streaming stored video
+clips
+voice over IP
+real-time video
+conferencing
+etc
+
+── Images on page 44 (1 found) ──
+
+[Image 1]  387×239px  (PNG)
+OCR:
+e E-mail (e.g., Gmail, Outlook)
+
+¢ Web applications (HTTP/HTTPS websites)
+
+¢ Instant messaging (WhatsApp, Messenger)
+
+e Remote login (SSH, Telnet)
+
+e Peer-to-Peer (P2P) file sharing (BitTorrent)
+
+e¢ Multi-user network games (online gaming)
+
+e Streaming stored video (YouTube, Netflix)
+
+e Short video clips
+
+e Voice over IP (VoIP) (Skype, Zoom audio)
+
+e Real-time video conferencing (Zoom, Microsoft Teams)
+
+────────────────────────────────────────────────────────────
+PAGE 45  |  10 words
+────────────────────────────────────────────────────────────
+Application Architectures
+Client-server
+Peer-to-peer (P2P)
+Hybrid of client-server and P2P
+
+────────────────────────────────────────────────────────────
+PAGE 46  |  36 words
+────────────────────────────────────────────────────────────
+Client-Server Architecture
+server:
+always-on host
+permanent IP address
+server farms for
+scaling
+clients:
+communicate with server
+may be intermittently
+connected
+may have dynamic IP
+addresses
+do not communicate
+directly with each other
+client/server
+Example: Web, Email
+
+── Images on page 46 (28 found) ──
+
+[Image 1]  355×211px  (PNG)
+OCR:
+_
+— 4g
+
+[Image 15]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 16]  85×89px  (PNG)
+[No text detected]
+
+[Image 17]  69×74px  (PNG)
+[No text detected]
+
+[Image 18]  67×88px  (PNG)
+[No text detected]
+
+[Image 21]  232×180px  (PNG)
+[No text detected]
+
+[Image 22]  152×118px  (PNG)
+[No text detected]
+
+[Image 27]  62×85px  (PNG)
+OCR:
+GE”
+3
+
+[Image 28]  62×85px  (PNG)
+OCR:
+GE”
+3
+
+────────────────────────────────────────────────────────────
+PAGE 47  |  30 words
+────────────────────────────────────────────────────────────
+Pure P2P Architecture
+no always-on server
+arbitrary end systems
+directly communicate
+peers are intermittently
+connected and change IP
+addresses
+Highly scalable but
+difficult to manage
+peer-peer
+Example: P2P file sharing
+
+── Images on page 47 (29 found) ──
+
+[Image 1]  355×211px  (PNG)
+OCR:
+_
+— 4g
+
+[Image 16]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 17]  85×88px  (PNG)
+[No text detected]
+
+[Image 18]  70×74px  (PNG)
+OCR:
+a
+
+[Image 19]  67×89px  (PNG)
+[No text detected]
+
+[Image 22]  232×180px  (PNG)
+[No text detected]
+
+[Image 23]  152×119px  (PNG)
+OCR:
+— —,
+
+[Image 28]  62×86px  (PNG)
+OCR:
+‘;
+
+[Image 29]  62×86px  (PNG)
+OCR:
+r
+
+────────────────────────────────────────────────────────────
+PAGE 48  |  12 words
+────────────────────────────────────────────────────────────
+Hybrid of client-server and P2P
+Combines centralized control with direct peer communication
+
+── Images on page 48 (1 found) ──
+
+[Image 1]  424×406px  (PNG)
+OCR:
+Example: Skype (VoIP)
+¢ Centralized server:
+e Used to find the IP address of the remote party
+e Client-to-client connection:
+e Voice/video data sent directly between users
+e Not relayed through the server
+Example: Instant Messaging
+¢ Centralized service:
+e Handles user registration
+e Tracks presence and location
+e =P2P communication:
+e Chat messages exchanged directly between users
+Process:
+1. User registers its IP address with the central server when online.
+2. User contacts the server to obtain the IP address of a friend.
+3. Direct peer-to-peer communication starts.
+
+────────────────────────────────────────────────────────────
+PAGE 49  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 49 (1 found) ──
+
+[Image 1]  881×577px  (PNG)
+OCR:
+® Hybrid Client-Server & P2P
+Aspect @ Client-Server Architecture ® Peer-to-Peer (P2P) Architecture Architecture
+Basic idea Centralized server provides services No central server; peers Central server assists, peers exchange
+to clients communicate directly data directly
+Server presence @ Always-on server X No always-on server # Central server for coordination only
+IP addressing Server has permanent IP address Peers may have dynamic IP Server has permanent IP; peers may be
+addresses dynamic
+Communication pattern Client — Server only Peer — Peer Client ~ Server (control) + Peer ~ Peer
+(data)
+Client interaction Clients do not communicate Peers communicate directly Direct peer communication after server
+directly lookup
+Scalability Limited - server can become High — load distributed among Better than client-server, less than pure
+bottleneck peers P2p
+Management & control Easy to manage and secure Difficult to manage and control Moderate management complexity
+Fault tolerance Low — server failure stops service High — no single point of failure Medium - server failure affects
+coordination
+Examples Web (HTTP), Email, FTP, DNS BitTorrent, early P2P file sharing Skype, Instant Messaging (eg.,
+WhatsApp signaling)
+Typical use case Centralized services & data Large-scale file sharing Real-time communication with user
+discovery
+
+────────────────────────────────────────────────────────────
+PAGE 50  |  2 words
+────────────────────────────────────────────────────────────
+Processes communicating
+
+── Images on page 50 (2 found) ──
+
+[Image 1]  502×458px  (PNG)
+OCR:
+Process
+e A process is a program that is currently running on a host (computer).
+e Each process has its own memory space and execution state.
+Communication Between Processes
+1) Processes on the Same Host
+e If two processes run on the same machine, they communicate using
+Inter-Process Communication (IPC).
+e IPC mechanisms are defined and managed by the Operating System (OS).
+e Examples:
+e Shared memory
+e Pipes
+© Message queues
+e Signals
+2) Processes on Different Hosts
+e If processes run on different hosts, they cannot use IPC.
+© They communicate by exchanging messages over a network.
+e This communication uses network protocols (e.g., TCP, UDP).
+© Messages are sent via sockets.
+
+[Image 2]  500×444px  (PNG)
+OCR:
+Client and Server Processes
+Client Process
+e Aclient process is the process that initiates communication.
+e It sends a request to another process.
+e Example: a web browser requesting a web page.
+Server Process
+e Aserver process is a process that waits to be contacted.
+e It responds to incoming client requests.
+e Usually runs continuously (always-on).
+e Example: a web server waiting for HTTP requests.
+Peer-to-Peer (P2P) Applications
+e In P2P architectures, there is no strict separation between client and server.
+© Each process can act as:
+e aclient (initiates communication), and
+© aserver (waits for requests),
+depending on the situation.
+e Example: BitTorrent peers upload and download simultaneously.
+
+────────────────────────────────────────────────────────────
+PAGE 51  |  27 words
+────────────────────────────────────────────────────────────
+Sockets
+process
+socket
+TCP with 
+buffers, 
+variables
+host or 
+server
+process
+socket
+TCP with 
+buffers, 
+variables
+host or
+server
+Internet
+controlled 
+by OS
+controlled by
+app developer
+
+── Images on page 51 (4 found) ──
+
+[Image 1]  225×493px  (PNG)
+[No text detected]
+
+[Image 2]  225×493px  (PNG)
+OCR:
+a
+
+[Image 4]  675×550px  (PNG)
+OCR:
+Socket = Communication Door
+e Asocket is the interface between a process (application) and the transport layer.
+e The application developer controls the process behavior (what to send, when to send).
+e The Operating System (OS) controls the transport infrastructure (TCP/UDP, routing, delivery).
+Sending a Message (Door Analogy)
+1. The sending process wants to communicate.
+2. It writes (pushes) a message into its socket
+— like shoving a message out of a door.
+3. After that point, the process does not worry about how the message travels.
+4. The transport layer (TCP/UDP) and lower layers (IP, link layer), managed by the OS, take responsibility.
+Transport Infrastructure (Behind the Door)
+e The sending process relies on the transport infrastructure:
+e Breaks data into segments
+e Adds headers (ports, sequence numbers, etc.)
+e Moves data across the Internet
+e All of this is controlled by the OS, not the application.
+Receiving a Message
+1. The transport infrastructure delivers the message to the destination host.
+2. The OS places the message into the receiving process's socket.
+3. The receiving process reads the message from its socket
+— like opening the door and taking the message inside.
+
+────────────────────────────────────────────────────────────
+PAGE 52  |  2 words
+────────────────────────────────────────────────────────────
+Addressing processes
+
+── Images on page 52 (2 found) ──
+
+[Image 1]  615×513px  (PNG)
+OCR:
+Why Processes Need an Identifier
+e For a process to receive messages, it must have a unique identifier.
+e The network must know exactly which process on which host should get the data.
+IP Address: Identifies the Host
+e Every host device on the Internet has a unique 32-bit IP address (IPv4).
+e The IP address identifies the machine, not the specific process.
+? Question:
+Is the IP address alone sufficient to identify a process?
+Answer: No.
+e Asingle host can run many processes at the same time (web server, mail server, browser, etc.).
+Port Number: Identifies the Process
+e To identify a specific process on a host, we use a port number.
+e A port number is a 16-bit number assigned to a process by the OS.
+Process Identifier = IP Address + Port Number
+e Apracess on the Internet is uniquely identified by:
+(IP address, Port number)
+e This combination ensures messages reach the correct application on the correct host.
+
+[Image 2]  506×452px  (PNG)
+OCR:
+Well-Known Port Numbers (Examples)
+Application Port Number
+HTTP (Web Server) 80
+SMTP (Mail Server) 25
+Example: Sending an HTTP Request
+To send an HTTP message to the web server at gaia.cs.umass.edu:
+e IP address: 128.119.245.12
+e Port number: 3@
+BB The message is delivered to:
+the HTTP server process running on host 128.119.245.12
+Key Points to Remember
+e IP address — identifies host
+e Port number — identifies process
+e Socket address = IP address + port number
+e Multiple processes can run on the same host using different port numbers
+
+────────────────────────────────────────────────────────────
+PAGE 53  |  3 words
+────────────────────────────────────────────────────────────
+Application Layer Protocol
+
+── Images on page 53 (2 found) ──
+
+[Image 1]  463×781px  (PNG)
+OCR:
+1) Types of Messages
+¢ Defines which kinds of messages are exchanged.
+¢ Common examples:
+e Request (sent by client)
+e Response (sent by server)
+e Example:
+¢ HTTP request + HTTP response
+2) Message Syntax
+e Specifies the format and structure of messages.
+¢ Defines:
+e What fields are present in a message
+e How fields are separated (delineated)
+e Example:
+e HTTP request line, headers, blank line, body
+3) Message Semantics
+e Defines the meaning of each field in the message.
+e = Answers:
+e What does this field represent?
+e How should the receiver interpret it?
+e Example:
+e HTTP status code 20@ OK means the request was successful
+4) Rules for Message Exchange
+e Defines when and how processes send and respond to messages.
+e Includes:
+e Who speaks first
+e Expected responses
+e Timing and order of messages
+e Example:
+e In HTTP: client sends request — server senas response
+
+[Image 2]  422×677px  (PNG)
+OCR:
+Types of Application Layer Protocols
+1) Public-Domain (Open) Protocols
+¢ Defined in RFCs (Request for Comments).
+e Freely available standards.
+e Enable interoperability between different systems and vendors.
+e Examples:
+e HTTP (Web)
+e@ =SMTP (Email)
+e FTP, DNS
+2) Proprietary Protocols
+e¢ Owned and controlled by a company.
+e Specifications are not publicly available.
+e Interoperability is limited.
+e Example:
+e Skype
+Summary
+e Application layer protocols define:
+© Message types
+© Message syntax
+© Message semantics
+e Rules of communication
+e Public protocols — defined in RFCs, interoperable
+e Proprietary protocols — privately owned, limited access
+
+────────────────────────────────────────────────────────────
+PAGE 54  |  71 words
+────────────────────────────────────────────────────────────
+What Transport Services does an
+Application Need?
+Data loss
+some apps (e.g., audio) can
+tolerate some loss
+other apps (e.g., file
+transfer, telnet) require 
+100% reliable data 
+transfer
+Timing
+some apps (e.g.,
+Internet telephony, 
+interactive games) 
+require low delay to be 
+“effective”
+Throughput
+some apps (e.g.,
+multimedia) require 
+minimum amount of 
+throughput to be 
+“effective”
+other apps (“elastic apps”)
+make use of whatever 
+throughput they get
+Security
+Encryption, data
+integrity, …
+
+────────────────────────────────────────────────────────────
+PAGE 55  |  64 words
+────────────────────────────────────────────────────────────
+Transport Service Requirements of Common
+Applications
+Application
+file transfer
+e-mail
+Web documents
+real-time audio/video
+stored audio/video
+interactive games
+instant messaging
+Data loss
+no loss 
+no loss
+no loss
+loss-tolerant
+loss-tolerant
+loss-tolerant
+no loss
+Throughput
+elastic
+elastic
+elastic
+same as above
+few kbps up
+elastic
+Time Sensitive
+no
+no
+no
+audio: 5kbps-1Mbps yes, 100’s msec
+video:10kbps-5Mbps
+yes, few secs
+yes, 100’s msec
+yes and no
+
+── Images on page 55 (1 found) ──
+
+[Image 1]  662×232px  (PNG)
+OCR:
+Loss-tolerant means:
+The application can still function correctly even if some data (packets/messages) are lost during
+transmission.
+
+e Some packets may never arrive.
+
+e The application does not require retransmission of lost data.
+
+¢ Occasional loss is acceptable and does not break the application.
+
+Contrast:
+
+e Loss-tolerant applications — prefer timeliness over perfect reliability (often use UDP).
+
+e Loss-intolerant applications — require all data to arrive correctly (e.g., file transfer, email — use TCP).
+
+────────────────────────────────────────────────────────────
+PAGE 56  |  48 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+The Transport Layer (continue)
+Connection-oriented Transport (TCP)
+• Flow Control
+• Connection Management
+• Congestion Control
+Introduction to the Application Layer
+Application Architectures
+Required Transport Services by An Application
+Material to be covered next lecture
+Continue the Application Layer
+Simple Introduction to Network Security

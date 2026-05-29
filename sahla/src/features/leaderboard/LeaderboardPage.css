@@ -1,0 +1,377 @@
+/* ═══════════════════════════════════════════════
+   LEADERBOARD — Premium Animations & Styles
+   ═══════════════════════════════════════════════ */
+
+/* ─── Podium Layout ─── */
+.podium-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: end;
+}
+@media (min-width: 768px) {
+  .podium-grid {
+    grid-template-columns: 1fr 1.15fr 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* ─── Podium Card ─── */
+.podium-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.5s ease;
+}
+.podium-card:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Animated shimmer on podium cards */
+.podium-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.03) 55%,
+    transparent 100%
+  );
+  animation: podium-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+@keyframes podium-shimmer {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(50%); }
+}
+
+/* ─── Gold Glow Ring ─── */
+.avatar-ring {
+  position: relative;
+  z-index: 1;
+}
+.avatar-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  padding: 3px; /* Match the ring width */
+  z-index: -1;
+  animation: ring-spin 6s linear infinite;
+}
+
+.avatar-ring-gold::before {
+  background: conic-gradient(
+    from 0deg,
+    #fbbf24, #f59e0b, #eab308, #fbbf24, #fcd34d, #fbbf24
+  );
+  animation-duration: 6s;
+}
+.avatar-ring-silver::before {
+  background: conic-gradient(
+    from 0deg,
+    #94a3b8, #cbd5e1, #e2e8f0, #94a3b8, #cbd5e1, #94a3b8
+  );
+  animation-duration: 8s;
+}
+.avatar-ring-bronze::before {
+  background: conic-gradient(
+    from 0deg,
+    #f97316, #ea580c, #fb923c, #f97316, #fdba74, #f97316
+  );
+  animation-duration: 7s;
+}
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─── Crown Float ─── */
+.crown-float {
+  animation: crown-float 3s ease-in-out infinite;
+}
+@keyframes crown-float {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-8px) rotate(3deg); }
+}
+
+/* ─── Rank Badge Pulse ─── */
+.rank-badge-gold {
+  box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5);
+  animation: badge-pulse-gold 2s ease-in-out infinite;
+}
+@keyframes badge-pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(251, 191, 36, 0); }
+}
+
+/* ─── Particle System (Gold Card) ─── */
+.gold-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.gold-particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fbbf24;
+  opacity: 0;
+  animation: particle-rise 4s ease-in-out infinite;
+}
+.gold-particles span:nth-child(1) { left: 15%; animation-delay: 0s; }
+.gold-particles span:nth-child(2) { left: 30%; animation-delay: 0.8s; }
+.gold-particles span:nth-child(3) { left: 50%; animation-delay: 1.6s; }
+.gold-particles span:nth-child(4) { left: 70%; animation-delay: 2.4s; }
+.gold-particles span:nth-child(5) { left: 85%; animation-delay: 3.2s; }
+.gold-particles span:nth-child(6) { left: 45%; animation-delay: 0.4s; width: 2px; height: 2px; }
+.gold-particles span:nth-child(7) { left: 60%; animation-delay: 1.2s; width: 2px; height: 2px; }
+.gold-particles span:nth-child(8) { left: 25%; animation-delay: 2s; width: 4px; height: 4px; }
+
+@keyframes particle-rise {
+  0%   { bottom: -5%; opacity: 0; transform: translateX(0); }
+  20%  { opacity: 0.8; }
+  80%  { opacity: 0.3; }
+  100% { bottom: 110%; opacity: 0; transform: translateX(20px); }
+}
+
+/* ─── XP Bar ─── */
+.xp-bar-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  position: relative;
+}
+.xp-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  position: relative;
+  transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.xp-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  filter: blur(4px);
+  animation: xp-glow 2s ease-in-out infinite;
+}
+@keyframes xp-glow {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* ─── Tab Pill Selector ─── */
+.tab-selector {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.tab-pill {
+  padding: 6px 16px;
+  border-radius: 0.75rem;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.35);
+  background: transparent;
+  white-space: nowrap;
+}
+.tab-pill:hover {
+  color: rgba(255, 255, 255, 0.55);
+}
+.tab-pill.active {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.2);
+  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.1);
+}
+
+/* ─── Leaderboard Row Hover ─── */
+.lb-row {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+.lb-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+  transform: translateX(4px);
+}
+.lb-row::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  border-radius: 0 4px 4px 0;
+  background: var(--color-brand-accent);
+  transition: height 0.3s ease;
+}
+.lb-row:hover::after {
+  height: 60%;
+}
+.lb-row.is-you {
+  background: rgba(56, 189, 248, 0.04);
+  border-left: 3px solid rgba(56, 189, 248, 0.3);
+}
+.lb-row.is-you::after {
+  display: none;
+}
+
+/* ─── Stats Card Hover ─── */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-hover);
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-highlight), transparent);
+}
+
+/* ─── Your Rank Banner ─── */
+.your-rank-banner {
+  position: relative;
+  overflow: hidden;
+}
+.your-rank-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.06) 0%,
+    rgba(108, 99, 255, 0.04) 50%,
+    rgba(56, 189, 248, 0.06) 100%
+  );
+  pointer-events: none;
+}
+.your-rank-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(56, 189, 248, 0.08), transparent 50%);
+  pointer-events: none;
+  animation: rank-glow 6s ease-in-out infinite;
+}
+@keyframes rank-glow {
+  0%, 100% { opacity: 0.5; transform: translate(0, 0); }
+  50%      { opacity: 1; transform: translate(5%, -5%); }
+}
+
+/* ─── Achievement Badge ─── */
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* ─── Animated Counter ─── */
+.counter-value {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
+
+/* ─── Responsive fixes ─── */
+@media (max-width: 767px) {
+  .podium-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .podium-card {
+    padding: 1.5rem 1rem 1.25rem;
+    min-height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    border-radius: 1.5rem;
+  }
+  /* Reset desktop-only positioning */
+  .podium-card .podium-top-section {
+    position: static;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+  .podium-card .podium-info-section {
+    text-align: left;
+    margin-top: 0;
+  }
+}
+
+/* ─── Light mode adjustments ─── */
+[data-theme="light"] .tab-pill {
+  color: var(--text-tertiary);
+}
+[data-theme="light"] .tab-pill.active {
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--text-brand);
+  border-color: rgba(108, 99, 255, 0.2);
+}
+[data-theme="light"] .lb-row:hover {
+  background: var(--hover-overlay);
+}
+[data-theme="light"] .lb-row.is-you {
+  background: rgba(108, 99, 255, 0.04);
+  border-left-color: rgba(108, 99, 255, 0.3);
+}
+[data-theme="light"] .xp-bar-track {
+  background: rgba(0, 0, 0, 0.06);
+}
+[data-theme="light"] .podium-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.01) 45%,
+    rgba(0, 0, 0, 0.03) 50%,
+    rgba(0, 0, 0, 0.01) 55%,
+    transparent 100%
+  );
+}

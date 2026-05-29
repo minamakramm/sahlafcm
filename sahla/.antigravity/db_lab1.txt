@@ -1,0 +1,162 @@
+Lab 1  What is Database?  
+• Three levels to view:  
+ Level 1: literal meaning – the place where data is stored  
+Database = Data + Base, the actual storage of all the information that are interested  
+ 
+ Database properties:  
+It represents some aspect of the real world  
+It is a logically coherent collection of data with inherent meaning  
+It is designed, built and populated with data for specific purpose  
+A Database can be of any size ranging from few number of records 
+have hundreds or thousands bytes to gigabytes or terabytes  
+A Database may be generated and managed manually or it may be 
+computerized  
+The computerized choice may be by a group of application programs 
+implemented specifically for that application or by a:  
+                              Database Management System (DBMS)  
+ Advantages of Database   
+ 
+A database system offers several key benefits that address the limitations of 
+traditional file based systems and enhance overall data management efficiency:  
+ 
+Reduces Data Redundancy  
+Minimizes duplication of data by storing it centrally, ensuring that each piece of 
+information exists only once across the system.  
+ 
+Controls Data Inconsistency  
+Maintains uniform and accurate data by ensuring that any update is reflected 
+consistently throughout all related records.  
+ 
+Facilitates Data Sharing  
+Allows multiple users and applications to access and use the same data 
+simultaneously, supporting collaboration and integration.  
+ 
+Enforces Data Standards  
+Promotes uniformity by applying consistent naming conventions, formats, and 
+rules across the entire database . Enhances Data Security  
+Protects sensitive information through user authentication, access controls, and 
+permission management, allowing only authorized access . 
+ 
+Maintains Data Integrity  
+Ensures accuracy and reliability of data using constraints (like primary and foreign 
+keys) and referential integrity rules . 
+ 
+Improves System Performance and Efficiency  
+Provides faster data access, better resource utilization, and smoother data 
+operations through centralized management and optimization . Disadvantages of Database   
+ 
+While database systems provide numerous benefits, they also introduce certain challenges 
+and limitations that must be managed carefully:  
+ 
+Security Risks  
+Without strong access controls and monitoring, sensitive data can be exposed to 
+unauthorized users, leading to potential data breaches.  
+ 
+Integrity Challenges  
+If constraints and validation rules are not properly enforced, data accuracy and consistency 
+may be compromised.  
+ 
+High Hardware Requirements  
+Large and complex databases often require additional storage capacity and powerful servers 
+to operate efficiently.  
+ 
+Performance Overhead  
+Complex queries, large data volumes, or multiple concurrent users can slow down system 
+performance and increase processing time.  
+ 
+System Complexity  
+Database management systems are inherently complex, requiring skilled administrators and 
+developers to configure, optimize, and maintain them effectively.  Level 2: Database Management System (DBMS)  
+The software tool package that helps gatekeeper and manage data storage,  
+access and maintenances. It can be either in personal usage scope (MS Access,  
+SQLite) or enterprise level scope ( Oracle , MySQL, MS SQL, etc). 
+ 
+Level 3: Database Application  
+All the possible applications built upon the data stored in databases (web site,  
+BI application, ERP etc). 
+What is Oracle Database 10g ? 
+ 
+Oracle Database 10g is a Relational Database Management System (RDBMS)  
+developed by Oracle.  
+ 
+It is designed to store, manage, retrieve, and secure large amounts of data  
+efficiently.  
+ 
+It supports both:  
+Relational model (RDBMS)  → tables, rows, columns  
+Object -Relational model (ORDBMS)  → objects, complex data types, multimedia  Main Components of Oracle 10g (Grid Infrastructure)  
+ 
+Oracle 10g is built around Grid Computing , which means computing 
+resources work like a shared utility . 
+ 
+The three main products are:  
+Oracle Database 10g  
+Stores enterprise data  
+Supports structured & unstructured data  
+Uses SQL and PL/SQL  
+Provides security, reliability, and scalability  
+Oracle Application Server 10g  
+Runs business applications  
+Supports web apps, portals, business intelligence  
+Handles business logic  
+Oracle Enterprise Manager 10g Grid Control  
+Manages and monitors databases and servers  
+Automates installation and configuration  
+Monitors performance and availability  Features of Oracle Database  
+ 
+Oracle  Database  is loaded  with  features  and is powerful , feature -rich, scalable , 
+and secure  enough  for the business  requirements  of today . It thus  best  fits the 
+application  to handle  massive  applications  with  real-time  data  effectively . Some  
+of the salient  features  include  high  availability  features,  superior  performance,  in-
+depth  analytics,  with  robust  data  security . 
+Components of Oracle Database  
+ 
+The components  of Oracle  Database  include  Oracle  Instance,  Database,  Tables  
+paces , Schemas,  Processes,  Redo  Logs,  Control  Files,  and Oracle  Net. Each  
+one of them,  in coordination  with  another  carries  out the work  of 
+management,  storage,  and effective  retrieval  of data . hence  improves  the 
+performance  of the overall  database . Instance : Manages memory (SGA, PGA) and processes that interact with the database.  
+ 
+Database : Contains physical files like  data files  (store data), control files (track the 
+database), and redo logs (for recovery).  
+ 
+Tables paces : Logical units that  organize  data storage in the database.  
+ 
+Schemas : Collections of database objects (tables, views) owned by a specific user.  
+ 
+Data Dictionary : Stores  metadata, including user information,  privileges, and object 
+definitions.  
+ 
+Processes : Includes background  processes  like DBWn  (writes data), LGWR (logs 
+changes), SMON (system recovery), and PMON (process cleanup).  
+ 
+Redo Logs : Log changes for use in  database  recovery after failures.  
+ 
+Control Files : Maintain the structure of the database and  track  log information.  
+ 
+Oracle Net : Enables communication between the database  server  and client  over a 
+network.  Editions of Oracle database  
+ 
+Oracle  Database  offers  different  editions  to suit various  needs .  
+ 
+Oracle Standard Edition (SE) : It is Suitable for small to medium businesses 
+because of its core  database  functionality and more affordablity . 
+ 
+Oracle  Enterprise  Edition  (EE): This edition  is for large  organizations  that 
+need  advanced  features  like RAC (Real  Application  Clusters),  data  partitioning,  
+and high  security . It's ideal  for important,  mission -critical  applications . 
+ 
+Oracle Express Edition (XE) : It is free but very limited by  CPU and storage. Mainly 
+for students, developers and small projects . 
+ 
+Oracle  Cloud  Edition : This database  targets  cloud  environments  with  maximum  
+scalability  and flexibility  in Oracle  infrastructures . 
+ 
+Oracle  Lite: It is a very  lightweight,  targeted  at mobile  and embedded  
+applications . It is designed  for working  at top gear  both  on resource -constrained  
+mobile  devices  and at remote  location  implementations . Oracle Express Edition (XE)  
+Oracle Database XE is easy to install. Oracle Database XE provides an Oracle 
+database and tools for managing the database.  
+ 
+For download the program:  
+https://www.oracle.com/database/technologies/database -11g-express -edition.html  

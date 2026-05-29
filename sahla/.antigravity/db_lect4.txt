@@ -1,0 +1,374 @@
+--- Page 1 ---
+4
+Lecture 4
+Entity Relationship (E-R) Modeling
+1
+
+--- Page 2 ---
+4
+Outline
+• Business Rules.
+• M:N Relations in the presence of cardinality
+constraints.
+• Situations.
+• Multivalued attribute.
+2
+
+--- Page 3 ---
+4
+1- What are Business Rules, what is
+their source, and why are they crucial?
+3
+
+--- Page 4 ---
+4
+Business Rules
+• Business rules are precise statements, derived from a
+detailed description of the organization's operations that
+define one or more of the following modeling components:
+– entities
+– relationships
+– attributes
+– connectivities
+– cardinalities
+– constraints
+4
+
+--- Page 5 ---
+4
+Business Rules (cont.)
+• Because the business rules form the basis of the
+data modeling process, their precise statement
+is crucial to the success of the database design.
+• Because the business rules are derived from a
+precise description of operations, much of the
+design's success depends on the accuracy of the
+description of operations.
+5
+
+--- Page 6 ---
+4
+Examples of Business Rules
+• An invoice contains one or more invoice lines, but
+each invoice line is associated with a single invoice.
+• A store employs many employees, but each employee
+is employed by only one store.
+• A college has many departments, but each
+department belongs to a single college.
+(This business rule reflects a university that has
+multiple colleges such as Business, Liberal Arts,
+Education, Engineering, etc.)
+6
+
+--- Page 7 ---
+4
+Examples of Business Rules (cont.)
+• A driver may be assigned to drive many different
+vehicles, and each vehicle can be driven by many
+drivers.
+(Note: Keep in mind that this business rule reflects
+the assignment of drivers during some period of
+time.)
+• A client may sign many contracts, but each contract
+is signed by only one client.
+• A sales representative may write many contracts,
+but each contract is written by one sales
+representative.
+7
+
+--- Page 8 ---
+4
+Business Rules (cont.)
+• Keep in mind that the E-R diagrams cannot always reflect all
+of the business rules. For example, examine the following
+business rule:
+“A customer cannot be given a credit line over $10,000 unless
+that customer has maintained a satisfactory credit history (as
+determined by the credit manager) during the past two years.”
+• This business rule describes a constraint that cannot be
+shown in the E-R diagram. The business rule reflected in this
+constraint would be handled at the applications software level
+through the use of a trigger or a stored procedure.
+8
+
+--- Page 9 ---
+4
+2- How are M:N relationships handled in the
+development of an E-R diagram in the
+presence of cardinality constraints?
+9
+
+--- Page 10 ---
+Video Store Rental System
+4
+“Assuming that the video store only rents videos and that a
+CUSTOMER entry will not exist unless a person coming
+into the video store actually rents that first tape.
+CUSTOMER is optional to TAPE. TAPE is mandatory to
+CUSTOMER.”
+• Note that this discussion includes a very brief description
+of the video store's operations and some business rules.
+The relationship between customers and tapes would thus
+be M:N as follows,
+Crow’s Foot Model
+CUSTOMER rents TAPE
+Customer must rent one or more tapes.
+Tapes may be rented by zero or more customers
+.
+10
+
+--- Page 11 ---
+Video Store Rental System (cont.) 4
+• The M:N relationship must be broken up into two 1:M
+relationships through the use of a bridge entity, also known
+as a Composite Entity or Associative Entity.
+• The composite entity, named RENTAL is composed of at
+least the primary key components of the two entities it
+bridges, because the RENTAL's foreign keys must point to
+the primary keys of the two entities CUSTOMER and
+TAPE.
+• And, because a tape that is never rented will never show up
+in the RENTAL entity, RENTAL has become optional to
+TAPE. That's why the optional symbol has migrated from
+CUSTOMER to the opposite side of RENTAL.
+11
+
+--- Page 12 ---
+Video Store Rental System (cont.)
+4
+Customer must rent one or more tapes.
+Tapes may be rented by zero or more customers
+.
+- CUSTOMER makes RENTAL
+- TAPE is placed in RENTAL
+- Customer must make one or more rental.
+- Rental must be made by one customer.
+- Tape may be placed in zero or more rental.
+X
+- Rental must have one tape.
+- Rental must have one or more tapes.
+12
+
+--- Page 13 ---
+Video Store Rental System (cont.)
+4
+• The cardinalities reflect the rental transactions.
+• Each rental transaction, i.e., each record in the
+RENTAL table, will reference one and only one
+customer and one an only one tape.
+• The (simplified!) implementation of this model
+may thus yield the sample data shown in the
+database in the following Figure.
+13
+
+--- Page 14 ---
+4
+14
+
+--- Page 15 ---
+Video Store Rental System (cont.)
+4
+• Database is not quite ready for prime time.
+• For example, its structure allows customers to rent only one
+tape per rental transaction.
+• Therefore, you'd have to generate a separate rental
+transaction for each tape rented by a customer.
+• (In other words, if a customer rents five tapes at a time,
+you'd have to generate five separate rentals).
+• Clearly, the design would be much improved by expanding
+it to include rental lines, as is done in the following Figure.
+15
+
+--- Page 16 ---
+4
+The Updated Tape Rental Database
+Design
+- Rental must contain one or more rental line.
+- Rental line must be in one rental.
+- Tape may enter zero or more rental line.
+- Rental line must have one tape.
+16
+
+--- Page 17 ---
+4
+3- Situations
+17
+
+--- Page 18 ---
+Situations 4
+• A situation is a well-defined set of circumstances that
+can be described using a sufficiently complete natural
+language (Nouns, Verbs and Modifiers).
+• Nouns
+– A noun is the name of a type of person, animal, plant,
+place, thing, substance or idea. (e.g. Employee)
+– A proper noun is the name of a particular occurrence
+or instance of a noun. (e.g. Mohamed, Ali, Magdy)
+– A pronoun is a word used as a substitute for a noun
+and that refers to a noun named or understood in the
+context in which it is used. (e.g. he, she, it)
+Nouns  Entities
+
+18
+
+--- Page 19 ---
+4
+Situations (cont.)
+• Verbs
+– A verb is a word that describes a mode of being, an
+association, an action or an event. (e.g Ali works in
+Sales)
+– Verbs describe the state of nouns, and relate the nouns
+of a situation with one another.
+Verbs  Relationships
+
+• Modifiers
+– A modifier is a word that qualifies a noun or a verb
+regarding its character, quantity, degree or extent.
+– Modifiers of nouns are called adjectives, while
+modifiers of verbs are called adverbs.
+Adjectives  Attributes of entities
+
+Adverbs  Attributes of associative
+
+19
+entities
+
+--- Page 20 ---
+Example 1 4
+• The customer says:
+"My company employs Druker, Fonebone, Gaines, Newman
+and Jane; each is identified by a unique Employee Number.
+Drucker works in sales, while Fonebone and Jane works in
+Payroll. The others are not assigned to a department. Three
+other departments have been established – Research,
+Marketing and Graphics – but these do not have any
+employees at the present time. All departments are identified
+by two- character Department Codes. Drucker is the lowest
+paid employee with a salary $12,000 a year; Newman makes
+twice that amount. Jane also makes $24,000, and Gaines, the
+boss, makes $12,000 more than that."
+20
+
+--- Page 21 ---
+4
+21
+
+--- Page 22 ---
+Example 2 4
+22
+
+--- Page 23 ---
+4
+The Crow’s Foot E-R Diagram for HEG
+Write down the business rules.
+23
+
+--- Page 24 ---
+4
+4- What two courses of action are
+available to a designer when a
+multivalued attribute is encountered?
+24
+
+--- Page 25 ---
+4
+Multivalued Attributes
+• The designer can split the multivalued attributes into
+its components and keep these components in the same
+entity.
+• Examples:
+– CAR color is decomposed into TOPCOLOR,
+TRIMCOLOR, and BODYCOLOR.
+– EMPLOYEE education is decomposed into
+HIGHSCHOOL, TWO-YEAR COLLEGE, FOUR-
+YEAR COLLEGE, and POST-GRADUATE.
+25
+
+--- Page 26 ---
+4
+Multivalued Attributes (cont.)
+Employee_V1
+EMP_ID Name High_Sch 2_Coll 4_Coll Master PhD Training
+13658 Tarek 1/6/1985 1/6/1989 2/2/2002
+32456 Mohamed 1/6/1990 1/6/1992 11/25/2003
+43582 Khaled 2/25/2004
+54678 Ali 1/6/1995 1/6/1999 1/25/2007
+Change in the number of components!!
+•
+Null Values (Null is not the same as zero) !!
+•
+Ability to perform queries!!
+•
+26
+
+--- Page 27 ---
+4
+Multivalued Attributes (cont.)
+• This is the worst possible solution, because:
+– A change in the number of components forces a change in
+the table structure.
+– Entity occurrences within the entity (set) that do not have all
+the components included in the table structure will have null
+entries.
+• For example, if an employee only has a high school education,
+the TWO-YEAR COLLEGE, FOUR-YEAR COLLEGE, and
+POST_GRADUATE entries for that employee would be null.
+27
+
+--- Page 28 ---
+4
+Multivalued Attributes (cont.)
+• A much better solution would be to create a new entity
+composed of the multivalued attribute's components and
+then link this new entity to the entity in which the multi-
+valued attributes occurred originally.
+• This solution is especially desirable when the number of
+outcomes in the multivalued attribute is, for all practical
+purposes, unlimited.
+– For example, employees classified as "technical" may have
+certifications in many different areas and at many different
+levels.
+28
+
+--- Page 29 ---
+4
+29
+
+--- Page 30 ---
+4
+5- Develop a data model for the
+following situations:
+30
+
+--- Page 31 ---
+4
+Situation 1:
+"The user wants to keep track of invoices,
+uniquely numbered by the system, that are
+received from various vendors, each identified
+with a user-assigned vendor number. A vendor
+may submit more than one invoice; each may
+contain more than one item. A vendor may send
+the invoices to any branch".
+31
+
+--- Page 32 ---
+4
+Situation 2:
+"A company processes orders for various kinds
+of parts. Each invoice is identified with a
+system-assigned number, as is each kind of
+part. An order can be for more than one kind of
+part, and each kind of part may appear on
+many orders."
+32
+
+--- Page 33 ---
+4
+Workbook Assignments
+• Ex1 & Ex2 page 9
+• Ex6 & Ex 7 page 32
+• Ex 10 page 40
+33
+

@@ -1,0 +1,99 @@
+{
+  "page": {
+    "title": "Lecture {{number}}: {{title}}",
+    "titleLab": "Lab {{number}}: {{title}}",
+    "titleQuiz": "Quiz: {{title}}",
+    "subtitle": "{{subject}}",
+    "breadcrumbHome": "Home",
+    "breadcrumbSubject": "{{subject}}",
+    "breadcrumbLecture": "Lecture {{number}}",
+    "breadcrumbLab": "Lab {{number}}",
+    "breadcrumbQuiz": "Quiz {{number}}",
+    "notFound": "Lecture not found",
+    "notFoundDesc": "The requested lecture could not be found."
+  },
+  "navigation": {
+    "previousLecture": "Previous Lecture",
+    "nextLecture": "Next Lecture",
+    "previousLab": "Previous Lab",
+    "nextLab": "Next Lab",
+    "backToSubject": "Back to Subject",
+    "lectureOf": "Lecture {{current}} of {{total}}",
+    "labOf": "Lab {{current}} of {{total}}",
+    "quizOf": "Quiz {{current}} of {{total}}"
+  },
+  "tabs": {
+    "explanation": "Explanation",
+    "summary": "Summary",
+    "mcq": "MCQ",
+    "written": "Written"
+  },
+  "content": {
+    "estimatedTime": "Estimated time: {{minutes}} min",
+    "markComplete": "Mark as Complete",
+    "markIncomplete": "Mark as Incomplete",
+    "completed": "Completed ✓",
+    "notCompleted": "Not Completed",
+    "keyPointsTitle": "Key Points",
+    "examplesTitle": "Examples",
+    "practiceTitle": "Practice Questions",
+    "resourcesTitle": "Additional Resources",
+    "noContent": "Content is being prepared. Check back soon!",
+    "noKeyPoints": "No key points for this lecture.",
+    "noExamples": "No examples available.",
+    "noResources": "No additional resources.",
+    "openExternal": "Open"
+  },
+  "mcq": {
+    "title": "MCQ Practice",
+    "subtitle": "Test your understanding of this lecture",
+    "questions": "questions",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "result": "Score",
+    "score": "You scored {{score}} out of {{total}}",
+    "percentage": "{{percentage}}%",
+    "noQuiz": "No quiz available for this lecture."
+  },
+  "written": {
+    "title": "Written Questions",
+    "subtitle": "Practice with model answers",
+    "showAnswer": "Show Answer",
+    "hideAnswer": "Hide Answer",
+    "modelAnswer": "Model Answer",
+    "noQuestions": "No written questions available."
+  },
+  "quiz": {
+    "title": "Quick Quiz",
+    "subtitle": "Test your understanding of this lecture",
+    "question": "Question {{current}} of {{total}}",
+    "checkAnswer": "Check Answer",
+    "correct": "Correct! 🎉",
+    "incorrect": "Not quite. Try again!",
+    "showExplanation": "Show Explanation",
+    "hideExplanation": "Hide Explanation",
+    "nextQuestion": "Next Question",
+    "quizComplete": "Quiz Complete!",
+    "score": "You scored {{score}} out of {{total}}",
+    "retakeQuiz": "Retake Quiz",
+    "noQuiz": "No quiz available for this lecture."
+  },
+  "bookmark": {
+    "add": "Bookmark this lecture",
+    "remove": "Remove bookmark",
+    "added": "Lecture bookmarked!",
+    "removed": "Bookmark removed",
+    "loginRequired": "Please log in to bookmark"
+  },
+  "progress": {
+    "writtenAttempted": "Written attempted"
+  },
+  "sidebar": {
+    "lectures": "Curriculum",
+    "lecture": "Lecture",
+    "lab": "Lab",
+    "quiz": "Quiz",
+    "assessments": "Assessments",
+    "finalExam": "Final Exam"
+  }
+}

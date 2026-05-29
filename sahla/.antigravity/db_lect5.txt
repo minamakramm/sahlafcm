@@ -1,0 +1,323 @@
+--- Page 1 ---
+5
+Lecture 5
+Database Logical Design
+1
+
+--- Page 2 ---
+5
+Database Logical Design
+• Logical database design is the process of
+transforming the conceptual data model into a
+logical data model.
+2
+
+--- Page 3 ---
+5
+The Relational Data Model
+• The relational data model was first introduced in 1970.
+Commercial products of Data Base Management Systems
+(DBMS) based on the relational data models (RDBMS) started
+to appear about 1980 from numerous vendors.
+• Today RDBMSs have become the dominant technology for
+data management, and there are literally hundreds of RDBMS
+products for computers ranging from personal computers to
+mainframes.
+• The relational data model represents data in the form of tables
+(called relations). Since an entity (in the conceptual data
+model) is a person, place, object, event, or concept about
+which we wish to maintain data, we can understand that
+entities in the conceptual data model will be mapped to (or
+replaced by) tables.
+3
+
+--- Page 4 ---
+5
+The Relational Data Model (cont.)
+• The relational data model consists of the following
+three components:
+– Data structure: Data are organized in the form of
+two-dimensional tables with rows and columns
+(called relations).
+– Data manipulation: Powerful operations (using the
+SQL language or processing programs) are used to
+manipulate data stored in the relations.
+– Data integrity: Facilities are included to specify
+business rules that maintain the integrity of data
+when they are manipulated.
+4
+
+--- Page 5 ---
+5
+Relational Data Structure
+• A relation is a named, two-dimensional table of data.
+• Each relation (or table) consists of a set of named columns
+and an arbitrary number of unnamed rows.
+• An attribute, is a named column of a table (or relation).
+• Each row of a table corresponds to a record that contains
+data (attribute) values for a single entity. We must be able to
+store and retrieve a row of data in a relation, based on the
+data values stored in that row.
+• To achieve this goal, every relation must have a primary key.
+• A primary key is an attribute (or combination of attributes)
+that uniquely identifies each row in a relation. We designate a
+primary key by underlining the attribute name.
+5
+
+--- Page 6 ---
+5
+Primary Key
+• Each table must have a primary key.
+• Each table must have only one primary key.
+• PK means primary key.
+• PK values must never be null (NN).
+• PK values must never be duplicate (ND).
+6
+
+--- Page 7 ---
+5
+Primary Key
+• PK values must never be changed.
+• PKs do not influence column order.
+• PKs do not influence row order.
+• PKs do not influence row access.
+• PKs may be user assigned (UA) or system
+assigned (SA)
+7
+
+--- Page 8 ---
+5
+Foreign Key
+• A foreign key is a column or a group of columns
+that is a primary key elsewhere.
+• FK means foreign key.
+• FK values must refer to existing PK values.
+8
+
+--- Page 9 ---
+5
+Properties of Relations (or Tables)
+• We have defined relations as two-dimensional tables
+of data.
+• However, not all tables are relations.
+• Relations have several properties that distinguish
+them from non-relational tables:
+– Each relation (or table) in a database has a unique
+name.
+– An entry at the intersection of each row and column is
+atomic (or single-valued). There can be no multi-
+valued attributes in a relation. This is called atomicity.
+9
+
+--- Page 10 ---
+5
+Properties of Relations (or Tables)
+– Each row is unique; no two rows in a relation are
+identical.
+– Each attribute (or column) within a table has a unique
+name.
+– The sequence of columns (left to right) is insignificant.
+The columns of a relation can be interchanged without
+changing the meaning or use of the relation.
+– The sequence of rows (top to bottom) is insignificant. As
+with columns, the rows of a relation may be interchanged
+or stored in any sequence.
+10
+
+--- Page 11 ---
+5
+Transforming E-R Diagrams Into
+Relations (or Tables)
+• During logical design you transform the E-R diagrams that
+were developed during conceptual design into relational
+database schemas.
+• The inputs to this process are the entity-relationship
+diagrams.
+• The outputs are the relational schemas.
+• Transforming (or mapping) E-R diagrams to relations is a
+relatively straight forward process with a well-defined set of
+rules.
+• In fact, many CASE tools can automatically perform many of
+the conversion steps. However, it is important to understand
+the steps of this process.
+11
+
+--- Page 12 ---
+5
+Mapping Regular Entity
+12
+
+--- Page 13 ---
+5
+Mapping Composite Attribute
+13
+
+--- Page 14 ---
+5
+Mapping Multi-valued Attribute for
+an Entity
+- Not the best senario
+- Use M:N Relation
+14
+
+--- Page 15 ---
+Mapping Binary One-to-One 5
+Relationship
+15
+
+--- Page 16 ---
+Mapping Binary One-to-Many 5
+Relationship
+16
+
+--- Page 17 ---
+Mapping Binary Many-to-Many 5
+Relationship
+17
+
+--- Page 18 ---
+Mapping Associative Entities 5
+(Identifier Not Assigned)
+18
+
+--- Page 19 ---
+5
+Mapping Associative Entities
+(Identifier is Assigned)
+19
+
+--- Page 20 ---
+Mapping Unary One-to-Many 5
+Relationship
+20
+
+--- Page 21 ---
+Mapping Unary Many-to-Many 5
+Relationship
+21
+
+--- Page 22 ---
+Mapping Ternary (and n-ary) 5
+Relationship
+22
+
+--- Page 23 ---
+Mapping Ternary (and n-ary) 5
+Relationship (Continue)
+23
+
+--- Page 24 ---
+Data Modeling Concepts: 5
+Generalization
+•Generalization – a concept wherein the attributes that
+are common to several types of an entity are grouped
+into their own entity.
+•Supertype – an entity whose instances store attributes
+that are common to one or more entity subtypes.
+•Subtype – an entity whose instances may inherit
+common attributes from its entity supertype
+– And then add other attributes unique to the subtype.
+24
+
+--- Page 25 ---
+Data Modeling Concepts: 5
+Subsetting Criteria
+Subsetting criteria – an attribute(s)
+whose finite values divide all entity
+instances into useful subsets.
+Sometimes called an inversion entry.
+25
+
+--- Page 26 ---
+Generalization Hierarchy 5
+26
+
+--- Page 27 ---
+5
+Logical Model Development Stages
+Conceptual data model
+1.
+Key-based data model
+2.
+Fully attributed data model
+3.
+27
+
+--- Page 28 ---
+5
+1. Conceptual Data model
+- Includes only entities and relationships
+- To establish project scope
+28
+
+--- Page 29 ---
+5
+The Conceptual Data Model
+29
+
+--- Page 30 ---
+5
+2. Key-based data model
+– Eliminate nonspecific relationships
+(many-to-many)
+– Add associative entities
+– Include primary and alternate keys
+– Precise cardinalities
+30
+
+--- Page 31 ---
+5
+The Key-based Data Model
+31
+
+--- Page 32 ---
+The Key-based Data Model
+5
+with Generalization
+32
+
+--- Page 33 ---
+5
+3. Fully attributed data model
+– All remaining attributes
+– Subsetting criteria
+33
+
+--- Page 34 ---
+5
+The Fully-Attributed Data Model
+34
+
+--- Page 35 ---
+Interview Questions 5
+for Data Modeling
+Purpose Candidate Questions
+Discover system entities What are the subjects of the business?
+Discover entity keys What unique characteristic (or
+characteristics) distinguishes an instance
+of each subject from other instances of the
+same subject?
+Discover entity Are there any characteristics of a
+subsetting criteria subject that divide all instances of the
+subject into useful subsets?
+Discover attributes and What characteristics describe each
+domains subject?
+35
+
+--- Page 36 ---
+Interview Questions 5
+for Data Modeling
+Purpose Candidate Questions
+Discover security and Are there any restrictions on who can
+control needs see or use the data?
+Discover data timing How often does the data change?
+needs
+Discover generalization Are all instances of each subject the
+hierarchies same?
+Discover relationships What events occur that imply associations
+between subjects?
+Discover cardinalities Is each business activity or event handled
+the same way, or are there special
+circumstances?
+36
+

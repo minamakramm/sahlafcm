@@ -1,0 +1,26 @@
+{
+  "name": "Sahla — AI & CS Lecture Notes, Quizzes & Exams",
+  "short_name": "Sahla",
+  "description": "Master hard university subjects with clear explanations, smart summaries, MCQ practice, and timed exams.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#050510",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "orientation": "portrait-primary",
+  "categories": ["education", "books"],
+  "gcm_sender_id": "103953800507"
+}

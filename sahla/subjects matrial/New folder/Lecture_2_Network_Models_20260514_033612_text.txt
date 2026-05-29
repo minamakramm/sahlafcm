@@ -1,0 +1,671 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_2_Network_Models.pdf
+Date   : 2026-05-14 03:36:12.946126
+Pages  : 27 / 27
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  8 words
+────────────────────────────────────────────────────────────
+Lecture 2
+Computer Networks Models
+Network Models
+1-1
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  19 words
+────────────────────────────────────────────────────────────
+Agenda
+Network Models
+1-2
+Introduction to the Internet
+Reference Models for Computer Networks
+The OSI Model
+The TCP/IP Model
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  65 words
+────────────────────────────────────────────────────────────
+The Internet
+Definition: network of interconnected networks
+History
+The Internet evolved from the ARPANET in 1969 in
+four locations
+ARPA applied the same packet-switching technology
+to tactical radio communication and to satellite 
+communication
+ARPA developed methods and protocols for
+internetworking (Transmission Control Protocol 
+“TCP” in 1974)
+Now, The number of connections to the
+Internet continues to grow exponentially
+(billions users, hosts, devices IoTN)etwork Models
+1-4
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  64 words
+────────────────────────────────────────────────────────────
+Network Models
+1-4
+Key Elements of the Internet
+The purpose of the Internet, of course, is to
+interconnect end systems, called hosts (PCs,
+workstations, servers, mainframes)
+Hosts are connected to a network (LAN, WAN)
+Networks are connected by routers
+Each router attaches to two or more networks
+Some hosts, such as mainframes or servers,
+connect directly to a router rather than through 
+a network
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  11 words
+────────────────────────────────────────────────────────────
+The Internet
+Key elements that comprise the Internet
+Network Models
+1-5
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  942×654px  (JPEG)
+OCR:
+S <— |
+" Router
+Standalone Wide area network
+mainframe (é.g., ATM)
+Local area “i>,
+e_ network Router <P,
+RB Lp Router
+SS a Wide area network
+(eg. ATM) Local area
+- a a Ethernet network
+G switch >> Ethernet
+be > Sg ] switch
+LA
+Router ; 8 ’
+<4 C. ~
+» Information LAN PCs
+server and workstations
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  88 words
+────────────────────────────────────────────────────────────
+An Abstract Look to the
+Traditional Internet Operation
+Based on the concept: intelligent end systems and
+dummy core and offer best effort QoS
+Operation example
+A host may send data to another host anywhere on the
+Internet
+The source host breaks the data to be sent into a
+sequence of packets (IP packets)
+Each packet includes a unique numeric address of the
+destination host (IP address)
+Based on this destination address, each packet travels
+through a series of routers and networks from source to
+destination
+Network Models
+1-7
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  9 words
+────────────────────────────────────────────────────────────
+Simplified View of Portion of Internet
+Network Models
+1-8
+
+── Images on page 7 (1 found) ──
+
+[Image 1]  888×635px  (JPEG)
+OCR:
+Corporate
+i
+Residential = L_|__t pI
+subscribers ,—% Backbone facktone =
+= : ISP ISP a,
+= Regional ——<—
+| oo | /T
+aware \ / |
+Server J . i il i
+4 | |
+ba ‘y ISP Web
+Fi \> farm
+LAN Regional aN |
+ae, switch /| ISP ill |
+Ree Regional |
+ISP il | Server
+Cc t —
+ie ° Open circle = NAP
+Filled circle = POP
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  28 words
+────────────────────────────────────────────────────────────
+Hierarchical Organization of
+the Internet
+Network Models
+1-9
+Internet Service Provider (ISP): A company that provides 
+other companies or individuals with access to, or presence
+on, the Internet
+
+── Images on page 8 (1 found) ──
+
+[Image 1]  453×276px  (PNG)
+OCR:
+Regional eee Regional
+ISP JSP
+os os
+National
+ISP
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  82 words
+────────────────────────────────────────────────────────────
+Network Models
+A network is a combination of hardware and
+software sending data from one location to 
+another
+The hardware consists of the physical equipment that
+carries signals
+The software consists of instruction sets that make
+the required services possible
+The fundamental job of executing a service with
+a computer is done by computer hardware
+At the highest level, a software can direct the
+execution process such as the details of how this 
+is done by the actual hardware
+Network Models
+1-10
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  94 words
+────────────────────────────────────────────────────────────
+Network Models
+Illustrative Example
+Sending an e-mail from one point in the world to 
+another
+The main tasks are broken into many tasks performed by
+a separate software package
+Each software package uses the services of another
+software package
+• Employing suitable protocol (SMTP)
+• Establishing end-to-end connection (TCP)
+• Adding final destination address (IP)
+• Encrypting data, adding physical address, accessing medium of 
+next hop destination (MAC)
+At the lowest layer, a signal, or a set of signals, is sent
+from the source computer to the destination computer
+(physical layer)
+Network Models
+1-11
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  5 words
+────────────────────────────────────────────────────────────
+Layered Tasks
+Network Models
+1-11
+
+── Images on page 11 (1 found) ──
+
+[Image 1]  518×438px  (PNG)
+OCR:
+Sender Receiver
+| 4
+The letter is written, The letter is picked up,
+put in an envelope, and Higher layers temoved from the
+dropped in a mailbox. envelope, and read.
+The letter is carried The letter is carried
+from the mailbox Middle layers from the post office
+to a post office. to the mailbox.
+The letter is delivered The letter is delivered
+to a carrier by the post Lower layers from the carrier
+office. to the post office.
+a a
+nee
+The parcel is carried from
+the source to the destination.
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  68 words
+────────────────────────────────────────────────────────────
+Network Models
+1-12
+TCP/IP Protocol Architecture
+In general terms, communications can be said to involve
+three agents: applications, computers, and networks
+Applications are executed among computers connected to networks
+Data to be exchanged are transferred by the network from one
+computer to another
+Based on previous concepts, the communication task into
+five relatively independent layers
+Physical layer
+Data link layer
+Network layer
+Host-to-host, or transport layer
+Application layer
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  155 words
+────────────────────────────────────────────────────────────
+Network Models
+1-13
+TCP/IP Model
+The physical layer
+covers the physical interface between a data transmission device (e.g., computer) 
+and a transmission medium or network
+The data link layer
+concerns with the exchange of data between devices attached to the same network 
+(i.e., next neighboring device). The specific software used at this layer depends on 
+the type of network to be used (e.g., circuit switching, packet switching)
+The Network layer (Internet protocol (IP) layer)
+Concerns with routing data between devices attached to different networks. The 
+IP protocol at this layer provides the routing function across multiple networks.
+Intermediate devices such as routers implements the IP
+The host-to-host layer, or transport layer
+Concerns with exchanging data reliably and assures that all of the data arrive at 
+the destination application and that the data arrive in the same order in which they 
+were sent
+The application layer
+contains the logic needed to support the various user applications
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  5 words
+────────────────────────────────────────────────────────────
+TCP/IP Concepts
+Network Models
+1-14
+
+── Images on page 14 (1 found) ──
+
+[Image 1]  731×515px  (JPEG)
+OCR:
+Host A Host B
+C Appx > Port Cappy >
+eS? _— err
+CO oS Logical connection = > ey
+Pm (TCP connection) eee
+TCP WT Ts ane TCP
+Global internet
+address
+Network access Network access
+protocol #1 protocol #2
+. . ca
+Physical Subnetwork attachment evita leueni eo Physical
+ysica point address . Bey Y ysica
+Router J we
+xf
+7
+wn
+4
+7
+yf
+NAP I | NAP2 1°
+Physical | Physical
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  102 words
+────────────────────────────────────────────────────────────
+Addressing in TCP/IP Model
+Four levels of addresses are used in an internet
+employing the TCP/IP protocols
+Physical Addresses: the address of a node as defined by its LAN
+or WAN. It is included in the frame used by the data link layer. 
+For example, Ethernet uses a 6-byte (48-bit) physical address 
+(MAC address)
+Logical Addresses: necessary for universal communications that
+are independent of underlying physical networks. A logical 
+address in the Interne is currently a IPv4 (32-bit) address or 
+IPv6 (128 bits) address that can uniquely define a host connected
+to the Internet. Used by the network layer.
+Network Models
+1-20
+
+── Images on page 15 (1 found) ──
+
+[Image 1]  573×159px  (PNG)
+OCR:
+I
+Physical Logical Port Specific
+addresses addresses addresses addresses
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  114 words
+────────────────────────────────────────────────────────────
+Network Models
+1-16
+Addressing in TCP/IP Model
+Port Addresses:
+• The IP address and the physical address are necessary 
+for a quantity of data to travel from a source to the 
+destination host
+• arrival at the destination host is not the final objective of
+data communications on the Internet
+• computers are devices that can run multiple processes at 
+the same time
+• The end objective of Internet communication is a process
+communicating with another process
+• There is a need to a method to label the different 
+processes such as transferring files and sending emails
+• A port address in TCP/IP is 16 bits in length.
+• Used by the transport layer
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  57 words
+────────────────────────────────────────────────────────────
+Network Models
+1-17
+Addressing in TCP/IP Model
+Specific Addresses
+• Some applications have user-friendly addresses that are 
+designed for that specific address
+• Examples include the e-mail address and the Universal
+Resource Locator (URL)
+• These addresses, however, get changed to the corresponding 
+port and logical addresses by the sending computer
+• Used by the application layer
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  25 words
+────────────────────────────────────────────────────────────
+Addressing in TCP/IP Model
+The physical addresses change from hop to hop, but the
+logical and port addresses usually remain the same
+Network Models
+1-18
+
+── Images on page 18 (1 found) ──
+
+[Image 1]  629×454px  (JPEG)
+OCR:
+A a | Sender Receiver ie | P
+-—-——-—~—-— Application layer ----------— [Data ]
+[aj [Baa ]] ----—— transport ayer --------~ [a] j [ara]
+[a]? [a] i [Data J] ------ Network layer ------ a] Pa] i [Dawa]
+a ]P [Ls Kbae Tipe) - - - - Datatink ayer - - -~ PBF a] 7
+“
+Internet
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  71 words
+────────────────────────────────────────────────────────────
+Network Models
+1-19
+The Open Systems
+Interconnection (OSI) Model
+Introduced in 1970s by the International Standards
+Organization (ISO)
+An open system is a set of protocols that allows any two
+different systems to communicate regardless of their 
+underlying architecture
+OSI Model Goals
+facilitating communication between different systems
+without requiring changes to the logic of the underlying 
+hardware and software
+understanding and designing a network architecture
+that is flexible, robust, and interoperable
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  6 words
+────────────────────────────────────────────────────────────
+The OSI Layers
+Network Models
+1-20
+
+── Images on page 20 (1 found) ──
+
+[Image 1]  390×658px  (PNG)
+OCR:
+Application
+Provides access to the OSI environment for users and also
+provides distributed information services.
+Presentation
+Provides independence to the application processes from
+differences in data representation (syntax).
+Session
+Provides the control structure for communication between
+applications; establishes, manages, and terminates
+connections (sessions) between cooperating applications.
+Transport
+Provides reliable, transparent transfer of data between end
+points; provides end-to-end error recovery and flow control.
+Network
+Provides upper layers with independence from the data
+transmission and switching technologies used to connect
+systems; responsible for establishing, maintaining, and
+terminating connections.
+Data Link
+Provides for the reliable transfer of information across the
+physical link; sends blocks (frames) with the necessary
+synchronization, error control, and flow control.
+Physical
+Concemed with transmission of unstructured bit stream over
+physical medium; deals with the mechanical, electrical,
+functional, and procedural characteristics to access the
+physical medium.
+Lo Y
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  11 words
+────────────────────────────────────────────────────────────
+The Interaction between
+Layers in the OSI Model
+Network Models
+1-21
+
+── Images on page 21 (1 found) ──
+
+[Image 1]  709×512px  (PNG)
+OCR:
+Device Device
+A B
+é& Intermediate Intermediate E
+= node node = =
+Peer-to-peer protocol Oth layer)
+
+7 Application see ee ee eee ee ee eee eee ee Application 7
+-6.in etta e -6 in 3 ace
+Peer-to-peer protocol (6th layer)
+
+6 Presentation ~2----- - -- - - - - - -- - - - - - -- Presentation 6
+6-5 interface 6-5 interface
+
+. Peer-to-peer protocol (5th layer)
+
+5 Session sse eee eee eee eee eee eee ee Session 5
+3-4 interface Peer-to-peer protocol (4th layer) 3-4 interface
+
+4 Tansport Sela le le lll lee etal eee! Tansport y
+4-3 interface 4-3 interface
+
+3 Network Network 3
+3-2 interface 42 interface |
+
+2 Data link Data link 2
+2-1 interface 2-1 interface
+
+Physical Physical
+Physical communication
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  63 words
+────────────────────────────────────────────────────────────
+A Comparison of the OSI and TCP/IP
+Protocol Architectures
+Network Models
+1-22
+OSI Layer
+TCP/IP Layer
+Examples of Protocols
+Application (7)
+Application
+HTTP, FTP, SMTP, DNS
+Presentation (6)
+Application
+SSL, JPEG, MPEG
+Session (5)
+Application
+NetBIOS, RPC
+Transport (4)
+Transport
+TCP, UDP
+Network (3)
+Network 
+IP, ICMP, ARP, OSPF
+Data Link (2)
+Data Link 
+Ethernet, PPP, Wi-Fi
+Physical (1)
+Physical
+Cables, Hubs, Fiber
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  169 words
+────────────────────────────────────────────────────────────
+A Comparison of the OSI and TCP/IP
+Protocol Architectures
+Network Models
+1-23
+OSI Model (7 Layers)
+Key Function
+TCP/IP Model (5 Layers)
+Key Function
+Application (7)
+Provides network services 
+directly to end users (e.g.,
+email, web browsing, file
+transfer)
+Application
+Provides application-level 
+services and protocols (HTTP,
+FTP, SMTP, DNS)
+Presentation (6)
+Translates, encrypts, and
+compresses data for the
+Application layer
+— (merged)
+Handled within Application
+layer
+Session (5)
+Establishes, manages, and 
+terminates communication 
+sessions between applications
+— (merged)
+Handled within Application
+layer
+Transport (4)
+Ensures end-to-end 
+communication: segmentation,
+reliability, flow and error
+control
+Transport
+Provides end-to-end delivery:
+TCP (reliable), UDP (fast,
+connectionless)
+Network (3)
+Handles logical addressing and
+routing of data packets 
+between devices/networks
+Network (Internet)
+Responsible for IP addressing
+and routing across networks
+Data Link (2)
+Provides physical addressing
+(MAC), framing, and error
+detection on local link
+Data Link
+Handles framing, MAC 
+addressing, and link-level error
+control
+Physical (1)
+Transmits raw bits as 
+electrical/optical/radio signals
+over the medium
+Physical
+Defines the hardware, media,
+and transmission of raw bits
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  178 words
+────────────────────────────────────────────────────────────
+Summary
+Network Models
+1-24
+• A protocol is a set of rules that governs communication. 
+• In protocol layering, we need to follow two principles to provide 
+bidirectional communication. First, each layer needs to perform two 
+opposite tasks. Second, two objects under each layer at both sides 
+should be identical. 
+• In a protocol layering, we need to distinguish between a logical 
+connection and a physical connection. Two protocols at the same layer 
+can have a logical connection; a physical connection is only possible 
+through the physical layers.
+•
+TCP/IP is a hierarchical protocol suite made of five layers: physical, 
+data link, network, transport, and application. 
+The physical layer coordinates the functions required to transmit a bit
+stream over a physical medium. 
+The data-link layer is responsible for delivering data units from one
+station to the next without errors. 
+The network layer is responsible for the source-to-destination delivery
+of a packet across multiple network links. 
+The transport layer is responsible for the process-to-process delivery
+of the entire message. 
+The application layer enables the users to access the network.
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  180 words
+────────────────────────────────────────────────────────────
+Summary
+Network Models
+1-25
+•
+Four levels of addresses are used in an internet following the TCP/IP 
+protocols: physical (link) addresses, logical (IP) addresses, port addresses, 
+and specific addresses. 
+The physical address, also known as the link address, is the address of a node
+as defined by its LAN or WAN. 
+The IP address uniquely defines a host (PC, workstation, server) on the
+Internet. 
+The port address identifies a process on a host. 
+A specific address is a user-friendly address.
+•
+Another model that defines protocol layering is the Open Systems 
+Interconnection (OSI) model.
+Two layers in the OSI model, session and presentation, are missing from
+the TCP/IP protocol suite. These two layers were not added to the TCP/IP 
+protocol suite after the publication of the OSI model. 
+The application layer in the suite is usually considered to be the combination
+of three layers in the OSI model. 
+The OSI model did not replace the TCP/IP protocol suite because it was
+completed when TCP/IP was fully in place and because some layers in the OSI 
+model were never fully defined.
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  35 words
+────────────────────────────────────────────────────────────
+Network Models
+1-26
+Lecture-related Questions
+List the main key elements of the Internet
+and describe briefly each one
+What are some of the factors that determine
+whether a communication system is a LAN or
+WAN?
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  35 words
+────────────────────────────────────────────────────────────
+Network Models
+1-27
+Lecture Summary
+Covered material
+Introduction to the Internet
+Reference Models for Computer Networks
+The OSI Model
+The TCP/IP Model
+Material to be covered next lecture
+Introduction to the physical layer and media

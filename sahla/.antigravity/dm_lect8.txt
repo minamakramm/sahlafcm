@@ -1,0 +1,423 @@
+--- Page 1 ---
+Data mining and analytics
+Lec.8.
+© Dr. Magda Madbouly
+
+--- Page 2 ---
+Data warehouse
+
+--- Page 3 ---
+Data, Data everywhere
+yet ...
+I can’t find the data I need
+
+◦ data is scattered over the network
+◦ many versions, subtle differences
+ I can’t get the data I need
+ need an expert to get the data
+ I can’t understand the data I
+found
+ available data poorly documented
+ I can’t use the data I found
+ results are unexpected
+ data needs to be transformed
+from one form to other
+3
+
+--- Page 4 ---
+What are the users saying...
+Data should be integrated
+
+across the enterprise
+Summary data has a real value
+
+to the organization
+Historical data holds the key to
+
+understanding data over time
+What-if capabilities are required
+
+4
+
+--- Page 5 ---
+What is a Data Warehouse?
+Bill Inmon, Building the Data Warehouse 1996
+A single, complete and
+consistent store of data
+obtained from a variety of
+different sources made
+available to end users in a
+what they can understand
+and use in a business
+context.
+5
+
+--- Page 6 ---
+What is Data Warehouse?
+A data warehouse is a collection of integrated
+databases designed to support a DSS.
+A data warehouse is a collection of data that is
+used primarily in organizational decision
+making.
+A data warehouse is a subject-oriented,
+integrated, time-variant, and nonvolatile
+collection of data in support of management’s
+decision-making process.
+
+--- Page 7 ---
+
+
+--- Page 8 ---
+What is Data Warehousing?
+Information
+A process of
+transforming data into
+information and making it
+available to users in a
+timely enough manner to
+make a difference
+Data
+8
+
+--- Page 9 ---
+Data Warehousing It is a --
+Technique for assembling and
+
+managing data from various sources
+for the purpose of answering
+business questions. Thus making
+decisions that were not previously
+possible
+A decision support database
+
+maintained separately from the
+organization’s operational database
+9
+
+--- Page 10 ---
+It needs a successful technician.
+
+Flexible.
+
+Team player.
+
+Good balance of business and technical
+
+understanding.
+
+--- Page 11 ---
+Characteristics of Data Warehouse
+
+--- Page 12 ---
+1. Subject-oriented:
+Data warehouse organized around subjects such
+
+as sales, product and customer.
+Data are organized based on how the users refer
+
+to them.
+It focuses on modeling and analysis of data for
+
+decision makers.
+Provide a simple and concise view around
+
+particular subject issues by excluding data that
+are not useful in the decision support process.
+
+--- Page 13 ---
+2. Integration
+Data Warehouse is constructed by integrating
+
+multiple heterogeneous sources.
+Data Preprocessing are applied to ensure
+
+consistency.
+All inconsistencies regarding naming convention
+
+and value representations are removed.
+
+--- Page 14 ---
+3. Time-variant
+The time horizon for the data warehouse is
+
+significantly longer than that of operational systems
+◦ Operational database: current value data
+◦ Data warehouse data: provide information from a
+historical perspective (e.g., past 5-10 years)
+Every key structure in the data warehouse
+
+◦ Contains an element of time, explicitly or implicitly
+◦ But the key of operational data may or may not
+contain “time element”
+
+--- Page 15 ---
+4. Nonvolatile
+Data once recorded cannot be updated. Data are stored in
+
+read-only format and do not change over time
+Data warehouse requires two operations in data accessing
+
+◦ Initial loading of data
+◦ Access of data
+load
+access
+
+--- Page 16 ---
+Data Warehouse environment:
+Contain:
+
+◦ The data store
+◦ Data mart
+◦ Metadata.
+
+--- Page 17 ---
+1.The Data Store
+Is the most common component of DW environment.
+
+Its function is to feed the data warehouse with data for
+
+the purpose of analysis.
+Data store is generally subject oriented, volatile and
+
+current commonly focused on customers, products,
+orders, policies, claims, etc…
+
+--- Page 18 ---
+2.The Data Mart
+A data mart contains a subset of corporate-wide data
+
+that is of value to a specific group of users. The scope is
+confined to specific selected subjects. For example, a
+marketing data mart may confine its subjects to
+customer, item, and sales. The data contained in data
+marts tend to be summarized.
+Data marts are usually implemented on low-cost. The
+
+implementation cycle of a data mart is more likely to be
+measured in weeks rather than months or years.
+
+--- Page 19 ---
+3. Metadata
+Last component of DW environments.
+
+It is information that is kept about the warehouse
+
+rather than information kept within the warehouse.
+Legacy systems generally don’t keep a record of
+
+characteristics of the data (such as what pieces of data
+exist and where they are located).
+The metadata is simply data about data.
+
+
+--- Page 20 ---
+Metadata
+The name suggests some high-level technological
+
+concept, but it really is fairly simple.
+With the emergence of the data warehouse as a decision
+
+support structure, the metadata are considered as much a
+resource as the business data they describe.
+Metadata are abstractions -- they are high level data that
+
+provide concise descriptions of lower-level data.
+
+--- Page 21 ---
+Metadata
+For example, a line in a sales database may contain:
+4056 KJ596 223.45
+This is mostly meaningless until we consult the metadata
+that tells us it was store number 4056, product KJ596
+and sales of $223.45
+The metadata are essential ingredients in the
+transformation of raw data into knowledge. They are
+the “keys” that allow us to handle the raw data.
+
+--- Page 22 ---
+ Technical Meta Data: This kind of Metadata contains
+information about warehouse which is used by Data
+warehouse designers and administrators.
+ Business Meta Data: This kind of Metadata contains
+detail that gives end-users a way easy to understand
+information stored in the data warehouse.
+© Dr. Magda Madbouly
+
+--- Page 23 ---
+Components of the Metadata
+Transformation maps – records that show what
+
+transformations were applied
+Extraction & relationship history – records that show
+
+what data was analyzed
+Algorithms for summarization – methods available for
+
+aggregating and summarizing
+Data ownership – records that show origin
+
+Patterns of access – records that show what data are
+
+accessed and how often
+
+--- Page 24 ---
+Data Warehouse Schema
+Star Schema
+
+Snowflake Schema
+
+Fact Constellation Schema (Galaxy)
+
+
+--- Page 25 ---
+Star Schema
+A single, large and central fact table and one table
+
+for each dimension.
+Every fact points to one tuple in each of the
+
+dimensions and has additional attributes.
+Does not capture hierarchies directly.
+
+Benefits: Easy to understand, easy to define
+
+hierarchies, reduces no. of physical joins.
+
+--- Page 26 ---
+star schema
+Components of a
+Fact tables contain factual
+or quantitative data
+1:N relationship between Dimension tables are denormalized to
+dimension tables and fact tables maximize performance
+Dimension tables contain descriptions
+about the subjects of the business
+Excellent for ad-hoc queries, but bad for online transaction processing
+26
+
+--- Page 27 ---
+Star schema example
+Fact table provides statistics for sales
+broken down by product, period and
+store dimensions
+27
+
+--- Page 28 ---
+SnowFlake Schema
+Variant of star schema model.
+
+A single, large and central fact table and one or
+
+more tables for each dimension.
+Dimension tables are normalized i.e. split
+
+dimension table data into additional tables
+
+--- Page 29 ---
+SnowFlake Schema (contd..)
+Fact Table
+Store Dimension Time Dimension
+Store Key
+Period Key
+Store Key
+Product Key
+Year
+Store Name
+Period Key
+Quarter
+City Key
+Units
+Month
+Price
+City Dimension
+City Key
+Product Key
+City
+Product Desc
+State
+Region Product Dimension
+Drawbacks: Time consuming joins,report generation slow
+
+--- Page 30 ---
+Example of Snowflake Schema
+time
+item
+time_key
+day item_key supplier
+Sales Fact Table
+day_of_the_week item_name
+supplier_key
+month brand
+supplier_type
+time_key
+quarter type
+year supplier_key
+item_key
+branch_key
+location
+branch
+location_key
+location_key
+branch_key
+street
+units_sold
+branch_name
+city_key
+branch_type city
+dollars_sold
+city_key
+avg_sales
+city
+state_or_province
+Measures
+country
+30
+
+--- Page 31 ---
+Fact Constellation(Galaxy Schema)
+Multiple fact tables share dimension tables.
+
+This schema is viewed as collection of stars
+
+hence called galaxy schema or fact
+constellation.
+Sophisticated application requires such
+
+schema.
+
+--- Page 32 ---
+Example of Fact Constellation
+time
+item
+Shipping Fact Table
+time_key
+day
+item_key
+day_of_the_week Sales Fact Table time_key
+item_name
+month
+brand
+quarter item_key
+time_key type
+year
+supplier_type shipper_key
+item_key
+from_location
+branch_key
+branch location_key to_location
+location
+branch_key dollars_cost
+units_sold location_key
+branch_name
+street
+branch_type units_shipped
+dollars_sold city
+province_or_state
+avg_sales
+country shipper
+Measures
+shipper_key
+shipper_name
+location_key
+shipper_type32
+

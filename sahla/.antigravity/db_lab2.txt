@@ -1,0 +1,56 @@
+Lab 2  SQL (Structured Query Language)  
+SQL,  or Structured  Query  Language , is the standard  programming  language  
+used  to manage  and manipulate  relational  databases . It allows  you to perform  
+operations  such  as querying  data,  updating  records,  creating  or modifying  
+database  structures,  and controlling  access  to data .  
+Basic Concepts  
+ Database : A structured collection of data stored electronically.  
+Table : A collection of rows and columns within a database.  
+Row (Record) : A single entry in a table.  
+Column (Field) : A single attribute or property of data.  
+Primary Key : A unique identifier for each row in a table.  
+Foreign Key : A column that creates a link between two tables.  Naming Rules  
+•Table names and column names:  
+–Must begin with a letter  
+–Must be 1 –30 characters long  
+–Must contain only A –Z, a–z, 0–9, _, $, and #  
+–Must not duplicate the name of another object 
+owned by the same user  
+–Must not be an Oracle server reserved word  Data Types  
+Data Type  Description  
+VARCHAR2( size) Variable -length character data  
+CHAR( size)   Fixed -length character data  
+NUMBER( p,s)   Variable -length numeric data  
+DATE  Date and time values  
+LONG  Variable -length character data (up to 2 GB)  
+CLOB Character data (up to 4 GB)  
+RAW and LONG 
+RAW  Raw binary data  
+BLOB Binary data (up to 4 GB)  
+BFILE Binary data stored in an external file (up to 4 GB)  
+ROWID A base -64 number system representing the unique 
+address of a row in its table  Datetime Data Types  
+•You can use several datetime data types:  
+Data Type           Description  
+TIMESTAMP  Date with fractional seconds  
+INTERVAL YEAR TO 
+MONTH Stored as an interval of years  
+and months  
+INTERVAL DAY TO 
+SECOND Stored as an interval of days, hours, 
+minutes, and seconds  
+Common SQL Functions  SQL Commands  
+•Aggregate Functions : COUNT(), SUM(), AVG(), MIN(), MAX()  
+•String Functions : UPPER(), LOWER(), CONCAT(), SUBSTRING()  
+•Date Functions : NOW(), CURDATE(), DATEDIFF()  1. Create a Table: Create a table Students with the following columns:  
+ SQL command exercises  
+•StudentID  → integer, primary key  
+•FirstName  → varchar (50) 
+•LastName  → varchar (50) 
+•Age → integer  
+•Major → varchar (50) 
+StudentID  FirstName  LastName  Age Major  
+1 Ali Omar  20 Computer  
+2 Sara  Ahmed  22 Math  
+3 Rami  Khalid  21 Physics  2. Insert Data into a Table: Insert the following students into the table:  
+ 

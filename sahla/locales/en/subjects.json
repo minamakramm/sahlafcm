@@ -1,0 +1,46 @@
+{
+  "page": {
+    "title": "Subjects",
+    "subtitle": "Explore your course materials",
+    "departmentTitle": "{{department}} — Subjects",
+    "departmentSubtitle": "All subjects in the {{department}} department"
+  },
+  "card": {
+    "lectures": "{{count}} lectures",
+    "hasExam": "Has Exam",
+    "noExam": "No Exam",
+    "viewSubject": "View Subject",
+    "code": "Code: {{code}}"
+  },
+  "detail": {
+    "lectureList": "Lectures",
+    "examSection": "Practice Exam",
+    "examSubtitle": "Practice Exam",
+    "examMinutes": "minutes",
+    "examQuestions": "questions",
+    "startExam": "Start Exam",
+    "description": "Description",
+    "lectureCount": "{{count}} Lectures",
+    "progress": "Progress",
+    "completedLectures": "{{completed}} of {{total}} lectures completed",
+    "noLectures": "No lectures available yet.",
+    "midtermIncluded": "Lectures {{start}} to {{end}} included in midterm",
+    "midtermIncludedWithSections": "Lectures {{start}} to {{end}} & Sections {{secStart}} to {{secEnd}} included in midterm",
+    "midtermShort": "Lecs {{start}}-{{end}} Midterm",
+    "midtermShortWithSections": "Lecs {{start}}-{{end}} & Secs {{secStart}}-{{secEnd}} Midterm",
+    "notFound": "Subject not found",
+    "notFoundDesc": "The requested subject could not be found."
+  },
+  "filter": {
+    "all": "All",
+    "department": "Department",
+    "hasExam": "Has Exam",
+    "sortBy": "Sort By",
+    "sortName": "Name",
+    "sortCode": "Code",
+    "sortLectures": "Lecture Count"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  }
+}

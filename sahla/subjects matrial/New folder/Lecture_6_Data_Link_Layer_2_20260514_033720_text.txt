@@ -1,0 +1,2267 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_6_Data_Link_Layer_2.pdf
+Date   : 2026-05-14 03:37:20.771525
+Pages  : 71 / 71
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  6 words
+────────────────────────────────────────────────────────────
+Lecture 6
+Data Link Layer
+(cont’d)
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  12 words
+────────────────────────────────────────────────────────────
+Agenda
+Continue the Data Link Layer
+Multiple Access Links and Protocols
+Addressing
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  81 words
+────────────────────────────────────────────────────────────
+Multiple Access Links and Protocols
+Two types of “links”:
+1- point-to-point (direct connection):
+A point-to-point link connects exactly two devices directly.There is no 
+sharing of the connection with other devices.
+point-to-point protocol (PPP) for dial-up access: Your computer
+connects directly to the ISP over a phone line.
+point-to-point link between Ethernet switch and host
+(computer):Each computer has a dedicated cable to the switch — not 
+shared with others.
+Key idea:
+Only two devices share the communication channel →no interference 
+or competition.
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  112 words
+────────────────────────────────────────────────────────────
+Two types of “links”:
+2- broadcast (shared wire or medium):
+A broadcast link is shared by multiple devices. When one device sends 
+data, all other devices connected to the medium can “hear” it.
+old-fashioned Ethernet wired connections “ring, bus, ….”:All
+computers were connected to the same coaxial cable.
+downstream Hybrid Fiber-Coaxial (HFC) cable TV distribution
+:The same signal is distributed to many homes.
+802.11 wireless LAN wireless connections: All wireless devices
+share the same radio frequency.
+shared wire (e.g.,
+cabled Ethernet)
+shared RF 
+(e.g., 802.11 WiFi)
+shared RF 
+(satellite)
+humans at a
+cocktail party
+(shared air, acoustical)
+Key idea:
+Multiple devices share the channel, so access control is needed to avoid collisions.
+
+── Images on page 4 (13 found) ──
+
+[Image 1]  299×214px  (PNG)
+OCR:
+f Patol ES
+y TiN f air Th
+
+[Image 2]  136×76px  (PNG)
+[No text detected]
+
+[Image 3]  111×138px  (PNG)
+OCR:
+SS
+
+[Image 6]  57×71px  (PNG)
+OCR:
+<
+
+[Image 7]  57×71px  (PNG)
+OCR:
+ee
+
+[Image 8]  57×71px  (PNG)
+OCR:
+—
+
+[Image 12]  89×73px  (JPEG)
+OCR:
+NS
+
+— Xe
+
+aS
+ee
+
+[Image 13]  474×243px  (JPEG)
+OCR:
+1 ~ bee Sid
+. ‘e a tn Bi Sa | Sane
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  89 words
+────────────────────────────────────────────────────────────
+Multiple Access protocols
+Two or more simultaneous transmissions by nodes:
+emerged problems: interference, QoS deterioration, security
+collision if node receives two or more signals at the same time
+Multiple access protocol concept
+Distributed algorithm that determines how nodes share channel, i.e.,
+determine when node can transmit
+Communication about channel sharing must use channel
+itself!
+The devices must coordinate using the same channel they are
+sharing.There is no separate (out-of-band) channel to manage 
+coordination. So, the coordination itself must be efficient —
+otherwise, it may cause more traffic and collisions.
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  733×251px  (PNG)
+OCR:
+Summary
+
+Topic Key Idea
+
+Shared broadcast channel Many nodes share the same medium
+
+Problem Simultaneous transmissions cause interference and collisions
+Solution Use a multiple access protocol
+
+Challenge Coordination must also happen on the same shared channel
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  54 words
+────────────────────────────────────────────────────────────
+Ideal Multiple Access Protocol
+Broadcast channel of rate R bps
+1. when one node wants to transmit, it can send at
+rate R.
+2. when M nodes want to transmit, each can send at
+average rate R/M
+3. fully decentralized operation:
+no special node to coordinate transmissions
+no synchronization of clocks, slots
+4. simple
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  4 words
+────────────────────────────────────────────────────────────
+Multiple Access Protocols: Taxonomy
+
+── Images on page 7 (1 found) ──
+
+[Image 1]  674×344px  (JPEG)
+OCR:
+Multiple-access
+protocols
+Random access Controlled-access Channelization
+protocols protocols protocols
+ALOHA Reservation FDMA
+CSMA Polling TOMA
+CSMA/CD Token passing CDMA
+CSMA/CA
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 8 (1 found) ──
+
+[Image 1]  701×441px  (PNG)
+OCR:
+1. Random Access Protocols
+Examples: ALOHA, CSMA, CSMA/CD, CSMA/CA
+Feature Description
+Access Control Users compete for access to the medium randomly. No central control.
+When to Transmit A station transmits whenever it has data, then checks for collisions.
+Collision Handling Collisions can occur; detected or avoided depending on the protocol.
+Efficiency Medium efficiency (depends on traffic load). Works well for low to moderate load.
+Examples Explained « ALOHA - Simplest; send anytime and resend after random delay if collision.
++ CSMA - Sense channel before sending.
++ CSMA/CD - Detect collisions while transmitting (Ethernet).
++ CSMA/CA - Avoid collisions using acknowledgment and waiting (Wi-Fi).
+Used in Ethernet (CSMA/CD), Wi-Fi (CSMA/CA).
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 9 (1 found) ──
+
+[Image 1]  737×435px  (PNG)
+OCR:
+2. Controlled Access Protocols
+Examples: Reservation, Polling, Token Passing
+Feature Description
+Access Control Channel access is controlled in an orderly way — one station at a time.
+Coordination Uses a central controller or distributed coordination (like token).
+Collision Handling No collisions, since only one node transmits at a time.
+Efficiency High efficiency under heavy load; less efficient under light load due to control overhead.
+Examples Explained ¢ Reservation — Time slots are reserved before transmission.
+* Polling — Central controller asks each node if it has data to send.
+* Token Passing — A “token” circulates; only the node holding it can transmit.
+Used in Token Ring, FDDI, Bluetooth piconets.
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 10 (1 found) ──
+
+[Image 1]  743×455px  (PNG)
+OCR:
+3. Channelization Protocols
+
+Examples: FDMA, TDMA, CDMA
+Feature Description
+Access Control The channel is divided among users by frequency, time, or code.
+Coordination Users have dedicated portions of bandwidth or codes — no contention.
+Collision Handling No collisions (each user has its own “slice” of the channel).
+Efficiency Very high for stable, continuous communication; less flexible for bursty traffic.
+Examples Explained ¢ FDMA - Each user gets a unique frequency band.
+
+* TDMA - Each user gets a time slot in a repeating frame.
+
+- CDMA - All users share same frequency but use unique spreading codes.
+Used in Cellular networks (GSM — TDMA; 3G — CDMA), satellite systems.
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  153 words
+────────────────────────────────────────────────────────────
+Multiple Access Protocols: Taxonomy
+Three broad classes:
+Channel Partitioning
+Divide channel into smaller “pieces” (time slots “TDMA”,
+frequency slots “FDMA”, uncorrelated codes “CDMA”)
+Allocate piece to node for exclusive use “FDM”, “TDM”
+Random Access
+Channel not divided, allow collisions
+“Recover” from collisions: use strategies like waiting a random time
+before retransmitting (to reduce the chance of repeated collisions)
+Controlled Access: “Taking turns”
+Nodes take turns, but nodes with more to send can take longer turns
+This type of network protocol, each node (device) gets a chance to use
+the communication channel one at a time, avoiding collisions.
+All nodes take turns sending data — like people taking turns to speak
+in a conversation. However, nodes that have more data to send can be 
+allowed to keep the channel longer before passing the turn to others. 
+This ensures fairness (everyone gets a chance) while improving 
+efficiency (busy nodes can send more without repeatedly waiting).
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  54 words
+────────────────────────────────────────────────────────────
+Channel Partitioning MAC protocols:
+TDMA: time division multiple access
+access to channel in "rounds"
+each station gets fixed length slot (length = packet or
+data unit transmission time) in each round
+unused slots go idle
+example shown below: 6-station LAN, 1,3,4 have
+packets, slots 2,5,6 idle
+6-slot
+frame
+1
+3
+4
+1
+3
+4
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  43 words
+────────────────────────────────────────────────────────────
+Channel Partitioning MAC protocols:
+FDMA: frequency division multiple access
+channel spectrum divided into frequency bands
+each station assigned fixed frequency band
+unused transmission time in frequency bands go idle
+example: 6-station LAN, 1,3,4 have packets, frequency
+bands 2,5,6 idle
+frequency
+bands
+FDM cable
+
+── Images on page 13 (2 found) ──
+
+[Image 1]  125×323px  (PNG)
+OCR:
+N (
+Nv
+
+[Image 2]  274×66px  (JPEG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  117 words
+────────────────────────────────────────────────────────────
+Random Access Protocols
+Concept
+When a node has a packet to send, it transmits immediately at the
+full data rate (R) of the channel.
+There is no prior coordination among nodes — every device decides
+on its own when to send.
+Because of this, if two or more nodes transmit at the same time,
+their signals collide, and all packets involved become corrupted.
+two or more transmitting nodes ➜“collision”
+Random access MAC protocol :
+The MAC (Medium Access Control) protocol defines how nodes
+should:
+1- Detect collisions – determine whether a transmission failed due 
+to interference.
+2- Recover from collisions – use strategies like waiting a random 
+time before retransmitting (to reduce the chance of repeated 
+collisions).
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  108 words
+────────────────────────────────────────────────────────────
+1.ALOHA (Areal Locations of Hazardous Atmospheres) – The simplest 
+system; send whenever you have data. If collision occurs, wait a random 
+time and resend.
+2.Slotted ALOHA – Time is divided into slots; nodes can transmit only at 
+the start of a slot, reducing collision probability.
+3.CSMA (Carrier Sense Multiple Access) – A node listens (“senses”) 
+the channel before transmitting to avoid collisions.
+4.CSMA/CD (Collision Detection) – Used in Ethernet; the node listens 
+while transmitting and stops immediately if a collision is detected.
+5.CSMA/CA (Collision Avoidance) – Used in Wi-Fi; nodes use 
+acknowledgments and waiting mechanisms to avoid collisions instead of 
+detecting them.
+Examples of random access MAC protocols:
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  142 words
+────────────────────────────────────────────────────────────
+Slotted ALOHA
+Assumptions:
+all frames same size L
+bits
+channel rate R bits/s
+time divided into equal size
+slots L/R (time to transmit 1
+frame)
+nodes start to transmit
+only at slot beginning
+nodes are synchronized: they
+can start sending only at the 
+beginning of a time slot.
+if 2 or more nodes transmit
+in slot, all nodes detect
+collision
+Operation:
+When a node has a new frame, it
+waits for the next slot to begin. The 
+node transmits the frame at that 
+slot’s start.
+If only one node transmits in the
+slot
+→
+Success
+(no
+collision):
+node can send new frame in next
+slot.
+If two or more nodes transmit
+→Collision (frames lost).
+After a collision:
+1- Each node retransmits the 
+frame in the next slot with 
+probability p, or waits (with 
+probability 1–p).
+2-This random waiting helps 
+reduce repeated collisions.
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  90 words
+────────────────────────────────────────────────────────────
+Slotted Aloha Efficiency
+suppose: N nodes with
+many frames to send, 
+each transmits in slot 
+with probability p
+prob that given node
+has success in a slot = 
+p(1-p)N-1
+prob that any node has
+a success = Np(1-p)N-1
+max efficiency: find
+p* that maximizes 
+Np(1-p)N-1
+for many nodes, take
+limit of Np*(1-p*)N-1
+as N goes to infinity,
+gives:
+Max efficiency = 1/e = .37
+Efficiency : long-run 
+fraction of successful slots 
+(many nodes, all with many 
+frames to send)
+At best: channel 
+used for useful 
+transmissions 37% 
+of time!
+!
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  15 words
+────────────────────────────────────────────────────────────
+Efficiency : long-run 
+fraction of successful
+slots (many nodes, all with
+many frames to send)
+
+── Images on page 18 (1 found) ──
+
+[Image 1]  549×743px  (PNG)
+OCR:
+Slotted ALOHA Efficiency Derivation
+Step 1: Define the conditions
+e There are N nodes, each having many frames to send.
+e Ineach time slot, every node independently decides:
+e Transmit with probability p, or
+e Stay silent with probability (1— p).
+Step 2: Compute probability of a successful transmission
+For a transmission to be successful,
+El Exactly one node transmits in the slot.
+So the probability that a specific node transmits successfully is:
+Peuccess for node i = p(l _ p)X”
+e p:the node transmits
+© (1 —p)%—: all other N — 1 nodes stay silent
+Step 3: Probability that any node succeeds
+There are N nodes, and each can be the successful one.
+So total probability that any node transmits successfully in a slot:
+Puccessful slot = Np(1 _ p)N+
+This is the efficiency (fraction of slots used successfully).
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  29 words
+────────────────────────────────────────────────────────────
+for many nodes, take limit of Np*(1-p*)N-1 as N goes
+to infinity, gives:
+Max efficiency = 1/e = .37
+At best: channel used for useful 
+transmissions 37% of time!
+
+── Images on page 19 (1 found) ──
+
+[Image 1]  590×342px  (PNG)
+OCR:
+Step 4: Find the maximum efficiency
+We want to choose p that maximizes Np(1 — p)-1.
+We take derivative with respect to p, set to 0:
+d -
+ap NP(L—»)"] = 0
+After solving, the maximum occurs when:
+1
++ -
+PN
+Step 5: Substitute p* back into the equation
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  62 words
+────────────────────────────────────────────────────────────
+Pure (unslotted) ALOHA
+unslotted Aloha: simpler, no synchronization
+when frame first arrives
+Transmit immediately
+collision probability increases:
+Frame sent at t0 collides with other frames sent in [t0-1,t0+1]
+Difference:
+• Frames can start at any time (not aligned to slots).
+• A collision can occur if another node starts sending within one frame 
+time before or after yours (a 2-frame vulnerable period).
+
+── Images on page 20 (1 found) ──
+
+[Image 1]  1373×556px  (PNG)
+OCR:
+; willoverlap | will overlap
+
+: with start of : withendof }
+
+i<— i’s frame —>i<+— i’s frame —?
+t-1 t in
+
+O 0 t ]
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  92 words
+────────────────────────────────────────────────────────────
+Pure Aloha efficiency
+P(success by given node) = P(node transmits) .
+P(no other node transmits in [t0-1,t0] .
+P(no other node transmits in [t0, t0+1]
+= p . (1-p)N-1 . (1-p)N-1
+= p . (1-p)2(N-1)
+… choosing optimum p and then letting N -> infinity ...
+= 1/(2e) = .18
+even worse than slotted Aloha!
+Note: In both slotted and pure ALOHA, a node’s decision to transmit is
+made independently of the activity of the other nodes attached to the
+broadcast channel
+At best: channel used for useful transmissions 18% of time!
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  6 words
+────────────────────────────────────────────────────────────
+Efficiency of ALOHA vs.
+Slotted ALOHA
+
+── Images on page 22 (1 found) ──
+
+[Image 1]  488×376px  (JPEG)
+OCR:
+@.5
+Pure ALOHA ——
+Q.4 Slotted ALOHA ———
+s =- 1/e=0.368
+2 9Q.3
+oO)
+3
+c Oe = 4/26=0.184
+é -
+Q.1 ]
+Q —
+ig) 1 2 3 4
+Offered load, LT
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  766×350px  (PNG)
+OCR:
+Comparison: Slotted vs. Pure ALOHA
+Feature Slotted ALOHA Pure ALOHA
+Synchronization Required Not required
+Transmission start Only at slot boundaries Anytime
+Vulnerable period 1 frame time 2 frame times
+Collision chance Lower Higher
+Max efficiency 1/e = 0.37 (37%) 1/(2e) = 0.18 (18%)
+Complexity Higher (needs sync) Simpler
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  68 words
+────────────────────────────────────────────────────────────
+CSMA (Carrier Sense Multiple Access)
+CSMA Protocol:
+listen before transmit:
+If channel sensed idle: transmit entire frame
+If channel sensed busy, defer transmission
+Listen while transmitting:
+If detecting other transferred frames
+stops transmitting and waits a random amount of time before
+repeating the sense-and-transmit-when-idle cycle
+human analogy: don’t interrupt others!
+Listen before speaking (carrier sensing)
+If someone else begins talking at the same time, stop talking
+(collision detection)
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  46 words
+────────────────────────────────────────────────────────────
+CSMA/CD (Collision Detection)
+CSMA/CD Protocol:
+collisions detected within short time
+colliding transmissions aborted, reducing channel
+wastage
+collision detection:
+easy in wired LANs: measure signal strengths,
+compare transmitted, received signals
+difficult in wireless LANs: received signal strength
+overwhelmed by local transmission strength
+human analogy: the polite conversationalist
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  4 words
+────────────────────────────────────────────────────────────
+CSMA/CD Operation Flow Diagram
+
+── Images on page 26 (1 found) ──
+
+[Image 1]  520×407px  (JPEG)
+OCR:
+Station has Stat >
+K: Number of attempts a frame to send
+T,,: Maximum propagation time
+Tj,: Average transmission time fora frame
+Tg: Back-off time [ko |
+Apply one of the
+persistence methods
+(1-persistent, nonpersistent,
+or p-persistent)
+Eligible for transmission
+aN faitTat Soy (Transmission done) or \\Yes
+mane 1 on | (Collision detected)
+No
+Choose a random Transmit
+number R between andireceive
+Oand 2*-4
+No
+Kmnax iS K=eKe1 Senda Yes / Collision
+normally 15 ~ jamming signal detected?,
+Yes No
+GSiecess >
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 27 (2 found) ──
+
+[Image 1]  701×703px  (PNG)
+OCR:
+1. Start
+e Astation has a frame to send.
+e Initialize the attempt counter:
+K = 0 (first attempt).
+2. Apply Persistence Method
+The station applies one of the persistence methods to decide when to transmit:
+e 1-persistent: transmit immediately when the channel is idle.
+© non-persistent: wait a random time before sensing again.
+© p-persistent: transmit with probability p when idle.
+3. Check if Transmission is Done or Collision Detected
+Once the channel is idle and the station transmits:
+e If transmission completes successfully, stop — Success.
+e  If.acollision occurs, the station must handle it.
+4. Collision Detection
+While transmitting, the station also listens to the channel:
+e If no collision detected — Success.
+e If collision detected — send a jamming signal (to ensure all stations detect the collision).
+
+[Image 2]  520×407px  (JPEG)
+OCR:
+Station has Stat >
+K: Number of attempts a frame to send
+T,,: Maximum propagation time
+Tj,: Average transmission time fora frame
+Tg: Back-off time [ko |
+Apply one of the
+persistence methods
+(1-persistent, nonpersistent,
+or p-persistent)
+Eligible for transmission
+aN faitTat Soy (Transmission done) or \\Yes
+mane 1 on | (Collision detected)
+No
+Choose a random Transmit
+number R between andireceive
+Oand 2*-4
+No
+Kmnax iS K=eKe1 Senda Yes / Collision
+normally 15 ~ jamming signal detected?,
+Yes No
+GSiecess >
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 28 (2 found) ──
+
+[Image 1]  520×407px  (JPEG)
+OCR:
+Station has Stat >
+K: Number of attempts a frame to send
+T,,: Maximum propagation time
+Tj,: Average transmission time fora frame
+Tg: Back-off time [ko |
+Apply one of the
+persistence methods
+(1-persistent, nonpersistent,
+or p-persistent)
+Eligible for transmission
+aN faitTat Soy (Transmission done) or \\Yes
+mane 1 on | (Collision detected)
+No
+Choose a random Transmit
+number R between andireceive
+Oand 2*-4
+No
+Kmnax iS K=eKe1 Senda Yes / Collision
+normally 15 ~ jamming signal detected?,
+Yes No
+GSiecess >
+
+[Image 2]  651×747px  (PNG)
+OCR:
+5. Increment Attempt Counter
+After sending the jamming signal:
+e Increase the counter:
+K=K+1
+6. Check Maximum Attempts
+e If K > Kmax (normally 15) > Abort (transmission fails after too many tries).
+e If K < Kmax, the station will back off before retrying.
+7. Random Back-off (Binary Exponential Backoff)
+To avoid repeated collisions:
+1. Choose a random number R between 0 and 2% — 1,
+2. Compute the backoff time:
+Tp = Rx Tp (or R x Tf)
+e Tp: Maximum propagation time
+¢ T;,: Average frame transmission time
+3. Wait J’, then retry transmission.
+8. Repeat
+After waiting Tp, go back and attempt transmission again, repeating the process until:
+e Successful transmission (— Success), or
+e Exceeding the maximum attempts (— Abort).
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 29 (2 found) ──
+
+[Image 1]  520×407px  (JPEG)
+OCR:
+Station has Stat >
+K: Number of attempts a frame to send
+T,,: Maximum propagation time
+Tj,: Average transmission time fora frame
+Tg: Back-off time [ko |
+Apply one of the
+persistence methods
+(1-persistent, nonpersistent,
+or p-persistent)
+Eligible for transmission
+aN faitTat Soy (Transmission done) or \\Yes
+mane 1 on | (Collision detected)
+No
+Choose a random Transmit
+number R between andireceive
+Oand 2*-4
+No
+Kmnax iS K=eKe1 Senda Yes / Collision
+normally 15 ~ jamming signal detected?,
+Yes No
+GSiecess >
+
+[Image 2]  693×555px  (PNG)
+OCR:
+Summary
+Symbol Meaning
+K Number of attempts
+Tp Maximum propagation time
+Tfr Average transmission time for a frame
+TB Back-off time (depends on random R)
+Kmax Maximum number of attempts (usually 15)
+Concept in Simple Terms
+
+1. Listen before talking (CSMA).
+
+2. If someone else is talking, wait.
+
+3. If you talk and two talkers collide — stop, send a jamming signal.
+
+4. Wait for a random time (backoff) before retrying.
+
+5. Give up after too many collisions.
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  81 words
+────────────────────────────────────────────────────────────
+IEEE 802.11 MAC Protocol: CSMA/CA
+(Collision Avoidance)
+802.11 sender
+1 if sense channel idle for distributed
+inter-frame space (DIFS) then
+transmit entire frame (no CD)
+2 if sense channel busy then
+start random backoff time
+timer counts down while channel idle
+transmit when timer expires
+if no ACK, increase random backoff
+interval, repeat 2
+802.11 receiver
+- if frame received OK
+return ACK after short inter-frame space 
+(SIFS): ACK needed due
+to hidden terminal problem)
+sender
+receiver
+DIFS
+data
+SIFS
+ACK
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  6 words
+────────────────────────────────────────────────────────────
+sender
+receiver
+DIFS
+data
+SIFS
+ACK
+
+── Images on page 31 (1 found) ──
+
+[Image 1]  751×645px  (PNG)
+OCR:
+1. Why CSMA/CA (Collision Avoidance) is used
+e Unlike Ethernet (CSMA/CD) where devices can detect collisions, wireless stations cannot detect
+collisions while transmitting because:
+e The same antenna cannot transmit and listen simultaneously.
+e Hidden terminals (stations out of range of each other) can cause undetectable collisions.
+e So instead of collision detection (CD), Wi-Fi uses collision avoidance (CA).
+2. Basic Process (Sender's Side)
+(a) Sense the channel
+e The station listens to the medium.
+e If the channel is idle for a period called DIFS (Distributed Inter-Frame Space):
+e — Transmit the entire frame immediately.
+e There is no collision detection like in Ethernet.
+(b) If the channel is busy
+e The station waits until the channel becomes idle.
+e Then it sets a random backoff timer.
+e The timer counts down only while the channel is idle.
+e If the channel becomes busy again, the countdown pauses.
+(c) When the backoff timer expires
+e The station transmits its frame.
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  6 words
+────────────────────────────────────────────────────────────
+sender
+receiver
+DIFS
+data
+SIFS
+ACK
+
+── Images on page 32 (1 found) ──
+
+[Image 1]  751×815px  (PNG)
+OCR:
+3. Acknowledgment Mechanism
+e When a receiver successfully receives a frame, it sends back an ACK (acknowledgment frame) after a
+short interval, called SIFS (Short Inter-Frame Space).
+e This ACK confirms successful reception.
+4. What if No ACK is Received
+e If the sender does not receive an ACK within a certain time:
+e It assumes a collision occurred.
+e The sender then increases the backoff interval (exponential backoff) and repeats the process from
+step (b).
+5. Timing Intervals
+Interval Meaning Purpose
+SIFS (Short Inter-Frame Space) Very short wait between data and Gives ACKs priority
+ACK
+DIFS (Distributed Inter-Frame Space) Wait before transmission Used to detect idle medium
+Backoff Time Random waiting time Helps avoid simultaneous
+retransmissions
+6. Receiver’s Role
+e The receiver waits for the entire frame.
+e If received correctly (CRC check OK):
+e It sends an ACK frame after SIFS.
+e This ACK ensures the sender knows the transmission succeeded — crucial due to the hidden terminal
+problem.
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  4 words
+────────────────────────────────────────────────────────────
+CSMA/CA Operation Flow Diagram
+
+── Images on page 33 (1 found) ──
+
+[Image 1]  257×400px  (JPEG)
+OCR:
+Yes
+Ca
+Yes
+5 Choose a random
+Contention inden | aymber Rewer
+: Oand 2-1
+Aftor cach shat, @idie, pt
+contiewest busy. ball and | wait shits,
+cominue when idle, ——+
+| wbicKiene cur,
+No
+Cis et 2
+os Yas
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 34 (2 found) ──
+
+[Image 1]  257×400px  (JPEG)
+OCR:
+Yes
+Ca
+Yes
+5 Choose a random
+Contention inden | aymber Rewer
+: Oand 2-1
+Aftor cach shat, @idie, pt
+contiewest busy. ball and | wait shits,
+cominue when idle, ——+
+| wbicKiene cur,
+No
+Cis et 2
+os Yas
+
+[Image 2]  737×771px  (PNG)
+OCR:
+Overview
+CSMA/CA is designed for collision avoidance (not detection like Ethernet CSMA/CD), because a wireless
+station cannot listen and transmit at the same time.
+The algorithm ensures that each device waits a random time before sending, reducing the chance that two
+stations transmit simultaneously.
+Step-by-Step Explanation
+1. Start and Initialization
+e The station has a frame to send.
+e Initialize the attempt counter.
+K = 0 (number of retransmission attempts).
+2. Check if the Channel is Idle
+e The station listens to the wireless medium.
+e If the channel is busy, it waits until it becomes idle.
+e If idle, it proceeds to the next step.
+3. Wait for IFS Time
+e The station waits for an Inter-Frame Space (IFS) period (usually DIFS in data frames).
+e This ensures higher-priority transmissions (like ACKs or control frames) can go first.
+4. Check if Still Idle
+e After waiting IFS, if the channel is still idle, continue.
+e If it becomes busy, go back to step 2 and monitor again.
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 35 (2 found) ──
+
+[Image 1]  257×400px  (JPEG)
+OCR:
+Yes
+Ca
+Yes
+5 Choose a random
+Contention inden | aymber Rewer
+: Oand 2-1
+Aftor cach shat, @idie, pt
+contiewest busy. ball and | wait shits,
+cominue when idle, ——+
+| wbicKiene cur,
+No
+Cis et 2
+os Yas
+
+[Image 2]  751×791px  (PNG)
+OCR:
+5. Choose a Random Backoff
+e The station selects a random number R within the contention window:
+0<R<2%-1
+e The contention window increases exponentially with each failed attempt (this is the binary exponential
+backoff).
+e Purpose: to reduce the chance that two stations retry at the same time.
+6. Wait for R Slots
+e The station waits for R time slots before transmitting.
+e During this countdown:
+e If the medium stays idle, it keeps counting down.
+e If it becomes busy, the countdown pauses, and resumes once the medium is idle again.
+7. Send the Frame
+e Once the backoff timer expires, the station transmits its data frame.
+8. Wait for ACK
+e The sender waits for an ACK (Acknowledgment) from the receiver within a time-out period.
+9. Check for ACK
+e If an ACK is received — Success (transmission complete).
+e = If no ACK (collision or error occurred):
+e Increment attempt counter.
+K=K+1
+e If K > 15, abort the transmission (failure).
+e Otherwise, increase the contention window and retry from step 2.
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 36 (2 found) ──
+
+[Image 1]  257×400px  (JPEG)
+OCR:
+Yes
+Ca
+Yes
+5 Choose a random
+Contention inden | aymber Rewer
+: Oand 2-1
+Aftor cach shat, @idie, pt
+contiewest busy. ball and | wait shits,
+cominue when idle, ——+
+| wbicKiene cur,
+No
+Cis et 2
+os Yas
+
+[Image 2]  663×593px  (PNG)
+OCR:
+Key Points & Parameters
+Symbol Meaning
+K Number of retransmission attempts
+IFS (Inter-Frame Space) Wait time before sending after sensing idle channel
+R Random backoff value
+Contention Window (CW) Range of possible R values, grows as Qk -1
+ACK Acknowledgment frame sent by the receiver
+K > 15 Abort after 16 unsuccessful attempts
+In Simple Words
+1. Listen first.
+2. If the channel is free for a while, wait a random short time.
+3. If still free - send your data.
+4. If you get ACK — done.
+5. If not > wait longer next time and retry.
+This minimizes collisions by ensuring not all stations transmit at the same instant.
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  88 words
+────────────────────────────────────────────────────────────
+Avoiding Collisions (more)
+Problem
+In a shared wireless channel, if two nodes transmit large data 
+frames at the same time, the frames collide, and a lot of time 
+and bandwidth is wasted.
+We want to avoid collisions, especially for long packets.
+Idea: Reserve the Channel Before Sending Data
+Instead of sending large data directly, the sender first sends a 
+short control packet to request permission.
+This is more efficient because:
+•If a short packet collides →loss is small.
+•Once permission is granted →no collision during the large 
+transmission.
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  9 words
+────────────────────────────────────────────────────────────
+avoid data frame collisions completely
+using small reservation packets!
+
+── Images on page 38 (1 found) ──
+
+[Image 1]  653×641px  (PNG)
+OCR:
+Steps (RTS/CTS Mechanism)
+1. Sender sends RTS (Request To Send)
+e Asmall packet sent using CSMA (listen-before-talk).
+e It says: “/ want to use the channel.”
+2. RTS packets may collide, but since they are short, the cost of collision is low.
+3. Base Station (BS) responds with CTS (Clear To Send)
+e The BS sends a broadcast “CTS” message.
+e This message is heard by all nodes.
+4. All other nodes must stay silent
+e When anode hears CTS, it stops transmitting to avoid interference.
+e The channel is now reserved for the sender.
+5. Sender sends the large data frame safely
+e No collision will occur because all other nodes are deferring (waiting).
+Why This Works
+Without RTS/CTS With RTS/CTS
+Collisions waste long frames Collisions only waste short RTS packets
+Hard to detect collisions in wireless CTS broadcast alerts all nodes to stay silent
+High overhead and delay Controlled and efficient access
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  16 words
+────────────────────────────────────────────────────────────
+AP
+A
+B
+time
+DATA (A)
+reservation collision
+defer
+Collision Avoidance: RTS-CTS exchange
+Hidden Station Problem
+
+── Images on page 39 (12 found) ──
+
+[Image 2]  71×66px  (PNG)
+[No text detected]
+
+[Image 5]  788×172px  (PNG)
+OCR:
+ae
+
+[Image 6]  92×61px  (PNG)
+OCR:
+Ho nn
+—t ite i Aly
+nS | “i fs |
+
+yw OS
+
+[Image 7]  90×53px  (PNG)
+OCR:
+e/a RY
+ASPEN vt
+Sa >
+6 Hl nll (Pr |
+rm uke
+iv Sa
+
+[Image 8]  690×154px  (PNG)
+OCR:
+ee
+
+[Image 9]  92×61px  (PNG)
+[No text detected]
+
+[Image 10]  691×378px  (JPEG)
+OCR:
+lz
+
+[Image 11]  91×56px  (PNG)
+OCR:
+fPrilyety Fy] ¢ 3
+id Vay Hal 4
+f yf a
+ae wl ny ;
+
+MOT
+
+[Image 12]  852×600px  (JPEG)
+OCR:
+Step-by-Step Explanation
+(a) Station A wants to send data
+e Asenses the channel using CSMA (Carrier Sense Multiple Access).
+e If the channel is idle, It sends a short RTS (Request to Send) message to the Access Point (AP).
+(b) Possible RTS Collision
+e If Station B also sends an RTS at the same time, their RTS frames collide.
+e Since RTS frames are short, the wasted time due to collision is small.
+e Both stations will later retry after a random backoff time.
+(c) Access Point (AP) responds
+e When the AP successfully receives RTS(A), it replies with a CTS (Clear to Send) message.
+e The CTS is broadcasted to all nearby stations.
+(d) CTS Broadcast Effect
+e When other stations (like B) hear the CTS:
+e They understand that Station A has reserved the channel for a specific time.
+e They defer their transmissions until A finishes (es shown by “defer” in the diagram).
+(e) Data Transmission
+e After receiving the CTS, Station A sends the actual DATA frame to the AP.
+(f) Acknowledgment (ACK)
+e Once the AP receives the data correctly, it sends back an ACK (Acknowledgment) to A.
+e This confirms successful reception.
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  9 words
+────────────────────────────────────────────────────────────
+AP
+A
+B
+time
+DATA (A)
+reservation collision
+defer
+
+── Images on page 40 (12 found) ──
+
+[Image 2]  71×66px  (PNG)
+[No text detected]
+
+[Image 5]  788×172px  (PNG)
+OCR:
+ae
+
+[Image 6]  92×61px  (PNG)
+OCR:
+Ho nn
+—t ite i Aly
+nS | “i fs |
+
+yw OS
+
+[Image 7]  90×53px  (PNG)
+OCR:
+e/a RY
+ASPEN vt
+Sa >
+6 Hl nll (Pr |
+rm uke
+iv Sa
+
+[Image 8]  690×154px  (PNG)
+OCR:
+ee
+
+[Image 9]  92×61px  (PNG)
+[No text detected]
+
+[Image 10]  691×378px  (JPEG)
+OCR:
+lz
+
+[Image 11]  91×56px  (PNG)
+OCR:
+fPrilyety Fy] ¢ 3
+id Vay Hal 4
+f yf a
+ae wl ny ;
+
+MOT
+
+[Image 12]  784×608px  (JPEG)
+OCR:
+Summary of the RTS/CTS Process
+Step Frame Type Sent By Purpose
+1 RTS Sender (A) Request to reserve channel
+2 cTs Receiver (AP) Grants permission and notifies all stations
+3 DATA Sender (A) Transmits data frame
+4 ACK Receiver (AP) Confirms successful reception
+Advantages of RTS/CTS
+Reduces collisions of long data frames (only short RTS frames may collide).
+Solves the hidden station problem by allowing all nearby nodes to know when the medium is reserved.
+Increases reliability of communication in congested wireless networks.
+When RTS/CTS is Used
+e Typically, RTS/CTS is used only for large frames.
+e Forshort frames, Wi-Fi transmits data directly to reduce overhead.
+
+────────────────────────────────────────────────────────────
+PAGE 41  |  87 words
+────────────────────────────────────────────────────────────
+“Taking Turns” Multiple Access
+Protocols
+Channel partitioning MAC protocols:
+Examples: FDMA, TDMA, CDMA
+Idea: Divide the communication channel into
+fixed portions — by frequency, time, or code —
+and give each node its own “slice.”
+Pros:Very efficient and fair when many nodes
+are active (high load).No collisions — everyone 
+has a reserved share.
+Cons:Inefficient at low load:Even if only one
+node is active, it can use only its 1/N share of 
+the bandwidth (the rest is idle).Also, fixed 
+scheduling causes unnecessary delays before a 
+node can transmit.
+
+────────────────────────────────────────────────────────────
+PAGE 42  |  62 words
+────────────────────────────────────────────────────────────
+“Taking Turns” Multiple Access
+Protocols
+Random access MAC protocols
+Examples: ALOHA, CSMA/CD, CSMA/CA
+Idea:Nodes compete for access — transmit
+whenever they have data.
+Pros:Highly efficient at low load — when few nodes
+are active, one node can use the entire channel 
+freely.
+Cons:Inefficient at high load — as more nodes try to
+send, collisions become frequent, wasting bandwidth 
+and time for retransmissions.
+
+────────────────────────────────────────────────────────────
+PAGE 43  |  84 words
+────────────────────────────────────────────────────────────
+“Taking Turns” Multiple Access
+Protocols
+Controlled access protocols: “taking turns” protocols look
+for best of both worlds!
+-
+Idea:Nodes take turns transmitting in an orderly 
+fashion.
+-
+Each node gets the channel when it’s its turn.
+-
+Goal:To combine the advantages of the other two 
+types:Avoid collisions like in channel partitioning. 
+Adapt to load — active nodes can take longer turns, so 
+the channel isn’t wasted when few nodes are active.
+-
+Result:A balance between efficiency (under low load) 
+and fairness (under high load).
+
+────────────────────────────────────────────────────────────
+PAGE 44  |  34 words
+────────────────────────────────────────────────────────────
+“Taking Turns” MAC protocols
+Polling:
+master node
+“invites” slave nodes 
+to transmit in turn
+typically used with
+“dumb” slave
+devices
+concerns:
+polling overhead
+latency
+single point of
+failure 
+(master)
+poll
+master
+slaves
+data
+data
+
+── Images on page 44 (1 found) ──
+
+[Image 1]  583×430px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 45  |  5 words
+────────────────────────────────────────────────────────────
+poll
+master
+slaves
+data
+data
+
+── Images on page 45 (2 found) ──
+
+[Image 1]  583×430px  (PNG)
+[No text detected]
+
+[Image 2]  721×383px  (PNG)
+OCR:
+How It Works (Step by Step)
+
+Step [ij - Master polls a device
+
+e The master (or central controller) sends a poll message to a specific slave (e.g., Station 1).
+
+— Message: “Station 1, do you have data to send?”
+
+Step jj - Slave responds
+
+e If the polled device has data, it transmits the data frame back to the master.
+
+e = If it has no data, it simply replies “no data” or remains silent.
+Step [Ej - Master moves to next device
+
+e After the response (or timeout), the master polls the next station (Station 2, then Station 3, and so on).
+Step [Ej - cycle repeats
+
+e The process continues cyclically, ensuring all stations get a chance to transmit.
+
+────────────────────────────────────────────────────────────
+PAGE 46  |  5 words
+────────────────────────────────────────────────────────────
+poll
+master
+slaves
+data
+data
+
+── Images on page 46 (2 found) ──
+
+[Image 1]  583×430px  (PNG)
+[No text detected]
+
+[Image 2]  751×353px  (PNG)
+OCR:
+4. Advantages
+No collisions — only one device transmits at a time.
+Predictable delay — transmission order is known.
+Efficient for low traffic from each device.
+5. Disadvantages / Concerns
+Issue Explanation
+Polling overhead Extra time is needed for control (poll) messages, which reduces efficiency.
+Latency Each station must wait its turn to be polled, even if the channel is free.
+Single point of failure If the master node fails, the entire network stops functioning.
+
+────────────────────────────────────────────────────────────
+PAGE 47  |  32 words
+────────────────────────────────────────────────────────────
+“Taking Turns” MAC protocols
+Token passing:
+control token passed
+from one node to next 
+sequentially.
+token message
+concerns:
+token overhead
+latency
+single point of failure
+(token)
+T
+data
+(nothing 
+to send)
+T
+
+── Images on page 47 (4 found) ──
+
+[Image 1]  108×91px  (PNG)
+[No text detected]
+
+[Image 2]  107×91px  (PNG)
+[No text detected]
+
+[Image 3]  108×90px  (PNG)
+[No text detected]
+
+[Image 4]  107×90px  (PNG)
+[No text detected]
+
+────────────────────────────────────────────────────────────
+PAGE 48  |  6 words
+────────────────────────────────────────────────────────────
+T
+data
+(nothing 
+to send)
+T
+
+── Images on page 48 (5 found) ──
+
+[Image 1]  108×91px  (PNG)
+[No text detected]
+
+[Image 2]  107×91px  (PNG)
+[No text detected]
+
+[Image 3]  108×90px  (PNG)
+[No text detected]
+
+[Image 4]  107×90px  (PNG)
+[No text detected]
+
+[Image 5]  817×557px  (PNG)
+OCR:
+Token Passing (in Token Ring or Token Bus Networks)
+In a token passing network, a special control frame called a token circulates around the network.
+Only the device that possesses the token is allowed to send data.
+How it works:
+1. The token moves from one node to the next in a fixed, sequential order.
+2. When a node has no data to send, it simply passes the token to the next node.
+3. When a node wants to transmit data, it:
+e Waits until it receives the token
+e Grabs the token and sends its data frame
+e After finishing, it releases the token back into the network so others can use it.
+Key Terms
+Term Meaning
+Token A special small control packet that grants permission to transmit.
+Token Message The act of sending/forwarding the token and the data frame while the node has
+permission.
+
+────────────────────────────────────────────────────────────
+PAGE 49  |  6 words
+────────────────────────────────────────────────────────────
+T
+data
+(nothing 
+to send)
+T
+
+── Images on page 49 (5 found) ──
+
+[Image 1]  108×91px  (PNG)
+[No text detected]
+
+[Image 2]  107×91px  (PNG)
+[No text detected]
+
+[Image 3]  108×90px  (PNG)
+[No text detected]
+
+[Image 4]  107×90px  (PNG)
+[No text detected]
+
+[Image 5]  811×461px  (PNG)
+OCR:
+Concerns (Disadvantages / Limitations)
+Issue Explanation
+Token Overhead The network spends time passing the token even when no one needs to transmit,
+which wastes time and bandwidth.
+Latency A node must wait for the token to arrive before it can send data, causing delays,
+especially in large networks.
+Single Point of Failure (the Token) If the token is lost, damaged, or corrupted, the entire network stops working
+until the token is reconstructed.
+In Summary
+e Token passing ensures orderly access to the network — no collisions.
+e But it introduces delay and dependency on the token.
+
+────────────────────────────────────────────────────────────
+PAGE 50  |  4 words
+────────────────────────────────────────────────────────────
+MAC Addresses and ARP
+
+── Images on page 50 (1 found) ──
+
+[Image 1]  1123×757px  (PNG)
+OCR:
+@ IP Address (32-bit or 128-bit)
+e This is the network-layer logical address.
+e It is used to deliver a datagram (packet) from the source network to the destination IP subnet (i-e.,
+across the whole Internet).
+e Two versions exist:
+e |Pv4: 32-bit address
+e IPv6: 128-bit address
+Summary: IP addresses are used for routing between networks.
+@ MAC Address (Media Access Control)
+e Also called LAN address, physical address, or Ethernet address.
+e Length: 48 bits in most Ethernet LANs.
+e Purpose: To deliver a frame from one network interface to another within the same local network
+(same LAN segment).
+e Usually burned into the Network Interface Card (NIC) at the factory.
+e Sometimes can be changed by software (MAC spoofing).
+Summary: MAC addresses work inside a local network.
+
+────────────────────────────────────────────────────────────
+PAGE 51  |  4 words
+────────────────────────────────────────────────────────────
+MAC Addresses and ARP
+
+── Images on page 51 (1 found) ──
+
+[Image 1]  1071×739px  (PNG)
+OCR:
+@ How ARP Fits Between IP and MAC
+ARP (Address Resolution Protocol) is used because:
+e The network layer uses IP addresses.
+e The data link layer uses MAC addresses.
+e Tosend a frame to a host in the same network, a device must know the MAC address corresponding to
+the destination IP address.
+Function of ARP:
+e Given an IP address > ARP returns the matching MAC address.
+e This mapping is stored temporarily in the ARP cache.
+Putting It All Together
+1. You want to send a packet to another device.
+2. You know its IP address (logical address).
+3. ARP looks up (or discovers) the MAC address for that IP.
+4. The frame is transmitted using the MAC address within the LAN.
+5. Routing uses IP addresses to cross networks;
+delivery inside the LAN uses MAC addresses.
+
+────────────────────────────────────────────────────────────
+PAGE 52  |  29 words
+────────────────────────────────────────────────────────────
+Network Switch vs. Router
+router
+switch
+- Switches create a networks,
+- Routers connect networks.
+- A router links computers to the Internet, so users can share the connection.
+
+── Images on page 52 (1 found) ──
+
+[Image 1]  748×338px  (JPEG)
+OCR:
+192.168.1.254/24 192.168.2.254/24
+——¥
+[be] a [we | — [we | —z [me =
+IP 192.168.1.1 IP 192.168.1.2 IP 192.168.2.1 IP 192.168.2.2
+SM 255.255,255.0 SM 255.255.255.0 SM 255.255.255.0 SM 255.255.255.0
+DG 192.168.1.254 DG 192.168.1.254 DG 192.168.2.254 DG 192.168.2.254
+00-16-76-00-00-01 00-16-76-00-00-02 00-16-76-00-00-03 00-16-76-00-00-04
+
+────────────────────────────────────────────────────────────
+PAGE 53  |  2 words
+────────────────────────────────────────────────────────────
+router
+switch
+
+── Images on page 53 (2 found) ──
+
+[Image 1]  748×338px  (JPEG)
+OCR:
+192.168.1.254/24 192.168.2.254/24
+——¥
+[be] a [we | — [we | —z [me =
+IP 192.168.1.1 IP 192.168.1.2 IP 192.168.2.1 IP 192.168.2.2
+SM 255.255,255.0 SM 255.255.255.0 SM 255.255.255.0 SM 255.255.255.0
+DG 192.168.1.254 DG 192.168.1.254 DG 192.168.2.254 DG 192.168.2.254
+00-16-76-00-00-01 00-16-76-00-00-02 00-16-76-00-00-03 00-16-76-00-00-04
+
+[Image 2]  728×409px  (PNG)
+OCR:
+1. What a Switch Does
+A switch works inside a local network (LAN).
+It connects devices such as PCs, printers, and servers so they can communicate with each other.
+In diagram:
+e The left switch connects WK1 and WK2.
+e The right switch connects WK3 and WK4.
+A switch:
+e Forwards frames using MAC addresses.
+e Does not provide Internet access.
+e Does not connect different networks.
+So WK1 can talk to WK2 through the switch because they are in the same network (192.168.1.0/24).
+Similarly, WK3 can talk to WK4 because they are in the 192.168.2.0/24 network.
+
+────────────────────────────────────────────────────────────
+PAGE 54  |  2 words
+────────────────────────────────────────────────────────────
+router
+switch
+
+── Images on page 54 (2 found) ──
+
+[Image 1]  748×338px  (JPEG)
+OCR:
+192.168.1.254/24 192.168.2.254/24
+——¥
+[be] a [we | — [we | —z [me =
+IP 192.168.1.1 IP 192.168.1.2 IP 192.168.2.1 IP 192.168.2.2
+SM 255.255,255.0 SM 255.255.255.0 SM 255.255.255.0 SM 255.255.255.0
+DG 192.168.1.254 DG 192.168.1.254 DG 192.168.2.254 DG 192.168.2.254
+00-16-76-00-00-01 00-16-76-00-00-02 00-16-76-00-00-03 00-16-76-00-00-04
+
+[Image 2]  727×488px  (PNG)
+OCR:
+2. What a Router Does
+A router connects different networks
+e Network 192.168.1.0/24 (WK1 & WK2)
+e Network 192.168.2.0/24 (WK3 & WK4)
+The router has:
+e Interface 192.168.1.254 to connect to the 192.168.1.x network
+e Interface 192.168.2.254 to connect to the 192.168.2.x network
+A router:
+e Forwards packets using IP addresses.
+e Connects networks that use different subnets.
+e Provides default gateway for devices in each LAN.
+In your diagram:
+e WK1 & WK2 use Default Gateway = 192.168.1.254
+e WK3 & WK4 use Default Gateway = 192.168.2.254
+Without the router, a PC in network 192.168.1.x could not communicate with a PC in 192.168.2.x.
+
+────────────────────────────────────────────────────────────
+PAGE 55  |  2 words
+────────────────────────────────────────────────────────────
+router
+switch
+
+── Images on page 55 (2 found) ──
+
+[Image 1]  748×338px  (JPEG)
+OCR:
+192.168.1.254/24 192.168.2.254/24
+——¥
+[be] a [we | — [we | —z [me =
+IP 192.168.1.1 IP 192.168.1.2 IP 192.168.2.1 IP 192.168.2.2
+SM 255.255,255.0 SM 255.255.255.0 SM 255.255.255.0 SM 255.255.255.0
+DG 192.168.1.254 DG 192.168.1.254 DG 192.168.2.254 DG 192.168.2.254
+00-16-76-00-00-01 00-16-76-00-00-02 00-16-76-00-00-03 00-16-76-00-00-04
+
+[Image 2]  808×360px  (PNG)
+OCR:
+Summary
+Device Purpose Works With Example in Your Diagram
+Switch Connects devices within a LAN MAC addresses Connects WK1 @ WK2 and WK3 = WK4
+Router Connects different networks and IP addresses Connects LAN 192.168.1.0 with LAN
+routes traffic 192.168.2.0
+
+4. Real-life Analogy
+
+e A switch is like rooms in a building: people inside can talk directly.
+
+e A router is like the door to the outside world: it connects one building to another.
+
+────────────────────────────────────────────────────────────
+PAGE 56  |  4 words
+────────────────────────────────────────────────────────────
+Network Switch vs. Router
+
+── Images on page 56 (2 found) ──
+
+[Image 1]  807×723px  (PNG)
+OCR:
+A typical home network usually relies on a wireless router, which is a single device that performs three main
+networking functions:
+1. Switch (Ethernet Switch)
+e This part of the wireless router allows wired devices—such as desktop computers, printers, smart TVs,
+or gaming consoles—to connect using Ethernet cables.
+e The switch lets these devices communicate with each other inside your home network.
+@® In the image: The upper-left section labeled “Ethernet Switch” connects several desktop computers using
+red cables.
+2. Router
+e The router directs data between your home network (LAN) and the Internet (WAN).
+e It chooses the best path for data to travel and ensures that each device gets the correct incoming data.
+e It also provides security functions like NAT (Network Address Translation) and firewall protection.
+@ In the image: The section labeled “Router” connects to the modem, which links to the Internet.
+3. Access Point (Wi-Fi AP)
+e The access point portion of the device creates the wireless network (Wi-Fi).
+e This allows laptops, smartphones, tablets, and other wireless devices to connect without cables.
+@ In the image: The bottom part labeled “Access Point” emits Wi-Fi signals (yellow rings), forming the
+Wireless LAN (Wi-Fi hotspot).
+
+[Image 2]  430×610px  (JPEG)
+OCR:
+Home Network
+A home network typically uses a
+wireless router which comprises a switch,
+router and access point in one box.
+The wireless router and modem
+make up the network infrastructure.
+Wired LAN
+™~ _. ia ‘2 v
+“3 ’ = Ethernet} Router. ~@able, DSL FIOS
+pSvieein B| ‘or analog modem.
+Wireless
+Router
+SS
+1 ——
+~~ 1 x
+P 1 : Sy K
+y » > y ¥ . ts, yy
+_— a = > a , F
+Wireless LAN
+(Wi-Fi Hotspot)
+
+────────────────────────────────────────────────────────────
+PAGE 57  |  110 words
+────────────────────────────────────────────────────────────
+Modem + Wireless Router = Home 
+Network Infrastructure
+•The modem connects your home to the 
+Internet using DSL, cable, fiber, or analog. 
+It takes the signal coming from your ISP 
+(through cable, DSL, fiber, etc.) and 
+converts it into digital data your home 
+devices can use.
+•The wireless router distributes that Internet 
+connection to all devices—wired and 
+wireless—in the home.
+Together, these two devices form the 
+network infrastructure that allows all your 
+home devices to communicate and access 
+the Internet.
+In summary:
+•The modem connects you to the Internet.
+•The router manages and distributes that 
+connection inside your home.
+•The switch and access point enable wired 
+and wireless connections respectively.
+
+── Images on page 57 (1 found) ──
+
+[Image 1]  430×610px  (JPEG)
+OCR:
+Home Network
+A home network typically uses a
+wireless router which comprises a switch,
+router and access point in one box.
+The wireless router and modem
+make up the network infrastructure.
+Wired LAN
+™~ _. ia ‘2 v
+“3 ’ = Ethernet} Router. ~@able, DSL FIOS
+pSvieein B| ‘or analog modem.
+Wireless
+Router
+SS
+1 ——
+~~ 1 x
+P 1 : Sy K
+y » > y ¥ . ts, yy
+_— a = > a , F
+Wireless LAN
+(Wi-Fi Hotspot)
+
+────────────────────────────────────────────────────────────
+PAGE 58  |  29 words
+────────────────────────────────────────────────────────────
+LAN Addresses and Address Resolution Protocol (ARP)
+Each adapter on LAN has
+unique physical address
+Broadcast address = 
+FF-FF-FF-FF-FF-FF
+= adapter
+1A-2F-BB-76-09-AD
+58-23-D7-FA-20-B0
+0C-C4-11-6F-E3-98
+71-65-F7-2B-08-53
+LAN
+(wired or 
+wireless)
+
+── Images on page 58 (4 found) ──
+
+[Image 1]  773×898px  (PNG)
+OCR:
+ib
+
+[Image 2]  335×150px  (PNG)
+OCR:
+gi § }
+gl D
+
+[Image 3]  684×192px  (PNG)
+OCR:
+Broadcast Address = FF-FF-FF-FF-FF-FF
+e In Ethernet (LAN), the broadcast MAC address is FF-FF-FF-FF-FF-FF.
+e When a frame is sent to this address, every device on the LAN receives and processes it.
+e This is used for protocols like ARP (Address Resolution Protocol), where a device asks:
+“Who has this IP address?”
+and all devices listen.
+
+[Image 4]  651×135px  (PNG)
+OCR:
+Each Adapter on a LAN Has a Unique Physical Address (MAC Address)
+e Every network interface card (NIC) has a unique MAC address.
+e This is a 48-bit hardware address “burned in” by the manufacturer.
+e Itidentifies the device within the local network (LAN).
+
+────────────────────────────────────────────────────────────
+PAGE 59  |  25 words
+────────────────────────────────────────────────────────────
+LAN Address (more)
+MAC address allocation administered by IEEE
+(Institute of Electrical and Electronics Engineers)
+Manufacturer buys portion of MAC address space (to
+assure uniqueness)
+
+── Images on page 59 (1 found) ──
+
+[Image 1]  469×379px  (JPEG)
+OCR:
+Analogy
+e MAC Address (Physical Address)
+Gp Like a Social Security Number
+¢ Globally unique
+e Assigned once and rarely changes
+e Identifies the device itself
+e IP Address (Logical Address)
+cp Like a postal address
+¢ Based on where you are located in the network
+e Can change when you move to another network
+e Used for delivering data across the Internet
+
+────────────────────────────────────────────────────────────
+PAGE 60  |  3 words
+────────────────────────────────────────────────────────────
+LAN Address (more)
+
+── Images on page 60 (1 found) ──
+
+[Image 1]  709×397px  (PNG)
+OCR:
+MAC Address Is a Flat Address — Portable
+e Flat addressing means the address has no hierarchy or structure for location.
+e If you take your network card and move it to another LAN, the MAC address stays the same.
+e Therefore:
+MAC address — portable (location-independent).
+IP Address Is Hierarchical — Not Portable
+e IP addresses include network and host portions (e.g., 192.168.1.x).
+e They depend on the subnet the device is connected to.
+e When you move to a different LAN or subnet, your IP address must change.
+e Therefore:
+IP address — not portable (location-dependent).
+
+────────────────────────────────────────────────────────────
+PAGE 61  |  74 words
+────────────────────────────────────────────────────────────
+ARP: Address Resolution Protocol
+Question: how to determine
+MAC address of B 
+knowing B’s IP address?
+58-23-D7-FA-20-B0
+0C-C4-11-6F-E3-98
+71-65-F7-2B-08-53
+LAN
+137.196.7.23
+137.196.7.78
+1A-2F-BB-76-09-AD
+137.196.7.14
+137.196.7.88
+-On a Local Area Network 
+(LAN), devices communicate 
+using MAC addresses at the 
+data-link layer.
+-But applications typically use 
+IP addresses. So if host A 
+wants to send a packet to host 
+B, A must first find out B’s 
+MAC address. This is done 
+using ARP (Address Resolution 
+Protocol).
+
+── Images on page 61 (1 found) ──
+
+[Image 1]  755×668px  (PNG)
+OCR:
+1 hal
+SS
+i= CD
+|
+
+────────────────────────────────────────────────────────────
+PAGE 62  |  30 words
+────────────────────────────────────────────────────────────
+58-23-D7-FA-20-B0
+0C-C4-11-6F-E3-98
+71-65-F7-2B-08-53
+LAN
+137.196.7.23
+137.196.7.78
+1A-2F-BB-76-09-AD
+137.196.7.14
+137.196.7.88
+A
+wants
+to
+send
+datagram
+to
+B,
+and
+B’s MAC address not
+in A’s ARP table.
+ARP protocol: Same
+LAN (network)
+
+── Images on page 62 (2 found) ──
+
+[Image 1]  755×668px  (PNG)
+OCR:
+1 hal
+SS
+i= CD
+|
+
+[Image 2]  594×550px  (PNG)
+OCR:
+Step-by-Step Process (ARP Operation)
+1. A checks its ARP table
+Host A looks in its ARP table for an existing entry:
+e If it finds a mapping (B’s IP > B’s MAC), it can send the frame immediately.
+e Ifo entry exists, ARP must be used to find the MAC address.
+Each ARP table entry contains:
+css
+<IP address, MAC address, TTL>
+e TTL = Time To Live (how long before the entry expires, usually ~20 minutes)
+2. A broadcasts an ARP Request
+A sends an ARP Request frame to the entire LAN:
+e Destination MAC address: FF-FF-FF-FF-FF-FF (broadcast)
+e¢ Content of ARP Request:
+“Who has IP address of B? Tell A.”
+Every device on the LAN receives the ARP Request because it is a broadcast.
+
+────────────────────────────────────────────────────────────
+PAGE 63  |  9 words
+────────────────────────────────────────────────────────────
+58-23-D7-FA-20-B0
+0C-C4-11-6F-E3-98
+71-65-F7-2B-08-53
+LAN
+137.196.7.23
+137.196.7.78
+1A-2F-BB-76-09-AD
+137.196.7.14
+137.196.7.88
+
+── Images on page 63 (2 found) ──
+
+[Image 1]  755×668px  (PNG)
+OCR:
+1 hal
+SS
+i= CD
+|
+
+[Image 2]  789×602px  (PNG)
+OCR:
+3. Only B replies with an ARP Reply
+Host B sees the ARP request and recognizes its own IP address.
+B then sends back an ARP Reply:
+e This reply is unicast directly to A's MAC address.
+e Reply contains:
+“lam B. My MAC address is Pal
+4. A updates its ARP table
+A stores the newly learned mapping:
+css
+B’s IP + B’s MAC
+This entry stays in A’s ARP table until it times out after the TTL expires, unless used again (which refreshes it).
+This timed-out behavior is called soft state, meaning:
+e Information is kept only temporarily.
+e If it becomes stale, it disappears automatically.
+5. A can now send data to B
+Now that A knows B’s MAC address, it can encapsulate the IP datagram in an Ethernet frame and send it
+directly to B.
+
+────────────────────────────────────────────────────────────
+PAGE 64  |  5 words
+────────────────────────────────────────────────────────────
+ARP protocol: Same LAN (network)
+
+── Images on page 64 (1 found) ──
+
+[Image 1]  803×485px  (PNG)
+OCR:
+Why ARP is “Plug-and-Play”
+e No manual configuration is needed.
+e ARP tables are built automatically as devices communicate.
+e Entries refresh themselves as needed.
+e Works transparently without administrator intervention.
+Summary
+To determine B's MAC address from B's IP address:
+1. A checks its ARP table for B's entry.
+2. If missing, A broadcasts an ARP Request.
+3. B responds with an ARP Reply containing its MAC address.
+4. Astores this mapping in its ARP table (with a TTL).
+5. A.uses B’s MAC address to send Ethernet frames.
+This is exactly what the diagram represents: hosts connected to a LAN learning each other's MAC addresses
+using ARP.
+
+────────────────────────────────────────────────────────────
+PAGE 65  |  47 words
+────────────────────────────────────────────────────────────
+Addressing: routing to another LAN
+222.222.222.220
+111.111.111.110
+R
+E6-E9-00-17-BB-4B
+1A-23-F9-CD-06-9B
+CC-49-DE-D0-AB-7D
+111.111.111.112
+111.111.111.111
+A
+74-29-9C-E8-FF-55
+222.222.222.221
+88-B2-2F-54-1A-0F
+222.222.222.222
+B
+49-BD-D2-C7-56-2A
+walkthrough: send datagram from A to B via R
+assume A knows B’s IP address
+two ARP tables in router R, one for each IP
+network (LAN)
+
+── Images on page 65 (1 found) ──
+
+[Image 1]  1451×485px  (JPEG)
+OCR:
+a7
+ce
+ni (7
+>
+
+────────────────────────────────────────────────────────────
+PAGE 66  |  98 words
+────────────────────────────────────────────────────────────
+A creates IP datagram with source A, destination B
+A uses ARP to get R’s MAC address for 111.111.111.110
+A creates link-layer frame with R's MAC address as dest,
+frame contains A-to-B IP datagram
+A’s NIC sends frame
+R’s NIC receives frame
+R removes IP datagram from Ethernet frame, sees its
+destined to B
+R uses ARP to get B’s MAC address
+R creates frame containing A-to-B IP datagram sends to B
+222.222.222.220
+111.111.111.110
+R
+E6-E9-00-17-BB-4B
+1A-23-F9-CD-06-9B
+CC-49-DE-D0-AB-7D
+111.111.111.112
+74-29-9C-E8-FF-55
+A
+111.111.111.111
+222.222.222.221
+88-B2-2F-54-1A-0F
+222.222.222.222
+B
+49-BD-D2-C7-56-2A
+This is a really important
+example – make sure you
+understand!
+
+── Images on page 66 (1 found) ──
+
+[Image 1]  1395×453px  (JPEG)
+OCR:
+) maf(D
+mee
+g(C.D =
+‘=
+(bm
+
+────────────────────────────────────────────────────────────
+PAGE 67  |  15 words
+────────────────────────────────────────────────────────────
+222.222.222.220
+111.111.111.110
+R
+E6-E9-00-17-BB-4B
+1A-23-F9-CD-06-9B
+CC-49-DE-D0-AB-7D
+111.111.111.112
+111.111.111.111
+A
+74-29-9C-E8-FF-55
+222.222.222.221
+88-B2-2F-54-1A-0F
+222.222.222.222
+B
+49-BD-D2-C7-56-2A
+
+── Images on page 67 (2 found) ──
+
+[Image 1]  643×677px  (PNG)
+OCR:
+1. Network Structure Overview
+The diagram shows two local area networks (LANs):
+
+e Left LAN: Contains host A and others connected to a switch or hub.
+
+e Right LAN: Contains host B and others.
+
+e Ris a router connecting both LANs.
+2. Initial Conditions
+
+e Host A wants to send an IP datagram to host B.
+
+e Aknows B's IP address, but B is on a different network.
+
+e Each LAN has its own network address (e.g., Net1 for A's LAN, Net2 for B’s LAN).
+3. Determining Where to Send the Datagram
+When A checks the destination IP (B's IP):
+
+e It compares B's network prefix with its own.
+
+e Since they are different, A realizes B is on another network.
+
+e Therefore, A must send the datagram to its default gateway — the router R on its local network.
+4. Resolving Router’s MAC Address (ARP)
+To send the datagram to R, A needs R’s MAC address:
+
+1. A checks its ARP table for the MAC address of the router interface on its LAN.
+
+2. If not found, A sends an ARP request: “Who has [R’s IP]? Tell A.”
+
+3. R responds with its MAC address.
+
+4. A saves this info in its ARP table.
+
+[Image 2]  1451×485px  (JPEG)
+OCR:
+a7
+ce
+ni (7
+>
+
+────────────────────────────────────────────────────────────
+PAGE 68  |  15 words
+────────────────────────────────────────────────────────────
+222.222.222.220
+111.111.111.110
+R
+E6-E9-00-17-BB-4B
+1A-23-F9-CD-06-9B
+CC-49-DE-D0-AB-7D
+111.111.111.112
+111.111.111.111
+A
+74-29-9C-E8-FF-55
+222.222.222.221
+88-B2-2F-54-1A-0F
+222.222.222.222
+B
+49-BD-D2-C7-56-2A
+
+── Images on page 68 (2 found) ──
+
+[Image 1]  557×867px  (PNG)
+OCR:
+5. Sending the Datagram to the Router
+e Acreates the IP datagram with:
+e Source IP = A's IP
+© Destination IP = B's IP
+e Aencapsulates it in an Ethernet frame:
+© Source MAC = A’s MAC
+© Destination MAC = R's MAC
+e Asends the frame onto its LAN.
+6. Router R Receives and Forwards
+e R receives the frame, removes the Ethernet header, and examines the IP datagram.
+e R checks its routing table to find the next hop for the destination IP (B).
+e It determines that B is on its other connected LAN.
+7. Router Prepares to Send to B
+Before forwarding, R must know B’s MAC address on that network:
+1. R checks its ARP table for B's MAC.
+2. If not found, R sends an ARP request on B’s LAN: “Who has [B’s IP]? Tell R.”
+3. B replies with its MAC address.
+4. R stores it and proceeds.
+8. Router Sends the Datagram to B
+e Rencapsulates the same IP datagram (unchanged) in a new Ethernet frame:
+e Source MAC = R's outgoing interface MAC
+© Destination MAC = B’s MAC
+eR transmits the frame onto B’s LAN.
+9. Host B Receives the Datagram
+e Breceives the frame, checks the MAC address (matches its own), and accepts it.
+© It removes the Ethernet header and passes the I’ |, 1tagram up the network stack.
+e The datagram is delivered to the appropriate transport layer protocol (e.g., TCP/UDP).
+
+[Image 2]  1451×485px  (JPEG)
+OCR:
+a7
+ce
+ni (7
+>
+
+────────────────────────────────────────────────────────────
+PAGE 69  |  15 words
+────────────────────────────────────────────────────────────
+222.222.222.220
+111.111.111.110
+R
+E6-E9-00-17-BB-4B
+1A-23-F9-CD-06-9B
+CC-49-DE-D0-AB-7D
+111.111.111.112
+111.111.111.111
+A
+74-29-9C-E8-FF-55
+222.222.222.221
+88-B2-2F-54-1A-0F
+222.222.222.222
+B
+49-BD-D2-C7-56-2A
+
+── Images on page 69 (2 found) ──
+
+[Image 1]  624×360px  (PNG)
+OCR:
+Summary
+
+Step Action Source/Destination at Each Layer
+1 A determines B is on another network =_
+2 Asends datagram to router R IP: AB, MAC: A+R
+3 R routes datagram to B’s LAN IP: A — B, MAC: R > B
+4 B receives the datagram _
+In short:
+
+Host A — Router R — Host B
+
+IP header remains the same; Ethernet headers change at each hop.
+
+[Image 2]  1451×485px  (JPEG)
+OCR:
+a7
+ce
+ni (7
+>
+
+────────────────────────────────────────────────────────────
+PAGE 70  |  19 words
+────────────────────────────────────────────────────────────
+Lecture-related Questions
+Differentiate between logical and physical
+(MAC) addresses ?
+Why is there a need to ARP protocol ?
+
+────────────────────────────────────────────────────────────
+PAGE 71  |  26 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+Continue the Data Link Layer
+Multiple Access Links and Protocols
+Addressing
+Material to be covered next lecture
+Introduction to the Network Layer

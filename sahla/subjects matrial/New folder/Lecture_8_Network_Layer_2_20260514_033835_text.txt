@@ -1,0 +1,2104 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_8_Network_Layer_2.pdf
+Date   : 2026-05-14 03:38:35.749233
+Pages  : 58 / 58
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  5 words
+────────────────────────────────────────────────────────────
+Lecture 8
+Network Layer (cont’d)
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  33 words
+────────────────────────────────────────────────────────────
+Agenda
+The Network Layer (cont’d)
+What is inside a router
+Internet Protocol (IP)
+• IPv4 fragmentation and addressing
+IP Address Classes and Subnets
+Network Address Translation
+IPv6 and Differences with IPv4
+IP Tunneling
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  44 words
+────────────────────────────────────────────────────────────
+Two Key Network-Layer Functions (Recall)
+forwarding: move
+packets from router’s 
+input to appropriate 
+router output
+routing: determine
+route taken by 
+packets from source 
+to dest.
+routing algorithms
+analogy:
+routing: process of
+planning trip from 
+source to dest
+forwarding: process
+of getting through 
+single interchange
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  17 words
+────────────────────────────────────────────────────────────
+The Main Goal of the Network Layer
+The delivery of data packets to the intended final destination
+
+── Images on page 4 (3 found) ──
+
+[Image 1]  583×252px  (JPEG)
+OCR:
+Host Host Host (source)
+a Direct delivery C3 =| Oo
+— (> Direct
+delivery
+>< Indirect delivery > Router
+< ee
+To the rest Direct delivery
+of the Internet ” a
+Host (destination)
+a. Direct delivery b. Indirect and direct delivery
+
+[Image 2]  665×121px  (PNG)
+OCR:
+(a) Direct Delivery
+e Source host and destination host are on the same network (same LAN/subnet).
+e The packet is delivered directly from one host to the other without passing through a router.
+e Arouter is only used for traffic going outside the local network (to the Internet).
+
+[Image 3]  569×117px  (PNG)
+OCR:
+(b) Indirect + Direct Delivery
+e Source and destination are on different networks (different subnets).
+e The source host sends the packet indirectly to the router (its default gateway).
+e The router then forwards it directly to the destination host’s network.
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  754×332px  (PNG)
+OCR:
+Comparison Table: Direct vs. Indirect Delivery
+Feature Direct Delivery Indirect Delivery
+Same network? Yes (same LAN/subnet) No (different LANs/subnets)
+Router involved? Not needed Required (default gateway)
+Delivery Path Host + Host Host — Router — Host
+ARP usage Host uses ARP to find destination Host uses ARP to find router's MAC
+MAC
+Example PC1 sending to PC2 in same LAN PC sending to a server on another network or the
+Internet
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  25 words
+────────────────────────────────────────────────────────────
+Router Architecture Overview
+Router Architecture Overview
+Two key router functions:
+• run routing algorithms/protocol (RIP, OSPF, BGP)
+• forwarding datagrams from incoming to outgoing link
+
+── Images on page 6 (1 found) ──
+
+[Image 1]  1019×651px  (PNG)
+OCR:
+Input port output port
+
+e switching e
+
+e e
+
+® @
+input port fabric output port
+
+a (H4I>}
+routing
+processor
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 7 (2 found) ──
+
+[Image 1]  1019×651px  (PNG)
+OCR:
+Input port output port
+
+e switching e
+
+e e
+
+® @
+input port fabric output port
+
+a (H4I>}
+routing
+processor
+
+[Image 2]  520×576px  (JPEG)
+OCR:
+Router Architecture Overview
+A router performs two primary functions:
+1. Routing (Control Plane)
+This is handled by the routing processor.
+What It Does:
+e Runs routing algorithms or protocols such as:
+e RIP (Routing Information Protocol)
+¢ OSPF (Open Shortest Path First)
+¢ BGP (Border Gateway Protocol)
+¢ Builds and maintains the routing table.
+e Determines the best path to each destination network.
+e Sends the resulting forwarding information to the input ports as a forwarding table (FIB).
+Position in Diagram:
+e The routing processor is shown at the bottom.
+e It communicates with the switching fabric to update forwarding information.
+2. Forwarding (Data Plane)
+This function moves packets from an incoming link to the correct outgoing link.
+Where It Happens:
+¢ Primarily inside input ports, switching fabric, and output ports.
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 8 (2 found) ──
+
+[Image 1]  1019×651px  (PNG)
+OCR:
+Input port output port
+
+e switching e
+
+e e
+
+® @
+input port fabric output port
+
+a (H4I>}
+routing
+processor
+
+[Image 2]  520×625px  (PNG)
+OCR:
+Components in the Diagram
+A. Input Ports
+Receive incoming packets from links.
+© Contain:
+Physical layer and link layer processing
+* Lookup / forwarding logic: determines the output port using the forwarding table supplied by the
+Touting processor.
+© Input queues: buffer packets before they enter the switching fabric.
+Flow at Input Ports (left side of diagram):
+¢ Packet arrives (cyan arrow).
+¢ Goes through input processing.
+¢ Packet is queued.
+¢ Forwarding lookup determines output port.
+¢ Packet enters switching fabric (red arrow).
+B. Switching Fabric
+The core of the router.
+Transfers packets from input ports to output ports.
+¢ Must be fast enough to avoid becoming a bottleneck.
+Types of switching fabrics
+¢ Memory-based
+¢ Bus-based
+¢ Crossbar switching
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 9 (2 found) ──
+
+[Image 1]  1019×651px  (PNG)
+OCR:
+Input port output port
+
+e switching e
+
+e e
+
+® @
+input port fabric output port
+
+a (H4I>}
+routing
+processor
+
+[Image 2]  404×475px  (PNG)
+OCR:
+C. Output Ports
+e Store packets coming from the switching fabric.
+e Perform:
+e Queueing (if output link is busy)
+e Scheduling (decides which packet to send next)
+e Physical and link layer transmission
+Flow at Output Ports (right side of diagram):
+e Packet leaves switching fabric (red arrow).
+e Enters output queue.
+e Is transmitted onto outgoing link (cyan arrow).
+Overall Packet Flow
+1. Packet arrives at an input port.
+2. Input port performs lookup and identifies output por
+3. Packet is forwarded through the switching fabric.
+4. Packet enters the output port queue.
+5. Packet is sent out on the outgoing link.
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  46 words
+────────────────────────────────────────────────────────────
+Input Port Functions
+Decentralized switching:
+given datagram dest., lookup output port
+using forwarding table in input port 
+memory
+goal: complete input port processing at
+‘line speed’
+queuing: if datagrams arrive faster than
+forwarding rate into switch fabric
+Physical layer:
+bit-level reception
+Data link layer:
+e.g., Ethernet
+
+── Images on page 10 (1 found) ──
+
+[Image 1]  1189×569px  (PNG)
+OCR:
+lookup,
+
+: data link forwarding f | owitch
+peso Ly TT
+ermination (protocol, : fabric
+
+decapsulation) —_o_
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 11 (2 found) ──
+
+[Image 1]  1416×419px  (PNG)
+OCR:
+lookup,
+ine data link forwarding switch
+te processing
+(protocol, IRREEEE fabric
+decapsulation) q g
+
+[Image 2]  795×463px  (PNG)
+OCR:
+1. Line Termination (Physical Layer)
+Function:
+e This is where the router receives the incoming bits from the physical medium (fiber, copper, wireless).
+e It handles tasks like signal detection, bit synchronization, and converting the received signal into a
+bitstream.
+Corresponds to:
+e Physical layer (Layer 1) of the OSI model
+2. Data Link Processing (Data Link Layer)
+Function:
+e Handles Ethernet, WiFi, PPP, or other data link protocols.
+e Performs:
+e Frame decapsulation (removing Ethernet header/trailer)
+e Error checking (e.g., CRC)
+e Possibly MAC address processing
+Corresponds to:
+e Data link layer (Layer 2)
+After this step, the router now has the IP datagram extracted from the frame.
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 12 (2 found) ──
+
+[Image 1]  759×791px  (PNG)
+OCR:
+3. Lookup, Forwarding, and Queueing (Network Layer / Decentralized
+Switching)
+This block performs the core routing decision.
+Decentralized Switching
+e Each input port can independently perform the forwarding lookup.
+e The forwarding table is stored locally at the input port.
+e This avoids sending every packet to the routing processor — improving speed.
+What happens here:
+a. Lookup
+e The input port checks the destination IP address in the datagram.
+e It uses the forwarding table (FIB) stored at the input port.
+e Determines which output port the packet should go to.
+b. Forwarding
+e Prepares the packet for entry into the switching fabric.
+e Sets metadata and routing info used by the fabric.
+c. Queueing
+e If packets arrive faster than the switching fabric can accept them:
+e They are placed into an input queue.
+e Needed because high-speed links can produce bursts of packets.
+Why Decentralized Switching?
+Goal: Process packets at line speed
+e “Line speed” means the router must handle packets as fast as they arrive on the interface.
+e If lookup were done centrally (by routing processor), performance would collapse.
+e Decentralizing the lookup provides parallelism.
+
+[Image 2]  1189×569px  (PNG)
+OCR:
+lookup,
+
+: data link forwarding f | owitch
+peso Ly TT
+ermination (protocol, : fabric
+
+decapsulation) —_o_
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  5 words
+────────────────────────────────────────────────────────────
+Three Types of Switching Fabrics
+
+── Images on page 13 (1 found) ──
+
+[Image 1]  1615×1097px  (PNG)
+OCR:
+>oD mm wo i >CIL ] ir Ich
+OC, a 01) | -oOm- i Cb
+OC, “moc o0m-bmoo-
+memory bus
+>CIL_JO1-
+B
+— crossbar
+>C_IO1-
+a a
+UO CO
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 14 (2 found) ──
+
+[Image 1]  1615×1097px  (PNG)
+OCR:
+>oD mm wo i >CIL ] ir Ich
+OC, a 01) | -oOm- i Cb
+OC, “moc o0m-bmoo-
+memory bus
+>CIL_JO1-
+B
+— crossbar
+>C_IO1-
+a a
+UO CO
+
+[Image 2]  785×393px  (PNG)
+OCR:
+1. Memory Switching
+e The CPU (routing processor) copies each packet from the input port into memory, then copies it back
+out to the output port.
+e Only one packet can be moved at a time because it uses a single shared memory.
+e This method was used in early routers.
+e Limitation: Slow — switching speed limited by memory bandwidth.
+2. Bus Switching
+e All input ports share a common bus.
+e A packet is placed on the bus and every output port can listen; only the intended output port accepts it.
+e Still only one packet can traverse the bus at a time (shared medium).
+e Faster than memory-based, but still limited by the bus bandwidth.
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 15 (2 found) ──
+
+[Image 1]  1615×1097px  (PNG)
+OCR:
+>oD mm wo i >CIL ] ir Ich
+OC, a 01) | -oOm- i Cb
+OC, “moc o0m-bmoo-
+memory bus
+>CIL_JO1-
+B
+— crossbar
+>C_IO1-
+a a
+UO CO
+
+[Image 2]  729×419px  (PNG)
+OCR:
+3. Crossbar Switching
+
+e Uses an interconnection grid that allows multiple packets to be forwarded in parallel.
+
+e If inputs request different outputs, several transfers can happen simultaneously.
+
+e High-throughput and scalable; used in modern high-speed routers.
+
+e Limitation: If two inputs want the same output at the same time, one must wait.
+Summary Table
+Switching Fabric How it Works Parallel Transfers? Speed
+Memory Packet copied through CPU memory XX No Slow
+Bus Packet placed on shared bus xX No Medium
+Crossbar Matrix interconnect enabling direct input- Yes Fast / scalable
+
+output paths
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  22 words
+────────────────────────────────────────────────────────────
+Output Ports
+Buffering required when datagrams arrive from
+fabric faster than the transmission rate
+Scheduling discipline chooses among queued
+datagrams for transmission
+
+── Images on page 16 (1 found) ──
+
+[Image 1]  1023×341px  (PNG)
+OCR:
+switen queuing: data link
+buffer. processing line |
+fabric (protocol ‘nation
+management . termination
+decapsulation)
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 17 (2 found) ──
+
+[Image 1]  1023×341px  (PNG)
+OCR:
+switen queuing: data link
+buffer. processing line |
+fabric (protocol ‘nation
+management . termination
+decapsulation)
+
+[Image 2]  727×400px  (JPEG)
+OCR:
+What an Output Port Does
+It typically performs three main functions:
+1. Buffering / Queuing
+2. Data-link processing (protocol, encapsulation)
+3. Line termination / actual transmission onto the physical link
+1. Buffering: Why It’s Needed
+When packets exit the switch fabric (the internal network inside the router), they reach an output port.
+Sometimes:
+e Packets arrive faster than the outgoing link can transmit them
+e OR bursts of packets arrive simultaneously
+Since the outgoing link has a fixed transmission rate, any packets that can't be sent immediately must be
+stored temporarily in a buffer.
+Why buffering is required:
+e Prevent packet loss when output link is temporarily overloaded
+© Smooths traffic bursts
+¢ Allows fair or priority forwarding if multiple flows share the same link
+If the buffer fills up — packets get dropped (queue overflow), causing congestion.
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 18 (2 found) ──
+
+[Image 1]  1023×341px  (PNG)
+OCR:
+switen queuing: data link
+buffer. processing line |
+fabric (protocol ‘nation
+management . termination
+decapsulation)
+
+[Image 2]  757×357px  (PNG)
+OCR:
+2. Scheduling Discipline: Choosing Which Packet Goes Next
+When multiple packets are waiting in the output queue, the router must decide which one to send first. This
+is called packet scheduling.
+Different scheduling algorithms exist, for example:
+FIFO (First-In First-Out)
+e Simplest: send packets in arrival order.
+Priority Queuing
+e Higher-priority traffic (e.g., VoIP) is sent before lower-priority traffic.
+Purpose of scheduling:
+e Enforce quality-of-service (QoS) guarantees
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 19 (2 found) ──
+
+[Image 1]  1023×341px  (PNG)
+OCR:
+switen queuing: data link
+buffer. processing line |
+fabric (protocol ‘nation
+management . termination
+decapsulation)
+
+[Image 2]  697×435px  (PNG)
+OCR:
+Putting It Together with the Diagram
+The diagram shows:
+1. Queueing: buffer management
+e Incoming datagrams from the switch fabric are stored if the link is busy.
+2. Data-link processing
+e Packets undergo encapsulation/decapsulation for the outgoing interface.
+3. Line termination
+e Packet is transmitted onto the physical network.
+The scheduling discipline acts within the queueing/buffer management block to decide the order of
+transmissions when multiple packets are waiting.
+Summary
+e Packets may arrive faster than the output link can send them — need a buffer (queue).
+e When multiple packets wait, the router uses a scheduling algorithm to choose the next packet to
+transmit.
+This ensures efficient, fair, and predictable packet forwarding.
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  27 words
+────────────────────────────────────────────────────────────
+Output port queueing
+buffering when arrival rate via switch exceeds
+output line speed
+queueing (delay) and loss due to output port buffer overflow!
+This packet faces 
+delay
+
+── Images on page 20 (2 found) ──
+
+[Image 1]  400×160px  (JPEG)
+OCR:
+| Switch 7 ~ E H
+rS Fabric : = r]
+= th 4 — LP
+Output Port Contention One Pocket
+
+at Time ¢ Time Loter
+
+[Image 2]  602×58px  (PNG)
+OCR:
+three input ports send packets to the same output port:
+- Only one packet can leave per transmission cycle — The rest queue — This is contention.
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  4 words
+────────────────────────────────────────────────────────────
+This packet faces 
+delay
+
+── Images on page 21 (2 found) ──
+
+[Image 1]  400×160px  (JPEG)
+OCR:
+| Switch 7 ~ E H
+rS Fabric : = r]
+= th 4 — LP
+Output Port Contention One Pocket
+
+at Time ¢ Time Loter
+
+[Image 2]  719×473px  (PNG)
+OCR:
+The two images illustrate output port contention — a situation where multiple packets simultaneously
+want to use the same output port in a switch/router.
+Left Side: Time t (Contention)
+e Several input ports each have a packet ready to move through the switch fabric.
+e All of these packets are trying to go to the same output port.
+e The switch fabric can deliver the packets to the output port’s queue, but the output link can transmit
+only one packet per time unit.
+e Therefore, only one packet is sent out immediately.
+e The others must wait in the output queue, causing queuing delay.
+Right Side: One Packet Time Later
+e The output port has transmitted one packet.
+e Now the next packet in the queue moves forward.
+e The circled packet is the one that had to wait because it couldn't be transmitted in the previous time
+slot.
+e This waiting is the delay caused by contention.
+e The output queue now holds the remaining packets waiting their turn.
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  4 words
+────────────────────────────────────────────────────────────
+This packet faces 
+delay
+
+── Images on page 22 (2 found) ──
+
+[Image 1]  400×160px  (JPEG)
+OCR:
+| Switch 7 ~ E H
+rS Fabric : = r]
+= th 4 — LP
+Output Port Contention One Pocket
+
+at Time ¢ Time Loter
+
+[Image 2]  699×175px  (PNG)
+OCR:
+Key Idea
+When several packets arrive at the same output port at the same time:
+1. Only one can be transmitted immediately.
+2. Others must queue and experience delay.
+3. This happens even if the switch fabric itself is fast — the output link speed is the bottleneck.
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  38 words
+────────────────────────────────────────────────────────────
+The Internet Network layer
+forwarding
+table
+Routing protocols
+•path selection
+•RIP, OSPF, BGP
+IP protocol
+•addressing conventions
+•datagram format
+•packet handling conventions
+ICMP protocol
+•error reporting
+•router “signaling”
+Transport layer: TCP, UDP
+Link layer
+physical layer
+Network
+layer
+
+── Images on page 23 (1 found) ──
+
+[Image 1]  739×388px  (PNG)
+OCR:
+Component Function
+
+Routing Protocols (RIP, OSPF, BGP) Select paths through the network and build the forwarding table
+used by routers.
+
+Forwarding Table Stores next-hop decisions so packets can be quickly sent toward their
+destination.
+
+IP Protocol Handles addressing, defines the packet (datagram) format, and sets
+rules for packet forwarding.
+
+ICMP Protocol Used for error reporting and control signaling (e.g., unreachable
+host, ping).
+
+Transport Layer (TCP/UDP) Sends and receives data above the network layer.
+
+Link & Physical Layers Move packets across the local link and physical medium below the
+network layer.
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  109 words
+────────────────────────────────────────────────────────────
+IP datagram format
+32 bits
+data 
+(variable length, 
+typically a TCP 
+or UDP segment)
+header
+checksum
+32 bit source IP address
+total datagram 
+length (bytes)
+for 
+fragmentation/ 
+reassembly
+IP protocol version
+number
+header length
+(bytes) 
+“type” of data
+max number 
+remaining hops
+(decremented at
+each router)
+upper layer protocol 
+to deliver payload to
+ver head. type of
+len
+service
+16-bit identifier flgs
+length
+fragment
+offset
+time to
+upper 
+live
+layer
+32 bit destination IP address
+Options (if any)
+E.g. timestamp, 
+record route 
+taken, specify 
+list of routers 
+to visit.
+how much overhead
+with TCP?
+20 bytes of TCP
+20 bytes of IP
+= 40 bytes + app
+layer overhead
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 25 (2 found) ──
+
+[Image 1]  751×667px  (PNG)
+OCR:
+Field What it means (simple explanation)
+
+Version Says which IP version is used. Here it is version 4 (IPv4).
+
+Header Length Tells how long the IP header is, so the router knows where the data starts.
+
+Type of Service (ToS) Lets the sender ask for better speed or less delay if needed.
+
+Total Length The size of the whole packet (header + data).
+
+Identification A number given to each packet so the receiver can reassemble pieces if the packet is
+broken into fragments.
+
+Flags Controls whether the packet is allowed to break into pieces (fragments).
+
+Fragment Offset If the packet is broken into pieces, this tells where this piece belongs.
+
+Time to Live (TTL) A number that decreases at every router. If it reaches 0, the packet is thrown away.
+This prevents endless loops.
+
+Protocol Tells what type of data is inside: TCP, UDP, etc.
+
+Header Checksum A small calculation used to detect errors in the header. Routers check it.
+
+Source IP Address The IP address of the sender.
+
+Destination IP Address The IP address of the receiver.
+
+Options Extra optional information (usually not used).
+
+Data The actual data being sent (e.g., a TCP segment, part of a webpage, video, etc).
+
+[Image 2]  436×567px  (PNG)
+OCR:
+—_—._ 32 bits —__O™*"n
+Pevice| length
+Ren ae service length
+16-bit identifier figs _“ragment —
+hecksu
+live 4 layer checksum
+| 2 bit source IP address
+4 32 bit destination IP address
+Options (if any)
+data
+(variable length,
+typically a TCP
+or UDP segment)
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  58 words
+────────────────────────────────────────────────────────────
+IP Fragmentation & Reassembly
+network links have MTU (max.
+transfer data size) - largest 
+possible link-level frame.
+different link types,
+different MTUs
+large IP datagram divided
+(“fragmented”) within net
+one datagram becomes
+several datagrams
+“reassembled” only at final
+destination
+IP header bits used to
+identify, order related
+fragments
+fragmentation:
+in: one large datagram 
+out: 3 smaller datagrams
+reassembly
+
+── Images on page 26 (1 found) ──
+
+[Image 1]  715×914px  (PNG)
+OCR:
+iD
+fo
+aD yy
+iD
+SS
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  10 words
+────────────────────────────────────────────────────────────
+fragmentation:
+in: one large datagram out: 3
+smaller datagrams
+reassembly
+
+── Images on page 27 (2 found) ──
+
+[Image 1]  583×679px  (PNG)
+OCR:
+Step-by-Step Explanation
+1. A big IP packet is created by the sender
+e The sender PC creates one large IP packet (big red+blue block in the picture).
+e This packet is too large for some network links.
+2. Router sees the packet is TOO BIG for the next link
+Every link has an MTU (e.g., 1500 bytes for Ethernet, 620 bytes for others).
+If the packet is larger than the MTU — it must be fragmented.
+Think of MTU as the maximum size of a truck allowed on a road.
+3. Router breaks the packet into smaller fragments
+e The image shows the big packet split into 3 small pieces (red/blue blocks).
+e Each fragment gets its own IP header.
+e Each has:
+e same Identification number (ID)
+e fragment offset (position)
+e MF flag (More Fragments)
+This allows the receiver to know:
+which fragments belong together
+@ what order they should be in
+@ when the last fragment arrives
+
+[Image 2]  715×914px  (PNG)
+OCR:
+iD
+fo
+aD yy
+iD
+SS
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  10 words
+────────────────────────────────────────────────────────────
+fragmentation:
+in: one large datagram out: 3
+smaller datagrams
+reassembly
+
+── Images on page 28 (2 found) ──
+
+[Image 1]  715×914px  (PNG)
+OCR:
+iD
+fo
+aD yy
+iD
+SS
+
+[Image 2]  641×587px  (PNG)
+OCR:
+4. Fragments travel separately through the network
+e They may take different paths.
+e They may arrive at the destination at different times.
+This is shown in the image by fragments traveling along different lines.
+5. Reassembly happens ONLY at the final destination
+Routers do NOT reassemble — only the receiver does.
+The receiver:
+e collects all fragments
+e sorts them using the fragment offset
+e uses the Identification field to match fragments
+e waits for all pieces of the packet
+e reassembles them into one large packet again (shown in the bottom part of the image)
+@ Why do we fragment?
+Because different network links support different frame sizes.
+If a packet is too big for a link — it must be split.
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  54 words
+────────────────────────────────────────────────────────────
+IP Addressing: introduction
+IPv4 address: 32-bit
+identifier for host, 
+router interface
+interface: connection
+between host/router
+and physical link
+router’s typically have
+multiple interfaces
+host typically has one
+interface
+IP addresses
+associated with each 
+interface
+223.1.1.1
+223.1.1.3
+223.1.1.2
+223.1.1.4
+223.1.2.9
+223.1.2.2
+223.1.2.1
+223.1.3.2
+223.1.3.1
+223.1.3.27
+223.1.1.1 = 11011111 00000001 00000001 00000001
+223
+1
+1
+1
+
+── Images on page 29 (1 found) ──
+
+[Image 1]  877×729px  (PNG)
+OCR:
+_ a(C D>
+ai N aie :
+fC) ed
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  21 words
+────────────────────────────────────────────────────────────
+223.1.1.1
+223.1.1.3
+223.1.1.2
+223.1.1.
+4
+223.1.2.9
+223.1.2.2
+223.1.2.1
+223.1.3.2
+223.1.3.1
+223.1.3.27
+223.1.1.1 = 11011111 00000001 00000001 00000001
+223
+1
+1
+1
+
+── Images on page 30 (2 found) ──
+
+[Image 1]  877×729px  (PNG)
+OCR:
+_ a(C D>
+ai N aie :
+fC) ed
+
+[Image 2]  565×633px  (PNG)
+OCR:
+1. IPv4 Address = 32-bit number
+e It uniquely identifies a device on a network.
+e Written like: 223.1.2.1, 10.0.0.5, etc.
+2. IP address belongs to an interface, not the whole device
+This is a very important point.
+e A host (computer) usually has one interface — one IP address.
+e Arouter has multiple interfaces — each interface has a different IP address.
+@ A router connects different networks.
+@ Each network requires its own IP address.
+This is why routers have multiple IP addresses.
+@ 3. What is an Interface?
+An interface is the connection point between a device and the physical link.
+Examples:
+e Ethernet port
+e Wi-Fi card
+e Router port
+Every interface must have an IP address so it can send/receive data.
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  49 words
+────────────────────────────────────────────────────────────
+223.1.1.1
+223.1.1.3
+223.1.1.2
+223.1.1.4
+223.1.2.9
+223.1.2.2
+223.1.2.1
+223.1.3.2
+223.1.3.1
+223.1.3.27
+223.1.1.1 = 11011111 00000001 00000001 00000001
+223
+1
+1
+1
+Simple Example
+Imagine a router is like a building with many doors:
+•Each door (interface) has its own address.
+•A computer has one door, so it has one address.
+
+── Images on page 31 (2 found) ──
+
+[Image 1]  877×729px  (PNG)
+OCR:
+_ a(C D>
+ai N aie :
+fC) ed
+
+[Image 2]  550×678px  (PNG)
+OCR:
+Left side
+Several computers are connected to the first network (e.g., 223.1.1.0).
+They all share the same network but have different IPs.
+Middle
+A router connects multiple networks together.
+Each of its interfaces has a different IP network.
+Right side
+Two computers belong to a second network (223.1.2.x).
+They have the IP addresses:
+e §223.1.2.1
+© §223.1.2.2
+These are connected to a different router interface than the left network.
+Bottom
+Another network with different computers and a different IP network (223.1.3.x).
+@ Main Point (Very Simple)
+IP addresses identify interfaces, not entire devices.
+Routers have multiple interfaces — multiple IP addresses.
+Hosts usually have one interface — one IP address.
+
+────────────────────────────────────────────────────────────
+PAGE 32  |  3 words
+────────────────────────────────────────────────────────────
+IP Addressing Classes
+
+── Images on page 32 (3 found) ──
+
+[Image 1]  1287×220px  (JPEG)
+OCR:
+Class 18t Octet Decimal 15t Octet High Order Network/Host ID (N=Network, Default Subnet Number of Hosts per Network (Usable
+
+Range Bits H=Host) Mask Networks Addresses)
+t=" | NHHH 256.0.0.0 126 (27-2) 16,777,214 (24-2)
+128 - 191 N.N.H.H 255.255.0.0 16,382 (2"4 - 2) 65,534 (216-2)
+192 — 223 N.N.N.H 255.255.255.0 _ || 2,097,150 (221 - 2) 254 (28 — 2)
+[ D | 224 - 239 1110 Reserved for Multicasting
+240 — 254 1111 Experimental, used for research
+
+Note: Class A addresses 127.0.0.0 to 127.255.255.255 cannot be used and is reserved for loopback and diagnostic functions.
+
+[Image 2]  413×534px  (PNG)
+OCR:
+Class A
+
+e Range: 1 - 126
+
+e First bits: @
+
+e Format: N.H.H.H
+
+e Default Mask: 255.0.0.0 (/8)
+
+e Number of Networks: 126
+
+e Hosts per Network: 16,777,214
+
+e Use: Very large networks
+
+A\ Note: 127.x.x.x is reserved for loopback testing
+
+and cannot be used as normal network addresses.
+
+Class B
+
+e Range: 128 - 191
+
+e First bits: 10
+
+e Format: N.N.H.H
+
+e Default Mask: 255.255.0.@ (/16)
+
+e Number of Networks: 16,382
+
+e Hosts per Network: 65,534
+
+e Use: Medium-size networks (universities, companies)
+
+[Image 3]  354×496px  (PNG)
+OCR:
+Class C
+
+e Range: 192 - 223
+
+e First bits: 110
+
+e Format: N.N.N.H
+
+e Default Mask: 255.255.255.@ (/24)
+
+e Number of Networks: 2,097,150
+
+e Hosts per Network: 254
+
+e Use: Small networks (home or small office LAN)
+Class D
+
+e Range: 224 - 239
+
+e First bits: 1110
+
+e Use: Multicast addressing
+
+e¢ ¥& Not used for normal hosts.
+
+Class E
+
+e Range: 240 - 254
+
+e First bits: 1111
+
+e Use: Experimental / research purposes
+e € Not used in public networks.
+
+────────────────────────────────────────────────────────────
+PAGE 33  |  28 words
+────────────────────────────────────────────────────────────
+Example Class A: 10.1.5.7
+Network: 10
+Devices possible: 16 million
+Example Class B: 172.16.12.5
+Network: 172.16
+Devices possible: 65,000
+Example Class C: 192.168.1.10
+Network: 192.168.1
+Devices possible: 254
+
+── Images on page 33 (1 found) ──
+
+[Image 1]  414×341px  (PNG)
+OCR:
+() Example: Your Home Network
+Your router:
+192.168.1.1
+Your laptop:
+192.168.1.5
+Your phone:
+192.168.1.7
+All devices are on the same small network (Class C).
+
+────────────────────────────────────────────────────────────
+PAGE 34  |  26 words
+────────────────────────────────────────────────────────────
+Private IP addresses are used inside internal networks and cannot be routed on the Internet. 
+They require NAT (Network Address Translation) to access the public Internet.
+
+── Images on page 34 (1 found) ──
+
+[Image 1]  555×154px  (PNG)
+OCR:
+Private IP Addresses
+Private Networks Address Range
+10.0.0.0 255.0.0.0 |[ 10.0.0.0 - 10.255.255.255
+172.16.0.0 - 172.31.0.0]] 255.240.0.0 || 172.16.0.0 - 172.31.255.255
+192.168.0.0 255.255.0.0 |[192.168.0.0 - 192.168.255.255
+
+────────────────────────────────────────────────────────────
+PAGE 35  |  60 words
+────────────────────────────────────────────────────────────
+IP addressing: CIDR
+CIDR: Classless InterDomain Routing
+subnet portion of address of arbitrary length
+address format: a.b.c.d/x, where x is # bits in
+subnet portion of address
+subnet
+part
+11001000 00010111 00010000 00000000
+200.23.16.0/23
+host
+part
+•a.b.c.d →the IP address
+•x →the number of left-most bits that represent the subnet (network) portion
+•The remaining (32−x) bits represent the host portion
+
+────────────────────────────────────────────────────────────
+PAGE 36  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 36 (1 found) ──
+
+[Image 1]  459×523px  (PNG)
+OCR:
+Modern Networking Note — CIDR
+Today, Classful Addressing is obsolete.
+Modern networks use:
+CIDR - Classless Inter-Domain Routing
+CIDR replaces fixed classes with variable-length subnet masks:
+Example:
+text
+192.168.1.0/26
+This means:
+e First 26 bits = network
+e Remaining bits = hosts
+e Flexible subnet sizing
+e Better utilization of IPv4 addresses
+e Reduced address waste
+
+────────────────────────────────────────────────────────────
+PAGE 37  |  75 words
+────────────────────────────────────────────────────────────
+Subnets
+IP address:
+subnet part (high
+order bits)
+host part (low order
+bits)
+What’s a subnet ?
+device interfaces with
+same subnet part of IP 
+address
+can physically reach
+each other without 
+intervening router
+223.1.1.1
+223.1.1.3
+223.1.1.2
+223.1.1.4
+223.1.2.9
+223.1.2.2
+223.1.2.1
+223.1.3.1
+223.1.3.27
+223.1.1.0/24
+223.1.2.0/24
+subnet
+223.1.3.2
+223.1.3.0/24
+network consisting of 3 subnets
+Class C addresses
+Subnet mask: /24
+The first high 3 octets are dedicated to
+networks and the lowest octet is for hosts
+
+── Images on page 37 (1 found) ──
+
+[Image 1]  877×729px  (PNG)
+OCR:
+™ 2. ai 2
+
+────────────────────────────────────────────────────────────
+PAGE 38  |  41 words
+────────────────────────────────────────────────────────────
+223.1.1.1
+223.1.1.3
+223.1.1.2
+223.1.1.4
+223.1.2.9
+223.1.2.2
+223.1.2.1
+223.1.3.1
+223.1.3.27
+223.1.1.0/24
+223.1.2.0/24
+subnet
+223.1.3.2
+223.1.3.0/24
+network consisting of 3 subnets
+Class C addresses
+Subnet mask: /24
+The first high 3 octets are dedicated to
+networks and the lowest octet is for
+hosts
+
+── Images on page 38 (2 found) ──
+
+[Image 1]  877×729px  (PNG)
+OCR:
+™ 2. ai 2
+
+[Image 2]  766×608px  (PNG)
+OCR:
+A subnet (subnetwork) is simply a smaller, logical section of a larger IP network.
+It is defined by the subnet part of an IP address (the high-order bits), which is shared by all devices in that
+subnet.
+Key idea
+Devices whose IP addresses share the same subnet portion can directly communicate with each other
+without a router.
+Only a switch or hub is needed inside the subnet.
+How the picture explains it
+In the diagram, you see three blue areas. Each area is a separate subnet:
+e Subnet 223.1.1.x
+e Subnet 223.1.2.x
+e Subnet 223.1.3.x
+Inside each blue area:
+e All devices have IP addresses that start with the same subnet prefix, e.g., 223.1.1.*
+e They can reach each other directly by sending Ethernet frames (layer-2 communication).
+e No router is needed inside the subnet.
+Between the blue regions:
+e The router connects different subnets.
+e Any communication between 223.1.1.x and 223.1.2.x, for example, must pass through the router because
+their subnet bits differ.
+
+────────────────────────────────────────────────────────────
+PAGE 39  |  19 words
+────────────────────────────────────────────────────────────
+How many subnets?
+223.1.1.1
+223.1.1.3
+223.1.1.4
+223.1.2.2
+223.1.2.1
+223.1.2.6
+223.1.3.2
+223.1.3.1
+223.1.3.27
+223.1.1.2
+223.1.7.0
+223.1.7.1
+223.1.8.1
+223.1.8.0
+223.1.9.1
+223.1.9.2
+
+── Images on page 39 (3 found) ──
+
+[Image 1]  951×1092px  (PNG)
+OCR:
+|
+yi, \
+Vi N
+fp / \
+/ \
+os
+Bie a
+=F >= Wed We
+
+[Image 2]  530×383px  (PNG)
+OCR:
+To count subnets, we count each distinct IP network segment:
+
+e Each LAN (group of hosts + router interface) = 1 subnet
+
+e Each point-to-point link between routers = 1 subnet
+
+Identify the Subnets in the Figure
+1) LAN Subnets (3 total)
+Each blue host cloud is a separate LAN:
+LAN Location
+Subnet 1 Top LAN (3 PCs connected to the top router)
+Subnet 2 Bottom-left LAN (2 PCs + left router)
+Subnet 3 Bottom-right LAN (2 PCs + right router)
+LAN subnets = 3
+
+[Image 3]  482×433px  (PNG)
+OCR:
+2) Router-to-Router Link Subnets (3 total)
+
+Link Description
+
+Subnet 4 Top router — Left router
+Subnet 5 Top router + Right router
+Subnet 6 Left router — Right router
+Inter-router subnets = 3
+
+Total Number of Subnets
+
+Type Count
+
+LAN Subnets 3
+Router-link Subnets 3
+
+Total Subnets 6
+
+────────────────────────────────────────────────────────────
+PAGE 40  |  58 words
+────────────────────────────────────────────────────────────
+IP addresses: how to get one?
+Q: How does a host get IP address?
+hard-coded by system admin in a file (static IP)
+Windows: control-panel->network->configuration-
+>tcp/ip->properties
+UNIX: /etc/rc.config
+DHCP: Dynamic Host Configuration Protocol (dynamic IP)
+dynamically get address from as server
+“plug-and-play”
+Goal: allow host to dynamically obtain its IP address
+from network server when it joins network
+
+────────────────────────────────────────────────────────────
+PAGE 41  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 41 (1 found) ──
+
+[Image 1]  719×825px  (PNG)
+OCR:
+How Does a Host Get an IP Address?
+A host (computer, phone, printer, etc.) needs an IP address to communicate on a network. There are two
+main ways to get this IP address:
+1. Static IP Address (Manual Configuration)
+The IP address is hard-coded by a system administrator.
+This means the address never changes unless the admin edits it.
+How it is set:
+e Windows
+Go to:
+Control Panel + Network > Configuration > TCP/IP > Properties
+Then manually enter:
+e IP address
+e Subnet mask
+e Gateway
+e DNS servers
+e UNIX/Linux
+Stored in configuration files such as:
+/etc/rc.config
+or
+/etc/network/interfaces
+or
+/etc/sysconfig/network-scripts/ifcfg-etho
+When static IP is used?
+e Servers
+e Routers
+e Network printers
+e Any device needing a fixed address
+
+────────────────────────────────────────────────────────────
+PAGE 42  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 42 (2 found) ──
+
+[Image 1]  761×302px  (PNG)
+OCR:
+Benefits of DHCP:
+e No manual configuration
+e Prevents IP conflicts
+e Automatically handles IP assignment
+e Used in home networks, offices, Wi-Fi hotspots
+Summary Table
+Method Description Who sets IP? Typical Use
+Static IP Manually configured Admin Servers, routers
+Dynamic IP (DHCP) Automatically assigned DHCP Server Home devices, laptops, phones
+
+[Image 2]  687×375px  (PNG)
+OCR:
+2. Dynamic IP Address (DHCP — Dynamic Host Configuration Protocol)
+Most devices today use DHCP.
+How it works:
+e The device plugs into the network (Ethernet or Wi-Fi).
+e Itsends a DHCP Discover message asking for an IP.
+e A DHCP server replies with an offered IP address.
+e The host accepts it and gets:
+e IP address
+e Subnet mask
+e Default gateway
+e DNS servers
+This process is often called “plug-and-play” because the user does not have to configure anything.
+
+────────────────────────────────────────────────────────────
+PAGE 43  |  26 words
+────────────────────────────────────────────────────────────
+DHCP Client-Server Scenario
+223.1.1.1
+223.1.1.2
+223.1.1.4
+223.1.2.9
+223.1.2.1
+223.1.3.1
+223.1.1.3
+223.1.3.27
+A
+B
+223.1.2.2 E
+223.1.3.2
+DHCP
+server
+arriving DHCP 
+client needs 
+address in this 
+network
+
+── Images on page 43 (2 found) ──
+
+[Image 1]  1096×649px  (PNG)
+OCR:
+<3
+on J
+a(r
+al (7 .
+ie i.
+<3
+
+[Image 2]  415×260px  (JPEG)
+OCR:
+DHCP client DHCP server
+Fy .
+
+1. DCHP Discover
+—_———_)
+¢ 2. DHCP Offer
+
+3. DHCP Request
+—_—_—_—_—_—_—_—_—_—_—_—_—__————)
+
+4. DHCP Ack
+—
+
+────────────────────────────────────────────────────────────
+PAGE 44  |  51 words
+────────────────────────────────────────────────────────────
+NAT: Network Address Translation
+10.0.0.1
+10.0.0.2
+10.0.0.3
+10.0.0.4
+138.76.29.7
+local network
+(e.g., home network)
+10.0.0/24
+rest of
+Internet
+Datagrams with source or 
+destination in this network have
+10.0.0/24 address for source,
+destination (as usual)
+All datagrams leaving local network have
+same single source NAT IP address:
+138.76.29.7,
+different source port numbers
+
+── Images on page 44 (8 found) ──
+
+[Image 1]  754×242px  (PNG)
+OCR:
+>
+
+[Image 2]  115×97px  (PNG)
+[No text detected]
+
+[Image 3]  120×100px  (PNG)
+[No text detected]
+
+[Image 4]  117×97px  (PNG)
+[No text detected]
+
+[Image 8]  669×357px  (PNG)
+OCR:
+Packet Flow (From Your Diagram)
+Step-by-step:
+Ei Multiple internal PCs send packets to the Internet
+All packets enter the NAT router
+The router:
+e Rewrites each source address
+e Assigns a unique public source port
+All packets leave the router using the SAME public IP
+Return traffic is demultiplexed using the NAT table and forwarded to the correct host
+This is exactly what diagram means by:
+“All leaving same” — all outgoing packets look like they come from one IP.
+
+────────────────────────────────────────────────────────────
+PAGE 45  |  79 words
+────────────────────────────────────────────────────────────
+NAT: Network Address Translation
+Motivation: local network uses just one IP address as far
+as outside world is concerned:
+range of addresses not needed from ISP: just one IP
+address for all devices
+can change addresses of devices in local network
+without notifying outside world
+can change ISP without changing addresses of devices
+in local network
+devices inside local network not explicitly addressable,
+visible by outside world (a security plus).
+Implementation: NAT router must:
+IP addresses replacement and remembrance
+
+────────────────────────────────────────────────────────────
+PAGE 46  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 46 (2 found) ──
+
+[Image 1]  732×806px  (PNG)
+OCR:
+Motivation
+NAT allows an entire local (private) network to appear to the outside Internet as if it were using only one
+public IP address.
+This provides several key benefits:
+1. Save Public IP Addresses
+e Devices inside use private IP ranges (e.g., 192.168.x.x).
+e The ISP assigns only one public IP address to the organization or home network.
+e No need to request a block of public addresses.
+2. Independence from ISP
+e You can change ISP or public IP address without changing:
+e Internal device addresses
+e Network configuration
+e Only the NAT router's public IP must change.
+3. Internal Address Flexibility
+e Network administrators can renumber internal IP addresses freely
+e No impact on external communication.
+4. Improved Security
+e Internal devices are:
+e Not directly visible
+e Not directly reachable
+e Only the NAT router is seen by the outside world.
+e Acts as a basic security barrier against direct scanning or attacks.
+
+[Image 2]  430×201px  (PNG)
+OCR:
+Step | What Happens
+
+1 LAN host sends packet to Internet
+
+2 NAT changes source IP:port and stores mapping
+
+3 Server replies to NAT public IP and assigned port
+
+4 NAT looks up table and forwards reply to correct private host
+
+────────────────────────────────────────────────────────────
+PAGE 47  |  95 words
+────────────────────────────────────────────────────────────
+NAT: Network Address Translation
+10.0.0.1
+10.0.0.2
+10.0.0.3
+S: 10.0.0.1, 3345
+D: 128.119.40.186, 80
+1
+10.0.0.4
+138.76.29.7
+1: host 10.0.0.1
+sends datagram to 
+128.119.40.186, 80
+NAT translation table
+WAN side addr
+LAN side addr
+138.76.29.7, 5001
+……
+10.0.0.1, 3345
+……
+S: 128.119.40.186, 80
+D: 10.0.0.1, 3345
+4
+S: 138.76.29.7, 5001
+D: 128.119.40.186, 80
+2
+2: NAT router 
+changes datagram 
+source addr from 
+10.0.0.1, 3345 to
+138.76.29.7, 5001,
+updates table
+S: 128.119.40.186, 80
+D: 138.76.29.7, 5001
+3
+3: Reply arrives
+dest. address:
+138.76.29.7, 5001
+4: NAT router 
+changes datagram
+dest addr from
+138.76.29.7, 5001 to 10.0.0.1, 3345
+
+── Images on page 47 (14 found) ──
+
+[Image 1]  806×242px  (PNG)
+OCR:
+—————
+
+[Image 2]  749×552px  (PNG)
+[No text detected]
+
+[Image 7]  787×309px  (PNG)
+OCR:
+>
+
+────────────────────────────────────────────────────────────
+PAGE 48  |  46 words
+────────────────────────────────────────────────────────────
+IPv6
+Initial motivation: 32-bit IPv4 address space
+to be completely allocated.
+Additional motivation:
+header format helps speed processing/forwarding
+header changes to facilitate QoS  
+IPv6 datagram format:
+fixed-length 40 byte header, unlike IPv4 (variable
+length). This fixed size makes processing by routers 
+much faster.
+no fragmentation allowed
+
+────────────────────────────────────────────────────────────
+PAGE 49  |  3 words
+────────────────────────────────────────────────────────────
+IPv6 Header (Cont)
+
+── Images on page 49 (2 found) ──
+
+[Image 1]  1022×690px  (PNG)
+OCR:
+ver [pri flow label
+| __payloadlen __| next hdr | hop limit
+source address
+(128 bits)
+destination address
+(128 bits)
+data
+
+C32 DItS
+
+[Image 2]  739×325px  (PNG)
+OCR:
+1. Version (ver) — 4 bits
+
+Indicates the IP version number. For IPv6, this value is 6.
+
+2. Traffic Class / Priority (pri) — 8 bits
+
+Used to mark packets with different priorities, helping routers treat some packets (voice, video) differently
+from others (email, bulk transfer).
+
+3. Flow Label - 20 bits
+
+Identifies packets belonging to the same flow (e.g., a video call or real-time stream).
+
+This allows routers to give special handling or QoS to that flow.
+
+4. Payload Length - 16 bits
+
+Specifies the size of the data carried after the header (not including the 40-byte header).
+
+────────────────────────────────────────────────────────────
+PAGE 50  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 50 (2 found) ──
+
+[Image 1]  1022×690px  (PNG)
+OCR:
+ver [pri flow label
+| __payloadlen __| next hdr | hop limit
+source address
+(128 bits)
+destination address
+(128 bits)
+data
+
+C32 DItS
+
+[Image 2]  467×415px  (PNG)
+OCR:
+5. Next Header - 8 bits
+
+Indicates which protocol comes next,
+
+6. Hop Limit - 8 bits
+
+Similar to IPv4 TTL.
+
+Decrements by 1 at each router; packet is dropped if it reaches 0.
+7. Source Address — 128 bits
+
+IPv6 source address (much larger than IPv4's 32-bit).
+
+8. Destination Address — 128 bits
+
+IPv6 destination address.
+
+9. Data (Payload)
+
+Upper-layer data (TCP, UDP, ICMPv6, etc.) or extension headers.
+
+────────────────────────────────────────────────────────────
+PAGE 51  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 51 (1 found) ──
+
+[Image 1]  671×465px  (PNG)
+OCR:
+(| Summary Table of IPv6 Header Fields
+
+Field Size Purpose
+
+Version 4 bits Identifies protocol version (6).
+
+Priority / Traffic Class 8 bits Packet priority; supports QoS.
+
+Flow Label 20 bits Identifies packets belonging to same flow.
+Payload Length 16 bits Length of payload after header.
+
+Next Header 8 bits Upper-layer protocol or extension header.
+Hop Limit 8 bits Max hop count (similar to TTL).
+
+Source Address 128 bits IPv6 address of sender.
+
+Destination Address 128 bits IPv6 address of receiver.
+
+Data Variable Upper-layer data (TCP, UDP, ICMPv6, etc.).
+
+────────────────────────────────────────────────────────────
+PAGE 52  |  4 words
+────────────────────────────────────────────────────────────
+Other Changes from IPv4
+
+── Images on page 52 (1 found) ──
+
+[Image 1]  727×444px  (PNG)
+OCR:
+No checksum in IPv6 header
+e Removed to speed up processing.
+e Upper layers (e.g., TCP/UDP) already have checksums.
+No fragmentation by routers
+e IPv6 routers do not fragment packets.
+e If a packet is too large, the router sends an ICMPv6 “Packet Too Big” message back to the sender.
+Options handled via Extension Headers
+e Not part of main header — keeps the base header fixed and fast.
+e “Next Header” field points to these extensions.
+ICMPv6 Enhancements
+ICMPv6 has additional roles:
+e Error messaging (e.g., Packet Too Big)
+e Neighbor Discovery (replacement of ARP)
+e Multicast Listener Discovery
+
+────────────────────────────────────────────────────────────
+PAGE 53  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 53 (1 found) ──
+
+[Image 1]  832×480px  (PNG)
+OCR:
+| Simplified IPv4 vs IPv6 Header Comparison
+
+Feature IPv4 IPv6
+
+Address size 32 bits 128 bits
+
+Header size Variable (20-60 bytes) Fixed (40 bytes)
+
+Header complexity Complex, many fields Simple, fewer fields
+
+Checksum Yes No
+
+Fragmentation Routers & hosts Only hosts (routers do NOT fragment)
+Options In main header In extension headers
+
+Next Header / Protocol Protocol field Next Header field
+
+Broadcast Supported Not supported (uses multicast)
+
+────────────────────────────────────────────────────────────
+PAGE 54  |  74 words
+────────────────────────────────────────────────────────────
+Transition From IPv4 To IPv6
+Not all routers can be upgraded simultaneous
+Upgrading every router on the Internet on the same
+day is impossible — this is known as "no flag day"
+How will the network operate with mixed IPv4 and
+IPv6 routers?
+Tunneling: IPv6 carried as payload in IPv4
+datagram among IPv4 routers
+Tunneling allows IPv6 packets to travel through IPv4-only
+routers by wrapping (encapsulating) the entire IPv6 packet 
+inside an IPv4 packet.
+
+────────────────────────────────────────────────────────────
+PAGE 55  |  24 words
+────────────────────────────────────────────────────────────
+Tunneling
+A
+B
+E
+F
+IPv6
+IPv6
+IPv6
+tunnel
+Logical view:
+Physical view:
+A
+B
+E
+IPv6
+F
+IPv6
+IPv6
+IPv6
+IPv6
+IPv4
+IPv4
+
+── Images on page 55 (9 found) ──
+
+────────────────────────────────────────────────────────────
+PAGE 56  |  72 words
+────────────────────────────────────────────────────────────
+Tunneling
+F
+A
+B
+E
+IPv6
+IPv6
+IPv6
+tunnel
+Logical view:
+Physical view:
+A
+B
+E
+IPv6
+F
+IPv6
+IPv6
+IPv6
+C
+D
+IPv6
+IPv4
+IPv4
+Flow: X 
+Src: A 
+Dest: F
+data
+Flow: X 
+Src: A 
+Dest: F
+data
+Flow: X 
+Src: A 
+Dest: F
+data
+Src:B
+Dest: E
+Flow: X 
+Src: A 
+Dest: F
+data
+Src:B
+Dest: E
+A-to-B:
+IPv6
+E-to-F:
+IPv6
+B-to-C:
+IPv6 inside
+IPv4
+B-to-C:
+IPv6 inside
+IPv4
+
+── Images on page 56 (10 found) ──
+
+────────────────────────────────────────────────────────────
+PAGE 57  |  71 words
+────────────────────────────────────────────────────────────
+F
+A
+B
+E
+IPv6
+IPv6
+IPv6
+tunnel
+Logical view:
+Physical view:
+A
+B
+E
+IPv6
+F
+IPv6
+IPv6
+IPv6
+C
+D
+IPv6
+IPv4
+IPv4
+Flow: X 
+Src: A 
+Dest: F
+data
+Flow: X 
+Src: A 
+Dest: F
+data
+Flow: X 
+Src: A 
+Dest: F
+data
+Src:B
+Dest: E
+Flow: X 
+Src: A 
+Dest: F
+data
+Src:B
+Dest: E
+A-to-B:
+IPv6
+E-to-F:
+IPv6
+B-to-C:
+IPv6 inside
+IPv4
+B-to-C:
+IPv6 inside
+IPv4
+
+── Images on page 57 (12 found) ──
+
+[Image 11]  615×335px  (PNG)
+OCR:
+1. IPv6 networks at the edges
+Nodes B and E (and their routers) support IPv6.
+2. Middle of the network is IPv4-only
+Some routers support only IPv4 and cannot read or forward IPv6 packets.
+3. A tunnel is created between IPv6-capable routers
+Two IPv6 routers that are far apart create a logical “tunnel” through the IPv4-only region.
+Inside the tunnel:
+e The original I|Pv6 packet (Src = B, Dest = E)
+e becomes payload inside an IPv4 packet.
+
+[Image 12]  703×345px  (PNG)
+OCR:
+4. |Pv4 routers forward it normally
+
+IPv4 routers do not understand IPv6, but they simply forward the outer IPv4 header.
+
+5. At the tunnel exit
+
+The outer IPv4 header is removed (“decapsulation’), and the original IPv6 packet continues its journey.
+Encapsulation Summary
+
+Inside the tunnel:
+
+Outer header Inner packet
+
+IPv4 header (Src = IPv4 router, Dest = IPv4 router) IPv6 packet (Src = B, Dest = E)
+
+────────────────────────────────────────────────────────────
+PAGE 58  |  60 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+The Network Layer (cont’d)
+What is inside a router
+IPv4 fragmentation and addressing
+Address Classes and Subnets
+Network Address Translation
+IPv6 and Differences with IPv4
+IP Tunneling
+Material to be covered next lecture
+Unicast Routing Protocols
+Routing Algorithms: Dijkstra
+Link State Routing and Open Shortest Path First Protocols
+Multicast Routing Protocols
+Multicast Distance Vector Routing Protocol

@@ -1,0 +1,1072 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_7_Network_Layer_1.pdf
+Date   : 2026-05-14 03:38:12.651338
+Pages  : 31 / 31
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  4 words
+────────────────────────────────────────────────────────────
+Lecture 7
+Network Layer
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  27 words
+────────────────────────────────────────────────────────────
+Agenda
+Introduction to the Network Layer
+Network layer functions
+Service models
+Network layer connection and connectionless
+services
+Introduction to data routing in datagram and virtual
+circuit networks
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  41 words
+────────────────────────────────────────────────────────────
+Quick Review on the Data Link Layer
+the data link layer in the IEEE standard is divided into two
+sublayers: Logical Link Control (LLC) and Media Access Control (MAC)
+Devices
+Layer-2 devices
+switches, bridges
+Layer-1 devices; 
+hubs, repeaters
+Network Layer
+1-3
+
+── Images on page 3 (1 found) ──
+
+[Image 1]  458×304px  (JPEG)
+OCR:
+IEEE 802.2
+he
+IEEE 802.3] IEEE 8024 | IEEE 802.5 | jeer apo 44|———_—___—____—__—
+Cartier Token Token Wireless: OS Layer 1
+Sense Bus Ring pane: PHY (physical)
+[nc ene
+|
+may =
+a5 IN. Ou
+Zz =
+rin
+bus star g
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  70 words
+────────────────────────────────────────────────────────────
+Quick Review on the Data Link Layer
+Logical Link Control (LLC)
+flow control, error control, and part of the
+framing duties
+provides one single data link control protocol for
+all IEEE LANs
+provide interconnectivity between different LANs
+because it makes the MAC sublayer transparent
+Media Access Control (MAC)
+provides different protocols for different LANs
+multiple access methods including random access,
+controlled access, and channelization
+handles part of the framing function
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 5 (1 found) ──
+
+[Image 1]  979×437px  (PNG)
+OCR:
+Summary Table (LLC vs MAC vs Devices vs Standards)
+Component Layer Function Examples / Standards Devices
+LLC (Logical Link Control) Data Link (Upper L2) Error checking, flow control, IEEE 802.2 -
+multiplexing
+MAC (Media Access Data Link (Lower L2) Controls access to medium, frame IEEE 802.3, 802.4, 802.5, Switches, Bridges
+Control) addressing 802.11
+Physical Layer Layer 1 Signaling, bit transmission Copper, Fiber, Radio Hubs, Repeaters
+IEEE 802.3 MAC CSMA/CD Ethernet Bus/Star topologies Switch-based networks
+IEEE 802.4 MAC Token Bus - -
+IEEE 802.5 MAC Token Ring Ring topology -
+IEEE 802.11 MAC Wireless LAN (Wi-Fi: a/b/g) Wireless networks Access Points
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  42 words
+────────────────────────────────────────────────────────────
+Introduction to the Network Layer
+Goals of studying the network layer
+understand principles behind network layer
+services:
+network layer service models
+forwarding versus routing
+how a router works
+routing (path selection)
+dealing with scale
+advanced topics: IPv6, mobility
+implementation in the Internet
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  101 words
+────────────────────────────────────────────────────────────
+Introduction to the Network Layer
+transport segment from
+sending to receiving host
+on sending side
+encapsulates segments 
+into datagrams
+On
+receiving
+side,
+delivers
+segments
+to
+transport layer
+network layer protocols
+in every host, router
+router examines header
+fields in all IP datagrams 
+passing through it
+application
+transport
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+
+── Images on page 7 (22 found) ──
+
+[Image 1]  356×211px  (PNG)
+OCR:
+;
+—  g
+
+[Image 7]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 8]  85×89px  (PNG)
+OCR:
+CO
+
+[Image 9]  69×74px  (PNG)
+[No text detected]
+
+[Image 10]  68×89px  (PNG)
+[No text detected]
+
+[Image 13]  233×180px  (PNG)
+OCR:
+; = °
+—
+
+[Image 14]  57×71px  (PNG)
+OCR:
+—
+
+[Image 15]  86×119px  (PNG)
+OCR:
+a v4
+
+[Image 19]  62×86px  (PNG)
+OCR:
+rl
+
+[Image 20]  62×86px  (PNG)
+OCR:
+vr
+
+[Image 21]  64×198px  (PNG)
+OCR:
+j
+
+[Image 22]  64×198px  (PNG)
+OCR:
+j
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 8 (1 found) ──
+
+[Image 1]  807×645px  (PNG)
+OCR:
+Explanation: Introduction to the Network Layer
+The network layer (Layer 3) is responsible for moving data from the sending host to the receiving host
+across multiple networks. It operates in both end systems (hosts) and intermediate systems (routers).
+Key Functions:
+1. Encapsulation at the Sender
+e The transport layer creates segments (TCP/UDP).
+e The network layer takes each segment and encapsulates it into a datagram (IP packet).
+e These datagrams are then delivered to the data link layer to be transmitted across the physical network.
+2. Forwarding and Routing Across Routers
+e Every router runs network-layer protocols (like IP).
+e When a datagram arrives, the router examines the IP header:
+e It reads the destination IP address.
+e Based on its routing table, it decides where to forward the datagram next.
+¢ The datagram may pass through many routers before reaching the destination.
+3. Delivery to the Transport Layer at the Receiver
+e The final-hop router sends the datagram to the receiving host.
+e The network layer at the receiving host:
+e Removes the IP header.
+e Passes the encapsulated segment upward to the transport layer.
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  56 words
+────────────────────────────────────────────────────────────
+application
+transport
+network
+data link
+physical
+application
+transport
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+network
+data link
+physical
+
+── Images on page 9 (23 found) ──
+
+[Image 1]  356×211px  (PNG)
+OCR:
+;
+—  g
+
+[Image 7]  100×58px  (JPEG)
+OCR:
+_f
+
+[Image 8]  85×89px  (PNG)
+OCR:
+CO
+
+[Image 9]  69×74px  (PNG)
+[No text detected]
+
+[Image 10]  68×89px  (PNG)
+[No text detected]
+
+[Image 13]  233×180px  (PNG)
+OCR:
+; = °
+—
+
+[Image 14]  57×71px  (PNG)
+OCR:
+—
+
+[Image 15]  86×119px  (PNG)
+OCR:
+a v4
+
+[Image 19]  62×86px  (PNG)
+OCR:
+rl
+
+[Image 20]  62×86px  (PNG)
+OCR:
+vr
+
+[Image 21]  64×198px  (PNG)
+OCR:
+j
+
+[Image 22]  64×198px  (PNG)
+OCR:
+j
+
+[Image 23]  509×533px  (JPEG)
+OCR:
+Layers in the Routers
+Every router shown in the figure contains only the bottom three layers:
+e Network layer
+e Data link layer
+e Physical layer
+Because routers:
+¢ Do not run application or transport layers.
+¢ Only receive datagrams, inspect them, and forward them.
+Router Operation
+Each router:
+1. Receives a datagram.
+2. Looks at the network layer header (destination IP address).
+3. Uses routing logic to select the next hop.
+4. Passes the datagram to the data link + physical layers.
+5. Forwards it to the next router or destination network.
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 10 (1 found) ──
+
+[Image 1]  857×259px  (PNG)
+OCR:
+Structured Summary
+
+Layer Sender Role Router Role Receiver Role
+
+Transport Layer Creates segments _— Receives segments
+
+Network Layer Encapsulates segments into Examines IP header, routes Delivers segments to
+datagrams and sends them out datagram to next hop transport layer
+
+Data Link / Physical Sends datagrams as frames Receives & forwards frames Receives frames
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  43 words
+────────────────────────────────────────────────────────────
+Two Key Network-Layer Functions
+forwarding: move
+packets from router’s 
+input to appropriate 
+router output
+routing: determine
+route taken by 
+packets from source 
+to dest.
+routing algorithms
+analogy:
+routing: process of
+planning trip from 
+source to dest
+forwarding: process
+of getting through 
+single interchange
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  31 words
+────────────────────────────────────────────────────────────
+Interplay between Routing and Forwarding
+routing algorithm
+local forwarding table
+header value output link
+0100
+3
+0101
+2
+0111
+2
+1001
+1
+1
+2
+3
+0111
+value in arriving 
+packet’s header
+
+── Images on page 12 (10 found) ──
+
+[Image 1]  481×266px  (PNG)
+OCR:
+> |
+
+[Image 6]  122×76px  (PNG)
+OCR:
+A
+
+[Image 7]  121×76px  (PNG)
+OCR:
+yp
+
+[Image 8]  114×77px  (PNG)
+OCR:
+»
+
+[Image 9]  114×76px  (PNG)
+OCR:
+»
+
+[Image 10]  114×93px  (PNG)
+OCR:
+iN
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 13 (2 found) ──
+
+[Image 1]  615×573px  (PNG)
+OCR:
+routing algorithm
+local forwarding table
+| header value output link
+0100} 3
+0101 | 2
+0111 | 2
+1001} 1
+value in arriving . = =
+packet’s header a4 L_ |
+—__>
+
+[Image 2]  829×637px  (PNG)
+OCR:
+The figure illustrates how a router forwards packets based on information in its local forwarding table,
+which is built using a routing algorithm.
+How it works
+1. Packet arrives at the router
+e The router reads a specific field in the packet header (shown as 0111 in the figure).
+e This value is used to decide the next hop.
+2. Router consults its local forwarding table
+e The forwarding table maps:
+e Header value — Output link number
+e Example entries in the table:
+e 0100 = Link 3
+e 0101 = Link 2
+© 0111 = Link 2
+e 1001 = Link 1
+3. Router forwards the packet
+e Since the header value is 0777, the router selects output link 2 (as shown by the red arrow).
+e The packet is transmitted to the next router in the path toward the destination.
+4. Routing algorithm
+e The routing algorithm (e.g., Dijkstra, Bellman—Ford) runs in the background.
+e It determines the best paths across the network.
+¢ Based on these paths, it populates or updates each router’s forwarding table.
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 14 (2 found) ──
+
+[Image 1]  825×429px  (PNG)
+OCR:
+Feature Forwarding Routing
+Definition Moving packets from a router's input port Determining the end-to-end path from source
+to the correct output port to destination
+Where it happens? Performed locally at each router Performed globally by routing algorithms
+Scope One step/hop Full path through the network
+Speed Requirement Must be extremely fast (performed for Slower; computed periodically
+every packet)
+Uses Local forwarding table Routing algorithm + routing tables
+Triggered by Incoming packets Network topology changes or periodic
+updates
+Analogy Taking the correct exit at a junction Choosing the full travel route before starting
+
+[Image 2]  593×109px  (PNG)
+OCR:
+Analogy
+e Routing = planning the best trip route before you start driving.
+e Forwarding = taking the correct exit at each interchange while driving.
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  2 words
+────────────────────────────────────────────────────────────
+Connection Setup
+
+── Images on page 15 (1 found) ──
+
+[Image 1]  821×439px  (PNG)
+OCR:
+Connection setup is the process used in virtual-circuit networks (like ATM) where the sender, receiver, and all
+routers first establish a virtual path before sending datagrams. This creates a logical dedicated route that
+routers remember and use for forwarding.
+
+At the network layer, the connection is between hosts, while at the transport layer (e.g., TCP), the connection
+is between processes and does not involve routers.
+
+Concept Network Layer (VC) Transport Layer (TCP)
+
+Connection between Two hosts Two processes
+
+Routers involved? Yes No
+
+What is created Virtual circuit TCP connection
+
+Examples ATM, MPLS TCP
+
+Purpose Pre-establish path Reliable end-to-end delivery
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  48 words
+────────────────────────────────────────────────────────────
+Network Layer
+1-16
+Network Service Model
+Q: What service model for “channel” transporting 
+datagrams from sender to receiver?
+Example services for
+individual datagrams:
+guaranteed delivery
+guaranteed delivery
+with less than 40 msec 
+delay
+Example services for a
+flow of datagrams:
+in-order datagram
+delivery
+guaranteed minimum
+bandwidth to flow
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  3 words
+────────────────────────────────────────────────────────────
+Network Service Model
+
+── Images on page 17 (1 found) ──
+
+[Image 1]  821×620px  (PNG)
+OCR:
+A service model defines what the network guarantees when it carries data (datagrams) from a sender to a
+
+receiver.
+
+1. Services for Individual Datagrams
+
+These guarantees apply to each datagram separately.
+
+Service Meaning
+
+Guaranteed delivery The network promises the datagram will reach the destination (no loss).
+
+Guaranteed delivery with a delay The datagram will arrive within a maximum delay—e.g., < 40 ms. Useful for real-
+
+bound time traffic (voice, video).
+
+2. Services for a Flow of Datagram
+
+These guarantees apply to a stream (flow) of datagrams belonging to the same communication session:
+
+Service Meaning
+
+In-order delivery Datagrams arrive in the same sequence they were sent.
+
+Guaranteed minimum bandwidth The network reserves a certain data rate (e.g., 2 Mbps) for the entire
+flow — avoids congestion.
+
+Summary (1 sentence)
+
+The service model specifies what delivery guarantees (like reliability, delay, ordering, and bandwidth) the
+
+network provides for datagrams or flows traveling between sender and receiver.
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  4 words
+────────────────────────────────────────────────────────────
+Network Layer Service Models
+
+── Images on page 18 (2 found) ──
+
+[Image 1]  921×405px  (PNG)
+OCR:
+Network Service _ ss Guarantees? Congestion
+Architecture Model Bandwidth Loss Order Timing feedback
+Internet best effort none no no no no (inferred
+via loss)
+ATM CBR constant yes yes yes no
+rate congestion
+ATM VBR guaranteed yes yes yes no
+rate congestion
+ATM ABR guaranteed no —yes no yes
+mi
+ATM UBR none no yes no no
+
+[Image 2]  803×458px  (PNG)
+OCR:
+The table compares different network service models used in the Internet and ATM (Asynchronous Transfer
+Mode) networks, showing what guarantees each model provides.
+1. Internet: Best-Effort Service
+Service Model: Best Effort
+
+e Bandwidth guarantee: None
+
+e Loss guarantee: No — packets may be dropped
+
+e Order guarantee: No — packets may arrive out of order
+
+e Timing guarantee: No — no control over delay or jitter
+
+¢ Congestion feedback: No explicit congestion signals (loss is the only indication)
+
+Meaning:
+
+The Internet does not provide strict quality guarantees. It simply “tries its best” to deliver packets.
+2. ATM (Asynchronous Transfer Mode) Service Models
+ATM was designed for high-quality multimedia applications and therefore provides multiple service
+categories with different guarantees.
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  4 words
+────────────────────────────────────────────────────────────
+Network Layer Service Models
+
+── Images on page 19 (2 found) ──
+
+[Image 1]  527×537px  (PNG)
+OCR:
+A. CBR - Constant Bit Rate
+e Bandwidth: Constant, fixed rate
+e Loss: Yes (low-loss guarantee)
+e Order: Yes
+e Timing: Yes (constant delay/jitter)
+¢ Congestion feedback: No congestion allowed
+Used for:
+Voice calls, video conferencing — applications needing strict timing.
+B. VBR - Variable Bit Rate
+e Bandwidth: Guaranteed average rate
+e Loss: Yes
+e Order: Yes
+e Timing: Yes (but less strict than CBR)
+¢ Congestion feedback: No congestion allowed
+Used for:
+Compressed video/audio that may have bursts in data rate.
+
+[Image 2]  579×553px  (PNG)
+OCR:
+C. ABR - Available Bit Rate
+e Bandwidth: Guaranteed minimum
+e Loss: No guarantee
+e Order: Yes
+e Timing: No (delay may vary)
+e Congestion feedback: Yes
+EB Meaning:
+The sender adjusts its rate based on congestion feedback from the network.
+D. UBR - Unspecified Bit Rate
+e Bandwidth: None
+e Loss: No guarantee
+e Order: Yes
+e Timing: No
+e Congestion feedback: No
+Used for:
+Background traffic — like the “best effort” of ATM.
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  4 words
+────────────────────────────────────────────────────────────
+Network Layer Service Models
+
+── Images on page 20 (2 found) ──
+
+[Image 1]  777×279px  (PNG)
+OCR:
+Service Type Guarantees
+
+Internet Best Effort No guarantees Packets may be lost, delayed, reordered
+ATM CBR Real-time Strong timing + bandwidth guarantees
+ATM VBR Real-time but bursty Guaranteed rate + timing
+
+ATM ABR Elastic data Minimum rate + congestion feedback
+ATM UBR Best effort No guarantees
+
+[Image 2]  515×192px  (PNG)
+OCR:
+Elastic vs. Inelastic Data
+e Elastic Data:
+Can tolerate delay and retransmissions; adapts to available bandwidth.
+Examples: web browsing, email, file downloads.
+e Inelastic Data:
+Cannot tolerate delay; requires timely delivery for proper function.
+Examples: voice calls, video conferencing, online gaming.
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  61 words
+────────────────────────────────────────────────────────────
+Network Layer Connection and
+Connection-less Service
+Datagram network provides network-layer
+connectionless service
+Packet switched networks
+Virtual Circuit (VC) network provides network-
+layer connection service
+VC used for transporting data over a packet
+switched computer network in such a way that it
+appears as though there is a dedicated physical
+layer link between the source and destination end
+systems of this data
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  56 words
+────────────────────────────────────────────────────────────
+Virtual Circuits
+call setup, before data can flow
+each packet carries VC identifier (not destination host
+address)
+every router on source-destination path maintains “state”
+for each passing connection
+link, router resources (bandwidth, buffers) may be
+allocated to VC (dedicated resources = predictable service)
+“source-to-dest path behaves much like telephone
+circuit”
+performance-wise
+network actions along source-to-dest path
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  58 words
+────────────────────────────────────────────────────────────
+VC Implementation
+a VC consists of:
+1.
+path from source to destination
+2.
+VC numbers, one number for each link along 
+path
+3.
+entries in forwarding tables in routers along 
+path
+packet belonging to VC carries VC number
+(rather than destination address)
+VC number can be changed on each link.
+
+New VC number comes from forwarding table
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  52 words
+────────────────────────────────────────────────────────────
+Forwarding Table
+22
+32
+12
+1
+2
+3
+VC number
+interface
+number
+Outgoing interface
+Outgoing VC #
+1
+12
+3
+22
+2
+63
+1
+18
+3
+7
+2
+17
+1
+97
+3
+87
+…
+…
+…
+…
+Forwarding table in
+northwest router:
+Incoming interface
+Incoming VC #
+Routers maintain
+connection state
+information!
+
+── Images on page 24 (2 found) ──
+
+[Image 1]  850×368px  (PNG)
+OCR:
+L Cae > Coe >
+
+[Image 2]  789×267px  (PNG)
+OCR:
+Summary
+In a Virtual Circuit (VC) network, each router uses a forwarding table to decide how to handle packets.
+e A packet arrives on an incoming interface with an incoming VC number.
+e The router looks up this (interface, VC) pair in its forwarding table.
+e The table specifies an outgoing interface and a new VC number.
+e The router replaces the old VC number with the new one and forwards the packet on the specified
+interface.
+Because of this, routers maintain connection state and each hop can use different VC numbers.
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  56 words
+────────────────────────────────────────────────────────────
+Virtual Circuits: Signaling Protocols
+used to setup, maintain, teardown VC
+used in ATM, frame-relay, X.25 (all are packet
+switched networks)
+not used in today’s Internet
+network
+data link
+physical
+network
+data link
+physical
+1. Initiate call
+2. incoming call
+3. Accept call transport
+transport
+4. Call connected
+application
+5. Data flow begins
+6. Receive data application
+
+── Images on page 25 (3 found) ──
+
+[Image 1]  1712×590px  (PNG)
+OCR:
+SE =.
+re
+= ee
+<= |
+Ss >
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  52 words
+────────────────────────────────────────────────────────────
+Datagram Networks
+no call setup at network layer
+routers: no state about end-to-end connections
+no network-level concept of “connection”
+packets forwarded using destination host address
+packets between same source-dest pair may take
+different paths
+application
+transport
+network 
+data link
+physical
+application
+transport
+network 
+data link
+physical
+1. Send data
+2. Receive data
+
+── Images on page 26 (10 found) ──
+
+[Image 1]  541×412px  (PNG)
+OCR:
+— 7
+
+[Image 2]  579×412px  (PNG)
+OCR:
+[
+
+[Image 8]  77×56px  (PNG)
+OCR:
+be
+
+[Image 9]  77×56px  (PNG)
+OCR:
+a=
+
+[Image 10]  77×56px  (PNG)
+OCR:
+a=
+
+────────────────────────────────────────────────────────────
+PAGE 27  |  51 words
+────────────────────────────────────────────────────────────
+Forwarding Table (IPv4)
+IPv4 addresses are of length 32 bits
+Destination Address Range
+Link Interface
+11001000 00010111 00010000 00000000
+through
+11001000 00010111 00010111 11111111
+0
+11001000 00010111 00011000 00000000
+through
+11001000 00010111 00011000 11111111
+1
+11001000 00010111 00011001 00000000
+through
+11001000 00010111 00011111 11111111
+2
+otherwise
+3
+4 billion 
+possible entries
+
+── Images on page 27 (1 found) ──
+
+[Image 1]  759×183px  (PNG)
+OCR:
+Unlike Virtual Circuit routers (which use VC numbers), IPv4 routers use destination IP addresses to decide
+where to send packets.
+This figure illustrates that:
+
+e The router must check ranges of 32-bit addresses.
+
+e Each range maps to a different output interface.
+
+────────────────────────────────────────────────────────────
+PAGE 28  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 28 (1 found) ──
+
+[Image 1]  715×705px  (PNG)
+OCR:
+The figure shows how a router forwards packets in the IPv4 datagram (Internet) model based on the
+destination IP address.
+1. IPv4 Addresses Are 32 Bits
+An |Pv4 address has 32 bits, meaning there are over 4 billion possible addresses
+— This is why the note says “4 billion possible entries.”
+A router must decide where to forward a packet based on these bits.
+2. Forwarding Table Structure
+The table contains destination address ranges, each mapped to a specific outgoing link interface.
+Example entries:
+e If the destination address falls in the blue range, send it to interface 0
+e If it falls in the green range, send it to interface 1
+e If it falls in the red range, send it to interface 2
+e Otherwise, send it to interface 3 (a default route)
+3. How the Router Uses the Table
+When a packet arrives:
+1. The router checks the packet's destination IP address.
+2. It compares the address to the ranges in the table.
+3. It forwards the packet out the interface associated with the matching range.
+This is called longest-prefix matching in IP routing, though not shown explicitly here.
+
+────────────────────────────────────────────────────────────
+PAGE 29  |  63 words
+────────────────────────────────────────────────────────────
+Datagram or VC Network: Why?
+Internet (datagram)
+data exchange among
+computers
+“elastic” service, no strict
+timing req.
+“smart” end systems
+(computers)
+can adapt, perform
+control, error recovery
+simple inside network,
+complexity at “edge”
+many link types
+different characteristics
+uniform service difficult
+ATM (VC)
+evolved from telephony
+human conversation:
+strict timing, reliability
+requirements
+need for guaranteed
+service
+“dumb” end systems
+telephones
+complexity inside
+network
+
+────────────────────────────────────────────────────────────
+PAGE 30  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 30 (1 found) ──
+
+[Image 1]  853×599px  (PNG)
+OCR:
+Comparison Table: Datagram vs. Virtual-Circuit Networks
+
+Feature Datagram Network (Internet) Virtual-Circuit Network (ATM/Telephony)
+
+Connection Setup No setup; packets routed independently Requires connection setup before data
+transfer
+
+Timing Requirements No strict timing; elastic data Strict timing; real-time voice/video
+
+End System Intelligence “Smart” end systems handle control & “Dumb” end systems rely on the network
+
+errors
+
+Network Complexity Simple core, complexity at edge Complex core, simpler end systems
+
+QoS Guarantee Best effort; no guarantees Built-in guaranteed QoS
+
+Error Control & Recovery Handled by end systems (e.g., TCP) Handled by the network
+
+Adaptability End hosts adapt to congestion Network enforces traffic shaping &
+guarantees
+
+Link Diversity Many link types; variable performance Uniform physical infrastructure
+
+Use Case Internet data, web, email, file transfer Voice, real-time services, ATM traffic
+
+────────────────────────────────────────────────────────────
+PAGE 31  |  44 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+Introduction to the Network Layer
+Network layer functions
+Service models
+Network layer connection and
+connectionless services
+Data routing in datagram and virtual circuit
+networks
+Material to be covered next lecture
+What is inside a router ?
+IP Protocol
+Routing Algorithms

@@ -1,0 +1,41 @@
+{
+  "intro": {
+    "startExam": "Start Exam",
+    "backToSubject": "Back to Subject",
+    "minutes": "Minutes",
+    "questions": "Questions",
+    "bestScore": "Best Score"
+  },
+  "container": {
+    "answered": "Answered",
+    "submit": "Submit Exam"
+  },
+  "partA": {
+    "title": "Part A — Multiple Choice Questions"
+  },
+  "partB": {
+    "title": "Part B — Written Questions",
+    "placeholder": "Write your answer here..."
+  },
+  "confirmSubmit": {
+    "title": "Submit Exam?",
+    "unansweredWarning": "You have {{count}} unanswered questions.",
+    "areYouSure": "Are you sure you want to submit anyway?",
+    "allAnswered": "You have answered all questions.",
+    "readyToSubmit": "Ready to submit your exam?",
+    "goBack": "Go back",
+    "yesSubmit": "Yes, submit"
+  },
+  "result": {
+    "passed": "Congratulations! You passed.",
+    "failed": "You didn't pass this time.",
+    "score": "Score",
+    "partA": "Part A (Auto-graded)",
+    "partB": "Part B (Written)",
+    "pendingReview": "Pending review",
+    "timeTaken": "Time Taken",
+    "minutes": "min",
+    "retry": "Retry Exam",
+    "backHome": "Back to Subject"
+  }
+}

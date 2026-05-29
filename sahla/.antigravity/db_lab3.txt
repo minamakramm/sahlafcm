@@ -1,0 +1,37 @@
+Lab 3  Common SQL Functions  SQL Commands  
+•Aggregate Functions : COUNT(), SUM(), AVG(), MIN(), MAX()  
+•String Functions : UPPER(), LOWER(), CONCAT(), SUBSTRING()  
+•Date Functions : NOW(), CURDATE(), DATEDIFF()  1. Create a Table: Create a table STUDENTS  with the following columns:  
+ SQL command exercises  
+ID → NUMBER (Primary Key)  
+NAME → VARCHAR2(50)  
+AGE → NUMBER  
+GPA → NUMBER(3,2)  
+DEPARTMENT → VARCHAR2(30)  
+ID Name  Age GPA DEPARTMENT  
+1 Ali 20 3.80  IS 
+2 Sara  22 3.20  IT 
+3 Rami  21 3.70  IS 2. Insert Data into a Table: Insert the following students into the table:  
+ 3. Update Data into a Table: Update GPA of student with ID = 1 to 3.90  
+ 
+4. Delete Data from a Table: Delete student with ID = 3 
+ 
+5. ALTER TABLE : Add a new column EMAIL VARCHAR2(100 ) 
+ 
+6. Drop: Drop the EMAIL column  
+ 
+7. TRUNCATE: Remove all data from STUDENTS table  
+ 
+8. Check data before and after TRUNCATE  
+                      SELECT * FROM STUDENTS;  Home work  
+1. Create a table COURSES:  
+COURSE_ID NUMBER (PK)  
+COURSE_NAME VARCHAR2(50)  
+HOURS NUMBER  
+ 
+2.  Insert 2 courses.  
+3.  Add column PRICE NUMBER(6,2)  
+4.  Update PRICE for one course.  
+5.  Delete one course.  
+6.  Truncate table.  
+7.  Drop table.  

@@ -1,0 +1,370 @@
+{
+  "app": {
+    "name": "Sahla",
+    "tagline": "AI & CS Lecture Notes, Quizzes & Exams for University",
+    "description": "Study AI, machine learning, neural networks & data mining with clear explanations, smart summaries, MCQ practice & timed exams. Free for students.",
+    "copyright": "© {{year}} Sahla. All rights reserved."
+  },
+  "nav": {
+    "home": "Home",
+    "subjects": "Subjects",
+    "bookmarks": "Bookmarks",
+    "progress": "Progress",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "featureRequests": "Feature Requests",
+    "admin": "Admin Panel",
+    "login": "Log In",
+    "signup": "Sign Up",
+    "logout": "Log Out",
+    "search": "Search",
+    "searchPlaceholder": "Search subjects, lectures…",
+    "language": "Language",
+    "theme": "Theme",
+    "backToHome": "Back to Home"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search for subjects, lectures…",
+    "searchPlaceholder": "Search a subject...",
+    "searching": "Searching…",
+    "noResults": "No results found for",
+    "matchingResults": "Matching Results",
+    "emptyState": "Type at least 2 characters to search…"
+  },
+  "departments": {
+    "label": "Departments",
+    "titleMain": "Choose your department",
+    "subtitleMain": "Select your department to browse subjects. More departments coming soon.",
+    "title": "Departments",
+    "subtitle": "Choose your department to get started",
+    "intelligentSystems": "Intelligent Systems",
+    "cybersecurity": "Cybersecurity",
+    "aiDataScience": "AI & Data Science",
+    "comingSoon": "Coming Soon",
+    "subjectCount": "{{count}} subjects",
+    "viewAll": "View All Subjects"
+  },
+  "stats": {
+    "subjects": "Subjects",
+    "lectures": "Lectures",
+    "students": "Students",
+    "mcqs": "MCQ Questions",
+    "exams": "Final Exams"
+  },
+  "howItWorks": {
+     "title": "Your study flow, perfected",
+     "subtitle": "Four modes for every learning style and every stage of exam prep."
+  },
+  "steps": {
+    "explain": {
+      "title": "Read explanation",
+      "desc": "Clear, structured content with code examples, diagrams, and visuals."
+    },
+    "summary": {
+      "title": "Review summary",
+      "desc": "Bullet-point key takeaways. Perfect for quick revision before exams."
+    },
+    "mcq": {
+      "title": "Practice MCQs",
+      "desc": "Instant feedback on each answer. Retry as many times as you need."
+    },
+    "exam": {
+      "title": "Sit the final exam",
+      "desc": "Full timed exam per subject. MCQs + written questions. Real exam feel."
+    }
+  },
+  "cta": {
+    "title": "Ready to start studying?",
+    "subtitle": "Create a free account to track your progress, save bookmarks, and sit timed final exams.",
+    "buttonPrimary": "Create free account",
+    "buttonSecondary": "Browse without signing up"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "content": "Content",
+    "keyPoints": "Key Points",
+    "examples": "Examples",
+    "quiz": "Quiz",
+    "resources": "Resources",
+    "notes": "Notes"
+  },
+  "actions": {
+    "signIn": "Sign In",
+    "continue": "Continue",
+    "start": "Start",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "retry": "Retry",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "download": "Download",
+    "share": "Share",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "loadMore": "Load More",
+    "seeAll": "See All",
+    "goBack": "Go Back",
+    "tryAgain": "Try Again",
+    "learnMore": "Learn More",
+    "send": "Send Message"
+  },
+  "status": {
+    "loading": "Loading…",
+    "saving": "Saving…",
+    "saved": "Saved",
+    "error": "Error",
+    "success": "Success",
+    "pending": "Pending",
+    "active": "Active",
+    "inactive": "Inactive",
+    "completed": "Completed",
+    "inProgress": "In Progress",
+    "notStarted": "Not Started",
+    "online": "Online",
+    "offline": "You're offline. Some features may be unavailable.",
+    "maintenance": "Under Maintenance",
+    "comingSoon": "Coming Soon",
+    "new": "New",
+    "updated": "Updated",
+    "locked": "Locked",
+    "unlocked": "Unlocked"
+  },
+  "hero": {
+    "badge": "Intelligent Systems · Semester 4 · Now Live",
+    "titleMain": "Study smarter.",
+    "titleGrad": "Achieve more.",
+    "titleAr": "تعلم بذكاء، تفوق بثقة",
+    "subtitleLong": "Everything you need to master your university subjects — clear explanations, smart summaries, MCQ practice, and timed final exams. All in one place.",
+    "title": "Master Hard University Subjects",
+    "subtitle": "Clear Lectures, Quizzes & Exams. No tab-switching, no chaos, no excuses. Built for excellence, w mesh 3ayzeen yedoo5 fi el internet.",
+    "recruitmentBanner": "We're Recruiting! Join the Sahla team and help shape the future of learning.",
+    "joinNow": "Join Now"
+  },
+  "features": {
+    "title": "What Sahla Offers",
+    "explanations": {
+      "title": "Clear Explanations",
+      "desc": "Detailed lecture breakdowns in both English and Arabic."
+    },
+    "summaries": {
+      "title": "Smart Summaries",
+      "desc": "Concise key-point summaries for quick revision."
+    },
+    "mcq": {
+      "title": "MCQ Practice",
+      "desc": "Multiple-choice questions with instant feedback."
+    },
+    "exam": {
+      "title": "Final Exam",
+      "desc": "Timed practice exams to prepare for the real thing."
+    }
+  },
+  "feedback": {
+    "title": "Send Feedback",
+    "subtitle": "Help us improve Sahla",
+    "placeholder": "Tell us what you think — bugs, suggestions, anything…",
+    "namePlaceholder": "Your name (optional)",
+    "subjectPlaceholder": "Select subject (optional)",
+    "messageRequired": "Message is required",
+    "submitSuccess": "Thank you for your feedback!",
+    "submitError": "Failed to send feedback. Please try again.",
+    "rateExperience": "Rate your experience",
+    "feedbackTypes": {
+      "bug": "Bug Report",
+      "suggestion": "Suggestion",
+      "compliment": "Praise",
+      "other": "Other"
+    },
+    "anonTitle": "Send an Anonymous Message",
+    "anonSubtitle": "Got feedback? A question? Or just want to say something? Mesh han3raf enta meen, don't worry. 😉",
+    "successTitle": "Sent Successfully!",
+    "successDesc": "Your message has been sent anonymously! Keep up the hard work.",
+    "sendAnother": "Send another message",
+    "isItSahla": "Is it Sahla?"
+  },
+  "progress": {
+    "title": "My Progress",
+    "subtitle": "Track your learning journey",
+    "overallProgress": "Overall Progress",
+    "lecturesCompleted": "Lectures Completed",
+    "examsCompleted": "Exams Completed",
+    "averageScore": "Average Score",
+    "timeSpent": "Time Spent",
+    "streak": "Study Streak",
+    "days": "days",
+    "noProgress": "No progress yet. Start studying to track your journey!",
+    "resetConfirm": "Are you sure you want to reset all progress? This cannot be undone.",
+    "resetSuccess": "Progress has been reset."
+  },
+  "bookmarks": {
+    "title": "Bookmarks",
+    "subtitle": "Your saved lectures and resources",
+    "empty": "No bookmarks yet. Start bookmarking lectures to find them here!",
+    "addBookmark": "Bookmark",
+    "removeBookmark": "Remove Bookmark",
+    "bookmarked": "Bookmarked",
+    "addedSuccess": "Added to bookmarks",
+    "removedSuccess": "Removed from bookmarks"
+  },
+  "pagination": {
+    "page": "Page",
+    "of": "of",
+    "showing": "Showing {{from}} – {{to}} of {{total}}",
+    "itemsPerPage": "Items per page"
+  },
+  "time": {
+    "minutes": "{{count}} min",
+    "hours": "{{count}} hr",
+    "justNow": "Just now",
+    "ago": "ago"
+  },
+  "empty": {
+    "noResults": "No results found",
+    "noData": "No data available",
+    "tryDifferentSearch": "Try a different search term"
+  },
+  "maintenance": {
+    "title": "We'll be back soon!",
+    "subtitle": "Sahla is currently undergoing scheduled maintenance. We're working hard to bring you an even better experience.",
+    "checkBack": "Please check back shortly."
+  },
+  "notFound": {
+    "title": "Zay el Outlier, Di Malhash Makan.",
+    "subtitle": "We searched high and low, from Intelligent Programming to Data Mining, but this page seems to have vanished into el space. Don't worry, even expert systems have heuristics for gaps like this.",
+    "goHome": "Go Back Home",
+    "goBack": "Go Back"
+  },
+  "footer": {
+    "description": "Built for students who are serious about learning — w mesh 3ayzeen yedoo5 fi el internet. Everything you need, right here.",
+    "navigation": "Navigation",
+    "majorGuides": "Major Guides",
+    "madeWith": "Made with care for university students",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact Us",
+    "copyright": "All content & design © Mina Makram 2026. Don't copy, create.",
+    "builtForExcellence": "Built for Excellence",
+    "feedback_tooltip": "Is it Sahla? Tell us!",
+    "send_feedback": "Send Feedback",
+    "why_sahla": "Why Sahla?",
+    "features": "Platform Features",
+    "collaborate": "Collaborate"
+  },
+  "collaboration": {
+    "welcome": "Join the Sahla family! We're building the future of education together, and your unique skills are what we need to grow.",
+    "whatsapp": "WhatsApp Number",
+    "whatsappPlaceholder": "Enter your WhatsApp number",
+    "role": "Requested Role",
+    "rolePlaceholder": "Select a role",
+    "roles": {
+      "monitor": "Monitor",
+      "editor": "Edit on content",
+      "broadcasting": "Broadcasting",
+      "media": "Media",
+      "creative": "Creative ideas"
+    },
+    "roleDescriptions": {
+      "monitor": "Responsible for monitoring and updating the deadlines page to keep students on track.",
+      "editor": "Help draft, organize, and refine lecture notes and academic summaries.",
+      "broadcasting": "Manage real-time updates and notifications for the student community.",
+      "media": "Design visuals and create engaging multimedia content for the platform.",
+      "creative": "Pitch innovative features and fresh ways to make studying easier."
+    }
+  },
+  "smartCoach": {
+    "welcomeBack": [
+      "Welcome back, scholar! Ready to pick up where you left off?",
+      "Good to see you again! Your goals are waiting for you.",
+      "The best time to study was yesterday, the second best time is now. Welcome back!"
+    ],
+    "studyProgress": [
+      "I see you're deep into this lecture. Great focus! Keep it up.",
+      "You're making excellent progress. I'm impressed by your dedication.",
+      "Focus is a superpower. You're using yours well right now!"
+    ],
+    "quizSuccess": [
+      "Excellent job on that quiz! Your hard work is really paying off.",
+      "Wow, that score! You're clearly mastering this subject.",
+      "Look at you go! That's the result of true dedication."
+    ],
+    "breakReminder": [
+      "You've been studying hard for a while. How about a 5-minute break to recharge?",
+      "Time for a quick stretch? A short break can boost your productivity.",
+      "Even the sharpest axe needs sharpening. Take a quick break, scholar."
+    ],
+    "lateNight": [
+      "Burning the midnight oil? Remember, sleep is also part of studying. Don't overwork!",
+      "It's late, scholar. Make sure you're getting enough rest for tomorrow.",
+      "Still going? I admire the hustle, but don't forget to recharge your own battery."
+    ],
+    "motivation": [
+      "Remember why you started. Every page you read is a step closer to your goals.",
+      "Success is the sum of small efforts, repeated day in and day out.",
+      "You're capable of more than you think. Keep pushing forward!"
+    ],
+    "morning": [
+      "Good morning! Starting early is the secret of winners. Let's make today productive.",
+      "Rise and shine! A fresh day, a fresh start. What's on the agenda today?",
+      "Morning, scholar! The world belongs to those who wake up and chase their dreams."
+    ],
+    "examPrep": [
+      "Taking an exam? Deep breaths. You've prepared for this. Trust your knowledge.",
+      "Time to show what you've learned! Stay calm and focused.",
+      "Good luck on this exam! I know you've put in the work."
+    ],
+    "bookmark": [
+      "Smart move saving that! It'll be much easier to find when you need a quick review.",
+      "Bookmark saved. Organization is 50% of effective studying!",
+      "Building your knowledge library, I see. Great habit!"
+    ],
+    "subjectStart": [
+      "Excellent choice! This subject has some fascinating concepts. Ready to dive in?",
+      "Starting a new journey? This subject is a key part of your curriculum. Enjoy!",
+      "Let's explore this together. I'm here if you need a boost!"
+    ],
+    "promoteCollaborate": "We're looking for talented people like you to help Sahla grow! Want to join our team as a monitor or creator?",
+    "studyStreak": [
+      "3 lectures in one session! You're on fire today! Keep this momentum going.",
+      "Wow, 3 lectures already? That's serious dedication. You're building real knowledge.",
+      "A triple study streak! You're making amazing progress today, scholar!"
+    ],
+    "unreadReminder": [
+      "You have unread notifications waiting! There might be important updates.",
+      "Hey, don't forget to check your notifications — there could be something useful!",
+      "Quick heads up: you have some unread alerts. Might be worth a look!"
+    ],
+    "quizComplete": [
+      "Finished the quiz? Great work! Review the questions you got wrong to learn the most.",
+      "Practice makes perfect! Every quiz sharpens your understanding.",
+      "Quiz complete! This active learning will lead to real results."
+    ],
+    "leaderboardNudge": [
+      "The competition is heating up! Have you checked your rank today?",
+      "Others are closing in on your rank... stay at the top!",
+      "Great job, your rank is improving! Keep going to reach #1."
+    ],
+    "leaderboardVisit": [
+      "This is the Hall of Fame! The place for champions like you.",
+      "See your name shining in the list? We're proud of you!",
+      "Healthy competition helps us all grow. Good luck!"
+    ]
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme",
+    "switchLight": "Switch to light mode",
+    "switchDark": "Switch to dark mode"
+  }
+}

@@ -1,0 +1,1006 @@
+PDF EXTRACTION REPORT
+File   : C:/Users/AlSaieeD/Desktop/Computer Network/Lecture_12_Application_Layer.pdf
+Date   : 2026-05-14 03:42:28.873921
+Pages  : 26 / 26
+============================================================
+
+
+────────────────────────────────────────────────────────────
+PAGE 1  |  4 words
+────────────────────────────────────────────────────────────
+Lecture 12
+Application Layer
+
+────────────────────────────────────────────────────────────
+PAGE 2  |  22 words
+────────────────────────────────────────────────────────────
+Agenda
+The Application Layer (continue)
+Web and HTTP
+HTTP Cookies
+Web Caches
+Simple Introduction to Network Security
+Various actions by network attackers
+
+────────────────────────────────────────────────────────────
+PAGE 3  |  65 words
+────────────────────────────────────────────────────────────
+Web and HTTP
+Web page consists of objects
+Object can be HTML file, JPEG image, Java
+applet, audio file,…
+Web page consists of base HTML-file which describes
+the structure of the page and includes several
+referenced objects
+Each object is addressable by a URL (Uniform
+Resource Locator). The browser uses the URL
+to locate and retrieve the object.
+Example URL:
+www.someschool.edu/someDept/pic.gif
+host name
+path name
+
+────────────────────────────────────────────────────────────
+PAGE 4  |  40 words
+────────────────────────────────────────────────────────────
+HTTP overview
+HTTP: hypertext
+transfer protocol
+Web’s application layer
+protocol
+client/server model
+client: browser that
+requests, receives, 
+“displays” Web objects
+server: Web server
+sends objects in 
+response to requests
+PC running
+Explorer
+Server 
+running 
+Apache Web
+server
+Mac running
+Navigator
+
+── Images on page 4 (3 found) ──
+
+[Image 1]  155×124px  (PNG)
+OCR:
+ai \
+‘
+ee
+e I
+= <—_ a
+
+[Image 2]  299×236px  (PNG)
+OCR:
+Typ "tee
+Tp “Pon,
+
+[Image 3]  319×230px  (PNG)
+OCR:
+ae a
+0s Poe
+
+────────────────────────────────────────────────────────────
+PAGE 5  |  29 words
+────────────────────────────────────────────────────────────
+HTTP connections
+Nonpersistent HTTP
+At most one object is
+sent over a TCP 
+connection.
+Persistent HTTP
+Multiple objects can
+be sent over single 
+TCP connection 
+between client and 
+server.
+
+────────────────────────────────────────────────────────────
+PAGE 6  |  19 words
+────────────────────────────────────────────────────────────
+Non-Persistent HTTP: Response time
+time to 
+transmit 
+file
+initiate TCP
+connection
+RTT
+request
+file
+RTT
+file
+received
+time
+time
+
+── Images on page 6 (3 found) ──
+
+[Image 1]  155×124px  (PNG)
+OCR:
+aif \
+‘
+ee
+e I
+= <—_ a
+
+[Image 3]  541×751px  (PNG)
+OCR:
+Non-Persistent HTTP
+e Each object (HTML file, image, etc.) is transferred over a separate TCP connection.
+e After sending one object, the TCP connection is closed.
+RTT (Round-Trip Time)
+© RTT is the time it takes for a small packet to go:
+e from client — server, and
+e back from server — client.
+e It includes propagation delay, transmission delay, and processing delay.
+Response Time Components
+1) One RTT to Initiate TCP Connection
+e Client and server perform the TCP three-way handshake.
+e This costs 1 RTT before any HTTP data is sent.
+2) One RTT for HTTP Request and Initial Response
+e Client sends the HTTP request (e.g., GET).
+e Server sends back the first few bytes of the HTTP response.
+© This costs another 1 RTT.
+3) File Transmission Time
+e The server transmits the entire requested file to the client.
+e Time depends on:
+e File size
+e Link bandwidth
+e This is not part of RTT, but added separately.
+
+────────────────────────────────────────────────────────────
+PAGE 7  |  15 words
+────────────────────────────────────────────────────────────
+time to 
+transmit 
+file
+initiate TCP
+connection
+RTT
+request
+file
+RTT
+file
+received
+time
+time
+
+── Images on page 7 (3 found) ──
+
+[Image 1]  155×124px  (PNG)
+OCR:
+aif \
+‘
+ee
+e I
+= <—_ a
+
+[Image 3]  551×426px  (PNG)
+OCR:
+Total Response Time (Non-Persistent HTTP)
+Total response time = 2 x RIT + File transmission time
+
+Key Insight (Why It’s Inefficient)
+e For each object, the client pays:
+
+e TCP setup delay
+
+e Request/response delay
+© Web pages with many objects incur multiple RTT penalties.
+
+Summary
+
+e Non-persistent HTTP:
+
+e New TCP connection per object
+e Response time:
+
+© 1RTT — TCP connection setup
+
+© 1RTT — HTTP request + first response
+
+e + transmission time
+e Total = 2 RTT + transmit time
+
+────────────────────────────────────────────────────────────
+PAGE 8  |  98 words
+────────────────────────────────────────────────────────────
+Persistent HTTP
+Nonpersistent HTTP issues:
+In Non-persistent HTTP, the
+server closes the TCP 
+connection immediately after 
+sending a single HTTP response.
+requires 2 RTTs per object
+Overhead for each TCP
+connection
+browsers often open parallel TCP
+connections to fetch referenced
+objects/reduce total page load 
+time
+Persistent HTTP
+In Persistent HTTP, the
+server keeps the TCP 
+connection open after 
+sending an HTTP response.
+The same connection is
+reused for multiple HTTP 
+request–response exchanges 
+between the client and 
+server.
+client sends requests as
+soon as it encounters a 
+referenced object
+as little as one RTT for all
+the referenced objects
+
+────────────────────────────────────────────────────────────
+PAGE 9  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 9 (2 found) ──
+
+[Image 1]  629×217px  (PNG)
+OCR:
+Aspect Persistent HTTP Non-persistent HTTP
+TCP connections One (reused) One per object
+
+RTT cost ~1 RIT for many objects 2 RTTs per object
+Server overhead Low High
+
+Browser parallel connections Not required Often required
+Default in HTTP versions HTTP/1.1, HTTP/2 HTTP/1.0
+
+[Image 2]  663×101px  (PNG)
+OCR:
+e Persistent HTTP is faster and more efficient because it avoids repeated TCP connection setups.
+
+e¢ Non-persistent HTTP suffers from high latency and overhead, especially for modern webpages with
+many embedded objects.
+
+e This is why modern web protocols strongly prefer persistent connections.
+
+────────────────────────────────────────────────────────────
+PAGE 10  |  2 words
+────────────────────────────────────────────────────────────
+HTTP Cookies
+
+── Images on page 10 (2 found) ──
+
+[Image 1]  681×627px  (PNG)
+OCR:
+1. What Cookies Can Bring
+HTTP is a stateless protocol, meaning the server does not remember previous requests from the same client.
+Cookies are used to overcome this limitation by enabling websites to maintain state across multiple HTTP
+transactions.
+Cookies enable the following functionalities:
+a) Authorization
+e Cookies store authentication information (e.g., session IDs).
+e After login, the browser sends the cookie with every request.
+e The server uses it to identify the user without repeated logins.
+b) Shopping Carts
+e Cookies track items added to a shopping cart.
+e The cart persists even when navigating between pages.
+e Without cookies, the server would not know which items belong to which user.
+c) Recommendations
+e Cookies record browsing or purchase history.
+© = This information is used to suggest products or content tailored to the user.
+d) User Session State (e.g., Web E-mail)
+e Cookies allow services such as webmail to remember.
+e Logged-in user
+e Open inbox
+e Session preferences
+e The session continues across multiple page requests.
+
+[Image 2]  621×755px  (PNG)
+OCR:
+2. How to Keep “State” in the Web
+Because HTTP itself is stateless, state must be maintained explicitly using additional mechanisms.
+a) Protocol Endpoints Maintain State
+e The sender (client) and receiver (server) maintain state information across multiple transactions.
+e Example state information:
+e User identity
+e Session ID
+e User preferences
+b) Cookies Carry State in HTTP Messages
+e Cookies are small pieces of data stored in the browser.
+e Each HTTP request includes the relevant cookie in its header.
+e The server reads the cookie and restores the session state.
+In this way, HTTP messages themselves carry state, even though the protocol is stateless.
+3. Privacy Implications of Cookies
+a) Tracking and Profiling
+e Cookies allow websites to track:
+e Pages visited
+e Time spent
+e User behavior over time
+e This enables detailed user profiling.
+b) Personal Information
+e Users may voluntarily provide:
+¢ Name
+e Email address
+e When linked with cookies, this information allows sites to identify users personally, not just
+anonymously.
+
+────────────────────────────────────────────────────────────
+PAGE 11  |  12 words
+────────────────────────────────────────────────────────────
+Web Caches (Proxy Server)
+client
+Proxy
+server
+client
+origin 
+server
+origin 
+server
+
+── Images on page 11 (8 found) ──
+
+[Image 1]  106×87px  (PNG)
+OCR:
+ate [\.
+
+[Image 2]  127×104px  (JPEG)
+OCR:
+-= eee
+i < _
+=
+
+[Image 3]  279×147px  (PNG)
+OCR:
+Typ "eSbane
+
+[Image 4]  284×138px  (PNG)
+OCR:
+rw (eo
+
+[Image 5]  490×354px  (PNG)
+OCR:
+cl
+,
+
+[Image 6]  261×137px  (PNG)
+OCR:
+ane.
+
+[Image 7]  257×135px  (PNG)
+OCR:
+are co
+
+[Image 8]  669×798px  (PNG)
+OCR:
+1. What Is a Web Cache (Proxy Server)?
+A Web cache, also called a proxy server, is an intermediary placed between clients (browsers) and origin
+servers.
+Its main goal is to satisfy client requests without contacting the origin server, whenever possible.
+In the figure:
+e The clients (browsers) are on the left.
+e The web cache (proxy) is in the middle.
+e The origin web servers are on the right.
+© Red arrows show HTTP requests and responses passing through the cache.
+2. How Web Caching Works (Step-by-Step)
+Step 1: Browser Configuration
+e The user configures the browser so that all HTTP requests are sent to the cache instead of directly to
+the origin server.
+Step 2: Client Sends Request to Cache
+e The browser sends an HTTP request to the web cache (as shown by arrows from clients to the middle
+box).
+Step 3: Cache Lookup
+The cache checks whether the requested object (HTML page, image, video, etc.) is already stored.
+Case 1: Object Found in Cache (Cache Hit)
+e The cache returns the object directly to the client.
+e The origin server is not contacted.
+e This gives a fast response.
+Case 2: Object Not Found (Cache Miss)
+e The cache acts as a client and sends an HTTP request to the origin server.
+e The origin server sends the HTTP response back to the cache.
+e The cache:
+1. Stores a copy of the object
+2. Forwards the object to the client
+i This dual role explains why the cache acts as both a client and a server.
+
+────────────────────────────────────────────────────────────
+PAGE 12  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 12 (1 found) ──
+
+[Image 1]  595×615px  (PNG)
+OCR:
+Where Web Caches Are Typically Installed
+Web caches are commonly deployed by:
+e ISPs (residential ISPs)
+© Universities
+e Companies and enterprises
+They are placed close to users, reducing the distance data must travel.
+Why Web Caching Is Used
+a) Reduce Response Time
+e Cached objects are served from a nearby cache, not a distant origin server.
+e = This significantly lowers latency and improves user experience.
+b) Reduce Network Traffic
+e Fewer requests reach the institution's access link to the Internet.
+e Saves bandwidth and reduces congestion.
+c) Improve Internet Scalability
+e The Internet is dense with caches, meaning:
+e Popular content is replicated at many locations
+e Origin servers are protected from overload
+e Content providers can deliver content efficiently and at scale.
+Key Takeaway
+e A Web cache intercepts HTTP requests and serves cached content whenever possible.
+e It improves performance, reduces traffic, and enhances scalability.
+e This mechanism is fundamental to how the modern Internet efficiently delivers web content.
+
+────────────────────────────────────────────────────────────
+PAGE 13  |  15 words
+────────────────────────────────────────────────────────────
+Caching Example
+origin
+servers
+public
+Internet
+institutional
+network
+10 Mbps LAN
+1.5 Mbps
+access link
+
+── Images on page 13 (4 found) ──
+
+[Image 3]  604×897px  (PNG)
+OCR:
+a
+c
+CS
+CE
+owe
+
+[Image 4]  571×676px  (PNG)
+OCR:
+Given Assumptions
+e Average object size = 100,000 bits
+e Average request rate = 15 requests/second (from institutional browsers)
+e Access link bandwidth = 1.5 Mbps
+e LAN bandwidth = 10 Mbps
+e Internet (round-trip) delay between institutional router and origin servers = 2 seconds
+Performance Without Cache (Original Situation)
+a) Traffic Load Calculation
+e Offered load = 15 requests/sec x 100,000 bits
+e =1.5 Mbps
+b) Link Utilization
+e LAN utilization = 1.5 / 10 = 15%
+e Access link utilization = 1.5 / 1.5 = 100%
+The access link is the bottleneck.
+c) Total Delay Components
+Total delay =
+Internet delay + Access link delay + LAN delay
+e Internet delay = 2 seconds
+e Access link delay = very large (minutes) due to full utilization and queuing
+e LAN delay = milliseconds
+d) Result
+Total delay = 2 sec + minutcs + milliseconds
+Extremely poor performance, caused by congestion at the access link.
+
+────────────────────────────────────────────────────────────
+PAGE 14  |  13 words
+────────────────────────────────────────────────────────────
+origin
+servers
+public
+Internet
+institutional
+network
+10 Mbps LAN
+10 Mbps
+access link
+
+── Images on page 14 (4 found) ──
+
+[Image 3]  604×897px  (PNG)
+OCR:
+a
+c
+CS
+CE
+owe
+
+[Image 4]  458×523px  (PNG)
+OCR:
+Possible Solution 1: Increase Access Link Bandwidth
+
+Upgrade
+
+© Increase access link from 1.5 Mbps to 10 Mbps
+
+New Utilization
+The traffic needed is still 1.5 Mbps, but now the link is 10 Mbps, so:
+
+eye gs 1.5 5
+Utilization = —— = 15%
+10
+
+Now only 15% of the link is being used
+No queuing occurs
+No long waiting time
+
+New Delays
+
+© Internet delay = 0.3 sec (less congestion)
+
+e Access delay = milliseconds
+
+e LAN delay = milliseconds
+
+Total delay = 0.3 sec + msecs + msecs
+
+Drawback
+
+© This solution is often expensive, especially for institutions.
+
+────────────────────────────────────────────────────────────
+PAGE 15  |  15 words
+────────────────────────────────────────────────────────────
+origin
+servers
+public
+Internet
+institutional
+network
+10 Mbps LAN
+1.5 Mbps
+access link
+institutional
+cache
+
+── Images on page 15 (10 found) ──
+
+[Image 2]  535×539px  (PNG)
+OCR:
+Possible Solution 2: Install an Institutional Cache
+Cache Assumption
+e Cache hit rate = 0.4
+e 40% of requests are served directly from the cache
+© 60% of requests go to origin servers
+Performance With Cache Installed
+a) Effects of Caching
+e 40% of requests:
+e Served almost immediately
+e Delay = milliseconds
+© 60% of requests:
+e Go through access link and Internet
+b) New Access Link Utilization
+e Reduced to 60%
+¢ Queuing delay becomes negligible (~ 10 ms)
+c) Average Total Delay Calculation
+Average delay = 0.6 x (2.01 sec) + 0.4 x (milliseconds)
+7% 1.206 sec + negligible < 1.4 sec
+
+[Image 3]  595×181px  (PNG)
+OCR:
+Final Comparison and Insight
+Scenario Avg. Delay Cost
+No cache, 1.5 Mbps link Minutes Low
+Upgrade access link ~0.3 sec High
+Install cache (hit = 0.4) < 14 sec Low-Moderate
+
+[Image 4]  533×129px  (PNG)
+OCR:
+e The access link is the main bottleneck.
+e Caching dramatically reduces delay by:
+e Serving many requests locally
+e@ Reducing access-link utilization
+e Installing a cache is a cost-effective solution compared to upgrading bandwidth.
+
+[Image 8]  604×283px  (PNG)
+OCR:
+La Me) Ie
+
+────────────────────────────────────────────────────────────
+PAGE 16  |  66 words
+────────────────────────────────────────────────────────────
+Computer Network Security
+The field of network security is about:
+how network attackers can attack computer
+networks
+how we can defend networks against attacks
+how to design architectures that are immune to
+attacks
+Internet not originally designed with
+(much) security in mind
+original vision: “a group of mutually trusting
+users attached to a transparent network” 
+Internet protocol designers playing “catch-up”
+Security considerations in all layers!
+
+────────────────────────────────────────────────────────────
+PAGE 17  |  71 words
+────────────────────────────────────────────────────────────
+Various Actions by Network Attackers
+Attackers can put malicious software (malware) into 
+hosts via Internet
+Malware can get in host from a virus, worm, or trojan
+horse.
+Spyware malware can record keystrokes, web sites
+visited, upload info to collection site.
+Infected host can be enrolled in a botnet, used for
+spam and Distributed Denial of Service (DDoS) 
+attacks.
+Malware is often self-replicating: from an infected
+host, seeks entry into other hosts
+
+────────────────────────────────────────────────────────────
+PAGE 18  |  5 words
+────────────────────────────────────────────────────────────
+Various Actions by Network Attackers
+
+── Images on page 18 (1 found) ──
+
+[Image 1]  633×581px  (PNG)
+OCR:
+Trojan Horse
+A Trojan horse is a malicious program that is hidden inside otherwise useful or legitimate software.
+The user is tricked into installing or running it, believing it is safe. Once executed, the Trojan performs
+harmful actions such as opening backdoors, stealing data, or installing other malware.
+Trojan horses are generally non-self-replicating; they rely on user deception rather than spreading
+themselves.
+Virus
+A virus is malware that attaches itself to a legitimate application or file.
+
+Infection occurs when a user receives an infected object (such as an email attachment) and actively
+executes it.
+After execution, the virus runs its malicious code and self-replicates by attaching itself to other files or
+programs, allowing it to spread to other hosts when those files are shared.
+Worm
+Aworm is a standalone, self-replicating malware program.
+
+Unlike viruses, worms do not require user interaction. Infection happens when a host passively receives
+data that automatically executes, often by exploiting network vulnerabilities.
+Worms rapidly propagate across networks and typically aim to consume resources such as network
+bandwidth, server buffers, and processing power, causing congestion and service disruption.
+
+Key Idea
+
+e Trojan horse: hides in useful software, no self-replication
+
+e Virus: spreads via infected files, requires user execution
+
+© Worm: spreads automatically over networks, no user action needed
+
+────────────────────────────────────────────────────────────
+PAGE 19  |  0 words
+────────────────────────────────────────────────────────────
+[No selectable text]
+
+── Images on page 19 (2 found) ──
+
+[Image 1]  629×189px  (PNG)
+OCR:
+Type Requires User Action Self-Replicating Typical Spread
+Trojan Horse Yes No User installation
+Virus Yes Yes Infected files
+
+Worm No Yes Network propagation
+Spyware Sometimes Often Bundled software
+
+[Image 2]  567×101px  (PNG)
+OCR:
+e Network attackers use malware to compromise hosts and networks.
+
+© Viruses and worms are self-replicating, making them highly dangerous.
+
+e Trojan horses rely on deception rather than replication.
+
+e Infected hosts may become part of botnets, enabling large-scale attacks such as DDoS.
+
+────────────────────────────────────────────────────────────
+PAGE 20  |  47 words
+────────────────────────────────────────────────────────────
+target
+Definition:
+A Denial of Service (DoS) attack attempts to make a network resource unavailable to 
+legitimate users by overwhelming it with bogus or malicious traffic.
+Targeted resources include:
+•Server CPU and memory
+•Network bandwidth
+•Router and server buffers
+Bad guys can attack servers and 
+network infrastructure
+
+── Images on page 20 (3 found) ──
+
+[Image 1]  113×110px  (PNG)
+OCR:
+ig |
+g(r ();
+_~— a,
+
+[Image 2]  764×739px  (PNG)
+OCR:
+(ea i
+_ a S i. ales
+sma So seg
+il a id
+— - i 0 ——"\
+\ , = eo -) ——, ry
+ae Po we, . ——
+a ~ Sz os
+ee . —- a OF ne
+ee ans
+oh go
+fh po
+| mo | WN onl |
+Ye y| 2 oe!
+Y= Le =
+. - \ — <n
+aS ee
+1 =| §
+i S |
+—— al
+a }
+| es — |
+& we: y) i ee ry \ 1
+ea |) ~— al \ om
+S———= | ~~ _
+— a = — <
+— ‘3 >, 7
+= re Al neal
+ll yo is
+=a | }
+==
+—— a
+a
+
+[Image 3]  609×597px  (PNG)
+OCR:
+Step 1: Select a Target
+e The attacker chooses a target such as:
+e Aweb server
+© ADNS server
+e Network infrastructure (routers, links)
+Step 2: Break into Hosts (Build a Botnet)
+e The attacker compromises many hosts across the Internet using malware.
+e These infected machines become bots.
+e The collection of bots is called a botnet.
+Step 3: Flood the Target with Traffic
+e The attacker commands the botnet to:
+© Send massive numbers of packets toward the target simultaneously
+© Traffic volume exceeds the target's capacity.
+Effect of the Attack
+e Legitimate requests are delayed or dropped
+e Server or network becomes:
+e Extremely slow, or
+© Completely unavailable
+This distributed nature makes DDoS attacks hard to stop, since traffic comes from many sources.
+Relation to the Figure
+e Red computers represent compromised hosts (bots).
+e Arrows show simultaneous packet streams directed at the victim.
+e Normal users (non-infected hosts) cannot access the service.
+
+────────────────────────────────────────────────────────────
+PAGE 21  |  11 words
+────────────────────────────────────────────────────────────
+B
+A
+C
+src:B dest:A
+payload
+Various Actions by Network Attackers
+
+── Images on page 21 (4 found) ──
+
+[Image 1]  137×110px  (PNG)
+[No text detected]
+
+[Image 3]  98×92px  (PNG)
+OCR:
+‘eS ;
+i ‘f 2A
+*| Bre | ff
+ee ,
+Nee 5
+oo = {
+i .
+
+[Image 4]  649×555px  (PNG)
+OCR:
+Packet sniffing is a security issue that arises mainly in broadcast (shared) media networks, such as shared
+Ethernet hubs or wireless networks (Wi-Fi).
+What happens in packet sniffing?
+e In broadcast media, every packet sent on the network is physically visible to all devices on that
+medium.
+e Normally, a network interface card (NIC) accepts only packets addressed to it.
+e In promiscuous mode, the NIC is configured to read and record all packets, regardless of the
+destination address.
+Relation to the figure
+e The packet shown has src: B, dest: A.
+e Although it is intended only for host A, the packet travels over the shared medium.
+e Amalicious host (the attacker laptop in red) can:
+e Put its NIC in promiscuous mode
+e Capture the packet, even though it is not the destination
+e Read the payload, which may contain sensitive data
+Why is this dangerous?
+e Attackers can capture:
+e Usernames and passwords
+e Session cookies
+e Emails and private data
+e This is especially severe when data is sent in plaintext (e.g., HTTP, FTP, Telnet).
+
+────────────────────────────────────────────────────────────
+PAGE 22  |  6 words
+────────────────────────────────────────────────────────────
+B
+A
+C
+src:B dest:A
+payload
+
+── Images on page 22 (4 found) ──
+
+[Image 1]  137×110px  (PNG)
+[No text detected]
+
+[Image 3]  98×92px  (PNG)
+OCR:
+‘eS ;
+i ‘f 2A
+*| Bre | ff
+ee ,
+Nee 5
+oo = {
+i .
+
+[Image 4]  515×394px  (PNG)
+OCR:
+Tools used for packet sniffing
+e Wireshark
+e Free, widely used packet analyzer
+e Captures and displays packet headers and payloads
+e Snort
+e Can act as a packet sniffer and also as an intrusion detection system (IDS)
+Where packet sniffing works best
+e Shared Ethernet (using hubs)
+© Wireless networks (any device within radio range can listen)
+How it is mitigated
+e Use switched Ethernet (limits packet visibility)
+e Use encryption:
+e HTTPS instead of HTTP
+e SSH instead of Telnet
+© =WPA2/WPAS3 for Wi-Fi
+
+────────────────────────────────────────────────────────────
+PAGE 23  |  21 words
+────────────────────────────────────────────────────────────
+Various Actions by Network Attackers
+IP spoofing: send packet with false source address
+(false identification)
+A
+B
+C
+src:B dest:A
+payload
+
+── Images on page 23 (5 found) ──
+
+[Image 1]  98×92px  (PNG)
+OCR:
+‘eS ;
+i ‘f 2A
+*| Bre | ff
+ee ,
+Nee 5
+oo = {
+i .
+
+[Image 2]  138×111px  (PNG)
+OCR:
+I <4
+
+[Image 4]  138×110px  (PNG)
+[No text detected]
+
+[Image 5]  489×164px  (PNG)
+OCR:
+IP spoofing
+
+e An attacker sends a packet with a fake source IP address.
+
+e The packet claims it is from host B, but it is actually sent by the attacker.
+e The destination host A is deceived and believes the packet came from B.
+e This works because the IP protocol does not verify source addresses.
+
+e¢ Commonly used in impersonation and denial-of-service attacks.
+
+────────────────────────────────────────────────────────────
+PAGE 24  |  33 words
+────────────────────────────────────────────────────────────
+Various Actions by Network Attackers
+record-and-playback: sniff sensitive info (e.g.,
+password), and use later
+password holder is that user from system point of
+view
+B
+src:B dest:A
+user: B; password: foo
+C
+A
+
+── Images on page 24 (5 found) ──
+
+[Image 1]  138×110px  (PNG)
+[No text detected]
+
+[Image 3]  138×110px  (PNG)
+[No text detected]
+
+[Image 4]  201×242px  (PNG)
+OCR:
+;
+Reo
+|
+
+[Image 5]  607×128px  (PNG)
+OCR:
+Record-and-playback attack
+
+e The attacker sniffs and records sensitive data (e.g., username and password) from the network.
+e Later, the attacker replays the same credentials to the server.
+
+e The system cannot distinguish the attacker from the real user.
+
+e From the system's point of view, the attacker appears to be the legitimate user.
+
+────────────────────────────────────────────────────────────
+PAGE 25  |  3 words
+────────────────────────────────────────────────────────────
+Intrusion Detection Approaches
+
+── Images on page 25 (2 found) ──
+
+[Image 1]  639×320px  (PNG)
+OCR:
+1) Signature-based approach
+e Idea: Look for known attack patterns (signatures).
+e How it works:
+© Captured traffic or system events are compared with a database of known attack signatures.
+e Ifa match is found — intrusion is reported.
+e Examples: Detecting known worms, exploits, or malware patterns.
+e Advantages:
+e High accuracy for known attacks
+e Low false alarms
+e Limitations:
+e Cannot detect new or unknown attacks
+e Requires frequent signature updates
+
+[Image 2]  507×345px  (PNG)
+OCR:
+2) Anomaly-based approach
+e Idea: Detect deviations from normal behavior.
+© How it works:
+e The system learns normal traffic behavior using statistics or heuristics.
+e Current activity is classified as normal or abnormal.
+e Techniques used:
+e = Statistical analysis
+e Heuristic rules
+e Artificial intelligence methods such as neural networks
+e Advantages:
+e Can detect previously unseen (zero-day) attacks
+e Limitations:
+e Higher false positives
+e Requires a training/learning phase
+
+────────────────────────────────────────────────────────────
+PAGE 26  |  25 words
+────────────────────────────────────────────────────────────
+Lecture Summary
+Covered material
+The Application Layer (continue)
+Web and HTTP
+HTTP Cookies
+Web Caches
+Simple Introduction to Network Security
+Various actions by network attackers

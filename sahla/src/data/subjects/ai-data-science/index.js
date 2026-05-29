@@ -1,0 +1,33 @@
+export const SUBJECT_INDEX = {
+  departmentId: 'ai-data-science',
+  subjects: [
+    {
+      id: 'ds-tools',
+      name: 'Data Science Tools',
+      nameAr: 'أدوات علوم البيانات',
+      code: 'AI401',
+      slug: 'ds-tools',
+      color: '#185FA5',
+      icon: 'BarChart2',
+      description: 'Mastering statistics, probability, and essential tools for data science.',
+      descriptionAr: 'إتقان الإحصاء والاحتمالات والأدوات الأساسية لعلوم البيانات.',
+      lectureCount: 11,
+      mcqCount: 150,
+      hasExam: true,
+      hasCheatsheet: false,
+      lectures: [
+        { number: 2, type: 'lecture', title: 'Lecture 2: Statistics & Probability', titleAr: 'المحاضرة 2: الإحصاء والاحتمالات' },
+        { number: 3, type: 'lecture', title: 'Lecture 3: Data Visualization', titleAr: 'المحاضرة 3: تصور البيانات' },
+        { number: 4, type: 'lecture', title: 'Lecture 4: Data formats & Evaluation Metrics', titleAr: 'المحاضرة 4: تنسيقات البيانات ومقاييس التقييم' },
+        { number: 5, type: 'lecture', title: 'Lecture 5: ML Models & Workflow', titleAr: 'المحاضرة 5: نماذج تعلم الآلة وسير العمل' },
+        { number: 6, type: 'lecture', title: 'Lecture 6: Weka & Data Preprocessing', titleAr: 'المحاضرة 6: برنامج Weka ومعالجة البيانات' },
+        { number: 7, type: 'lab', title: 'Section 1: Introduction to Data Science Tools', titleAr: 'قسم 1: مقدمة في أدوات علوم البيانات' },
+        { number: 8, type: 'lab', title: 'Section 2: Python & NumPy Basics', titleAr: 'قسم 2: أساسيات بايثون و NumPy' },
+        { number: 9, type: 'lab', title: 'Section 3: Data Manipulation with Pandas', titleAr: 'قسم 3: معالجة البيانات باستخدام Pandas' },
+        { number: 10, type: 'lab', title: 'Section 4: Advanced Visualization Techniques', titleAr: 'قسم 4: تقنيات التصور المتقدمة' },
+        { number: 11, type: 'lab', title: 'Section 5: SciKit-Learn Implementation', titleAr: 'قسم 5: تنفيذ مكتبة SciKit-Learn' },
+        { number: 12, type: 'lab', title: 'Section 6: Weka Practical Lab', titleAr: 'قسم 6: مختبر Weka العملي' },
+      ],
+    },
+  ],
+}

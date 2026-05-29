@@ -1,0 +1,103 @@
+Lab 4 NOT NULL : Must have a value  
+PRIMARY KEY : Primary Key (automatically NOT NULL + UNIQUE)  
+FOREIGN KEY : used to combine 2 table, one table used as a reference to 
+the other table  
+UNIQUE : Cannot repeat  
+  Constraints  
+Constraint  Column -Level Syntax  Table -Level Syntax  
+NOT NULL  column datatype  CONSTRAINT constraint_name   
+NOT NULL  Not Allowed  
+PRIMARY 
+KEY column datatype  CONSTRAINT constraint_name  
+PRIMARY KEY  CONSTRAINT constraint_name  PRIMARY 
+KEY (column)  
+UNIQUE  column datatype  CONSTRAINT constraint_name  
+UNIQUE  CONSTRAINT constraint_name  UNIQUE 
+(column)  
+FOREIGN 
+KEY column datatype  CONSTRAINT constraint_name  
+REFERENCES parent_table (parent_column ) CONSTRAINT constraint_name  FOREIGN 
+KEY (column) REFERENCES 
+parent_table (parent_column ) 1. Create a Table: Create a table STUDENTS with the following columns:  
+ SQL command exercises   
+id → NUMBER (Primary Key)  
+name → VARCHAR2(50) Not Null 
+email→ VARCHAR2(100 ) UNIQUE  
+City  VARCHAR2(50) Not Null 
+age  NUMBER  
+2. Check constraint ( Before create the table): the minimum age is 18 and the maximum is 50.  
+ 
+3. ALTER TABLE ( After create the table): Add UNIQUE constraint to mobile                                                                                     
+                                                                       : check constraint of city to be (Cairo, Alex, Aswan)  CONSTRAINT constraint_name  Check ( column_name  condition)  
+4. Drop/disable Constraints:  Drop / Disable the age constraints  
+drop CONSTRAINT constraint_name  
+disable CONSTRAINT constraint_name  ID Name  Email  City Age Mobile  
+1 Ali ali@gmail.com  Cairo  60 2667  
+1 Ahmed  ahmed@gmail.com  Aswan  21 1239  
+2 Sara  sara@gmail.com  Mansoura  22 2265  
+3 NULL  Alex  30 2364  5. Insert Data into a Table: Insert the following students into the table:  
+ 
+6. Update Data into a Table: Update age of student with ID = 1 to 23  
+                                                  : Update Email of student with ID=1 to 'sara@gmail.com'  
+7. Delete Data from a Table: Delete student with ID = 3  
+ 
+8. Drop: Delete the table completely  
+ 
+ 
+ 
+ 
+ 
+ Oracle Retrieving Data  
+The Select Statement  
+The Where clause  
+Combine conditions  
+Using Like, IN, Between and Not  
+1. Create a Table: Create a table Students with the following columns:  
+ 
+id → NUMBER (Primary Key)  
+name → VARCHAR 2(50) Not Null 
+email→ VARCHAR 2(100) UNIQUE  
+City  VARCHAR 2(50)  
+age  NUMBER  
+Grade  NUMBER  2. Insert 5 Samples Data  
+5. Students from Cairo AND grade > 80  
+6. Students from Cairo OR Alex  
+7. Names starting with 'A'  3. Select all data in the table  
+4. Select the Students from Cairo  8. Emails ending with gmail.com  
+9. Names with 4 letters  
+10. Age between 20 and 22  
+11. Students from Cairo or Giza  
+12. Students NOT from Alex  
+13. Students from Cairo AND age between 18 and 21  
+ 
+14. return only the NAME and EMAIL of students older than 18.  Home work  
+Column  Datatype  Constraint  
+DEPT_ID  NUMBER  Primary Key  
+DEPT_NAME  VARCHAR2(50)  Not Null  
+Column  Datatype  Constraint  
+ID NUMBER  Primary Key  
+NAME  VARCHAR2(50)  Not Null  
+EMAIL  VARCHAR2(100)  Unique  
+AGE NUMBER  Between 18 and 30  
+DEPT_ID  NUMBER  Foreign Key references 
+DEPARTMENTS  Q1. Create table DEPARTMENTS with:  
+ 
+ Q2. Create table STUDENTS with:  
+ Q3. Insert:  
+•2 departments  
+•3 students (valid data)  
+Q4. 
+Update a student’s AGE to 25  
+Try to update AGE to 40 → What happens? Why?  
+Update student EMAIL  
+Q5. 
+Add column PHONE VARCHAR2(15)  
+Add NOT NULL constraint to PHONE  
+Modify AGE datatype  to NUMBER(3)  
+Drop UNIQUE constraint from EMAIL  
+Retrieve the email if the age less then 40  
+ 
+Q6. 
+Drop CHECK constraint on AGE  
+Drop STUDENTS table  
+Drop DEPARTMENTS table  
