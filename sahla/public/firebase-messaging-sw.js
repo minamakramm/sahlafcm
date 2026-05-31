@@ -31,12 +31,19 @@ self.addEventListener('activate', (event) => {
 messaging.onBackgroundMessage((payload) => {
   console.log('[FCM SW] Received background message:', payload);
 
-  const notificationTitle = payload.notification?.title || payload.data?.title || 'Sahla';
+  // If the payload contains a notification object, the browser automatically shows it.
+  // We must not display a duplicate notification manually.
+  if (payload.notification) {
+    console.log('[FCM SW] Notification payload detected. Browser will auto-display.');
+    return;
+  }
+
+  const notificationTitle = payload.data?.title || 'Sahla';
   
   const notificationOptions = {
-    body: payload.notification?.body || payload.data?.body || 'Check out the latest updates!',
+    body: payload.data?.body || 'Check out the latest updates!',
     icon: '/notification.svg',
-    badge: '/notification.svg',
+    badge: '/notification-badge.svg',
     tag: payload.data?.tag || 'sahla-general',
     renotify: true,
     data: {

@@ -210,7 +210,6 @@ async function dispatchPushNotification(notification) {
 
     console.log(`[Broker] Dispatched to ${tokens.length} active device token(s). Preparing FCM multicast payload...`);
     
-    // Construct the standard FCM dynamic message payload
     const messagePayload = {
       notification: {
         title: title || 'Sahla Study Hub 🎓',
@@ -222,6 +221,17 @@ async function dispatchPushNotification(notification) {
         url: target_user_id ? '/notifications' : '/dashboard',
         type: type || 'update',
         id: String(notifId || '')
+      },
+      webpush: {
+        notification: {
+          icon: '/notification.svg',
+          badge: '/notification-badge.svg',
+          tag: 'sahla-alert',
+          renotify: true
+        },
+        fcmOptions: {
+          link: target_user_id ? '/notifications' : '/'
+        }
       },
       tokens: tokens
     };
@@ -971,7 +981,8 @@ app.listen(PORT, () => {
   console.log(`\x1b[36m• Live Stats Dashboard   : http://localhost:${PORT}/\x1b[0m`);
   console.log(`\x1b[36m• REST Manual Dispatch   : POST http://localhost:${PORT}/api/dispatch\x1b[0m\n`);
   
-  if (expectedSecret = process.env.API_SECRET_KEY) {
-    console.log(`[Security] API Manual Dispatch requires Authorization Bearer token matching: ${expectedSecret.substring(0, 4)}...`);
+  const apiSecret = process.env.API_SECRET_KEY;
+  if (apiSecret) {
+    console.log(`[Security] API Manual Dispatch requires Authorization Bearer token matching: ${apiSecret.substring(0, 4)}...`);
   }
 });

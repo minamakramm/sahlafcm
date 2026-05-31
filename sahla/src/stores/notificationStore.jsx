@@ -3,6 +3,7 @@ import { supabase } from '@/lib/supabase'
 import toast from 'react-hot-toast'
 import { Sparkles } from 'lucide-react'
 import { NotificationIcon } from '@/components/ui'
+import { motion } from 'framer-motion'
 
 // ── LocalStorage helpers for read-status tracking ──────────────────
 const STORAGE_KEY = 'sahla-read-notifications'
@@ -34,7 +35,14 @@ export const showNotifToast = (notif) => {
   } catch {}
 
   toast.custom((t) => (
-    <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} max-w-md w-full bg-[#0a0a0f]/80 border border-white/10 rounded-[2rem] shadow-2xl pointer-events-auto flex ring-1 ring-black ring-opacity-5 overflow-hidden backdrop-blur-3xl`}>
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      className={`${
+        t.visible ? 'animate-enter' : 'animate-leave'
+      } max-w-md w-full bg-[#0a0a0f]/90 border border-white/10 rounded-[2rem] shadow-2xl pointer-events-auto flex ring-1 ring-black ring-opacity-5 overflow-hidden backdrop-blur-3xl z-[9999]`}
+    >
       <div className="flex-1 w-0 p-5">
         <div className="flex items-start">
           <div className="shrink-0 pt-0.5">
@@ -84,8 +92,8 @@ export const showNotifToast = (notif) => {
           Close
         </button>
       </div>
-    </div>
-  ), { duration: 6000 });
+    </motion.div>
+  ), { duration: 6000, position: 'bottom-right' });
 };
 
 // ── Store ──────────────────────────────────────────────────────────

@@ -735,5 +735,20 @@
   }
 
   .animate-shimmer { animation: shimmer 3.5s linear infinite; }
+
+  @keyframes enter {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes leave {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0; }
+  }
+  .animate-enter {
+    animation: enter 0.3s cubic-bezier(0.21, 1.02, 0.43, 1.01) forwards;
+  }
+  .animate-leave {
+    animation: leave 0.25s cubic-bezier(0.21, 1.02, 0.43, 1.01) forwards;
+  }
 }
 

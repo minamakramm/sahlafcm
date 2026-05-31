@@ -17,12 +17,14 @@ export async function getFirebaseMessaging() {
   try {
     const supported = await isSupported()
     if (!supported) {
-      console.warn('[FCM] Firebase Cloud Messaging is not supported in this browser environment.')
+      console.warn('[FCM] getFirebaseMessaging: ❌ isSupported() returned false')
       return null
     }
-    return getMessaging(firebaseApp)
+    const messaging = getMessaging(firebaseApp)
+    console.log('[FCM] getFirebaseMessaging: ✓ Messaging instance created')
+    return messaging
   } catch (error) {
-    console.error('[FCM] Failed to initialize Firebase Messaging:', error)
+    console.error('[FCM] getFirebaseMessaging: ❌ Failed to initialize:', error)
     return null
   }
 }

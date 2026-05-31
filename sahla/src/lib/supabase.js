@@ -9,37 +9,15 @@ if (!supabaseUrl || !supabaseAnonKey) {
   )
 }
 
-/**
- * Use the Web Locks API to prevent concurrent token refresh requests
- * across tabs and within the same tab. This stops the 429 rate-limit
- * errors from Supabase's /token endpoint.
- */
-const lockOptions = typeof navigator !== 'undefined' && navigator.locks
-  ? {
-      lock: async (name, acquireTimeout, fn) => {
-        const controller = new AbortController()
-        const timeoutId = setTimeout(() => controller.abort(), acquireTimeout)
-        try {
-          return await navigator.locks.request(
-            name,
-            acquireTimeout > 0 ? { signal: controller.signal } : {},
-            async () => {
-              clearTimeout(timeoutId)
-              return await fn()
-            }
-          )
-        } catch (err) {
-          clearTimeout(timeoutId)
-          if (err.name === 'AbortError') {
-            // Timed out waiting for lock — another tab is refreshing
-            console.warn('[Supabase] Lock acquisition timed out, skipping refresh')
-            return // silently skip, the other tab will have refreshed
-          }
-          throw err
-        }
-      },
-    }
-  : {} // Fallback: no lock if Web Locks not supported
+// Clear stale session on OAuth/password reset redirect to avoid GoTrue refresh token failure aborting initialization
+if (typeof window !== 'undefined') {
+  const params = new URLSearchParams(window.location.search)
+  const hashParams = new URLSearchParams(window.location.hash.substring(1))
+  if (params.has('code') || hashParams.has('access_token')) {
+    console.log('[Supabase Init] Callback detected in URL, clearing stale local session to avoid refresh errors.')
+    localStorage.removeItem('sahla-auth')
+  }
+}
 
 export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
   auth: {
@@ -48,7 +26,6 @@ export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
     detectSessionInUrl: true,
     storageKey: 'sahla-auth',
     flowType: 'pkce',
-    ...lockOptions,
   },
   realtime: {
     params: {
